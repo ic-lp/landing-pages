@@ -1,0 +1,648 @@
+:root {
+    /* ========================================
+     SPACING
+     ======================================== */
+    --space-0: 0px;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+    --space-8: 64px;
+    --space-9: 96px;
+    --space-10: 128px;
+    --space-11: 192px;
+    --space-12: 256px;
+    --space-13: 384px;
+    --space-14: 512px;
+    --space-15: 640px;
+    --space-16: 768px;
+    --space-17: 896px;
+    --space-18: 1024px;
+
+    /* ========================================
+     SIZING
+     ======================================== */
+    --size-0: var(--space-0);
+    --size-1: var(--space-1);
+    --size-2: var(--space-2);
+    --size-3: var(--space-3);
+    --size-4: var(--space-4);
+    --size-5: var(--space-5);
+    --size-6: var(--space-6);
+    --size-7: var(--space-7);
+    --size-8: var(--space-8);
+    --size-9: var(--space-9);
+    --size-10: var(--space-10);
+    --size-11: var(--space-11);
+    --size-12: var(--space-12);
+    --size-13: var(--space-13);
+    --size-14: var(--space-14);
+    --size-15: var(--space-15);
+    --size-16: var(--space-16);
+    --size-17: var(--space-17);
+    --size-18: var(--space-18);
+
+    /* ========================================
+     BORDERS
+     ======================================== */
+    /* Border Radius */
+    --border-radius-none: 0px;
+    --border-radius-sm: 2px;
+    --border-radius-default: 4px;
+    --border-radius-md: 6px;
+    --border-radius-lg: 8px;
+    --border-radius-2xl: 16px;
+    --border-radius-3xl: 24px;
+    --border-radius-full: 9999px;
+
+    /* Border Width */
+    --border-width-0: 0px;
+    --border-width-2: 2px;
+    --border-width-4: 4px;
+    --border-width-8: 8px;
+    --border-width-default: 1px;
+
+    /* Corner Radius */
+    --corner-sharp: var(--border-radius-none);
+    --corner-subtle: var(--border-radius-sm);
+    --corner-default: var(--border-radius-none);
+    --corner-smooth: var(--border-radius-default);
+
+    /* ========================================
+     OPACITY
+     ======================================== */
+    --opacity-5: 0.05;
+    --opacity-10: 0.1;
+    --opacity-20: 0.2;
+    --opacity-40: 0.4;
+    --opacity-60: 0.6;
+    --opacity-80: 0.8;
+    --opacity-90: 0.9;
+
+    /* ========================================
+     COLOR PALETTE
+     ======================================== */
+    /* Base Colors */
+    --color-base-white: #ffffff;
+    --color-base-black: #000000;
+    --color-base-none: rgba(0, 0, 0, 0);
+    --color-base-white-transparent: linear-gradient(90deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0) 100%);
+    --color-base-transparent-white: linear-gradient(90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 1) 100%);
+    --color-base-black-transparent: linear-gradient(90deg,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0) 100%);
+    --color-base-transparent-black: linear-gradient(90deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 1) 100%);
+
+    /* Neutral Palette */
+    --color-palette-neutral-50: #fafcfe;
+    --color-palette-neutral-100: #f4f7fa;
+    --color-palette-neutral-200: #ebeff3;
+    --color-palette-neutral-300: #dce1e6;
+    --color-palette-neutral-400: #c3cad1;
+    --color-palette-neutral-500: #a3abb3;
+    --color-palette-neutral-600: #7c848d;
+    --color-palette-neutral-700: #535b63;
+    --color-palette-neutral-800: #323940;
+    --color-palette-neutral-900: #1c2126;
+    --color-palette-neutral-950: #0c0f11;
+
+    /* Primary Palette */
+    --color-palette-primary-50: #fcebee;
+    --color-palette-primary-100: #f8d0d5;
+    --color-palette-primary-200: #f3afb8;
+    --color-palette-primary-300: #eb8592;
+    --color-palette-primary-400: #e04e61;
+    --color-palette-primary-500: #cf1e35;
+    --color-palette-primary-600: #b2192d;
+    --color-palette-primary-700: #901525;
+    --color-palette-primary-800: #6b101b;
+    --color-palette-primary-900: #440a11;
+    --color-palette-primary-950: #1f0508;
+
+    /* Secondary Palette */
+    --color-palette-secondary-50: #fdfcff;
+    --color-palette-secondary-100: #e9f1ff;
+    --color-palette-secondary-200: #d0e4ff;
+    --color-palette-secondary-300: #9ccaff;
+    --color-palette-secondary-400: #6bb0f5;
+    --color-palette-secondary-500: #4d95d9;
+    --color-palette-secondary-600: #2d7bbd;
+    --color-palette-secondary-700: #0062a0;
+    --color-palette-secondary-800: #00497a;
+    --color-palette-secondary-900: #003256;
+    --color-palette-secondary-950: #001d35;
+
+    /* Brand Colors - Inter Cars */
+    --color-brand-intercars-red: #cf1e35;
+    --color-brand-intercars-navy: #2c3b4c;
+
+    /* ========================================
+     SEMANTIC COLORS
+     ======================================== */
+    /* Success */
+    --color-semantic-success-background-light: #d1ffd5;
+    --color-semantic-success-background-dark: #005d1a;
+    --color-semantic-success-content-light: var(--color-semantic-success-background-dark);
+    --color-semantic-success-content-dark: var(--color-semantic-success-background-light);
+
+    /* Info */
+    --color-semantic-info-background-light: #caddff;
+    --color-semantic-info-background-dark: #003b73;
+    --color-semantic-info-content-light: var(--color-semantic-info-background-dark);
+    --color-semantic-info-content-dark: var(--color-semantic-info-background-light);
+
+    /* Warning */
+    --color-semantic-warning-background-light: #fffbcb;
+    --color-semantic-warning-background-dark: #7e430d;
+    --color-semantic-warning-content-light: var(--color-semantic-warning-background-dark);
+    --color-semantic-warning-content-dark: var(--color-semantic-warning-background-light);
+
+    /* Error */
+    --color-semantic-error-background-light: #fcd5da;
+    --color-semantic-error-background-dark: #800;
+    --color-semantic-error-content-light: var(--color-semantic-error-background-dark);
+    --color-semantic-error-content-dark: var(--color-semantic-error-background-light);
+
+    /* Required */
+    --color-semantic-required-background-light: #fcd5da;
+    --color-semantic-required-background-dark: #cf1e35;
+    --color-semantic-required-content-light: var(--color-semantic-required-background-dark);
+    --color-semantic-required-content-dark: var(--color-semantic-required-background-light);
+
+    /* ========================================
+     TEXT COLORS
+     ======================================== */
+    /* Simple */
+    --color-text-simple-default-light: var(--color-base-black);
+    --color-text-simple-default-dark: var(--color-base-white);
+    --color-text-simple-hover-light: var(--color-base-white);
+    --color-text-simple-hover-dark: var(--color-base-black);
+
+    /* Muted */
+    --color-text-muted-default-light: var(--color-palette-neutral-700);
+    --color-text-muted-default-dark: var(--color-palette-neutral-400);
+    --color-text-muted-hover-light: var(--color-palette-neutral-500);
+    --color-text-muted-hover-dark: var(--color-palette-neutral-300);
+
+    /* Subtle */
+    --color-text-subtle-default-light: var(--color-palette-neutral-800);
+    --color-text-subtle-default-dark: var(--color-palette-neutral-200);
+    --color-text-subtle-hover-light: var(--color-palette-neutral-800);
+    --color-text-subtle-hover-dark: var(--color-palette-neutral-400);
+
+    /* Basic */
+    --color-text-basic-default-light: var(--color-palette-neutral-900);
+    --color-text-basic-default-dark: var(--color-palette-neutral-50);
+    --color-text-basic-hover-light: var(--color-palette-primary-500);
+    --color-text-basic-hover-dark: var(--color-palette-primary-50);
+
+    /* Superior */
+    --color-text-superior-default-light: var(--color-palette-primary-500);
+    --color-text-superior-default-dark: var(--color-palette-primary-50);
+    --color-text-superior-hover-light: var(--color-palette-primary-700);
+    --color-text-superior-hover-dark: var(--color-palette-primary-50);
+
+    /* Prominent */
+    --color-text-prominent-default-light: var(--color-palette-secondary-900);
+    --color-text-prominent-default-dark: var(--color-base-white);
+    --color-text-prominent-hover-light: var(--color-palette-secondary-800);
+    --color-text-prominent-hover-dark: var(--color-palette-secondary-200);
+
+    /* Active & Disabled */
+    --color-text-active-light: var(--color-base-white);
+    --color-text-active-dark: var(--color-palette-secondary-900);
+    --color-text-disabled-light: var(--color-palette-neutral-600);
+    --color-text-disabled-dark: var(--color-palette-neutral-700);
+
+    /* ========================================
+     BACKGROUND COLORS
+     ======================================== */
+    /* Simple */
+    --color-background-simple-default-light: var(--color-base-white);
+    --color-background-simple-default-dark: var(--color-base-black);
+    --color-background-simple-hover-light: var(--color-base-black);
+    --color-background-simple-hover-dark: var(--color-base-white);
+
+    /* Muted */
+    --color-background-muted-default-light: var(--color-palette-neutral-50);
+    --color-background-muted-default-dark: var(--color-palette-neutral-900);
+    --color-background-muted-hover-light: var(--color-palette-neutral-200);
+    --color-background-muted-hover-dark: var(--color-palette-neutral-800);
+
+    /* Subtle */
+    --color-background-subtle-default-light: var(--color-palette-neutral-200);
+    --color-background-subtle-default-dark: var(--color-palette-neutral-800);
+    --color-background-subtle-hover-light: var(--color-palette-neutral-400);
+    --color-background-subtle-hover-dark: var(--color-palette-neutral-700);
+
+    /* Basic */
+    --color-background-basic-default-light: var(--color-palette-neutral-400);
+    --color-background-basic-default-dark: var(--color-palette-neutral-800);
+    --color-background-basic-hover-light: var(--color-palette-neutral-300);
+    --color-background-basic-hover-dark: var(--color-palette-neutral-800);
+
+    /* Superior */
+    --color-background-superior-default-light: var(--color-palette-primary-500);
+    --color-background-superior-default-dark: var(--color-brand-intercars-red);
+    --color-background-superior-hover-light: var(--color-palette-primary-300);
+    --color-background-superior-hover-dark: var(--color-brand-intercars-red);
+
+    /* Prominent */
+    --color-background-prominent-default-light: var(--color-palette-secondary-100);
+    --color-background-prominent-default-dark: var(--color-brand-intercars-navy);
+    --color-background-prominent-hover-light: var(--color-palette-secondary-950);
+    --color-background-prominent-hover-dark: var(--color-palette-secondary-100);
+
+    /* Active & Disabled */
+    --color-background-active-light: var(--color-palette-secondary-900);
+    --color-background-active-dark: var(--color-palette-secondary-50);
+    --color-background-disabled-light: var(--color-palette-neutral-200);
+    --color-background-disabled-dark: var(--color-palette-neutral-800);
+
+    /* ========================================
+     BORDER COLORS
+     ======================================== */
+    /* Simple */
+    --color-border-simple-default-light: var(--color-base-white);
+    --color-border-simple-default-dark: var(--color-base-black);
+    --color-border-simple-hover-light: var(--color-base-black);
+    --color-border-simple-hover-dark: var(--color-base-white);
+
+    /* Muted */
+    --color-border-muted-default-light: var(--color-palette-neutral-200);
+    --color-border-muted-default-dark: var(--color-palette-neutral-800);
+    --color-border-muted-hover-light: var(--color-palette-neutral-600);
+    --color-border-muted-hover-dark: var(--color-palette-neutral-400);
+
+    /* Subtle */
+    --color-border-subtle-default-light: var(--color-palette-neutral-400);
+    --color-border-subtle-default-dark: var(--color-palette-neutral-600);
+    --color-border-subtle-hover-light: var(--color-palette-neutral-600);
+    --color-border-subtle-hover-dark: var(--color-palette-neutral-400);
+
+    /* Basic */
+    --color-border-basic-default-light: var(--color-palette-neutral-600);
+    --color-border-basic-default-dark: var(--color-palette-neutral-950);
+    --color-border-basic-hover-light: var(--color-palette-neutral-600);
+    --color-border-basic-hover-dark: var(--color-palette-neutral-950);
+
+    /* Superior */
+    --color-border-superior-default-light: var(--color-palette-primary-500);
+    --color-border-superior-default-dark: var(--color-palette-primary-50);
+    --color-border-superior-hover-light: var(--color-palette-primary-300);
+    --color-border-superior-hover-dark: var(--color-palette-primary-500);
+
+    /* Prominent */
+    --color-border-prominent-default-light: var(--color-palette-secondary-300);
+    --color-border-prominent-default-dark: var(--color-brand-intercars-navy);
+    --color-border-prominent-hover-light: var(--color-palette-secondary-400);
+    --color-border-prominent-hover-dark: var(--color-palette-secondary-950);
+
+    /* Active & Disabled */
+    --color-border-active-light: var(--color-palette-secondary-900);
+    --color-border-active-dark: var(--color-palette-secondary-100);
+    --color-border-disabled-light: var(--color-palette-neutral-200);
+    --color-border-disabled-dark: var(--color-palette-neutral-800);
+
+    /* ========================================
+     SHADOWS
+     ======================================== */
+    --shadow-none: 0 0 0 0 rgba(255, 255, 255, 0);
+    --shadow-subtle-light: 0 0 10px 0 var(--color-palette-neutral-200);
+    --shadow-subtle-dark: 0 0 10px 0 var(--color-palette-neutral-900);
+    --shadow-standard-light: 0 0 15px 0 var(--color-palette-neutral-300);
+    --shadow-standard-dark: 0 0 15px 0 var(--color-palette-neutral-900);
+    --shadow-strong-light: 0 0 20px 0 var(--color-palette-neutral-400);
+    --shadow-strong-dark: 0 0 20px 0 var(--color-palette-neutral-950);
+    --shadow-raised-light: 4px 4px 10px 0 var(--color-palette-neutral-300);
+    --shadow-raised-dark: 4px 4px 10px 0 var(--color-palette-neutral-900);
+    --shadow-focus-ring-light:
+        0 0 0 2px var(--color-base-white),
+        0 0 0 4px var(--color-base-black);
+    --shadow-focus-ring-dark:
+        0 0 0 2px var(--color-base-black),
+        0 0 0 4px var(--color-base-white);
+
+    /* ========================================
+     FONT FAMILIES
+     ======================================== */
+    --font-family-lato: Lato, sans-serif;
+
+    /* ========================================
+     FONT SIZES
+     ======================================== */
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-base: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 24px;
+    --font-size-3xl: 30px;
+    --font-size-4xl: 36px;
+    --font-size-5xl: 48px;
+    --font-size-6xl: 60px;
+    --font-size-7xl: 72px;
+    --font-size-8xl: 96px;
+    --font-size-9xl: 128px;
+    --font-size-5: 22px;
+    --font-size-7: 26px;
+    --font-size-9: 34px;
+    --font-size-11: 40px;
+    --font-size-12: 46px;
+    --font-size-13: 52px;
+
+    /* ========================================
+     FONT WEIGHTS
+     ======================================== */
+    --font-weight-thin: 100;
+    --font-weight-extralight: 200;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    --font-weight-black: 900;
+
+    /* Font Emphasis */
+    --font-emphasis-weight: var(--font-weight-bold);
+
+    /* ========================================
+     LINE HEIGHTS
+     ======================================== */
+    --line-height-0: 66px;
+    --line-height-1: 56px;
+    --line-height-2: 42px;
+    --line-height-3: 40px;
+    --line-height-4: 50px;
+    --line-height-5: 36px;
+    --line-height-6: 30px;
+    --line-height-7: 24px;
+    --line-height-8: 20px;
+    --line-height-9: 26px;
+    --line-height-10: 22px;
+    --line-height-11: 18px;
+    --line-height-12: 12px;
+    --line-height-13: 8px;
+
+    /* ========================================
+     BUTTONS
+     ======================================== */
+    --button-min-width: 120px;
+    --button-border-radius: var(--border-radius-sm);
+    --button-border-width: var(--border-width-default);
+
+    /* Button Sizes */
+    --button-min-width-s: 128px;
+    --button-min-width-m: 180px;
+    --button-min-width-l: 180px;
+
+    /* Button Spacing */
+    --button-space-gap: var(--space-2);
+    --button-space-x-s: var(--space-5);
+    --button-space-x-m: var(--space-6);
+    --button-space-x-l: var(--space-6);
+    --button-space-y-s: var(--space-3);
+    --button-space-y-m: var(--space-3);
+    --button-space-y-l: var(--space-4);
+
+    /* Button Colors - Primary */
+    --button-background-primary-default-light: var(--color-palette-primary-500);
+    --button-background-primary-default-dark: var(--color-brand-intercars-red);
+    --button-background-primary-hover-light: var(--color-palette-primary-700);
+    --button-background-primary-hover-dark: var(--color-palette-primary-700);
+    --button-border-primary-default-light: var(--color-brand-intercars-red);
+    --button-border-primary-default-dark: var(--color-brand-intercars-red);
+    --button-border-primary-hover-light: var(--color-palette-primary-700);
+    --button-border-primary-hover-dark: var(--color-palette-primary-700);
+    --button-text-primary-default-light: var(--color-base-white);
+    --button-text-primary-default-dark: var(--color-base-white);
+    --button-text-primary-hover-light: var(--color-base-white);
+    --button-text-primary-hover-dark: var(--color-base-white);
+
+    /* Button Colors - Primary Outline */
+    --button-background-primary-outline-default-light: var(--color-base-none);
+    --button-background-primary-outline-default-dark: var(--color-base-none);
+    --button-background-primary-outline-hover-light: var(--color-palette-primary-500);
+    --button-background-primary-outline-hover-dark: var(--color-base-white);
+    --button-border-primary-outline-default-light: var(--color-palette-primary-500);
+    --button-border-primary-outline-default-dark: var(--color-base-white);
+    --button-border-primary-outline-hover-light: var(--color-palette-primary-500);
+    --button-border-primary-outline-hover-dark: var(--color-base-white);
+    --button-text-primary-outline-default-light: var(--color-brand-intercars-red);
+    --button-text-primary-outline-default-dark: var(--color-base-white);
+    --button-text-primary-outline-hover-light: var(--color-base-white);
+    --button-text-primary-outline-hover-dark: var(--color-palette-secondary-950);
+
+    /* Button Colors - Secondary */
+    --button-background-secondary-default-light: var(--color-brand-intercars-navy);
+    --button-background-secondary-default-dark: var(--color-base-white);
+    --button-background-secondary-hover-light: var(--color-palette-secondary-800);
+    --button-background-secondary-hover-dark: var(--color-palette-neutral-700);
+    --button-border-secondary-default-light: var(--color-palette-neutral-800);
+    --button-border-secondary-default-dark: var(--color-base-white);
+    --button-border-secondary-hover-light: var(--color-palette-secondary-800);
+    --button-border-secondary-hover-dark: var(--color-palette-neutral-700);
+    --button-text-secondary-default-light: var(--color-base-white);
+    --button-text-secondary-default-dark: var(--color-palette-neutral-900);
+    --button-text-secondary-hover-light: var(--color-base-white);
+    --button-text-secondary-hover-dark: var(--color-base-white);
+
+    /* Button Colors - Secondary Outline */
+    --button-background-secondary-outline-default-light: var(--color-base-none);
+    --button-background-secondary-outline-default-dark: var(--color-base-none);
+    --button-background-secondary-outline-hover-light: var(--color-palette-neutral-800);
+    --button-background-secondary-outline-hover-dark: var(--color-palette-neutral-700);
+    --button-border-secondary-outline-default-light: var(--color-brand-intercars-navy);
+    --button-border-secondary-outline-default-dark: var(--color-palette-secondary-100);
+    --button-border-secondary-outline-hover-light: var(--color-palette-neutral-800);
+    --button-border-secondary-outline-hover-dark: var(--color-palette-neutral-700);
+    --button-text-secondary-outline-default-light: var(--color-brand-intercars-navy);
+    --button-text-secondary-outline-default-dark: var(--color-palette-secondary-100);
+    --button-text-secondary-outline-hover-light: var(--color-base-white);
+    --button-text-secondary-outline-hover-dark: var(--color-base-white);
+
+    /* Button Colors - Light */
+    --button-background-light-default-light: var(--color-palette-neutral-300);
+    --button-background-light-default-dark: var(--color-base-white);
+    --button-background-light-hover-light: var(--color-palette-neutral-400);
+    --button-background-light-hover-dark: var(--color-palette-neutral-700);
+    --button-border-light-default-light: var(--color-palette-neutral-300);
+    --button-border-light-default-dark: var(--color-base-white);
+    --button-border-light-hover-light: var(--color-palette-neutral-400);
+    --button-border-light-hover-dark: var(--color-palette-neutral-700);
+    --button-text-light-default-light: var(--color-brand-intercars-navy);
+    --button-text-light-default-dark: var(--color-brand-intercars-navy);
+    --button-text-light-hover-light: var(--color-palette-secondary-950);
+    --button-text-light-hover-dark: var(--color-base-white);
+
+    /* Button Colors - Light Outline */
+    --button-background-light-outline-default-light: var(--color-base-none);
+    --button-background-light-outline-default-dark: var(--color-base-none);
+    --button-background-light-outline-hover-light: var(--color-palette-neutral-400);
+    --button-background-light-outline-hover-dark: var(--color-base-white);
+    --button-border-light-outline-default-light: var(--color-brand-intercars-navy);
+    --button-border-light-outline-default-dark: var(--color-base-white);
+    --button-border-light-outline-hover-light: var(--color-palette-neutral-400);
+    --button-border-light-outline-hover-dark: var(--color-base-white);
+    --button-text-light-outline-default-light: var(--color-brand-intercars-navy);
+    --button-text-light-outline-default-dark: var(--color-base-white);
+    --button-text-light-outline-hover-light: var(--color-palette-neutral-900);
+    --button-text-light-outline-hover-dark: var(--color-palette-secondary-950);
+
+    /* ========================================
+     LINKS
+     ======================================== */
+    /* Link Colors - Superior */
+    --link-text-superior-default-light: var(--color-text-superior-default-light);
+    --link-text-superior-default-dark: var(--color-base-white);
+    --link-text-superior-hover-light: var(--color-text-superior-hover-light);
+    --link-text-superior-hover-dark: var(--color-palette-primary-100);
+
+    /* Link Colors - Prominent */
+    --link-text-prominent-default-light: var(--color-palette-secondary-800);
+    --link-text-prominent-default-dark: var(--color-text-prominent-default-dark);
+    --link-text-prominent-hover-light: var(--color-palette-secondary-900);
+    --link-text-prominent-hover-dark: var(--color-text-prominent-hover-dark);
+
+    /* Link Colors - Basic */
+    --link-text-basic-default-light: var(--color-text-basic-default-light);
+    --link-text-basic-default-dark: var(--color-base-white);
+    --link-text-basic-hover-light: var(--color-palette-neutral-700);
+    --link-text-basic-hover-dark: var(--color-text-basic-hover-dark);
+
+    /* Link Colors - Subtle */
+    --link-text-subtle-default-light: var(--color-text-subtle-default-light);
+    --link-text-subtle-default-dark: var(--color-text-subtle-default-dark);
+    --link-text-subtle-hover-light: var(--color-text-subtle-hover-light);
+    --link-text-subtle-hover-dark: var(--color-text-subtle-hover-dark);
+
+    /* ========================================
+     ALERTS
+     ======================================== */
+    /* Alert - Neutral */
+    --alert-background-neutral-light: var(--color-palette-neutral-300);
+    --alert-background-neutral-dark: var(--color-palette-neutral-700);
+    --alert-border-neutral-light: var(--color-palette-neutral-300);
+    --alert-border-neutral-dark: var(--color-palette-neutral-700);
+    --alert-text-neutral-light: var(--color-palette-neutral-900);
+    --alert-text-neutral-dark: var(--color-palette-neutral-100);
+
+    /* Alert - Emphasis */
+    --alert-background-emphasis-light: var(--color-semantic-error-background-light);
+    --alert-background-emphasis-dark: var(--color-semantic-error-background-dark);
+    --alert-border-emphasis-light: var(--color-semantic-error-background-light);
+    --alert-border-emphasis-dark: var(--color-semantic-error-background-dark);
+    --alert-text-emphasis-light: var(--color-semantic-error-content-light);
+    --alert-text-emphasis-dark: var(--color-semantic-error-content-dark);
+
+    /* Alert - Warning */
+    --alert-background-warning-light: var(--color-semantic-warning-background-light);
+    --alert-background-warning-dark: var(--color-semantic-warning-background-dark);
+    --alert-border-warning-light: var(--color-semantic-warning-background-light);
+    --alert-border-warning-dark: var(--color-semantic-warning-background-dark);
+    --alert-text-warning-light: var(--color-semantic-warning-content-light);
+    --alert-text-warning-dark: var(--color-semantic-warning-content-dark);
+
+    /* Alert - Info */
+    --alert-background-info-light: var(--color-semantic-info-background-light);
+    --alert-background-info-dark: var(--color-semantic-info-background-dark);
+    --alert-border-info-light: var(--color-semantic-info-background-light);
+    --alert-border-info-dark: var(--color-semantic-info-background-dark);
+    --alert-text-info-light: var(--color-semantic-info-content-light);
+    --alert-text-info-dark: var(--color-semantic-info-content-dark);
+
+    /* Alert - Success */
+    --alert-background-success-light: var(--color-semantic-success-background-light);
+    --alert-background-success-dark: var(--color-semantic-success-background-dark);
+    --alert-border-success-light: var(--color-semantic-success-background-light);
+    --alert-border-success-dark: var(--color-semantic-success-background-dark);
+    --alert-text-success-light: var(--color-semantic-success-content-light);
+    --alert-text-success-dark: var(--color-semantic-success-content-dark);
+
+    /* Alert - Error */
+    --alert-background-error-light: var(--color-semantic-error-background-light);
+    --alert-background-error-dark: var(--color-semantic-error-background-dark);
+    --alert-border-error-light: var(--color-semantic-error-background-light);
+    --alert-border-error-dark: var(--color-semantic-error-background-dark);
+    --alert-text-error-light: var(--color-semantic-error-content-light);
+    --alert-text-error-dark: var(--color-semantic-error-content-dark);
+
+    /* ========================================
+     BADGES
+     ======================================== */
+    --badge-border-radius: var(--border-radius-sm);
+
+    /* Badge - Neutral */
+    --badge-background-neutral-light: var(--color-palette-neutral-300);
+    --badge-background-neutral-dark: var(--color-palette-neutral-700);
+    --badge-border-neutral-light: var(--color-palette-neutral-300);
+    --badge-border-neutral-dark: var(--color-palette-neutral-700);
+    --badge-text-neutral-light: var(--color-palette-neutral-900);
+    --badge-text-neutral-dark: var(--color-palette-neutral-100);
+
+    /* Badge - Emphasis */
+    --badge-background-emphasis-light: var(--color-semantic-error-background-light);
+    --badge-background-emphasis-dark: var(--color-semantic-error-background-dark);
+    --badge-border-emphasis-light: var(--color-semantic-error-background-light);
+    --badge-border-emphasis-dark: var(--color-semantic-error-background-dark);
+    --badge-text-emphasis-light: var(--color-semantic-error-content-light);
+    --badge-text-emphasis-dark: var(--color-semantic-error-content-dark);
+
+    /* Badge - Warning */
+    --badge-background-warning-light: var(--color-semantic-warning-background-light);
+    --badge-background-warning-dark: var(--color-semantic-warning-background-dark);
+    --badge-border-warning-light: var(--color-semantic-warning-background-light);
+    --badge-border-warning-dark: var(--color-semantic-warning-background-dark);
+    --badge-text-warning-light: var(--color-semantic-warning-content-light);
+    --badge-text-warning-dark: var(--color-semantic-warning-content-dark);
+
+    /* Badge - Info */
+    --badge-background-info-light: var(--color-semantic-info-background-light);
+    --badge-background-info-dark: var(--color-semantic-info-background-dark);
+    --badge-border-info-light: var(--color-semantic-info-background-light);
+    --badge-border-info-dark: var(--color-semantic-info-background-dark);
+    --badge-text-info-light: var(--color-semantic-info-content-light);
+    --badge-text-info-dark: var(--color-semantic-info-content-dark);
+
+    /* Badge - Success */
+    --badge-background-success-light: var(--color-semantic-success-background-light);
+    --badge-background-success-dark: var(--color-semantic-success-background-dark);
+    --badge-border-success-light: var(--color-semantic-success-background-light);
+    --badge-border-success-dark: var(--color-semantic-success-background-dark);
+    --badge-text-success-light: var(--color-semantic-success-content-light);
+    --badge-text-success-dark: var(--color-semantic-success-content-dark);
+
+    /* Badge - Error */
+    --badge-background-error-light: var(--color-semantic-error-background-light);
+    --badge-background-error-dark: var(--color-semantic-error-background-dark);
+    --badge-border-error-light: var(--color-semantic-error-background-light);
+    --badge-border-error-dark: var(--color-semantic-error-background-dark);
+    --badge-text-error-light: var(--color-semantic-error-content-light);
+    --badge-text-error-dark: var(--color-semantic-error-content-dark);
+
+    /* Badge - More */
+    --badge-background-more-light: var(--color-palette-secondary-700);
+    --badge-background-more-dark: var(--color-palette-secondary-700);
+    --badge-border-more-light: var(--color-palette-secondary-700);
+    --badge-border-more-dark: var(--color-palette-secondary-700);
+    --badge-text-more-light: var(--color-palette-secondary-50);
+    --badge-text-more-dark: var(--color-palette-secondary-50);
+
+    /* Badge - Less */
+    --badge-background-less-light: var(--color-palette-primary-500);
+    --badge-background-less-dark: var(--color-palette-primary-500);
+    --badge-border-less-light: var(--color-palette-primary-500);
+    --badge-border-less-dark: var(--color-palette-primary-500);
+    --badge-text-less-light: var(--color-palette-primary-50);
+    --badge-text-less-dark: var(--color-palette-primary-50);
+}
