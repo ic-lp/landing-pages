@@ -767,125 +767,6 @@
       margin-bottom: 48px;
     }
 
-    .partner-box-wrapper {
-      position: relative;
-      width: 100%;
-    }
-
-    .partner-box-border {
-      position: absolute;
-      inset: 0;
-      border-radius: var(--radius);
-      padding: 1px;
-      overflow: hidden;
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    .partner-box-border-inner {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 300%;
-      padding-bottom: 300%;
-      background: conic-gradient(from 0deg, transparent 0deg, transparent 150deg, var(--color-primary) 180deg, transparent 210deg, transparent 330deg, var(--color-primary) 345deg, transparent 360deg);
-      animation: border-rotate 8s linear infinite;
-    }
-
-    @keyframes border-rotate {
-      from {
-        transform: translate(-50%, -50%) rotate(0deg);
-      }
-
-      to {
-        transform: translate(-50%, -50%) rotate(360deg);
-      }
-    }
-
-    .partner-box {
-      position: relative;
-      padding: 40px;
-      border-radius: var(--radius);
-      background: #1a2533;
-      backdrop-filter: blur(40px);
-      margin: 2px;
-      z-index: 10;
-    }
-
-    .partner-box-title {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 56px;
-      color: white;
-      letter-spacing: -0.025em;
-      text-align: center;
-    }
-
-    .partner-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      position: relative;
-      z-index: 10;
-    }
-
-    .partner-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-      padding: 32px;
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(2px);
-      transition: all 0.3s;
-      height: 100%;
-    }
-
-    .partner-item:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    .partner-item-icon {
-      width: 112px;
-      height: 112px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.5s;
-    }
-
-    .partner-item:hover .partner-item-icon {
-      transform: scale(1.1);
-    }
-
-    .partner-item-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .partner-item-text {
-      font-size: 14px;
-      font-weight: 700;
-      text-align: center;
-      color: white;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      line-height: 1.2;
-    }
-
-    .partner-footer {
-      font-size: 16px;
-      color: white;
-      text-align: center;
-      padding-top: 56px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      margin-top: 64px;
-      font-weight: 300;
-    }
-
     .cta-section {
       padding: 64px 0;
       background: linear-gradient(to bottom, var(--color-background), rgba(44, 59, 76, 0.2));
@@ -1347,23 +1228,6 @@
         font-size: 48px;
       }
 
-      .partner-box {
-        padding: 56px;
-      }
-
-      .partner-box-title {
-        font-size: 24px;
-      }
-
-      .partner-item-icon {
-        width: 128px;
-        height: 128px;
-      }
-
-      .partner-footer {
-        font-size: 36px;
-      }
-
       .footer-countries-grid {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -1411,11 +1275,6 @@
         width: 60%;
       }
 
-      .partner-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-      }
-
       .footer-countries-grid {
         grid-template-columns: repeat(4, 1fr);
       }
@@ -1449,19 +1308,6 @@
         padding: 0;
         border-bottom: none;
         width: auto;
-        font-size: 16px;
-      }
-
-      .partner-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
-      .partner-item-icon {
-        width: 160px;
-        height: 160px;
-      }
-
-      .partner-item-text {
         font-size: 16px;
       }
 
@@ -1938,45 +1784,6 @@
       <div class="section-container">
         <div class="partner-header">
           <h2 class="section-title" style="color: white;">Inter Cars – partner, który wspiera Twój rozwój</h2>
-        </div>
-        <div class="partner-box-wrapper">
-          <div class="partner-box-border">
-            <div class="partner-box-border-inner"></div>
-          </div>
-
-          <div class="partner-box">
-            <h3 class="partner-box-title">Oferujemy:</h3>
-            <div class="partner-grid">
-              <div class="partner-item">
-                <div class="partner-item-icon">
-                  <img src="https://cdn.intercars.eu/files/1/3/8/0/1/5/138015.svg?time=1768150781" alt="Wiedza" />
-                </div>
-                <p class="partner-item-text">Wiedza</p>
-              </div>
-              <div class="partner-item">
-                <div class="partner-item-icon">
-                  <img src="https://cdn.intercars.eu/files/1/3/8/0/0/8/138008.svg?time=1768150841"
-                    alt="Doświadczenie" />
-                </div>
-                <p class="partner-item-text">Doświadczenie</p>
-              </div>
-              <div class="partner-item">
-                <div class="partner-item-icon">
-                  <img src="https://cdn.intercars.eu/files/1/3/8/0/1/4/138014.svg?time=1768150807" alt="Narzędzia" />
-                </div>
-                <p class="partner-item-text">Narzędzia</p>
-              </div>
-              <div class="partner-item">
-                <div class="partner-item-icon">
-                  <img src="https://cdn.intercars.eu/files/1/3/8/0/1/6/138016.svg?time=1768150677" alt="Wsparcie" />
-                </div>
-                <p class="partner-item-text">Wsparcie w rozwoju</p>
-              </div>
-            </div>
-            <p class="partner-footer">
-              Bo wierzymy, że silny warsztat to silny partner.
-            </p>
-          </div>
         </div>
 
         <div class="gallery-container">
