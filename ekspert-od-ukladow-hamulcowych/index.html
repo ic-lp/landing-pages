@@ -1110,6 +1110,16 @@
       border-radius: var(--radius);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .gallery-item:hover .video-play-icon {
+      background: rgba(227, 6, 19, 1);
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .video-play-icon {
+      transition: all 0.3s ease;
     }
 
     .gallery-item:hover {
@@ -1153,6 +1163,20 @@
       width: auto;
       height: auto;
       display: block;
+    }
+
+    #lightbox-video-container {
+      width: 90vw;
+      max-width: 1000px;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      display: none;
+    }
+
+    #lightbox-video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     .lightbox-close {
@@ -1245,7 +1269,7 @@
 
     @media (min-width: 768px) {
       .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
 
       .section-grid {
@@ -1794,6 +1818,14 @@
             <div class="gallery-item" onclick="openLightbox('img/img4.jpg')">
               <img src="img/img4.jpg" alt="Galeria zdjęcie 2">
             </div>
+            <div class="gallery-item" onclick="openLightbox('https://www.youtube.com/embed/z9nEVLivgEs', 'video')">
+              <img src="img/img5.jpg" alt="Galeria zdjęcie 3">
+              <div class="video-play-icon" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: rgba(227, 6, 19, 0.8); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+            </div>
           </div>
           <div style="text-align: center; margin-top: 32px;">
             <a href="https://intercars.com.pl/pl/informacje/aktualnosci" class="section-btn" target="_blank">
@@ -1808,22 +1840,40 @@
           <div class="lightbox-content" onclick="event.stopPropagation()">
             <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
             <img id="lightbox-img" src="" alt="Powiększone zdjęcie">
+            <div id="lightbox-video-container">
+              <iframe id="lightbox-video" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <script>
-      function openLightbox(imgSrc) {
+      function openLightbox(src, type = 'image') {
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
-        lightboxImg.src = imgSrc;
+        const videoContainer = document.getElementById('lightbox-video-container');
+        const videoIframe = document.getElementById('lightbox-video');
+
+        if (type === 'video') {
+          lightboxImg.style.display = 'none';
+          videoContainer.style.display = 'block';
+          videoIframe.src = src + (src.includes('?') ? '&' : '?') + 'autoplay=1';
+        } else {
+          lightboxImg.style.display = 'block';
+          videoContainer.style.display = 'none';
+          lightboxImg.src = src;
+          videoIframe.src = '';
+        }
+
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
       }
 
       function closeLightbox() {
         const lightbox = document.getElementById('lightbox');
+        const videoIframe = document.getElementById('lightbox-video');
+        videoIframe.src = '';
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
       }
