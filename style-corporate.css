@@ -1,0 +1,1955 @@
+:root {
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --space-11: 192px;
+  --space-12: 256px;
+  --space-13: 384px;
+  --space-14: 512px;
+  --space-15: 640px;
+  --space-16: 768px;
+  --space-17: 896px;
+  --space-18: 1024px;
+  --size-0: var(--space-0);
+  --size-1: var(--space-1);
+  --size-2: var(--space-2);
+  --size-3: var(--space-3);
+  --size-4: var(--space-4);
+  --size-5: var(--space-5);
+  --size-6: var(--space-6);
+  --size-7: var(--space-7);
+  --size-8: var(--space-8);
+  --size-9: var(--space-9);
+  --size-10: var(--space-10);
+  --size-11: var(--space-11);
+  --size-12: var(--space-12);
+  --size-13: var(--space-13);
+  --size-14: var(--space-14);
+  --size-15: var(--space-15);
+  --size-16: var(--space-16);
+  --size-17: var(--space-17);
+  --size-18: var(--space-18);
+  --border-radius-none: 0px;
+  --border-radius-sm: 2px;
+  --border-radius-default: 4px;
+  --border-radius-md: 6px;
+  --border-radius-lg: 8px;
+  --border-radius-2xl: 16px;
+  --border-radius-3xl: 24px;
+  --border-radius-full: 9999px;
+  --border-width-0: 0px;
+  --border-width-2: 2px;
+  --border-width-4: 4px;
+  --border-width-8: 8px;
+  --border-width-default: 1px;
+  --corner-sharp: var(--border-radius-none);
+  --corner-subtle: var(--border-radius-sm);
+  --corner-default: var(--border-radius-none);
+  --corner-smooth: var(--border-radius-default);
+  --opacity-5: 0.05;
+  --opacity-10: 0.1;
+  --opacity-20: 0.2;
+  --opacity-40: 0.4;
+  --opacity-60: 0.6;
+  --opacity-80: 0.8;
+  --opacity-90: 0.9;
+  --color-base-white: #ffffff;
+  --color-base-black: #000000;
+  --color-base-none: rgba(0, 0, 0, 0);
+  --color-base-white-transparent: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  --color-base-transparent-white: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  --color-base-black-transparent: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  --color-base-transparent-black: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  --color-palette-neutral-50: #fafcfe;
+  --color-palette-neutral-100: #f4f7fa;
+  --color-palette-neutral-200: #ebeff3;
+  --color-palette-neutral-300: #dce1e6;
+  --color-palette-neutral-400: #c3cad1;
+  --color-palette-neutral-500: #a3abb3;
+  --color-palette-neutral-600: #7c848d;
+  --color-palette-neutral-700: #535b63;
+  --color-palette-neutral-800: #323940;
+  --color-palette-neutral-900: #1c2126;
+  --color-palette-neutral-950: #0c0f11;
+  --color-palette-primary-50: #fcebee;
+  --color-palette-primary-100: #f8d0d5;
+  --color-palette-primary-200: #f3afb8;
+  --color-palette-primary-300: #eb8592;
+  --color-palette-primary-400: #e04e61;
+  --color-palette-primary-500: #cf1e35;
+  --color-palette-primary-600: #b2192d;
+  --color-palette-primary-700: #901525;
+  --color-palette-primary-800: #6b101b;
+  --color-palette-primary-900: #440a11;
+  --color-palette-primary-950: #1f0508;
+  --color-palette-secondary-50: #fdfcff;
+  --color-palette-secondary-100: #e9f1ff;
+  --color-palette-secondary-200: #d0e4ff;
+  --color-palette-secondary-300: #9ccaff;
+  --color-palette-secondary-400: #6bb0f5;
+  --color-palette-secondary-500: #4d95d9;
+  --color-palette-secondary-600: #2d7bbd;
+  --color-palette-secondary-700: #0062a0;
+  --color-palette-secondary-800: #00497a;
+  --color-palette-secondary-900: #003256;
+  --color-palette-secondary-950: #001d35;
+  --color-brand-intercars-red: #cf1e35;
+  --color-brand-intercars-navy: #2c3b4c;
+  --color-semantic-success-background-light: #d1ffd5;
+  --color-semantic-success-background-dark: #005d1a;
+  --color-semantic-success-content-light: var(
+    --color-semantic-success-background-dark
+  );
+  --color-semantic-success-content-dark: var(
+    --color-semantic-success-background-light
+  );
+  --color-semantic-info-background-light: #caddff;
+  --color-semantic-info-background-dark: #003b73;
+  --color-semantic-info-content-light: var(
+    --color-semantic-info-background-dark
+  );
+  --color-semantic-info-content-dark: var(
+    --color-semantic-info-background-light
+  );
+  --color-semantic-warning-background-light: #fffbcb;
+  --color-semantic-warning-background-dark: #7e430d;
+  --color-semantic-warning-content-light: var(
+    --color-semantic-warning-background-dark
+  );
+  --color-semantic-warning-content-dark: var(
+    --color-semantic-warning-background-light
+  );
+  --color-semantic-error-background-light: #fcd5da;
+  --color-semantic-error-background-dark: #800;
+  --color-semantic-error-content-light: var(
+    --color-semantic-error-background-dark
+  );
+  --color-semantic-error-content-dark: var(
+    --color-semantic-error-background-light
+  );
+  --color-semantic-required-background-light: #fcd5da;
+  --color-semantic-required-background-dark: #cf1e35;
+  --color-semantic-required-content-light: var(
+    --color-semantic-required-background-dark
+  );
+  --color-semantic-required-content-dark: var(
+    --color-semantic-required-background-light
+  );
+  --color-text-simple-default-light: var(--color-base-black);
+  --color-text-simple-default-dark: var(--color-base-white);
+  --color-text-simple-hover-light: var(--color-base-white);
+  --color-text-simple-hover-dark: var(--color-base-black);
+  --color-text-muted-default-light: var(--color-palette-neutral-700);
+  --color-text-muted-default-dark: var(--color-palette-neutral-400);
+  --color-text-muted-hover-light: var(--color-palette-neutral-500);
+  --color-text-muted-hover-dark: var(--color-palette-neutral-300);
+  --color-text-subtle-default-light: var(--color-palette-neutral-800);
+  --color-text-subtle-default-dark: var(--color-palette-neutral-200);
+  --color-text-subtle-hover-light: var(--color-palette-neutral-800);
+  --color-text-subtle-hover-dark: var(--color-palette-neutral-400);
+  --color-text-basic-default-light: var(--color-palette-neutral-900);
+  --color-text-basic-default-dark: var(--color-palette-neutral-50);
+  --color-text-basic-hover-light: var(--color-palette-primary-500);
+  --color-text-basic-hover-dark: var(--color-palette-primary-50);
+  --color-text-superior-default-light: var(--color-palette-primary-500);
+  --color-text-superior-default-dark: var(--color-palette-primary-50);
+  --color-text-superior-hover-light: var(--color-palette-primary-700);
+  --color-text-superior-hover-dark: var(--color-palette-primary-50);
+  --color-text-prominent-default-light: var(--color-palette-secondary-900);
+  --color-text-prominent-default-dark: var(--color-base-white);
+  --color-text-prominent-hover-light: var(--color-palette-secondary-800);
+  --color-text-prominent-hover-dark: var(--color-palette-secondary-200);
+  --color-text-active-light: var(--color-base-white);
+  --color-text-active-dark: var(--color-palette-secondary-900);
+  --color-text-disabled-light: var(--color-palette-neutral-600);
+  --color-text-disabled-dark: var(--color-palette-neutral-700);
+  --color-background-simple-default-light: var(--color-base-white);
+  --color-background-simple-default-dark: var(--color-base-black);
+  --color-background-simple-hover-light: var(--color-base-black);
+  --color-background-simple-hover-dark: var(--color-base-white);
+  --color-background-muted-default-light: var(--color-palette-neutral-50);
+  --color-background-muted-default-dark: var(--color-palette-neutral-900);
+  --color-background-muted-hover-light: var(--color-palette-neutral-200);
+  --color-background-muted-hover-dark: var(--color-palette-neutral-800);
+  --color-background-subtle-default-light: var(--color-palette-neutral-200);
+  --color-background-subtle-default-dark: var(--color-palette-neutral-800);
+  --color-background-subtle-hover-light: var(--color-palette-neutral-400);
+  --color-background-subtle-hover-dark: var(--color-palette-neutral-700);
+  --color-background-basic-default-light: var(--color-palette-neutral-400);
+  --color-background-basic-default-dark: var(--color-palette-neutral-800);
+  --color-background-basic-hover-light: var(--color-palette-neutral-300);
+  --color-background-basic-hover-dark: var(--color-palette-neutral-800);
+  --color-background-superior-default-light: var(--color-palette-primary-500);
+  --color-background-superior-default-dark: var(--color-brand-intercars-red);
+  --color-background-superior-hover-light: var(--color-palette-primary-300);
+  --color-background-superior-hover-dark: var(--color-brand-intercars-red);
+  --color-background-prominent-default-light: var(
+    --color-palette-secondary-100
+  );
+  --color-background-prominent-default-dark: var(--color-brand-intercars-navy);
+  --color-background-prominent-hover-light: var(--color-palette-secondary-950);
+  --color-background-prominent-hover-dark: var(--color-palette-secondary-100);
+  --color-background-active-light: var(--color-palette-secondary-900);
+  --color-background-active-dark: var(--color-palette-secondary-50);
+  --color-background-disabled-light: var(--color-palette-neutral-200);
+  --color-background-disabled-dark: var(--color-palette-neutral-800);
+  --color-border-simple-default-light: var(--color-base-white);
+  --color-border-simple-default-dark: var(--color-base-black);
+  --color-border-simple-hover-light: var(--color-base-black);
+  --color-border-simple-hover-dark: var(--color-base-white);
+  --color-border-muted-default-light: var(--color-palette-neutral-200);
+  --color-border-muted-default-dark: var(--color-palette-neutral-800);
+  --color-border-muted-hover-light: var(--color-palette-neutral-600);
+  --color-border-muted-hover-dark: var(--color-palette-neutral-400);
+  --color-border-subtle-default-light: var(--color-palette-neutral-400);
+  --color-border-subtle-default-dark: var(--color-palette-neutral-600);
+  --color-border-subtle-hover-light: var(--color-palette-neutral-600);
+  --color-border-subtle-hover-dark: var(--color-palette-neutral-400);
+  --color-border-basic-default-light: var(--color-palette-neutral-600);
+  --color-border-basic-default-dark: var(--color-palette-neutral-950);
+  --color-border-basic-hover-light: var(--color-palette-neutral-600);
+  --color-border-basic-hover-dark: var(--color-palette-neutral-950);
+  --color-border-superior-default-light: var(--color-palette-primary-500);
+  --color-border-superior-default-dark: var(--color-palette-primary-50);
+  --color-border-superior-hover-light: var(--color-palette-primary-300);
+  --color-border-superior-hover-dark: var(--color-palette-primary-500);
+  --color-border-prominent-default-light: var(--color-palette-secondary-300);
+  --color-border-prominent-default-dark: var(--color-brand-intercars-navy);
+  --color-border-prominent-hover-light: var(--color-palette-secondary-400);
+  --color-border-prominent-hover-dark: var(--color-palette-secondary-950);
+  --color-border-active-light: var(--color-palette-secondary-900);
+  --color-border-active-dark: var(--color-palette-secondary-100);
+  --color-border-disabled-light: var(--color-palette-neutral-200);
+  --color-border-disabled-dark: var(--color-palette-neutral-800);
+  --shadow-none: 0 0 0 0 rgba(255, 255, 255, 0);
+  --shadow-subtle-light: 0 0 10px 0 var(--color-palette-neutral-200);
+  --shadow-subtle-dark: 0 0 10px 0 var(--color-palette-neutral-900);
+  --shadow-standard-light: 0 0 15px 0 var(--color-palette-neutral-300);
+  --shadow-standard-dark: 0 0 15px 0 var(--color-palette-neutral-900);
+  --shadow-strong-light: 0 0 20px 0 var(--color-palette-neutral-400);
+  --shadow-strong-dark: 0 0 20px 0 var(--color-palette-neutral-950);
+  --shadow-raised-light: 4px 4px 10px 0 var(--color-palette-neutral-300);
+  --shadow-raised-dark: 4px 4px 10px 0 var(--color-palette-neutral-900);
+  --shadow-focus-ring-light:
+    0 0 0 2px var(--color-base-white), 0 0 0 4px var(--color-base-black);
+  --shadow-focus-ring-dark:
+    0 0 0 2px var(--color-base-black), 0 0 0 4px var(--color-base-white);
+  --font-family-lato: Lato, sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 30px;
+  --font-size-4xl: 36px;
+  --font-size-5xl: 48px;
+  --font-size-6xl: 60px;
+  --font-size-7xl: 72px;
+  --font-size-8xl: 96px;
+  --font-size-9xl: 128px;
+  --font-size-5: 22px;
+  --font-size-7: 26px;
+  --font-size-9: 34px;
+  --font-size-11: 40px;
+  --font-size-12: 46px;
+  --font-size-13: 52px;
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+  --font-emphasis-weight: var(--font-weight-bold);
+  --line-height-0: 66px;
+  --line-height-1: 56px;
+  --line-height-2: 42px;
+  --line-height-3: 40px;
+  --line-height-4: 50px;
+  --line-height-5: 36px;
+  --line-height-6: 30px;
+  --line-height-7: 24px;
+  --line-height-8: 20px;
+  --line-height-9: 26px;
+  --line-height-10: 22px;
+  --line-height-11: 18px;
+  --line-height-12: 12px;
+  --line-height-13: 8px;
+  --button-min-width: 120px;
+  --button-border-radius: var(--border-radius-sm);
+  --button-border-width: var(--border-width-default);
+  --button-min-width-s: 128px;
+  --button-min-width-m: 180px;
+  --button-min-width-l: 180px;
+  --button-space-gap: var(--space-2);
+  --button-space-x-s: var(--space-5);
+  --button-space-x-m: var(--space-6);
+  --button-space-x-l: var(--space-6);
+  --button-space-y-s: var(--space-3);
+  --button-space-y-m: var(--space-3);
+  --button-space-y-l: var(--space-4);
+  --button-background-primary-default-light: var(--color-palette-primary-500);
+  --button-background-primary-default-dark: var(--color-brand-intercars-red);
+  --button-background-primary-hover-light: var(--color-palette-primary-700);
+  --button-background-primary-hover-dark: var(--color-palette-primary-700);
+  --button-border-primary-default-light: var(--color-brand-intercars-red);
+  --button-border-primary-default-dark: var(--color-brand-intercars-red);
+  --button-border-primary-hover-light: var(--color-palette-primary-700);
+  --button-border-primary-hover-dark: var(--color-palette-primary-700);
+  --button-text-primary-default-light: var(--color-base-white);
+  --button-text-primary-default-dark: var(--color-base-white);
+  --button-text-primary-hover-light: var(--color-base-white);
+  --button-text-primary-hover-dark: var(--color-base-white);
+  --button-background-primary-outline-default-light: var(--color-base-none);
+  --button-background-primary-outline-default-dark: var(--color-base-none);
+  --button-background-primary-outline-hover-light: var(
+    --color-palette-primary-500
+  );
+  --button-background-primary-outline-hover-dark: var(--color-base-white);
+  --button-border-primary-outline-default-light: var(
+    --color-palette-primary-500
+  );
+  --button-border-primary-outline-default-dark: var(--color-base-white);
+  --button-border-primary-outline-hover-light: var(--color-palette-primary-500);
+  --button-border-primary-outline-hover-dark: var(--color-base-white);
+  --button-text-primary-outline-default-light: var(--color-brand-intercars-red);
+  --button-text-primary-outline-default-dark: var(--color-base-white);
+  --button-text-primary-outline-hover-light: var(--color-base-white);
+  --button-text-primary-outline-hover-dark: var(--color-palette-secondary-950);
+  --button-background-secondary-default-light: var(
+    --color-brand-intercars-navy
+  );
+  --button-background-secondary-default-dark: var(--color-base-white);
+  --button-background-secondary-hover-light: var(--color-palette-secondary-800);
+  --button-background-secondary-hover-dark: var(--color-palette-neutral-700);
+  --button-border-secondary-default-light: var(--color-palette-neutral-800);
+  --button-border-secondary-default-dark: var(--color-base-white);
+  --button-border-secondary-hover-light: var(--color-palette-secondary-800);
+  --button-border-secondary-hover-dark: var(--color-palette-neutral-700);
+  --button-text-secondary-default-light: var(--color-base-white);
+  --button-text-secondary-default-dark: var(--color-palette-neutral-900);
+  --button-text-secondary-hover-light: var(--color-base-white);
+  --button-text-secondary-hover-dark: var(--color-base-white);
+  --button-background-secondary-outline-default-light: var(--color-base-none);
+  --button-background-secondary-outline-default-dark: var(--color-base-none);
+  --button-background-secondary-outline-hover-light: var(
+    --color-palette-neutral-800
+  );
+  --button-background-secondary-outline-hover-dark: var(
+    --color-palette-neutral-700
+  );
+  --button-border-secondary-outline-default-light: var(
+    --color-brand-intercars-navy
+  );
+  --button-border-secondary-outline-default-dark: var(
+    --color-palette-secondary-100
+  );
+  --button-border-secondary-outline-hover-light: var(
+    --color-palette-neutral-800
+  );
+  --button-border-secondary-outline-hover-dark: var(
+    --color-palette-neutral-700
+  );
+  --button-text-secondary-outline-default-light: var(
+    --color-brand-intercars-navy
+  );
+  --button-text-secondary-outline-default-dark: var(
+    --color-palette-secondary-100
+  );
+  --button-text-secondary-outline-hover-light: var(--color-base-white);
+  --button-text-secondary-outline-hover-dark: var(--color-base-white);
+  --button-background-light-default-light: var(--color-palette-neutral-300);
+  --button-background-light-default-dark: var(--color-base-white);
+  --button-background-light-hover-light: var(--color-palette-neutral-400);
+  --button-background-light-hover-dark: var(--color-palette-neutral-700);
+  --button-border-light-default-light: var(--color-palette-neutral-300);
+  --button-border-light-default-dark: var(--color-base-white);
+  --button-border-light-hover-light: var(--color-palette-neutral-400);
+  --button-border-light-hover-dark: var(--color-palette-neutral-700);
+  --button-text-light-default-light: var(--color-brand-intercars-navy);
+  --button-text-light-default-dark: var(--color-brand-intercars-navy);
+  --button-text-light-hover-light: var(--color-palette-secondary-950);
+  --button-text-light-hover-dark: var(--color-base-white);
+  --button-background-light-outline-default-light: var(--color-base-none);
+  --button-background-light-outline-default-dark: var(--color-base-none);
+  --button-background-light-outline-hover-light: var(
+    --color-palette-neutral-400
+  );
+  --button-background-light-outline-hover-dark: var(--color-base-white);
+  --button-border-light-outline-default-light: var(
+    --color-brand-intercars-navy
+  );
+  --button-border-light-outline-default-dark: var(--color-base-white);
+  --button-border-light-outline-hover-light: var(--color-palette-neutral-400);
+  --button-border-light-outline-hover-dark: var(--color-base-white);
+  --button-text-light-outline-default-light: var(--color-brand-intercars-navy);
+  --button-text-light-outline-default-dark: var(--color-base-white);
+  --button-text-light-outline-hover-light: var(--color-palette-neutral-900);
+  --button-text-light-outline-hover-dark: var(--color-palette-secondary-950);
+  --link-text-superior-default-light: var(--color-text-superior-default-light);
+  --link-text-superior-default-dark: var(--color-base-white);
+  --link-text-superior-hover-light: var(--color-text-superior-hover-light);
+  --link-text-superior-hover-dark: var(--color-palette-primary-100);
+  --link-text-prominent-default-light: var(--color-palette-secondary-800);
+  --link-text-prominent-default-dark: var(--color-text-prominent-default-dark);
+  --link-text-prominent-hover-light: var(--color-palette-secondary-900);
+  --link-text-prominent-hover-dark: var(--color-text-prominent-hover-dark);
+  --link-text-basic-default-light: var(--color-text-basic-default-light);
+  --link-text-basic-default-dark: var(--color-base-white);
+  --link-text-basic-hover-light: var(--color-palette-neutral-700);
+  --link-text-basic-hover-dark: var(--color-text-basic-hover-dark);
+  --link-text-subtle-default-light: var(--color-text-subtle-default-light);
+  --link-text-subtle-default-dark: var(--color-text-subtle-default-dark);
+  --link-text-subtle-hover-light: var(--color-text-subtle-hover-light);
+  --link-text-subtle-hover-dark: var(--color-text-subtle-hover-dark);
+  --alert-background-neutral-light: var(--color-palette-neutral-300);
+  --alert-background-neutral-dark: var(--color-palette-neutral-700);
+  --alert-border-neutral-light: var(--color-palette-neutral-300);
+  --alert-border-neutral-dark: var(--color-palette-neutral-700);
+  --alert-text-neutral-light: var(--color-palette-neutral-900);
+  --alert-text-neutral-dark: var(--color-palette-neutral-100);
+  --alert-background-emphasis-light: var(
+    --color-semantic-error-background-light
+  );
+  --alert-background-emphasis-dark: var(--color-semantic-error-background-dark);
+  --alert-border-emphasis-light: var(--color-semantic-error-background-light);
+  --alert-border-emphasis-dark: var(--color-semantic-error-background-dark);
+  --alert-text-emphasis-light: var(--color-semantic-error-content-light);
+  --alert-text-emphasis-dark: var(--color-semantic-error-content-dark);
+  --alert-background-warning-light: var(
+    --color-semantic-warning-background-light
+  );
+  --alert-background-warning-dark: var(
+    --color-semantic-warning-background-dark
+  );
+  --alert-border-warning-light: var(--color-semantic-warning-background-light);
+  --alert-border-warning-dark: var(--color-semantic-warning-background-dark);
+  --alert-text-warning-light: var(--color-semantic-warning-content-light);
+  --alert-text-warning-dark: var(--color-semantic-warning-content-dark);
+  --alert-background-info-light: var(--color-semantic-info-background-light);
+  --alert-background-info-dark: var(--color-semantic-info-background-dark);
+  --alert-border-info-light: var(--color-semantic-info-background-light);
+  --alert-border-info-dark: var(--color-semantic-info-background-dark);
+  --alert-text-info-light: var(--color-semantic-info-content-light);
+  --alert-text-info-dark: var(--color-semantic-info-content-dark);
+  --alert-background-success-light: var(
+    --color-semantic-success-background-light
+  );
+  --alert-background-success-dark: var(
+    --color-semantic-success-background-dark
+  );
+  --alert-border-success-light: var(--color-semantic-success-background-light);
+  --alert-border-success-dark: var(--color-semantic-success-background-dark);
+  --alert-text-success-light: var(--color-semantic-success-content-light);
+  --alert-text-success-dark: var(--color-semantic-success-content-dark);
+  --alert-background-error-light: var(--color-semantic-error-background-light);
+  --alert-background-error-dark: var(--color-semantic-error-background-dark);
+  --alert-border-error-light: var(--color-semantic-error-background-light);
+  --alert-border-error-dark: var(--color-semantic-error-background-dark);
+  --alert-text-error-light: var(--color-semantic-error-content-light);
+  --alert-text-error-dark: var(--color-semantic-error-content-dark);
+  --badge-border-radius: var(--border-radius-sm);
+  --badge-background-neutral-light: var(--color-palette-neutral-300);
+  --badge-background-neutral-dark: var(--color-palette-neutral-700);
+  --badge-border-neutral-light: var(--color-palette-neutral-300);
+  --badge-border-neutral-dark: var(--color-palette-neutral-700);
+  --badge-text-neutral-light: var(--color-palette-neutral-900);
+  --badge-text-neutral-dark: var(--color-palette-neutral-100);
+  --badge-background-emphasis-light: var(
+    --color-semantic-error-background-light
+  );
+  --badge-background-emphasis-dark: var(--color-semantic-error-background-dark);
+  --badge-border-emphasis-light: var(--color-semantic-error-background-light);
+  --badge-border-emphasis-dark: var(--color-semantic-error-background-dark);
+  --badge-text-emphasis-light: var(--color-semantic-error-content-light);
+  --badge-text-emphasis-dark: var(--color-semantic-error-content-dark);
+  --badge-background-warning-light: var(
+    --color-semantic-warning-background-light
+  );
+  --badge-background-warning-dark: var(
+    --color-semantic-warning-background-dark
+  );
+  --badge-border-warning-light: var(--color-semantic-warning-background-light);
+  --badge-border-warning-dark: var(--color-semantic-warning-background-dark);
+  --badge-text-warning-light: var(--color-semantic-warning-content-light);
+  --badge-text-warning-dark: var(--color-semantic-warning-content-dark);
+  --badge-background-info-light: var(--color-semantic-info-background-light);
+  --badge-background-info-dark: var(--color-semantic-info-background-dark);
+  --badge-border-info-light: var(--color-semantic-info-background-light);
+  --badge-border-info-dark: var(--color-semantic-info-background-dark);
+  --badge-text-info-light: var(--color-semantic-info-content-light);
+  --badge-text-info-dark: var(--color-semantic-info-content-dark);
+  --badge-background-success-light: var(
+    --color-semantic-success-background-light
+  );
+  --badge-background-success-dark: var(
+    --color-semantic-success-background-dark
+  );
+  --badge-border-success-light: var(--color-semantic-success-background-light);
+  --badge-border-success-dark: var(--color-semantic-success-background-dark);
+  --badge-text-success-light: var(--color-semantic-success-content-light);
+  --badge-text-success-dark: var(--color-semantic-success-content-dark);
+  --badge-background-error-light: var(--color-semantic-error-background-light);
+  --badge-background-error-dark: var(--color-semantic-error-background-dark);
+  --badge-border-error-light: var(--color-semantic-error-background-light);
+  --badge-border-error-dark: var(--color-semantic-error-background-dark);
+  --badge-text-error-light: var(--color-semantic-error-content-light);
+  --badge-text-error-dark: var(--color-semantic-error-content-dark);
+  --badge-background-more-light: var(--color-palette-secondary-700);
+  --badge-background-more-dark: var(--color-palette-secondary-700);
+  --badge-border-more-light: var(--color-palette-secondary-700);
+  --badge-border-more-dark: var(--color-palette-secondary-700);
+  --badge-text-more-light: var(--color-palette-secondary-50);
+  --badge-text-more-dark: var(--color-palette-secondary-50);
+  --badge-background-less-light: var(--color-palette-primary-500);
+  --badge-background-less-dark: var(--color-palette-primary-500);
+  --badge-border-less-light: var(--color-palette-primary-500);
+  --badge-border-less-dark: var(--color-palette-primary-500);
+  --badge-text-less-light: var(--color-palette-primary-50);
+  --badge-text-less-dark: var(--color-palette-primary-50);
+  --shadow-none: 0 0 0 0 rgba(255, 255, 255, 0);
+  --shadow-subtle-light: 0 0 10px 0 var(--color-palette-neutral-200);
+  --shadow-subtle-dark: 0 0 10px 0 var(--color-palette-neutral-900);
+  --shadow-standard-light: 0 0 15px 0 var(--color-palette-neutral-300);
+  --shadow-standard-dark: 0 0 15px 0 var(--color-palette-neutral-900);
+  --shadow-strong-light: 0 0 20px 0 var(--color-palette-neutral-400);
+  --shadow-strong-dark: 0 0 20px 0 var(--color-palette-neutral-950);
+  --shadow-raised-light: 4px 4px 10px 0 var(--color-palette-neutral-300);
+  --shadow-raised-dark: 4px 4px 10px 0 var(--color-palette-neutral-900);
+  --shadow-focus-ring-light:
+    0 0 0 2 var(--color-base-white), 0 0 0 4 var(--color-base-black);
+  --shadow-focus-ring-dark:
+    0 0 0 2 var(--color-base-black), 0 0 0 4 var(--legacy-color-white);
+  --font-typography-heading-special-xxl-screen-default-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-special-xxl-screen-default-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-special-xxl-screen-default-line-height: var(
+    --line-height-3
+  );
+  --font-typography-heading-special-xxl-screen-default-font-size: var(
+    --font-size-4xl
+  );
+  --font-typography-heading-special-xxl-screen-default-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-special-xxl-screen-tablet-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-special-xxl-screen-tablet-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-special-xxl-screen-tablet-line-height: var(
+    --line-height-3
+  );
+  --font-typography-heading-special-xxl-screen-tablet-font-size: var(
+    --font-size-4xl
+  );
+  --font-typography-heading-special-xxl-screen-tablet-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-special-xxl-screen-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-special-xxl-screen-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-special-xxl-screen-desktop-line-height: var(
+    --line-height-4
+  );
+  --font-typography-heading-special-xxl-screen-desktop-font-size: var(
+    --font-size-4xl
+  );
+  --font-typography-heading-special-xxl-screen-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-special-xxl-screen-big-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-special-xxl-screen-big-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-special-xxl-screen-big-desktop-line-height: var(
+    --line-height-3
+  );
+  --font-typography-heading-special-xxl-screen-big-desktop-font-size: var(
+    --font-size-4xl
+  );
+  --font-typography-heading-special-xxl-screen-big-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-special-xl-screen-default-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-special-xl-screen-default-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-special-xl-screen-default-line-height: var(
+    --line-height-5
+  );
+  --font-typography-heading-special-xl-screen-default-font-size: var(
+    --font-size-3xl
+  );
+  --font-typography-heading-special-xl-screen-default-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-special-xl-screen-tablet-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-special-xl-screen-tablet-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-special-xl-screen-tablet-line-height: var(
+    --line-height-5
+  );
+  --font-typography-heading-special-xl-screen-tablet-font-size: var(
+    --font-size-3xl
+  );
+  --font-typography-heading-special-xl-screen-tablet-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-special-xl-screen-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-special-xl-screen-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-special-xl-screen-desktop-line-height: var(
+    --line-height-5
+  );
+  --font-typography-heading-special-xl-screen-desktop-font-size: var(
+    --legacy-font-size-5
+  );
+  --font-typography-heading-special-xl-screen-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-special-xl-screen-big-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-special-xl-screen-big-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-special-xl-screen-big-desktop-line-height: var(
+    --line-height-5
+  );
+  --font-typography-heading-special-xl-screen-big-desktop-font-size: var(
+    --legacy-font-size-5
+  );
+  --font-typography-heading-special-xl-screen-big-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-main-section-screen-default-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-main-section-screen-default-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-main-section-screen-default-line-height: var(
+    --line-height-6
+  );
+  --font-typography-heading-main-section-screen-default-font-size: var(
+    --font-size-2xl
+  );
+  --font-typography-heading-main-section-screen-default-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-main-section-screen-tablet-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-main-section-screen-tablet-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-main-section-screen-tablet-line-height: var(
+    --line-height-6
+  );
+  --font-typography-heading-main-section-screen-tablet-font-size: var(
+    --legacy-font-size-4
+  );
+  --font-typography-heading-main-section-screen-tablet-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-main-section-screen-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-main-section-screen-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-main-section-screen-desktop-line-height: var(
+    --line-height-6
+  );
+  --font-typography-heading-main-section-screen-desktop-font-size: var(
+    --font-size-7
+  );
+  --font-typography-heading-main-section-screen-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-main-section-screen-big-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-main-section-screen-big-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-main-section-screen-big-desktop-line-height: var(
+    --line-height-6
+  );
+  --font-typography-heading-main-section-screen-big-desktop-font-size: var(
+    --font-size-7
+  );
+  --font-typography-heading-main-section-screen-big-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-l-screen-default-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-l-screen-default-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-l-screen-default-line-height: var(--line-height-6);
+  --font-typography-heading-l-screen-default-font-size: var(--font-size-2xl);
+  --font-typography-heading-l-screen-default-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-l-screen-tablet-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-l-screen-tablet-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-l-screen-tablet-line-height: var(--line-height-6);
+  --font-typography-heading-l-screen-tablet-font-size: var(
+    --legacy-font-size-4
+  );
+  --font-typography-heading-l-screen-tablet-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-l-screen-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-l-screen-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-l-screen-desktop-line-height: var(--line-height-6);
+  --font-typography-heading-l-screen-desktop-font-size: var(--font-size-7);
+  --font-typography-heading-l-screen-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-l-screen-big-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-l-screen-big-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-l-screen-big-desktop-line-height: var(
+    --line-height-6
+  );
+  --font-typography-heading-l-screen-big-desktop-font-size: var(--font-size-7);
+  --font-typography-heading-l-screen-big-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-light-screen-default-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-light-screen-default-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-light-screen-default-line-height: var(
+    --line-height-7
+  );
+  --font-typography-heading-light-screen-default-font-size: var(--font-size-xl);
+  --font-typography-heading-light-screen-default-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-light-screen-tablet-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-light-screen-tablet-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-light-screen-tablet-line-height: var(
+    --line-height-6
+  );
+  --font-typography-heading-light-screen-tablet-font-size: var(--font-size-2xl);
+  --font-typography-heading-light-screen-tablet-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-light-screen-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-light-screen-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-light-screen-desktop-line-height: var(
+    --line-height-6
+  );
+  --font-typography-heading-light-screen-desktop-font-size: var(--font-size-7);
+  --font-typography-heading-light-screen-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-light-screen-big-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-light-screen-big-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-light-screen-big-desktop-line-height: var(
+    --line-height-6
+  );
+  --font-typography-heading-light-screen-big-desktop-font-size: var(
+    --font-size-7
+  );
+  --font-typography-heading-light-screen-big-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-screen-default-font-family: var(--font-family-lato);
+  --font-typography-heading-screen-default-font-weight: var(--font-weight-bold);
+  --font-typography-heading-screen-default-line-height: var(--line-height-7);
+  --font-typography-heading-screen-default-font-size: var(--font-size-xl);
+  --font-typography-heading-screen-default-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-screen-tablet-font-family: var(--font-family-lato);
+  --font-typography-heading-screen-tablet-font-weight: var(--font-weight-bold);
+  --font-typography-heading-screen-tablet-line-height: var(--line-height-6);
+  --font-typography-heading-screen-tablet-font-size: var(--font-size-2xl);
+  --font-typography-heading-screen-tablet-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-screen-desktop-font-family: var(--font-family-lato);
+  --font-typography-heading-screen-desktop-font-weight: var(--font-weight-bold);
+  --font-typography-heading-screen-desktop-line-height: var(--line-height-6);
+  --font-typography-heading-screen-desktop-font-size: var(--font-size-7);
+  --font-typography-heading-screen-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-screen-big-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-screen-big-desktop-font-weight: var(
+    --font-weight-bold
+  );
+  --font-typography-heading-screen-big-desktop-line-height: var(
+    --line-height-6
+  );
+  --font-typography-heading-screen-big-desktop-font-size: var(--font-size-7);
+  --font-typography-heading-screen-big-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-s-screen-default-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-s-screen-default-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-s-screen-default-line-height: var(--line-height-7);
+  --font-typography-heading-s-screen-default-font-size: var(--font-size-xl);
+  --font-typography-heading-s-screen-default-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-s-screen-tablet-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-s-screen-tablet-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-s-screen-tablet-line-height: var(--line-height-7);
+  --font-typography-heading-s-screen-tablet-font-size: var(--font-size-xl);
+  --font-typography-heading-s-screen-tablet-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-s-screen-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-s-screen-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-s-screen-desktop-line-height: var(--line-height-7);
+  --font-typography-heading-s-screen-desktop-font-size: var(--font-size-xl);
+  --font-typography-heading-s-screen-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-s-screen-big-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-s-screen-big-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-s-screen-big-desktop-line-height: var(
+    --line-height-7
+  );
+  --font-typography-heading-s-screen-big-desktop-font-size: var(--font-size-xl);
+  --font-typography-heading-s-screen-big-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-xs-screen-default-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-xs-screen-default-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-xs-screen-default-line-height: var(--line-height-8);
+  --font-typography-heading-xs-screen-default-font-size: var(--font-size-base);
+  --font-typography-heading-xs-screen-default-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-xs-screen-tablet-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-xs-screen-tablet-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-xs-screen-tablet-line-height: var(--line-height-8);
+  --font-typography-heading-xs-screen-tablet-font-size: var(--font-size-base);
+  --font-typography-heading-xs-screen-tablet-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-xs-screen-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-xs-screen-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-xs-screen-desktop-line-height: var(--line-height-8);
+  --font-typography-heading-xs-screen-desktop-font-size: var(--font-size-base);
+  --font-typography-heading-xs-screen-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-heading-xs-screen-big-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-heading-xs-screen-big-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-heading-xs-screen-big-desktop-line-height: var(
+    --line-height-8
+  );
+  --font-typography-heading-xs-screen-big-desktop-font-size: var(
+    --font-size-base
+  );
+  --font-typography-heading-xs-screen-big-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-l-strong-screen-default-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-text-l-strong-screen-default-font-weight: var(
+    --font-weight-bold
+  );
+  --font-typography-text-l-strong-screen-default-line-height: var(
+    --line-height-7
+  );
+  --font-typography-text-l-strong-screen-default-font-size: var(--font-size-lg);
+  --font-typography-text-l-strong-screen-default-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-l-strong-screen-tablet-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-text-l-strong-screen-tablet-font-weight: var(
+    --font-weight-bold
+  );
+  --font-typography-text-l-strong-screen-tablet-line-height: var(
+    --line-height-9
+  );
+  --font-typography-text-l-strong-screen-tablet-font-size: var(--font-size-xl);
+  --font-typography-text-l-strong-screen-tablet-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-l-strong-screen-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-text-l-strong-screen-desktop-font-weight: var(
+    --font-weight-bold
+  );
+  --font-typography-text-l-strong-screen-desktop-line-height: var(
+    --line-height-9
+  );
+  --font-typography-text-l-strong-screen-desktop-font-size: var(--font-size-xl);
+  --font-typography-text-l-strong-screen-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-l-strong-screen-big-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-text-l-strong-screen-big-desktop-font-weight: var(
+    --font-weight-bold
+  );
+  --font-typography-text-l-strong-screen-big-desktop-line-height: var(
+    --line-height-9
+  );
+  --font-typography-text-l-strong-screen-big-desktop-font-size: var(
+    --font-size-xl
+  );
+  --font-typography-text-l-strong-screen-big-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-l-screen-default-font-family: var(--font-family-lato);
+  --font-typography-text-l-screen-default-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-text-l-screen-default-line-height: var(--line-height-7);
+  --font-typography-text-l-screen-default-font-size: var(--font-size-lg);
+  --font-typography-text-l-screen-default-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-l-screen-tablet-font-family: var(--font-family-lato);
+  --font-typography-text-l-screen-tablet-font-weight: var(--font-weight-normal);
+  --font-typography-text-l-screen-tablet-line-height: var(--line-height-9);
+  --font-typography-text-l-screen-tablet-font-size: var(--font-size-xl);
+  --font-typography-text-l-screen-tablet-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-l-screen-desktop-font-family: var(--font-family-lato);
+  --font-typography-text-l-screen-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-text-l-screen-desktop-line-height: var(--line-height-9);
+  --font-typography-text-l-screen-desktop-font-size: var(--font-size-xl);
+  --font-typography-text-l-screen-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-l-screen-big-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-text-l-screen-big-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-text-l-screen-big-desktop-line-height: var(--line-height-9);
+  --font-typography-text-l-screen-big-desktop-font-size: var(--font-size-xl);
+  --font-typography-text-l-screen-big-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-strong-screen-default-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-text-strong-screen-default-font-weight: var(
+    --font-weight-bold
+  );
+  --font-typography-text-strong-screen-default-line-height: var(
+    --line-height-10
+  );
+  --font-typography-text-strong-screen-default-font-size: var(--font-size-base);
+  --font-typography-text-strong-screen-default-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-strong-screen-tablet-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-text-strong-screen-tablet-font-weight: var(
+    --font-weight-semibold
+  );
+  --font-typography-text-strong-screen-tablet-line-height: var(--line-height-7);
+  --font-typography-text-strong-screen-tablet-font-size: var(--font-size-base);
+  --font-typography-text-strong-screen-tablet-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-strong-screen-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-text-strong-screen-desktop-font-weight: var(
+    --font-weight-bold
+  );
+  --font-typography-text-strong-screen-desktop-line-height: var(
+    --line-height-7
+  );
+  --font-typography-text-strong-screen-desktop-font-size: var(--font-size-base);
+  --font-typography-text-strong-screen-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-strong-screen-big-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-text-strong-screen-big-desktop-font-weight: var(
+    --font-weight-bold
+  );
+  --font-typography-text-strong-screen-big-desktop-line-height: var(
+    --line-height-7
+  );
+  --font-typography-text-strong-screen-big-desktop-font-size: var(
+    --font-size-base
+  );
+  --font-typography-text-strong-screen-big-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-screen-default-font-family: var(--font-family-lato);
+  --font-typography-text-screen-default-font-weight: var(--font-weight-normal);
+  --font-typography-text-screen-default-line-height: var(--line-height-10);
+  --font-typography-text-screen-default-font-size: var(--font-size-base);
+  --font-typography-text-screen-default-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-screen-tablet-font-family: var(--font-family-lato);
+  --font-typography-text-screen-tablet-font-weight: var(--font-weight-normal);
+  --font-typography-text-screen-tablet-line-height: var(--line-height-7);
+  --font-typography-text-screen-tablet-font-size: var(--font-size-base);
+  --font-typography-text-screen-tablet-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-screen-desktop-font-family: var(--font-family-lato);
+  --font-typography-text-screen-desktop-font-weight: var(--font-weight-normal);
+  --font-typography-text-screen-desktop-line-height: var(--line-height-7);
+  --font-typography-text-screen-desktop-font-size: var(--font-size-base);
+  --font-typography-text-screen-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-screen-big-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-text-screen-big-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-text-screen-big-desktop-line-height: var(--line-height-7);
+  --font-typography-text-screen-big-desktop-font-size: var(--font-size-base);
+  --font-typography-text-screen-big-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-s-screen-default-font-family: var(--font-family-lato);
+  --font-typography-text-s-screen-default-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-text-s-screen-default-line-height: var(--line-height-8);
+  --font-typography-text-s-screen-default-font-size: var(--font-size-sm);
+  --font-typography-text-s-screen-default-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-s-screen-tablet-font-family: var(--font-family-lato);
+  --font-typography-text-s-screen-tablet-font-weight: var(--font-weight-normal);
+  --font-typography-text-s-screen-tablet-line-height: var(--line-height-8);
+  --font-typography-text-s-screen-tablet-font-size: var(--font-size-sm);
+  --font-typography-text-s-screen-tablet-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-s-screen-desktop-font-family: var(--font-family-lato);
+  --font-typography-text-s-screen-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-text-s-screen-desktop-line-height: var(--line-height-8);
+  --font-typography-text-s-screen-desktop-font-size: var(--font-size-sm);
+  --font-typography-text-s-screen-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-s-screen-big-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-text-s-screen-big-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-text-s-screen-big-desktop-line-height: var(--line-height-8);
+  --font-typography-text-s-screen-big-desktop-font-size: var(--font-size-sm);
+  --font-typography-text-s-screen-big-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-xs-screen-default-font-family: var(--font-family-lato);
+  --font-typography-text-xs-screen-default-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-text-xs-screen-default-line-height: var(--line-height-11);
+  --font-typography-text-xs-screen-default-font-size: var(--font-size-xs);
+  --font-typography-text-xs-screen-default-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-xs-screen-tablet-font-family: var(--font-family-lato);
+  --font-typography-text-xs-screen-tablet-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-text-xs-screen-tablet-line-height: var(--line-height-11);
+  --font-typography-text-xs-screen-tablet-font-size: var(--font-size-xs);
+  --font-typography-text-xs-screen-tablet-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-xs-screen-desktop-font-family: var(--font-family-lato);
+  --font-typography-text-xs-screen-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-text-xs-screen-desktop-line-height: var(--line-height-11);
+  --font-typography-text-xs-screen-desktop-font-size: var(--font-size-xs);
+  --font-typography-text-xs-screen-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-text-xs-screen-big-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-text-xs-screen-big-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-text-xs-screen-big-desktop-line-height: var(
+    --line-height-11
+  );
+  --font-typography-text-xs-screen-big-desktop-font-size: var(--font-size-xs);
+  --font-typography-text-xs-screen-big-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-quote-l-screen-default-font-family: var(--font-family-lato);
+  --font-typography-quote-l-screen-default-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-quote-l-screen-default-line-height: var(--line-height-7);
+  --font-typography-quote-l-screen-default-font-size: var(--font-size-lg);
+  --font-typography-quote-l-screen-default-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-quote-l-screen-tablet-font-family: var(--font-family-lato);
+  --font-typography-quote-l-screen-tablet-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-quote-l-screen-tablet-line-height: var(--line-height-7);
+  --font-typography-quote-l-screen-tablet-font-size: var(--font-size-lg);
+  --font-typography-quote-l-screen-tablet-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-quote-l-screen-desktop-font-family: var(--font-family-lato);
+  --font-typography-quote-l-screen-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-quote-l-screen-desktop-line-height: var(--line-height-7);
+  --font-typography-quote-l-screen-desktop-font-size: var(--font-size-lg);
+  --font-typography-quote-l-screen-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-quote-l-screen-big-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-quote-l-screen-big-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-quote-l-screen-big-desktop-line-height: var(
+    --line-height-7
+  );
+  --font-typography-quote-l-screen-big-desktop-font-size: var(--font-size-lg);
+  --font-typography-quote-l-screen-big-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-quote-screen-default-font-family: var(--font-family-lato);
+  --font-typography-quote-screen-default-font-weight: var(--font-weight-normal);
+  --font-typography-quote-screen-default-line-height: var(--line-height-10);
+  --font-typography-quote-screen-default-font-size: var(--font-size-base);
+  --font-typography-quote-screen-default-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-quote-screen-tablet-font-family: var(--font-family-lato);
+  --font-typography-quote-screen-tablet-font-weight: var(--font-weight-normal);
+  --font-typography-quote-screen-tablet-line-height: var(--line-height-10);
+  --font-typography-quote-screen-tablet-font-size: var(--font-size-base);
+  --font-typography-quote-screen-tablet-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-quote-screen-desktop-font-family: var(--font-family-lato);
+  --font-typography-quote-screen-desktop-font-weight: var(--font-weight-normal);
+  --font-typography-quote-screen-desktop-line-height: var(--line-height-10);
+  --font-typography-quote-screen-desktop-font-size: var(--font-size-base);
+  --font-typography-quote-screen-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-quote-screen-big-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-quote-screen-big-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-quote-screen-big-desktop-line-height: var(--line-height-10);
+  --font-typography-quote-screen-big-desktop-font-size: var(--font-size-base);
+  --font-typography-quote-screen-big-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-quote-s-screen-default-font-family: var(--font-family-lato);
+  --font-typography-quote-s-screen-default-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-quote-s-screen-default-line-height: var(--line-height-8);
+  --font-typography-quote-s-screen-default-font-size: var(--font-size-sm);
+  --font-typography-quote-s-screen-default-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-quote-s-screen-tablet-font-family: var(--font-family-lato);
+  --font-typography-quote-s-screen-tablet-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-quote-s-screen-tablet-line-height: var(--line-height-8);
+  --font-typography-quote-s-screen-tablet-font-size: var(--font-size-sm);
+  --font-typography-quote-s-screen-tablet-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-quote-s-screen-desktop-font-family: var(--font-family-lato);
+  --font-typography-quote-s-screen-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-quote-s-screen-desktop-line-height: var(--line-height-8);
+  --font-typography-quote-s-screen-desktop-font-size: var(--font-size-sm);
+  --font-typography-quote-s-screen-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --font-typography-quote-s-screen-big-desktop-font-family: var(
+    --font-family-lato
+  );
+  --font-typography-quote-s-screen-big-desktop-font-weight: var(
+    --font-weight-normal
+  );
+  --font-typography-quote-s-screen-big-desktop-line-height: var(
+    --line-height-8
+  );
+  --font-typography-quote-s-screen-big-desktop-font-size: var(--font-size-sm);
+  --font-typography-quote-s-screen-big-desktop-text-case: var(
+    --font-text-transform-normal-case
+  );
+  --edge-basic-default-light-border-width: 1px;
+  --edge-basic-default-light-border-color: var(--color-palette-neutral-300);
+  --edge-basic-default-light-box-shadow: none;
+  --edge-basic-default-dark-border-width: 1px;
+  --edge-basic-default-dark-border-color: var(--color-palette-neutral-600);
+  --edge-basic-default-dark-box-shadow: none;
+  --edge-basic-hover-light-border-width: 1px;
+  --edge-basic-hover-light-border-color: var(--color-palette-primary-500);
+  --edge-basic-hover-light-box-shadow: none;
+  --edge-basic-hover-dark-border-width: 1px;
+  --edge-basic-hover-dark-border-color: var(--color-palette-primary-400);
+  --edge-basic-hover-dark-box-shadow: none;
+  --edge-basic-active-light-border-width: 1px;
+  --edge-basic-active-light-border-color: var(--color-palette-primary-500);
+  --edge-basic-active-light-box-shadow: none;
+  --edge-basic-active-dark-border-width: 1px;
+  --edge-basic-active-dark-border-color: var(--color-palette-neutral-300);
+  --edge-basic-active-dark-box-shadow: none;
+  --edge-subtle-default-light-border-width: 1px;
+  --edge-subtle-default-light-border-color: var(--color-palette-neutral-300);
+  --edge-subtle-default-light-box-shadow: var(--shadow-subtle-light);
+  --edge-subtle-default-dark-border-width: 1px;
+  --edge-subtle-default-dark-border-color: var(--color-palette-neutral-300);
+  --edge-subtle-default-dark-box-shadow: var(--shadow-subtle-dark);
+  --edge-subtle-hover-light-border-width: 1px;
+  --edge-subtle-hover-light-border-color: var(--color-palette-primary-300);
+  --edge-subtle-hover-light-box-shadow: var(--shadow-subtle-light);
+  --edge-subtle-hover-dark-border-width: 1px;
+  --edge-subtle-hover-dark-border-color: var(--color-palette-neutral-300);
+  --edge-subtle-hover-dark-box-shadow: var(--shadow-subtle-dark);
+  --edge-subtle-active-light-border-width: 1px;
+  --edge-subtle-active-light-border-color: var(--color-palette-primary-300);
+  --edge-subtle-active-light-box-shadow: var(--shadow-subtle-light);
+  --edge-subtle-active-dark-border-width: 1px;
+  --edge-subtle-active-dark-border-color: var(--color-palette-neutral-300);
+  --edge-subtle-active-dark-box-shadow: var(--shadow-subtle-dark);
+  --edge-prominent-default-light-border-width: 2px;
+  --edge-prominent-default-light-border-color: var(--color-palette-primary-500);
+  --edge-prominent-default-light-box-shadow: var(--shadow-strong-light);
+  --edge-prominent-default-dark-border-width: 1px;
+  --edge-prominent-default-dark-border-color: var(--color-palette-neutral-500);
+  --edge-prominent-default-dark-box-shadow: var(--shadow-strong-dark);
+  --edge-prominent-hover-light-border-width: 1px;
+  --edge-prominent-hover-light-border-color: var(--color-palette-primary-500);
+  --edge-prominent-hover-light-box-shadow: var(--shadow-strong-light);
+  --edge-prominent-hover-dark-border-width: 1px;
+  --edge-prominent-hover-dark-border-color: var(--color-palette-neutral-200);
+  --edge-prominent-hover-dark-box-shadow: var(--shadow-strong-dark);
+  --edge-prominent-active-light-border-width: 1px;
+  --edge-prominent-active-light-border-color: var(--color-palette-primary-500);
+  --edge-prominent-active-light-box-shadow: var(--shadow-strong-light);
+  --edge-prominent-active-dark-border-width: 1px;
+  --edge-prominent-active-dark-border-color: var(--color-palette-neutral-200);
+  --edge-prominent-active-dark-box-shadow: var(--shadow-strong-dark);
+  --edge-raised-default-light-border-width: 1px;
+  --edge-raised-default-light-border-color: var(--color-palette-neutral-400);
+  --edge-raised-default-light-box-shadow: var(--shadow-raised-light);
+  --edge-raised-default-dark-border-width: 1px;
+  --edge-raised-default-dark-border-color: var(--color-palette-neutral-400);
+  --edge-raised-default-dark-box-shadow: var(--shadow-raised-dark);
+  --edge-raised-hover-light-border-width: 1px;
+  --edge-raised-hover-light-border-color: var(--color-palette-primary-400);
+  --edge-raised-hover-light-box-shadow: var(--shadow-raised-light);
+  --edge-raised-hover-dark-border-width: 1px;
+  --edge-raised-hover-dark-border-color: var(--color-palette-neutral-400);
+  --edge-raised-hover-dark-box-shadow: var(--shadow-raised-dark);
+  --edge-raised-active-light-border-width: 1px;
+  --edge-raised-active-light-border-color: var(--color-palette-primary-400);
+  --edge-raised-active-light-box-shadow: var(--shadow-raised-light);
+  --edge-raised-active-dark-border-width: 1px;
+  --edge-raised-active-dark-border-color: var(--color-palette-neutral-400);
+  --edge-raised-active-dark-box-shadow: var(--shadow-raised-dark);
+  --theme-name: corporate;
+  --color-text-simple-default-light: var(--color-base-black);
+  --color-text-simple-default-dark: var(--color-base-white);
+  --color-text-simple-hover-light: var(--color-base-white);
+  --color-text-simple-hover-dark: var(--color-base-black);
+  --color-text-muted-default-light: var(--color-palette-neutral-700);
+  --color-text-muted-default-dark: var(--color-palette-neutral-400);
+  --color-text-muted-hover-light: var(--color-palette-neutral-500);
+  --color-text-muted-hover-dark: var(--color-palette-neutral-300);
+  --color-text-subtle-default-light: var(--color-palette-neutral-800);
+  --color-text-subtle-default-dark: var(--color-palette-neutral-200);
+  --color-text-subtle-hover-light: var(--color-palette-neutral-800);
+  --color-text-subtle-hover-dark: var(--color-palette-neutral-400);
+  --color-text-basic-default-light: var(--color-palette-neutral-900);
+  --color-text-basic-default-dark: var(--color-palette-neutral-50);
+  --color-text-basic-hover-light: var(--color-palette-primary-500);
+  --color-text-basic-hover-dark: var(--color-palette-primary-50);
+  --color-text-superior-default-light: var(--color-palette-primary-500);
+  --color-text-superior-default-dark: var(--color-palette-primary-50);
+  --color-text-superior-hover-light: var(--color-palette-primary-700);
+  --color-text-superior-hover-dark: var(--color-palette-primary-50);
+  --color-text-prominent-default-light: var(--color-palette-secondary-900);
+  --color-text-prominent-default-dark: var(--color-base-white);
+  --color-text-prominent-hover-light: var(--color-palette-secondary-800);
+  --color-text-prominent-hover-dark: var(--color-palette-secondary-200);
+  --color-text-active-light: var(--legacy-color-white);
+  --color-text-active-dark: var(--color-palette-secondary-900);
+  --color-text-disabled-light: var(--color-palette-neutral-600);
+  --color-text-disabled-dark: var(--color-palette-neutral-700);
+  --color-background-simple-default-light: var(--color-base-white);
+  --color-background-simple-default-dark: var(--color-base-black);
+  --color-background-simple-hover-light: var(--color-base-black);
+  --color-background-simple-hover-dark: var(--color-base-white);
+  --color-background-muted-default-light: var(--color-palette-neutral-50);
+  --color-background-muted-default-dark: var(--color-palette-neutral-900);
+  --color-background-muted-hover-light: var(--color-palette-neutral-200);
+  --color-background-muted-hover-dark: var(--color-palette-neutral-800);
+  --color-background-subtle-default-light: var(--color-palette-neutral-200);
+  --color-background-subtle-default-dark: var(--color-palette-neutral-800);
+  --color-background-subtle-hover-light: var(--color-palette-neutral-400);
+  --color-background-subtle-hover-dark: var(--color-palette-neutral-700);
+  --color-background-basic-default-light: var(--color-palette-neutral-400);
+  --color-background-basic-default-dark: var(--color-palette-neutral-800);
+  --color-background-basic-hover-light: var(--color-palette-neutral-300);
+  --color-background-basic-hover-dark: var(--color-palette-neutral-800);
+  --color-background-superior-default-light: var(--color-palette-primary-500);
+  --color-background-superior-default-dark: var(--color-brand-intercars-red);
+  --color-background-superior-hover-light: var(--color-palette-primary-300);
+  --color-background-superior-hover-dark: var(--color-brand-intercars-red);
+  --color-background-prominent-default-light: var(
+    --color-palette-secondary-100
+  );
+  --color-background-prominent-default-dark: var(--color-brand-intercars-navy);
+  --color-background-prominent-hover-light: var(--color-palette-secondary-950);
+  --color-background-prominent-hover-dark: var(--color-palette-secondary-100);
+  --color-background-active-light: var(--color-palette-secondary-900);
+  --color-background-active-dark: var(--color-palette-secondary-50);
+  --color-background-disabled-light: var(--color-palette-neutral-200);
+  --color-background-disabled-dark: var(--color-palette-neutral-800);
+  --color-border-simple-default-light: var(--color-base-white);
+  --color-border-simple-default-dark: var(--color-base-black);
+  --color-border-simple-hover-light: var(--color-base-black);
+  --color-border-simple-hover-dark: var(--color-base-white);
+  --color-border-muted-default-light: var(--color-palette-neutral-200);
+  --color-border-muted-default-dark: var(--color-palette-neutral-800);
+  --color-border-muted-hover-light: var(--color-palette-neutral-600);
+  --color-border-muted-hover-dark: var(--color-palette-neutral-400);
+  --color-border-subtle-default-light: var(--color-palette-neutral-400);
+  --color-border-subtle-default-dark: var(--color-palette-neutral-600);
+  --color-border-subtle-hover-light: var(--color-palette-neutral-600);
+  --color-border-subtle-hover-dark: var(--color-palette-neutral-400);
+  --color-border-basic-default-light: var(--color-palette-neutral-600);
+  --color-border-basic-default-dark: var(--color-palette-neutral-950);
+  --color-border-basic-hover-light: var(--color-palette-neutral-600);
+  --color-border-basic-hover-dark: var(--color-palette-neutral-950);
+  --color-border-superior-default-light: var(--color-palette-primary-500);
+  --color-border-superior-default-dark: var(--color-palette-primary-50);
+  --color-border-superior-hover-light: var(--color-palette-primary-300);
+  --color-border-superior-hover-dark: var(--color-palette-primary-500);
+  --color-border-prominent-default-light: var(--color-palette-secondary-300);
+  --color-border-prominent-default-dark: var(--color-brand-intercars-navy);
+  --color-border-prominent-hover-light: var(--color-palette-secondary-400);
+  --color-border-prominent-hover-dark: var(--color-palette-secondary-950);
+  --color-border-active-light: var(--color-palette-secondary-900);
+  --color-border-active-dark: var(--color-palette-secondary-100);
+  --color-border-disabled-light: var(--color-palette-neutral-200);
+  --color-border-disabled-dark: var(--color-palette-neutral-800);
+  --button-color-background-primary-default-light: var(
+    --color-palette-primary-500
+  );
+  --button-color-background-primary-default-dark: var(
+    --color-brand-intercars-red
+  );
+  --button-color-background-primary-hover-light: var(
+    --color-palette-primary-700
+  );
+  --button-color-background-primary-hover-dark: var(
+    --color-palette-primary-700
+  );
+  --button-color-background-primary-outline-default-light: var(
+    --color-base-none
+  );
+  --button-color-background-primary-outline-default-dark: var(
+    --color-base-none
+  );
+  --button-color-background-primary-outline-hover-light: var(
+    --color-palette-primary-500
+  );
+  --button-color-background-primary-outline-hover-dark: var(--color-base-white);
+  --button-color-background-secondary-default-light: var(
+    --color-brand-intercars-navy
+  );
+  --button-color-background-secondary-default-dark: var(--color-base-white);
+  --button-color-background-secondary-hover-light: var(
+    --color-palette-secondary-800
+  );
+  --button-color-background-secondary-hover-dark: var(
+    --color-palette-neutral-700
+  );
+  --button-color-background-secondary-outline-default-light: var(
+    --color-base-none
+  );
+  --button-color-background-secondary-outline-default-dark: var(
+    --color-base-none
+  );
+  --button-color-background-secondary-outline-hover-light: var(
+    --color-palette-neutral-800
+  );
+  --button-color-background-secondary-outline-hover-dark: var(
+    --color-palette-neutral-700
+  );
+  --button-color-background-light-default-light: var(
+    --color-palette-neutral-300
+  );
+  --button-color-background-light-default-dark: var(--color-base-white);
+  --button-color-background-light-hover-light: var(--color-palette-neutral-400);
+  --button-color-background-light-hover-dark: var(--color-palette-neutral-700);
+  --button-color-background-light-outline-default-light: var(--color-base-none);
+  --button-color-background-light-outline-default-dark: var(--color-base-none);
+  --button-color-background-light-outline-hover-light: var(
+    --color-palette-neutral-400
+  );
+  --button-color-background-light-outline-hover-dark: var(--color-base-white);
+  --button-color-border-primary-default-light: var(--color-brand-intercars-red);
+  --button-color-border-primary-default-dark: var(--color-brand-intercars-red);
+  --button-color-border-primary-hover-light: var(--color-palette-primary-700);
+  --button-color-border-primary-hover-dark: var(--color-palette-primary-700);
+  --button-color-border-primary-outline-default-light: var(
+    --color-palette-primary-500
+  );
+  --button-color-border-primary-outline-default-dark: var(--color-base-white);
+  --button-color-border-primary-outline-hover-light: var(
+    --color-palette-primary-500
+  );
+  --button-color-border-primary-outline-hover-dark: var(--color-base-white);
+  --button-color-border-secondary-default-light: var(
+    --color-palette-neutral-800
+  );
+  --button-color-border-secondary-default-dark: var(--color-base-white);
+  --button-color-border-secondary-hover-light: var(
+    --color-palette-secondary-800
+  );
+  --button-color-border-secondary-hover-dark: var(--color-palette-neutral-700);
+  --button-color-border-secondary-outline-default-light: var(
+    --color-brand-intercars-navy
+  );
+  --button-color-border-secondary-outline-default-dark: var(
+    --color-palette-secondary-100
+  );
+  --button-color-border-secondary-outline-hover-light: var(
+    --color-palette-neutral-800
+  );
+  --button-color-border-secondary-outline-hover-dark: var(
+    --color-palette-neutral-700
+  );
+  --button-color-border-light-default-light: var(--color-palette-neutral-300);
+  --button-color-border-light-default-dark: var(--color-base-white);
+  --button-color-border-light-hover-light: var(--color-palette-neutral-400);
+  --button-color-border-light-hover-dark: var(--color-palette-neutral-700);
+  --button-color-border-light-outline-default-light: var(
+    --color-brand-intercars-navy
+  );
+  --button-color-border-light-outline-default-dark: var(--color-base-white);
+  --button-color-border-light-outline-hover-light: var(
+    --color-palette-neutral-400
+  );
+  --button-color-border-light-outline-hover-dark: var(--color-base-white);
+  --button-color-text-primary-default-light: var(--color-base-white);
+  --button-color-text-primary-default-dark: var(--color-base-white);
+  --button-color-text-primary-hover-light: var(--color-base-white);
+  --button-color-text-primary-hover-dark: var(--color-base-white);
+  --button-color-text-primary-outline-default-light: var(
+    --color-brand-intercars-red
+  );
+  --button-color-text-primary-outline-default-dark: var(--color-base-white);
+  --button-color-text-primary-outline-hover-light: var(--color-base-white);
+  --button-color-text-primary-outline-hover-dark: var(
+    --color-palette-secondary-950
+  );
+  --button-color-text-secondary-default-light: var(--color-base-white);
+  --button-color-text-secondary-default-dark: var(--color-palette-neutral-900);
+  --button-color-text-secondary-hover-light: var(--color-base-white);
+  --button-color-text-secondary-hover-dark: var(--color-base-white);
+  --button-color-text-secondary-outline-default-light: var(
+    --color-brand-intercars-navy
+  );
+  --button-color-text-secondary-outline-default-dark: var(
+    --color-palette-secondary-100
+  );
+  --button-color-text-secondary-outline-hover-light: var(--color-base-white);
+  --button-color-text-secondary-outline-hover-dark: var(--color-base-white);
+  --button-color-text-light-default-light: var(--color-brand-intercars-navy);
+  --button-color-text-light-default-dark: var(--color-brand-intercars-navy);
+  --button-color-text-light-hover-light: var(--color-palette-secondary-950);
+  --button-color-text-light-hover-dark: var(--color-base-white);
+  --button-color-text-light-outline-default-light: var(
+    --color-brand-intercars-navy
+  );
+  --button-color-text-light-outline-default-dark: var(--color-base-white);
+  --button-color-text-light-outline-hover-light: var(
+    --color-palette-neutral-900
+  );
+  --button-color-text-light-outline-hover-dark: var(
+    --color-palette-secondary-950
+  );
+  --button-border-radius: var(--border-radius-sm);
+  --button-border-border-width: var(--border-border-width-default);
+  --button-space-x-size-gap: var(--space-2);
+  --button-space-x-size-s: var(--space-5);
+  --button-space-x-size-m: var(--space-6);
+  --button-space-x-size-l: var(--space-6);
+  --button-space-y-size-s: var(--space-3);
+  --button-space-y-size-m: var(--space-3);
+  --button-space-y-size-l: var(--space-4);
+  --button-font-typography-size-s-font-family: var(--font-family-lato);
+  --button-font-typography-size-s-font-weight: var(--font-weight-normal);
+  --button-font-typography-size-s-line-height: var(--line-height-11);
+  --button-font-typography-size-s-font-size: var(--font-size-sm);
+  --button-font-typography-size-s-text-case: var(
+    --font-text-transform-uppercase
+  );
+  --button-font-typography-size-m-font-family: var(--font-family-lato);
+  --button-font-typography-size-m-font-weight: var(--font-weight-normal);
+  --button-font-typography-size-m-line-height: var(--line-height-10);
+  --button-font-typography-size-m-font-size: var(--legacy-font-size-2);
+  --button-font-typography-size-m-text-case: var(
+    --font-text-transform-uppercase
+  );
+  --button-font-typography-size-l-font-family: var(--font-family-lato);
+  --button-font-typography-size-l-font-weight: var(--font-weight-normal);
+  --button-font-typography-size-l-line-height: var(--line-height-9);
+  --button-font-typography-size-l-font-size: var(--font-size-lg);
+  --button-font-typography-size-l-text-case: var(
+    --font-text-transform-uppercase
+  );
+  --button-size-min-width-s: 128;
+  --button-size-min-width-m: 180;
+  --button-size-min-width-l: 180;
+  --link-color-text-superior-default-light: var(
+    --color-text-superior-default-light
+  );
+  --link-color-text-superior-default-dark: var(--color-base-white);
+  --link-color-text-superior-hover-light: var(
+    --color-text-superior-hover-light
+  );
+  --link-color-text-superior-hover-dark: var(--color-palette-primary-100);
+  --link-color-text-prominent-default-light: var(--color-palette-secondary-800);
+  --link-color-text-prominent-default-dark: var(
+    --color-text-prominent-default-dark
+  );
+  --link-color-text-prominent-hover-light: var(--color-palette-secondary-900);
+  --link-color-text-prominent-hover-dark: var(
+    --color-text-prominent-hover-dark
+  );
+  --link-color-text-basic-default-light: var(--color-text-basic-default-light);
+  --link-color-text-basic-default-dark: var(--color-base-white);
+  --link-color-text-basic-hover-light: var(--color-palette-neutral-700);
+  --link-color-text-basic-hover-dark: var(--color-text-basic-hover-dark);
+  --link-color-text-subtle-default-light: var(
+    --color-text-subtle-default-light
+  );
+  --link-color-text-subtle-default-dark: var(--color-text-subtle-default-dark);
+  --link-color-text-subtle-hover-light: var(--color-text-subtle-hover-light);
+  --link-color-text-subtle-hover-dark: var(--color-text-subtle-hover-dark);
+  --link-font-text-decoration-superior-default: var(
+    --font-text-decoration-no-underline
+  );
+  --link-font-text-decoration-superior-hover: var(
+    --font-text-decoration-underline
+  );
+  --link-font-text-decoration-prominent-default: var(
+    --font-text-decoration-no-underline
+  );
+  --link-font-text-decoration-prominent-hover: var(
+    --font-text-decoration-underline
+  );
+  --link-font-text-decoration-basic-default: var(
+    --font-text-decoration-no-underline
+  );
+  --link-font-text-decoration-basic-hover: var(
+    --font-text-decoration-underline
+  );
+  --link-font-text-decoration-subtle-default: var(
+    --font-text-decoration-no-underline
+  );
+  --link-font-text-decoration-subtle-hover: var(
+    --font-text-decoration-underline
+  );
+  --link-font-text-transform-important: var(--font-text-transform-uppercase);
+  --link-font-text-transform-important-2: var(--font-text-transform-uppercase);
+  --color-palette-neutral-50: #fafcfe;
+  --color-palette-neutral-100: #f4f7fa;
+  --color-palette-neutral-200: #ebeff3;
+  --color-palette-neutral-300: #dce1e6;
+  --color-palette-neutral-400: #c3cad1;
+  --color-palette-neutral-500: #a3abb3;
+  --color-palette-neutral-600: #7c848d;
+  --color-palette-neutral-700: #535b63;
+  --color-palette-neutral-800: #323940;
+  --color-palette-neutral-900: #1c2126;
+  --color-palette-neutral-950: #0c0f11;
+  --color-palette-primary-50: #fcebee;
+  --color-palette-primary-100: #f8d0d5;
+  --color-palette-primary-200: #f3afb8;
+  --color-palette-primary-300: #eb8592;
+  --color-palette-primary-400: #e04e61;
+  --color-palette-primary-500: #cf1e35;
+  --color-palette-primary-600: #b2192d;
+  --color-palette-primary-700: #901525;
+  --color-palette-primary-800: #6b101b;
+  --color-palette-primary-900: #440a11;
+  --color-palette-primary-950: #1f0508;
+  --color-palette-secondary-50: #fdfcff;
+  --color-palette-secondary-100: #e9f1ff;
+  --color-palette-secondary-200: #d0e4ff;
+  --color-palette-secondary-300: #9ccaff;
+  --color-palette-secondary-400: #6bb0f5;
+  --color-palette-secondary-500: #4d95d9;
+  --color-palette-secondary-600: #2d7bbd;
+  --color-palette-secondary-700: #0062a0;
+  --color-palette-secondary-800: #00497a;
+  --color-palette-secondary-900: #003256;
+  --color-palette-secondary-950: #001d35;
+  --corner-sharp: var(--border-radius-none);
+  --corner-subtle: var(--border-radius-sm);
+  --corner-default: var(--border-radius-none);
+  --corner-smooth: var(--border-radius-default);
+  --space-grid-gutter-screen-default: var(--space-4);
+  --space-grid-gutter-screen-tablet: var(--space-4);
+  --space-grid-gutter-screen-desktop: var(--space-5);
+  --text-font-emphasis-font-weight: var(--font-weight-bold);
+  --alert-color-background-neutral-light: var(--color-palette-neutral-300);
+  --alert-color-background-neutral-dark: var(--color-palette-neutral-700);
+  --alert-color-background-emphasis-light: var(
+    --color-semantic-error-background-light
+  );
+  --alert-color-background-emphasis-dark: var(
+    --color-semantic-error-background-dark
+  );
+  --alert-color-background-warning-light: var(
+    --color-semantic-warning-background-light
+  );
+  --alert-color-background-warning-dark: var(
+    --color-semantic-warning-background-dark
+  );
+  --alert-color-background-info-light: var(
+    --color-semantic-info-background-light
+  );
+  --alert-color-background-info-dark: var(
+    --color-semantic-info-background-dark
+  );
+  --alert-color-background-success-light: var(
+    --color-semantic-success-background-light
+  );
+  --alert-color-background-success-dark: var(
+    --color-semantic-success-background-dark
+  );
+  --alert-color-background-error-light: var(
+    --color-semantic-error-background-light
+  );
+  --alert-color-background-error-dark: var(
+    --color-semantic-error-background-dark
+  );
+  --alert-color-border-neutral-light: var(--color-palette-neutral-300);
+  --alert-color-border-neutral-dark: var(--color-palette-neutral-700);
+  --alert-color-border-emphasis-light: var(
+    --color-semantic-error-background-light
+  );
+  --alert-color-border-emphasis-dark: var(
+    --color-semantic-error-background-dark
+  );
+  --alert-color-border-warning-light: var(
+    --color-semantic-warning-background-light
+  );
+  --alert-color-border-warning-dark: var(
+    --color-semantic-warning-background-dark
+  );
+  --alert-color-border-info-light: var(--color-semantic-info-background-light);
+  --alert-color-border-info-dark: var(--color-semantic-info-background-dark);
+  --alert-color-border-success-light: var(
+    --color-semantic-success-background-light
+  );
+  --alert-color-border-success-dark: var(
+    --color-semantic-success-background-dark
+  );
+  --alert-color-border-error-light: var(
+    --color-semantic-error-background-light
+  );
+  --alert-color-border-error-dark: var(--color-semantic-error-background-dark);
+  --alert-color-text-neutral-light: var(--color-palette-neutral-900);
+  --alert-color-text-neutral-dark: var(--color-palette-neutral-100);
+  --alert-color-text-emphasis-light: var(--color-semantic-error-content-light);
+  --alert-color-text-emphasis-dark: var(--color-semantic-error-content-dark);
+  --alert-color-text-warning-light: var(--color-semantic-warning-content-light);
+  --alert-color-text-warning-dark: var(--color-semantic-warning-content-dark);
+  --alert-color-text-info-light: var(--color-semantic-info-content-light);
+  --alert-color-text-info-dark: var(--color-semantic-info-content-dark);
+  --alert-color-text-success-light: var(--color-semantic-success-content-light);
+  --alert-color-text-success-dark: var(--color-semantic-success-content-dark);
+  --alert-color-text-error-light: var(--color-semantic-error-content-light);
+  --alert-color-text-error-dark: var(--color-semantic-error-content-dark);
+  --legacy-color-black: #333333;
+  --legacy-color-white: #ffffff;
+  --legacy-color-blue: #3f72ff;
+  --legacy-color-brand-red: #cf1e35;
+  --legacy-color-brand-navy: #2c3b4c;
+  --legacy-color-primary: #cf1e35;
+  --legacy-color-secondary: #2c3b4c;
+  --legacy-color-highlight-interactive-primary: #cf1e35;
+  --legacy-color-highlight-interactive-secondary: #2c3b4c;
+  --legacy-color-background-image-placeholder: #d6d6d6;
+  --legacy-color-invalid: #cf1e35;
+  --legacy-color-gray100: #f8f8fa;
+  --legacy-color-gray200: #e4e3e6;
+  --legacy-color-gray300: #d9dade;
+  --legacy-color-gray400: #c2c4cb;
+  --legacy-color-gray500: #65707c;
+  --legacy-separators-primary-height: 1px;
+  --legacy-separators-primary-width: 90px;
+  --legacy-separators-primary-fill: #cf1e35;
+  --legacy-separators-secondary-height: 1px;
+  --legacy-separators-secondary-width: 90px;
+  --legacy-separators-secondary-fill: #c2c4cb;
+  --legacy-max-width-content: 1280px;
+  --legacy-max-width-article-content: 656px;
+  --legacy-font-size-0: 10px;
+  --legacy-font-size-1: 12px;
+  --legacy-font-size-2: 16px;
+  --legacy-font-size-3: 20px;
+  --legacy-font-size-4: 24px;
+  --legacy-font-size-5: 30px;
+  --legacy-font-size-6: 40px;
+  --legacy-font-size-7: 52px;
+  --legacy-border-box-color: #d9dade;
+  --legacy-border-box-width: 1px;
+  --legacy-border-box-style: solid;
+  --legacy-border-input-color: #acacbb;
+  --legacy-border-input-width: 1px;
+  --legacy-border-input-style: solid;
+  --legacy-border-separator-color: #c0c0cd;
+  --legacy-border-separator-width: 1px;
+  --legacy-border-separator-style: solid;
+  --legacy-border-vertical-text-separator-color: #919198;
+  --legacy-border-vertical-text-separator-width: 1px;
+  --legacy-border-vertical-text-separator-style: solid;
+  --legacy-shadow-primary: 0 0 0 2px rgba(0, 123, 255, 0.5);
+  --legacy-shadow-secondary: 0 0 2px 0.1rem rgba(207, 30, 53, 0.8);
+  --legacy-shadow-box-light: 1px 1px 2px 1px rgba(0, 0, 0, 0.1);
+  --nav-item-font-text-transform: var(--font-text-transform-uppercase);
+  --lang-selector-font-text-transform: var(--font-text-transform-uppercase);
+  --badge-color-background-neutral-light: var(--color-palette-neutral-300);
+  --badge-color-background-neutral-dark: var(--color-palette-neutral-700);
+  --badge-color-background-emphasis-light: var(
+    --color-semantic-error-background-light
+  );
+  --badge-color-background-emphasis-dark: var(
+    --color-semantic-error-background-dark
+  );
+  --badge-color-background-warning-light: var(
+    --color-semantic-warning-background-light
+  );
+  --badge-color-background-warning-dark: var(
+    --color-semantic-warning-background-dark
+  );
+  --badge-color-background-info-light: var(
+    --color-semantic-info-background-light
+  );
+  --badge-color-background-info-dark: var(
+    --color-semantic-info-background-dark
+  );
+  --badge-color-background-success-light: var(
+    --color-semantic-success-background-light
+  );
+  --badge-color-background-success-dark: var(
+    --color-semantic-success-background-dark
+  );
+  --badge-color-background-error-light: var(
+    --color-semantic-error-background-light
+  );
+  --badge-color-background-error-dark: var(
+    --color-semantic-error-background-dark
+  );
+  --badge-color-background-more-light: var(--color-palette-secondary-700);
+  --badge-color-background-more-dark: var(--color-palette-secondary-700);
+  --badge-color-background-less-light: var(--color-palette-primary-500);
+  --badge-color-background-less-dark: var(--color-palette-primary-500);
+  --badge-color-border-neutral-light: var(--color-palette-neutral-300);
+  --badge-color-border-neutral-dark: var(--color-palette-neutral-700);
+  --badge-color-border-emphasis-light: var(
+    --color-semantic-error-background-light
+  );
+  --badge-color-border-emphasis-dark: var(
+    --color-semantic-error-background-dark
+  );
+  --badge-color-border-warning-light: var(
+    --color-semantic-warning-background-light
+  );
+  --badge-color-border-warning-dark: var(
+    --color-semantic-warning-background-dark
+  );
+  --badge-color-border-info-light: var(--color-semantic-info-background-light);
+  --badge-color-border-info-dark: var(--color-semantic-info-background-dark);
+  --badge-color-border-success-light: var(
+    --color-semantic-success-background-light
+  );
+  --badge-color-border-success-dark: var(
+    --color-semantic-success-background-dark
+  );
+  --badge-color-border-error-light: var(
+    --color-semantic-error-background-light
+  );
+  --badge-color-border-error-dark: var(--color-semantic-error-background-dark);
+  --badge-color-border-more-light: var(--color-palette-secondary-700);
+  --badge-color-border-more-dark: var(--color-palette-secondary-700);
+  --badge-color-border-less-light: var(--color-palette-primary-500);
+  --badge-color-border-less-dark: var(--color-palette-primary-500);
+  --badge-color-text-neutral-light: var(--color-palette-neutral-900);
+  --badge-color-text-neutral-dark: var(--color-palette-neutral-100);
+  --badge-color-text-emphasis-light: var(--color-semantic-error-content-light);
+  --badge-color-text-emphasis-dark: var(--color-semantic-error-content-dark);
+  --badge-color-text-warning-light: var(--color-semantic-warning-content-light);
+  --badge-color-text-warning-dark: var(--color-semantic-warning-content-dark);
+  --badge-color-text-info-light: var(--color-semantic-info-content-light);
+  --badge-color-text-info-dark: var(--color-semantic-info-content-dark);
+  --badge-color-text-success-light: var(--color-semantic-success-content-light);
+  --badge-color-text-success-dark: var(--color-semantic-success-content-dark);
+  --badge-color-text-error-light: var(--color-semantic-error-content-light);
+  --badge-color-text-error-dark: var(--color-semantic-error-content-dark);
+  --badge-color-text-more-light: var(--color-palette-secondary-50);
+  --badge-color-text-more-dark: var(--color-palette-secondary-50);
+  --badge-color-text-less-light: var(--color-palette-primary-50);
+  --badge-color-text-less-dark: var(--color-palette-primary-50);
+  --badge-font-typography-font-family: var(--font-family-lato);
+  --badge-font-typography-font-weight: var(--font-weight-bold);
+  --badge-font-typography-font-size: var(--font-size-xs);
+  --badge-font-typography-line-height: var(--line-height-13);
+  --badge-font-typography-text-decoration: var(
+    --font-text-decoration-no-underline
+  );
+  --badge-font-typography-text-case: var(--font-text-transform-uppercase);
+  --badge-border-radius: var(--border-radius-sm);
+}
