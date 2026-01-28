@@ -73,7 +73,7 @@
 
   <style>
     :root {
-      --color-background: var(--color-background-simple-default-light);
+      --color-background: #ffffff;
       --color-foreground: #333333;
       --color-primary: #cf1e35;
       --color-primary-hover: #901525;
@@ -405,24 +405,54 @@
       width: auto;
     }
 
-    .header-nav {
+    .main-nav {
       display: none;
       align-items: center;
       gap: 24px;
     }
 
-    .header-nav a {
+    .main-nav.show {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--color-background);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      z-index: 51;
+      border-top: 1px solid rgba(118, 118, 118, 0.1);
+      padding: 24px 16px;
+    }
+
+    .main-nav a {
       color: var(--color-foreground);
       text-decoration: none;
       font-size: 15px;
       font-weight: 400;
       white-space: nowrap;
       transition: color 0.2s;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(44, 59, 76, 0.1);
+      width: 100%;
     }
 
-    .header-nav a:hover,
-    .header-nav a.active {
+    .main-nav.show a {
+      border-bottom: 1px solid rgba(44, 59, 76, 0.1);
+    }
+
+    .main-nav a:last-child {
+      border-bottom: none;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
       color: var(--color-primary);
+    }
+
+    .main-nav a:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 4px;
     }
 
     .mobile-menu-btn {
@@ -432,44 +462,6 @@
       color: var(--color-foreground);
       padding: 8px;
       cursor: pointer;
-    }
-
-    .mobile-nav {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: var(--color-background);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-      z-index: 51;
-      border-top: 1px solid rgba(118, 118, 118, 0.1);
-    }
-
-    .mobile-nav.show {
-      display: block;
-    }
-
-    .mobile-nav-content {
-      padding: 24px 16px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .mobile-nav a {
-      padding: 16px 0;
-      color: var(--color-foreground);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(44, 59, 76, 0.1);
-      transition: color 0.3s;
-    }
-
-    .mobile-nav a:hover {
-      color: var(--color-primary);
-    }
-
-    .mobile-nav a:last-child {
-      border-bottom: none;
     }
 
     .mobile-menu-overlay {
@@ -1355,19 +1347,31 @@
         display: block;
       }
 
-      .header-nav {
+      .main-nav {
         display: flex;
+        flex-direction: row;
+        position: static;
+        padding: 0;
+        box-shadow: none;
+        border-top: none;
+        width: auto;
+      }
+
+      .main-nav a {
+        padding: 0;
+        border-bottom: none;
+        width: auto;
       }
 
       .mobile-menu-btn {
         display: none;
       }
 
-      .header-nav {
+      .main-nav {
         gap: 32px;
       }
 
-      .header-nav a {
+      .main-nav a {
         font-size: 16px;
       }
 
@@ -1394,7 +1398,7 @@
     }
 
     @media (min-width: 1280px) {
-      .header-nav {
+      .main-nav {
         gap: 32px;
       }
     }
@@ -1601,19 +1605,18 @@
   <header id="main-header" class="main-header">
     <div class="header-container">
       <div class="header-content">
-        <a href="#hero" class="header-logo">
-          <img src="https://intercars.com.pl/_next/static/media/ic_logo.69071cb7.svg" alt="Inter Cars" />
+        <a href="#"
+          class="header-logo">
+          <img src="https://cdn.intercars.eu/files/1/3/8/5/8/1/138581.webp" alt="Inter Cars" />
         </a>
 
 
-        <nav class="header-nav">
-          <a href="#hero">Promocja</a>
-          <a href="#jak-odebrac">Jak odebrać bonus</a>
-          <a href="#marki">Marki</a>
-          <a href="#ekspert">Zostań ekspertem</a>
+        <nav id="main-nav" class="main-nav">
+          <a href="#jak-odebrac">Jak odebrać bonus?</a>
+          <a href="#marki">Marki objęte promocją</a>
           <a href="#strefa-techniczna">Strefa techniczna</a>
+          <a href="#ekspert">Zostań ekspertem</a>
         </nav>
-
 
         <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -1624,17 +1627,6 @@
           </svg>
         </button>
       </div>
-
-
-      <nav id="mobile-nav" class="mobile-nav">
-        <div class="mobile-nav-content">
-          <a href="#hero" class="mobile-link">Promocja</a>
-          <a href="#jak-odebrac" class="mobile-link">Jak odebrać bonus</a>
-          <a href="#marki" class="mobile-link">Marki</a>
-          <a href="#ekspert" class="mobile-link">Zostań ekspertem</a>
-          <a href="#strefa-techniczna" class="mobile-link">Strefa techniczna</a>
-        </div>
-      </nav>
     </div>
   </header>
 
@@ -2206,7 +2198,7 @@
     function handleNavClick(e, href) {
       e.preventDefault();
 
-      const nav = document.getElementById('mobile-nav');
+      const nav = document.getElementById('main-nav');
       if (nav.classList.contains('show')) {
         toggleMobileMenu();
       }
@@ -2236,7 +2228,7 @@
     });
 
     const menuBtn = document.getElementById('mobile-menu-btn');
-    const nav = document.getElementById('mobile-nav');
+    const nav = document.getElementById('main-nav');
     const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
 
     function toggleMobileMenu() {
