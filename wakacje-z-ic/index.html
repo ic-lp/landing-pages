@@ -1,2575 +1,479 @@
 <!DOCTYPE html>
-<html lang="pl">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>xxxxxx</title>
-  <meta name="description"
-    content="xxxxxx" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wdth,wght@0,75..125,200..900;1,75..125,200..900&display=block"
-    rel="stylesheet">
-  <style>
-    html:not(.fonts-loaded) {
-      background-color: #2c3b4c;
-    }
-
-    html:not(.fonts-loaded) body {
-      opacity: 0;
-    }
-
-    body {
-      transition: opacity 0.4s ease-in;
-    }
-
-    html.fonts-loaded body {
-      opacity: 1;
-    }
-  </style>
-  <script>
-    (function () {
-      const reveal = () => document.documentElement.classList.add("fonts-loaded");
-      if ("fonts" in document) {
-        document.fonts.ready.then(reveal);
-        setTimeout(reveal, 1500);
-      } else {
-        reveal();
-      }
-    })();
-  </script>
-  <link rel="apple-touch-icon" sizes="57x57" href="https://cdn.intercars.eu/files/icons/apple-icon-57x57.png" />
-  <link rel="apple-touch-icon" sizes="60x60" href="https://cdn.intercars.eu/files/icons/apple-icon-60x60.png" />
-  <link rel="apple-touch-icon" sizes="72x72" href="https://cdn.intercars.eu/files/icons/apple-icon-72x72.png" />
-  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.intercars.eu/files/icons/apple-icon-76x76.png" />
-  <link rel="apple-touch-icon" sizes="114x114" href="https://cdn.intercars.eu/files/icons/apple-icon-114x114.png" />
-  <link rel="apple-touch-icon" sizes="120x120" href="https://cdn.intercars.eu/files/icons/apple-icon-120x120.png" />
-  <link rel="apple-touch-icon" sizes="144x144" href="https://cdn.intercars.eu/files/icons/apple-icon-144x144.png" />
-  <link rel="apple-touch-icon" sizes="152x152" href="https://cdn.intercars.eu/files/icons/apple-icon-152x152.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.intercars.eu/files/icons/apple-icon-180x180.png" />
-  <link rel="icon" type="image/png" sizes="192x192"
-    href="https://cdn.intercars.eu/files/icons/android-icon-192x192.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.intercars.eu/files/icons/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="96x96" href="https://cdn.intercars.eu/files/icons/favicon-96x96.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.intercars.eu/files/icons/favicon-16x16.png" />
-  <meta name="msapplication-TileColor" content="#ffffff" />
-  <meta name="msapplication-TileImage" content="https://cdn.intercars.eu/files/icons/ms-icon-144x144.png" />
-  <meta name="theme-color" content="#ffffff" />
-  <meta property="og:title" content="xxxxxx" />
-  <meta property="og:description"
-    content="xxxxxx" />
-  <meta property="og:url" content="https://example.com" />
-  <meta property="og:site_name" content="xxxxxx" />
-  <meta property="og:image" content="https://cdn.intercars.eu/files/icons/og.png" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="pl_PL" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="xxxxxx" />
-  <meta name="twitter:description"
-    content="xxxxxx" />
-  <meta name="twitter:image" content="https://cdn.intercars.eu/files/icons/og.png" />
-
-  <style>
-    :root {
-      --space-0: 0px;
-      --space-1: 4px;
-      --space-2: 8px;
-      --space-3: 12px;
-      --space-4: 16px;
-      --space-5: 24px;
-      --space-6: 32px;
-      --space-7: 48px;
-      --space-8: 64px;
-      --space-9: 96px;
-      --space-10: 128px;
-      --space-11: 192px;
-      --space-12: 256px;
-      --space-13: 384px;
-      --space-14: 512px;
-      --space-15: 640px;
-      --space-16: 768px;
-      --space-17: 896px;
-      --space-18: 1024px;
-      --size-0: var(--space-0);
-      --size-1: var(--space-1);
-      --size-2: var(--space-2);
-      --size-3: var(--space-3);
-      --size-4: var(--space-4);
-      --size-5: var(--space-5);
-      --size-6: var(--space-6);
-      --size-7: var(--space-7);
-      --size-8: var(--space-8);
-      --size-9: var(--space-9);
-      --size-10: var(--space-10);
-      --size-11: var(--space-11);
-      --size-12: var(--space-12);
-      --size-13: var(--space-13);
-      --size-14: var(--space-14);
-      --size-15: var(--space-15);
-      --size-16: var(--space-16);
-      --size-17: var(--space-17);
-      --size-18: var(--space-18);
-      --border-radius-none: 0px;
-      --border-radius-sm: 2px;
-      --border-radius-default: 4px;
-      --border-radius-md: 6px;
-      --border-radius-lg: 8px;
-      --border-radius-2xl: 16px;
-      --border-radius-3xl: 24px;
-      --border-radius-full: 9999px;
-      --border-width-0: 0px;
-      --border-width-2: 2px;
-      --border-width-4: 4px;
-      --border-width-8: 8px;
-      --border-width-default: 1px;
-      --corner-sharp: var(--border-radius-none);
-      --corner-subtle: var(--border-radius-sm);
-      --corner-default: var(--border-radius-none);
-      --corner-smooth: var(--border-radius-default);
-      --opacity-5: 0.05;
-      --opacity-10: 0.1;
-      --opacity-20: 0.2;
-      --opacity-40: 0.4;
-      --opacity-60: 0.6;
-      --opacity-80: 0.8;
-      --opacity-90: 0.9;
-      --color-base-white: #ffffff;
-      --color-base-black: #000000;
-      --color-base-none: rgba(0, 0, 0, 0);
-      --color-base-white-transparent: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-      --color-base-transparent-white: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
-      --color-base-black-transparent: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
-      --color-base-transparent-black: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
-      --color-palette-neutral-50: #fafcfe;
-      --color-palette-neutral-100: #f4f7fa;
-      --color-palette-neutral-200: #ebeff3;
-      --color-palette-neutral-300: #dce1e6;
-      --color-palette-neutral-400: #c3cad1;
-      --color-palette-neutral-500: #a3abb3;
-      --color-palette-neutral-600: #7c848d;
-      --color-palette-neutral-700: #535b63;
-      --color-palette-neutral-800: #323940;
-      --color-palette-neutral-900: #1c2126;
-      --color-palette-neutral-950: #0c0f11;
-      --color-palette-primary-50: #fcebee;
-      --color-palette-primary-100: #f8d0d5;
-      --color-palette-primary-200: #f3afb8;
-      --color-palette-primary-300: #eb8592;
-      --color-palette-primary-400: #e04e61;
-      --color-palette-primary-500: #cf1e35;
-      --color-palette-primary-600: #b2192d;
-      --color-palette-primary-700: #901525;
-      --color-palette-primary-800: #6b101b;
-      --color-palette-primary-900: #440a11;
-      --color-palette-primary-950: #1f0508;
-      --color-palette-secondary-50: #fdfcff;
-      --color-palette-secondary-100: #e9f1ff;
-      --color-palette-secondary-200: #d0e4ff;
-      --color-palette-secondary-300: #9ccaff;
-      --color-palette-secondary-400: #6bb0f5;
-      --color-palette-secondary-500: #4d95d9;
-      --color-palette-secondary-600: #2d7bbd;
-      --color-palette-secondary-700: #0062a0;
-      --color-palette-secondary-800: #00497a;
-      --color-palette-secondary-900: #003256;
-      --color-palette-secondary-950: #001d35;
-      --color-brand-intercars-red: #cf1e35;
-      --color-brand-intercars-navy: #2c3b4c;
-      --color-semantic-success-background-light: #d1ffd5;
-      --color-semantic-success-background-dark: #005d1a;
-      --color-semantic-success-content-light: var(--color-semantic-success-background-dark);
-      --color-semantic-success-content-dark: var(--color-semantic-success-background-light);
-      --color-semantic-info-background-light: #caddff;
-      --color-semantic-info-background-dark: #003b73;
-      --color-semantic-info-content-light: var(--color-semantic-info-background-dark);
-      --color-semantic-info-content-dark: var(--color-semantic-info-background-light);
-      --color-semantic-warning-background-light: #fffbcb;
-      --color-semantic-warning-background-dark: #7e430d;
-      --color-semantic-warning-content-light: var(--color-semantic-warning-background-dark);
-      --color-semantic-warning-content-dark: var(--color-semantic-warning-background-light);
-      --color-semantic-error-background-light: #fcd5da;
-      --color-semantic-error-background-dark: #800;
-      --color-semantic-error-content-light: var(--color-semantic-error-background-dark);
-      --color-semantic-error-content-dark: var(--color-semantic-error-background-light);
-      --color-semantic-required-background-light: #fcd5da;
-      --color-semantic-required-background-dark: #cf1e35;
-      --color-semantic-required-content-light: var(--color-semantic-required-background-dark);
-      --color-semantic-required-content-dark: var(--color-semantic-required-background-light);
-      --color-text-simple-default-light: var(--color-base-black);
-      --color-text-simple-default-dark: var(--color-base-white);
-      --color-text-simple-hover-light: var(--color-base-white);
-      --color-text-simple-hover-dark: var(--color-base-black);
-      --color-text-muted-default-light: var(--color-palette-neutral-700);
-      --color-text-muted-default-dark: var(--color-palette-neutral-400);
-      --color-text-muted-hover-light: var(--color-palette-neutral-500);
-      --color-text-muted-hover-dark: var(--color-palette-neutral-300);
-      --color-text-subtle-default-light: var(--color-palette-neutral-800);
-      --color-text-subtle-default-dark: var(--color-palette-neutral-200);
-      --color-text-subtle-hover-light: var(--color-palette-neutral-800);
-      --color-text-subtle-hover-dark: var(--color-palette-neutral-400);
-      --color-text-basic-default-light: var(--color-palette-neutral-900);
-      --color-text-basic-default-dark: var(--color-palette-neutral-50);
-      --color-text-basic-hover-light: var(--color-palette-primary-500);
-      --color-text-basic-hover-dark: var(--color-palette-primary-50);
-      --color-text-superior-default-light: var(--color-palette-primary-500);
-      --color-text-superior-default-dark: var(--color-palette-primary-50);
-      --color-text-superior-hover-light: var(--color-palette-primary-700);
-      --color-text-superior-hover-dark: var(--color-palette-primary-50);
-      --color-text-prominent-default-light: var(--color-palette-secondary-900);
-      --color-text-prominent-default-dark: var(--color-base-white);
-      --color-text-prominent-hover-light: var(--color-palette-secondary-800);
-      --color-text-prominent-hover-dark: var(--color-palette-secondary-200);
-      --color-text-active-light: var(--color-base-white);
-      --color-text-active-dark: var(--color-palette-secondary-900);
-      --color-text-disabled-light: var(--color-palette-neutral-600);
-      --color-text-disabled-dark: var(--color-palette-neutral-700);
-      --color-background-simple-default-light: var(--color-base-white);
-      --color-background-simple-default-dark: var(--color-base-black);
-      --color-background-simple-hover-light: var(--color-base-black);
-      --color-background-simple-hover-dark: var(--color-base-white);
-      --color-background-muted-default-light: var(--color-palette-neutral-50);
-      --color-background-muted-default-dark: var(--color-palette-neutral-900);
-      --color-background-muted-hover-light: var(--color-palette-neutral-200);
-      --color-background-muted-hover-dark: var(--color-palette-neutral-800);
-      --color-background-subtle-default-light: var(--color-palette-neutral-200);
-      --color-background-subtle-default-dark: var(--color-palette-neutral-800);
-      --color-background-subtle-hover-light: var(--color-palette-neutral-400);
-      --color-background-subtle-hover-dark: var(--color-palette-neutral-700);
-      --color-background-basic-default-light: var(--color-palette-neutral-400);
-      --color-background-basic-default-dark: var(--color-palette-neutral-800);
-      --color-background-basic-hover-light: var(--color-palette-neutral-300);
-      --color-background-basic-hover-dark: var(--color-palette-neutral-800);
-      --color-background-superior-default-light: var(--color-palette-primary-500);
-      --color-background-superior-default-dark: var(--color-brand-intercars-red);
-      --color-background-superior-hover-light: var(--color-palette-primary-300);
-      --color-background-superior-hover-dark: var(--color-brand-intercars-red);
-      --color-background-prominent-default-light: var(--color-palette-secondary-100);
-      --color-background-prominent-default-dark: var(--color-brand-intercars-navy);
-      --color-background-prominent-hover-light: var(--color-palette-secondary-950);
-      --color-background-prominent-hover-dark: var(--color-palette-secondary-100);
-      --color-background-active-light: var(--color-palette-secondary-900);
-      --color-background-active-dark: var(--color-palette-secondary-50);
-      --color-background-disabled-light: var(--color-palette-neutral-200);
-      --color-background-disabled-dark: var(--color-palette-neutral-800);
-      --color-border-simple-default-light: var(--color-base-white);
-      --color-border-simple-default-dark: var(--color-base-black);
-      --color-border-simple-hover-light: var(--color-base-black);
-      --color-border-simple-hover-dark: var(--color-base-white);
-      --color-border-muted-default-light: var(--color-palette-neutral-200);
-      --color-border-muted-default-dark: var(--color-palette-neutral-800);
-      --color-border-muted-hover-light: var(--color-palette-neutral-600);
-      --color-border-muted-hover-dark: var(--color-palette-neutral-400);
-      --color-border-subtle-default-light: var(--color-palette-neutral-400);
-      --color-border-subtle-default-dark: var(--color-palette-neutral-600);
-      --color-border-subtle-hover-light: var(--color-palette-neutral-600);
-      --color-border-subtle-hover-dark: var(--color-palette-neutral-400);
-      --color-border-basic-default-light: var(--color-palette-neutral-600);
-      --color-border-basic-default-dark: var(--color-palette-neutral-950);
-      --color-border-basic-hover-light: var(--color-palette-neutral-600);
-      --color-border-basic-hover-dark: var(--color-palette-neutral-950);
-      --color-border-superior-default-light: var(--color-palette-primary-500);
-      --color-border-superior-default-dark: var(--color-palette-primary-50);
-      --color-border-superior-hover-light: var(--color-palette-primary-300);
-      --color-border-superior-hover-dark: var(--color-palette-primary-500);
-      --color-border-prominent-default-light: var(--color-palette-secondary-300);
-      --color-border-prominent-default-dark: var(--color-brand-intercars-navy);
-      --color-border-prominent-hover-light: var(--color-palette-secondary-400);
-      --color-border-prominent-hover-dark: var(--color-palette-secondary-950);
-      --color-border-active-light: var(--color-palette-secondary-900);
-      --color-border-active-dark: var(--color-palette-secondary-100);
-      --color-border-disabled-light: var(--color-palette-neutral-200);
-      --color-border-disabled-dark: var(--color-palette-neutral-800);
-      --shadow-none: 0 0 0 0 rgba(255, 255, 255, 0);
-      --shadow-subtle-light: 0 0 10px 0 var(--color-palette-neutral-200);
-      --shadow-subtle-dark: 0 0 10px 0 var(--color-palette-neutral-900);
-      --shadow-standard-light: 0 0 15px 0 var(--color-palette-neutral-300);
-      --shadow-standard-dark: 0 0 15px 0 var(--color-palette-neutral-900);
-      --shadow-strong-light: 0 0 20px 0 var(--color-palette-neutral-400);
-      --shadow-strong-dark: 0 0 20px 0 var(--color-palette-neutral-950);
-      --shadow-raised-light: 4px 4px 10px 0 var(--color-palette-neutral-300);
-      --shadow-raised-dark: 4px 4px 10px 0 var(--color-palette-neutral-900);
-      --shadow-focus-ring-light: 0 0 0 2px var(--color-base-white), 0 0 0 4px var(--color-base-black);
-      --shadow-focus-ring-dark: 0 0 0 2px var(--color-base-black), 0 0 0 4px var(--color-base-white);
-      --font-family-lato: Lato, sans-serif;
-      --font-size-xs: 12px;
-      --font-size-sm: 14px;
-      --font-size-base: 16px;
-      --font-size-lg: 18px;
-      --font-size-xl: 20px;
-      --font-size-2xl: 24px;
-      --font-size-3xl: 30px;
-      --font-size-4xl: 36px;
-      --font-size-5xl: 48px;
-      --font-size-6xl: 60px;
-      --font-size-7xl: 72px;
-      --font-size-8xl: 96px;
-      --font-size-9xl: 128px;
-      --font-size-5: 22px;
-      --font-size-7: 26px;
-      --font-size-9: 34px;
-      --font-size-11: 40px;
-      --font-size-12: 46px;
-      --font-size-13: 52px;
-      --font-weight-thin: 100;
-      --font-weight-extralight: 200;
-      --font-weight-light: 300;
-      --font-weight-normal: 400;
-      --font-weight-medium: 500;
-      --font-weight-semibold: 600;
-      --font-weight-bold: 700;
-      --font-weight-extrabold: 800;
-      --font-weight-black: 900;
-      --font-emphasis-weight: var(--font-weight-bold);
-      --line-height-0: 66px;
-      --line-height-1: 56px;
-      --line-height-2: 42px;
-      --line-height-3: 40px;
-      --line-height-4: 50px;
-      --line-height-5: 36px;
-      --line-height-6: 30px;
-      --line-height-7: 24px;
-      --line-height-8: 20px;
-      --line-height-9: 26px;
-      --line-height-10: 22px;
-      --line-height-11: 18px;
-      --line-height-12: 12px;
-      --line-height-13: 8px;
-      --button-min-width: 120px;
-      --button-border-radius: var(--border-radius-sm);
-      --button-border-width: var(--border-width-default);
-      --button-min-width-s: 128px;
-      --button-min-width-m: 180px;
-      --button-min-width-l: 180px;
-      --button-space-gap: var(--space-2);
-      --button-space-x-s: var(--space-5);
-      --button-space-x-m: var(--space-6);
-      --button-space-x-l: var(--space-6);
-      --button-space-y-s: var(--space-3);
-      --button-space-y-m: var(--space-3);
-      --button-space-y-l: var(--space-4);
-      --button-background-primary-default-light: var(--color-palette-primary-500);
-      --button-background-primary-default-dark: var(--color-brand-intercars-red);
-      --button-background-primary-hover-light: var(--color-palette-primary-700);
-      --button-background-primary-hover-dark: var(--color-palette-primary-700);
-      --button-border-primary-default-light: var(--color-brand-intercars-red);
-      --button-border-primary-default-dark: var(--color-brand-intercars-red);
-      --button-border-primary-hover-light: var(--color-palette-primary-700);
-      --button-border-primary-hover-dark: var(--color-palette-primary-700);
-      --button-text-primary-default-light: var(--color-base-white);
-      --button-text-primary-default-dark: var(--color-base-white);
-      --button-text-primary-hover-light: var(--color-base-white);
-      --button-text-primary-hover-dark: var(--color-base-white);
-      --button-background-primary-outline-default-light: var(--color-base-none);
-      --button-background-primary-outline-default-dark: var(--color-base-none);
-      --button-background-primary-outline-hover-light: var(--color-palette-primary-500);
-      --button-background-primary-outline-hover-dark: var(--color-base-white);
-      --button-border-primary-outline-default-light: var(--color-palette-primary-500);
-      --button-border-primary-outline-default-dark: var(--color-base-white);
-      --button-border-primary-outline-hover-light: var(--color-palette-primary-500);
-      --button-border-primary-outline-hover-dark: var(--color-base-white);
-      --button-text-primary-outline-default-light: var(--color-brand-intercars-red);
-      --button-text-primary-outline-default-dark: var(--color-base-white);
-      --button-text-primary-outline-hover-light: var(--color-base-white);
-      --button-text-primary-outline-hover-dark: var(--color-palette-secondary-950);
-      --button-background-secondary-default-light: var(--color-brand-intercars-navy);
-      --button-background-secondary-default-dark: var(--color-base-white);
-      --button-background-secondary-hover-light: var(--color-palette-secondary-800);
-      --button-background-secondary-hover-dark: var(--color-palette-neutral-700);
-      --button-border-secondary-default-light: var(--color-palette-neutral-800);
-      --button-border-secondary-default-dark: var(--color-base-white);
-      --button-border-secondary-hover-light: var(--color-palette-secondary-800);
-      --button-border-secondary-hover-dark: var(--color-palette-neutral-700);
-      --button-text-secondary-default-light: var(--color-base-white);
-      --button-text-secondary-default-dark: var(--color-palette-neutral-900);
-      --button-text-secondary-hover-light: var(--color-base-white);
-      --button-text-secondary-hover-dark: var(--color-base-white);
-      --button-background-secondary-outline-default-light: var(--color-base-none);
-      --button-background-secondary-outline-default-dark: var(--color-base-none);
-      --button-background-secondary-outline-hover-light: var(--color-palette-neutral-800);
-      --button-background-secondary-outline-hover-dark: var(--color-palette-neutral-700);
-      --button-border-secondary-outline-default-light: var(--color-brand-intercars-navy);
-      --button-border-secondary-outline-default-dark: var(--color-palette-secondary-100);
-      --button-border-secondary-outline-hover-light: var(--color-palette-neutral-800);
-      --button-border-secondary-outline-hover-dark: var(--color-palette-neutral-700);
-      --button-text-secondary-outline-default-light: var(--color-brand-intercars-navy);
-      --button-text-secondary-outline-default-dark: var(--color-palette-secondary-100);
-      --button-text-secondary-outline-hover-light: var(--color-base-white);
-      --button-text-secondary-outline-hover-dark: var(--color-base-white);
-      --button-background-light-default-light: var(--color-palette-neutral-300);
-      --button-background-light-default-dark: var(--color-base-white);
-      --button-background-light-hover-light: var(--color-palette-neutral-400);
-      --button-background-light-hover-dark: var(--color-palette-neutral-700);
-      --button-border-light-default-light: var(--color-palette-neutral-300);
-      --button-border-light-default-dark: var(--color-base-white);
-      --button-border-light-hover-light: var(--color-palette-neutral-400);
-      --button-border-light-hover-dark: var(--color-palette-neutral-700);
-      --button-text-light-default-light: var(--color-brand-intercars-navy);
-      --button-text-light-default-dark: var(--color-brand-intercars-navy);
-      --button-text-light-hover-light: var(--color-palette-secondary-950);
-      --button-text-light-hover-dark: var(--color-base-white);
-      --button-background-light-outline-default-light: var(--color-base-none);
-      --button-background-light-outline-default-dark: var(--color-base-none);
-      --button-background-light-outline-hover-light: var(--color-palette-neutral-400);
-      --button-background-light-outline-hover-dark: var(--color-base-white);
-      --button-border-light-outline-default-light: var(--color-brand-intercars-navy);
-      --button-border-light-outline-default-dark: var(--color-base-white);
-      --button-border-light-outline-hover-light: var(--color-palette-neutral-400);
-      --button-border-light-outline-hover-dark: var(--color-base-white);
-      --button-text-light-outline-default-light: var(--color-brand-intercars-navy);
-      --button-text-light-outline-default-dark: var(--color-base-white);
-      --button-text-light-outline-hover-light: var(--color-palette-neutral-900);
-      --button-text-light-outline-hover-dark: var(--color-palette-secondary-950);
-      --link-text-superior-default-light: var(--color-text-superior-default-light);
-      --link-text-superior-default-dark: var(--color-base-white);
-      --link-text-superior-hover-light: var(--color-text-superior-hover-light);
-      --link-text-superior-hover-dark: var(--color-palette-primary-100);
-      --link-text-prominent-default-light: var(--color-palette-secondary-800);
-      --link-text-prominent-default-dark: var(--color-text-prominent-default-dark);
-      --link-text-prominent-hover-light: var(--color-palette-secondary-900);
-      --link-text-prominent-hover-dark: var(--color-text-prominent-hover-dark);
-      --link-text-basic-default-light: var(--color-text-basic-default-light);
-      --link-text-basic-default-dark: var(--color-base-white);
-      --link-text-basic-hover-light: var(--color-palette-neutral-700);
-      --link-text-basic-hover-dark: var(--color-text-basic-hover-dark);
-      --link-text-subtle-default-light: var(--color-text-subtle-default-light);
-      --link-text-subtle-default-dark: var(--color-text-subtle-default-dark);
-      --link-text-subtle-hover-light: var(--color-text-subtle-hover-light);
-      --link-text-subtle-hover-dark: var(--color-text-subtle-hover-dark);
-      --alert-background-neutral-light: var(--color-palette-neutral-300);
-      --alert-background-neutral-dark: var(--color-palette-neutral-700);
-      --alert-border-neutral-light: var(--color-palette-neutral-300);
-      --alert-border-neutral-dark: var(--color-palette-neutral-700);
-      --alert-text-neutral-light: var(--color-palette-neutral-900);
-      --alert-text-neutral-dark: var(--color-palette-neutral-100);
-      --alert-background-emphasis-light: var(--color-semantic-error-background-light);
-      --alert-background-emphasis-dark: var(--color-semantic-error-background-dark);
-      --alert-border-emphasis-light: var(--color-semantic-error-background-light);
-      --alert-border-emphasis-dark: var(--color-semantic-error-background-dark);
-      --alert-text-emphasis-light: var(--color-semantic-error-content-light);
-      --alert-text-emphasis-dark: var(--color-semantic-error-content-dark);
-      --alert-background-warning-light: var(--color-semantic-warning-background-light);
-      --alert-background-warning-dark: var(--color-semantic-warning-background-dark);
-      --alert-border-warning-light: var(--color-semantic-warning-background-light);
-      --alert-border-warning-dark: var(--color-semantic-warning-background-dark);
-      --alert-text-warning-light: var(--color-semantic-warning-content-light);
-      --alert-text-warning-dark: var(--color-semantic-warning-content-dark);
-      --alert-background-info-light: var(--color-semantic-info-background-light);
-      --alert-background-info-dark: var(--color-semantic-info-background-dark);
-      --alert-border-info-light: var(--color-semantic-info-background-light);
-      --alert-border-info-dark: var(--color-semantic-info-background-dark);
-      --alert-text-info-light: var(--color-semantic-info-content-light);
-      --alert-text-info-dark: var(--color-semantic-info-content-dark);
-      --alert-background-success-light: var(--color-semantic-success-background-light);
-      --alert-background-success-dark: var(--color-semantic-success-background-dark);
-      --alert-border-success-light: var(--color-semantic-success-background-light);
-      --alert-border-success-dark: var(--color-semantic-success-background-dark);
-      --alert-text-success-light: var(--color-semantic-success-content-light);
-      --alert-text-success-dark: var(--color-semantic-success-content-dark);
-      --alert-background-error-light: var(--color-semantic-error-background-light);
-      --alert-background-error-dark: var(--color-semantic-error-background-dark);
-      --alert-border-error-light: var(--color-semantic-error-background-light);
-      --alert-border-error-dark: var(--color-semantic-error-background-dark);
-      --alert-text-error-light: var(--color-semantic-error-content-light);
-      --alert-text-error-dark: var(--color-semantic-error-content-dark);
-      --badge-border-radius: var(--border-radius-sm);
-      --badge-background-neutral-light: var(--color-palette-neutral-300);
-      --badge-background-neutral-dark: var(--color-palette-neutral-700);
-      --badge-border-neutral-light: var(--color-palette-neutral-300);
-      --badge-border-neutral-dark: var(--color-palette-neutral-700);
-      --badge-text-neutral-light: var(--color-palette-neutral-900);
-      --badge-text-neutral-dark: var(--color-palette-neutral-100);
-      --badge-background-emphasis-light: var(--color-semantic-error-background-light);
-      --badge-background-emphasis-dark: var(--color-semantic-error-background-dark);
-      --badge-border-emphasis-light: var(--color-semantic-error-background-light);
-      --badge-border-emphasis-dark: var(--color-semantic-error-background-dark);
-      --badge-text-emphasis-light: var(--color-semantic-error-content-light);
-      --badge-text-emphasis-dark: var(--color-semantic-error-content-dark);
-      --badge-background-warning-light: var(--color-semantic-warning-background-light);
-      --badge-background-warning-dark: var(--color-semantic-warning-background-dark);
-      --badge-border-warning-light: var(--color-semantic-warning-background-light);
-      --badge-border-warning-dark: var(--color-semantic-warning-background-dark);
-      --badge-text-warning-light: var(--color-semantic-warning-content-light);
-      --badge-text-warning-dark: var(--color-semantic-warning-content-dark);
-      --badge-background-info-light: var(--color-semantic-info-background-light);
-      --badge-background-info-dark: var(--color-semantic-info-background-dark);
-      --badge-border-info-light: var(--color-semantic-info-background-light);
-      --badge-border-info-dark: var(--color-semantic-info-background-dark);
-      --badge-text-info-light: var(--color-semantic-info-content-light);
-      --badge-text-info-dark: var(--color-semantic-info-content-dark);
-      --badge-background-success-light: var(--color-semantic-success-background-light);
-      --badge-background-success-dark: var(--color-semantic-success-background-dark);
-      --badge-border-success-light: var(--color-semantic-success-background-light);
-      --badge-border-success-dark: var(--color-semantic-success-background-dark);
-      --badge-text-success-light: var(--color-semantic-success-content-light);
-      --badge-text-success-dark: var(--color-semantic-success-content-dark);
-      --badge-background-error-light: var(--color-semantic-error-background-light);
-      --badge-background-error-dark: var(--color-semantic-error-background-dark);
-      --badge-border-error-light: var(--color-semantic-error-background-light);
-      --badge-border-error-dark: var(--color-semantic-error-background-dark);
-      --badge-text-error-light: var(--color-semantic-error-content-light);
-      --badge-text-error-dark: var(--color-semantic-error-content-dark);
-      --badge-background-more-light: var(--color-palette-secondary-700);
-      --badge-background-more-dark: var(--color-palette-secondary-700);
-      --badge-border-more-light: var(--color-palette-secondary-700);
-      --badge-border-more-dark: var(--color-palette-secondary-700);
-      --badge-text-more-light: var(--color-palette-secondary-50);
-      --badge-text-more-dark: var(--color-palette-secondary-50);
-      --badge-background-less-light: var(--color-palette-primary-500);
-      --badge-background-less-dark: var(--color-palette-primary-500);
-      --badge-border-less-light: var(--color-palette-primary-500);
-      --badge-border-less-dark: var(--color-palette-primary-500);
-      --badge-text-less-light: var(--color-palette-primary-50);
-      --badge-text-less-dark: var(--color-palette-primary-50);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Mona Sans', sans-serif;
-      font-optical-sizing: auto;
-      background: var(--color-background-simple-default-light);
-      color: var(--color-text-basic-default-light);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .skip-to-content {
-      position: fixed;
-      top: calc(var(--space-9) * -1);
-      left: 0;
-      background: var(--button-background-primary-default-light);
-      color: var(--button-text-primary-default-light);
-      padding: var(--space-2) var(--space-4);
-      text-decoration: none;
-      z-index: 10002;
-      border-radius: 0 0 var(--border-radius-default) 0;
-    }
-
-    .skip-to-content:focus {
-      top: 0;
-    }
-
-    .header-hat {
-      background: var(--color-brand-intercars-navy);
-      color: var(--color-base-white);
-      position: relative;
-      z-index: 10000;
-    }
-
-    .hat-mobile {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-
-    .hat-mobile-buttons {
-      display: flex;
-      width: 100%;
-      height: var(--space-6);
-      position: relative;
-      z-index: 10001;
-    }
-
-    .hat-btn {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-2);
-      transition: all 0.3s;
-      font-size: var(--font-size-sm);
-      font-weight: var(--font-weight-normal);
-      background: var(--color-brand-intercars-navy);
-      color: var(--color-base-white);
-      border: none;
-      cursor: pointer;
-    }
-
-    .hat-btn:hover {
-      background: var(--color-palette-secondary-100);
-      color: var(--color-brand-intercars-navy);
-    }
-
-    .hat-btn.active {
-      background: var(--color-palette-secondary-100);
-      color: var(--color-brand-intercars-navy);
-    }
-
-    .hat-divider {
-      width: var(--border-width-default);
-      background: rgba(255, 255, 255, var(--opacity-10));
-    }
-
-    .hat-chevron {
-      transition: transform 0.3s;
-    }
-
-    .hat-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 9999;
-      display: none;
-    }
-
-    .hat-overlay.show {
-      display: block;
-    }
-
-    .hat-mobile-content {
-      position: fixed;
-      top: var(--space-6);
-      left: 0;
-      right: 0;
-      background: var(--color-palette-secondary-100);
-      color: var(--color-brand-intercars-navy);
-      z-index: 10000;
-      box-shadow: 0 var(--space-5) var(--space-6) calc(var(--space-1) * -5) rgba(0, 0, 0, var(--opacity-10));
-      overflow: hidden;
-      max-height: calc(100vh - var(--space-6));
-      display: none;
-    }
-
-    .hat-mobile-content.show {
-      display: block;
-    }
-
-    .hat-slider {
-      width: 100%;
-      display: flex;
-      transition: transform 0.3s;
-    }
-
-    .hat-slide {
-      width: 100%;
-      flex-shrink: 0;
-      overflow-y: auto;
-      max-height: calc(100vh - var(--space-6));
-    }
-
-    .hat-link {
-      display: flex;
-      align-items: center;
-      padding: var(--space-3) var(--space-4);
-      border-bottom: var(--border-width-default) solid rgba(44, 59, 76, var(--opacity-10));
-      color: var(--color-brand-intercars-navy);
-      text-decoration: none;
-      font-size: var(--font-size-sm);
-      font-weight: var(--font-weight-normal);
-      transition: background 0.3s;
-    }
-
-    .hat-link:hover {
-      background: rgba(255, 255, 255, var(--opacity-60));
-    }
-
-    .hat-back-btn {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      padding: var(--space-3) var(--space-4);
-      border-bottom: var(--border-width-default) solid rgba(44, 59, 76, var(--opacity-10));
-      color: var(--color-brand-intercars-navy);
-      background: transparent;
-      border-top: none;
-      border-left: none;
-      border-right: none;
-      font-size: var(--font-size-sm);
-      font-weight: var(--font-weight-normal);
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .hat-back-btn:hover {
-      background: rgba(255, 255, 255, var(--opacity-60));
-    }
-
-    .hat-desktop {
-      max-width: 1300px;
-      margin: 0 auto;
-      display: none;
-    }
-
-    .hat-desktop-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: var(--space-6);
-    }
-
-    .hat-desktop-left,
-    .hat-desktop-right {
-      display: flex;
-      align-items: center;
-      height: 100%;
-    }
-
-    .hat-desktop-link {
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      padding: var(--space-0) var(--space-4);
-      height: 100%;
-      color: var(--color-base-white);
-      text-decoration: none;
-      font-size: var(--font-size-xs);
-      font-weight: var(--font-weight-normal);
-      border-left: var(--border-width-default) solid rgba(255, 255, 255, var(--opacity-10));
-      transition: background 0.3s;
-    }
-
-    .hat-desktop-link:hover {
-      background: rgba(255, 255, 255, var(--opacity-5));
-    }
-
-    .hat-desktop-link img {
-      width: var(--space-4);
-      height: auto;
-      opacity: var(--opacity-80);
-    }
-
-    .hat-desktop-divider {
-      height: 100%;
-      border-left: var(--border-width-default) solid rgba(255, 255, 255, var(--opacity-10));
-    }
-
-    .hat-more-dropdown {
-      position: relative;
-      height: 100%;
-    }
-
-    .hat-more-btn {
-      display: flex;
-      align-items: center;
-      gap: var(--space-1);
-      padding: var(--space-0) var(--space-4);
-      height: 100%;
-      color: var(--color-base-white);
-      background: transparent;
-      border: none;
-      font-size: var(--font-size-xs);
-      font-weight: var(--font-weight-normal);
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .hat-more-btn:hover {
-      background: rgba(255, 255, 255, var(--opacity-5));
-    }
-
-    .hat-more-content {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 240px;
-      background: var(--color-brand-intercars-navy);
-      border: var(--border-width-default) solid rgba(255, 255, 255, var(--opacity-10));
-      box-shadow: 0 var(--space-5) var(--space-6) calc(var(--space-1) * -5) rgba(0, 0, 0, var(--opacity-10));
-      padding: var(--space-1) var(--space-0);
-      overflow: hidden;
-      display: none;
-    }
-
-    .hat-more-content.show {
-      display: block;
-    }
-
-    .hat-more-scroll {
-      max-height: 70vh;
-      overflow-y: auto;
-    }
-
-    .hat-more-scroll::-webkit-scrollbar {
-      width: var(--space-1);
-    }
-
-    .hat-more-scroll::-webkit-scrollbar-track {
-      background: var(--color-brand-intercars-navy);
-    }
-
-    .hat-more-scroll::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, var(--opacity-20));
-      border-radius: var(--border-radius-default);
-    }
-
-    .hat-more-scroll::-webkit-scrollbar-thumb:hover {
-      background: rgba(255, 255, 255, var(--opacity-40));
-    }
-
-    .hat-more-link {
-      display: flex;
-      align-items: center;
-      padding: var(--space-2) var(--space-4);
-      color: var(--color-base-white);
-      text-decoration: none;
-      font-size: var(--font-size-xs);
-      font-weight: var(--font-weight-normal);
-      border-bottom: var(--border-width-default) solid rgba(255, 255, 255, var(--opacity-5));
-      transition: background 0.3s;
-    }
-
-    .hat-more-link:last-child {
-      border-bottom: none;
-    }
-
-    .hat-more-link:hover {
-      background: rgba(255, 255, 255, var(--opacity-5));
-    }
-
-    .main-header {
-      position: sticky;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 50;
-      background: var(--color-background-simple-default-light);
-      box-shadow: 0 var(--space-1) var(--space-2) calc(var(--space-1) * -1) rgba(0, 0, 0, var(--opacity-10));
-      transition: all 0.3s;
-    }
-
-    .main-header.scrolled {
-      box-shadow: 0 var(--space-2) var(--space-4) calc(var(--space-1) * -3) rgba(0, 0, 0, var(--opacity-10));
-      border-bottom: var(--border-width-default) solid rgba(118, 118, 118, var(--opacity-10));
-    }
-
-    .header-container {
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-
-    .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: var(--space-8);
-      padding: var(--space-0) var(--space-4);
-    }
-
-    .header-logo img {
-      height: var(--space-5);
-      width: auto;
-    }
-
-    .main-nav {
-      display: none;
-      align-items: center;
-      gap: var(--space-6);
-    }
-
-    .main-nav.show {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: var(--color-background-simple-default-light);
-      box-shadow: 0 var(--space-5) var(--space-6) calc(var(--space-1) * -5) rgba(0, 0, 0, var(--opacity-10));
-      z-index: 51;
-      border-top: var(--border-width-default) solid rgba(118, 118, 118, var(--opacity-10));
-      padding: var(--space-6) var(--space-4);
-    }
-
-    .main-nav a {
-      color: var(--color-text-basic-default-light);
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: var(--font-weight-normal);
-      white-space: nowrap;
-      transition: color 0.2s;
-      padding: var(--space-4) var(--space-0);
-      border-bottom: var(--border-width-default) solid rgba(44, 59, 76, var(--opacity-10));
-      width: 100%;
-    }
-
-    .main-nav.show a {
-      border-bottom: var(--border-width-default) solid rgba(44, 59, 76, var(--opacity-10));
-    }
-
-    .main-nav a:last-child {
-      border-bottom: none;
-    }
-
-    .main-nav a:hover,
-    .main-nav a.active {
-      color: var(--link-text-superior-default-light);
-    }
-
-    .main-nav a:focus-visible {
-      outline: var(--border-width-2) solid var(--link-text-superior-default-light);
-      outline-offset: var(--space-1);
-    }
-
-    .mobile-menu-btn {
-      display: flex;
-      background: transparent;
-      border: none;
-      color: var(--color-text-basic-default-light);
-      padding: var(--space-2);
-      cursor: pointer;
-    }
-
-    .mobile-menu-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 40;
-      display: none;
-    }
-
-    .mobile-menu-overlay.show {
-      display: block;
-    }
-
-    .hero {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      height: calc(100vh - 104px);
-    }
-
-    .hero-video-container {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
-    .hero-video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(4, 14, 28, var(--opacity-90));
-    }
-
-    .hero-svg-shape {
-      position: absolute;
-      right: 0;
-      top: 0;
-      height: 100%;
-      width: auto;
-      object-fit: contain;
-      z-index: 2;
-    }
-
-    .svg-mobile {
-      display: block;
-      left: 0 !important;
-      right: auto !important;
-    }
-
-    .svg-desktop {
-      display: none;
-    }
-
-    @media (min-width: 1024px) {
-      .svg-mobile {
-        display: none;
-      }
-
-      .svg-desktop {
-        display: block;
-        height: 100% !important;
-        right: 0 !important;
-        left: auto !important;
-      }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 10;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-inner {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: var(--space-0) var(--space-4);
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-    }
-
-    .hero-text {
-      width: 100%;
-      text-align: left;
-    }
-
-    .hero-title {
-      color: var(--color-base-white);
-      margin-bottom: var(--space-3);
-      font-size: 70px;
-      font-weight: var(--font-weight-bold);
-      line-height: 1.1;
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
-      text-align: center;
-    }
-
-    .hero-description {
-      font-size: var(--font-size-lg);
-      margin-bottom: var(--space-6);
-      line-height: 1.6;
-      color: var(--color-base-white);
-    }
-
-    .hero-btn-wrapper {
-      position: relative;
-      display: inline-block;
-    }
-
-    .hero-btn-border {
-      position: absolute;
-      inset: calc(var(--border-width-default) * -1);
-      border-radius: var(--button-border-radius);
-      overflow: hidden;
-    }
-
-    @keyframes rotate-border {
-      from {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    .hero-btn {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-      background: var(--button-background-primary-default-light);
-      color: var(--button-text-primary-default-light);
-      padding: var(--space-3) var(--space-6);
-      border-radius: var(--button-border-radius);
-      font-size: var(--font-size-base);
-      text-decoration: none;
-      transition: all 0.3s;
-      box-shadow: 0 var(--space-2) var(--space-4) calc(var(--space-1) * -3) rgba(207, 30, 53, var(--opacity-20));
-      width: fit-content;
-    }
-
-    .hero-btn:hover {
-      background: var(--button-background-primary-hover-light);
-      gap: var(--space-3);
-    }
-
-    @media (max-width: 1023px) {
-      .hero-title {
-        font-size: clamp(2.5rem, 8vw, 4rem);
-      }
-
-      .hero-description {
-        font-size: 16px;
-      }
-
-      .hero-text h2 {
-        font-size: 1.25rem !important;
-      }
-    }
-
-    .section {
-      padding: var(--space-8) var(--space-0);
-    }
-
-    .section-container {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: var(--space-0) var(--space-4);
-    }
-
-    .section-grid {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-7);
-    }
-
-    #strefa-techniczna .section-grid {
-      flex-direction: column-reverse;
-    }
-
-    .section-image {
-      min-height: 500px;
-      height: auto;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      border-radius: var(--button-border-radius);
-      flex-grow: 1;
-    }
-
-    .section-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .section-title {
-      margin-bottom: var(--space-6);
-      font-size: 28px;
-      font-weight: var(--font-weight-bold);
-      line-height: 1.1;
-    }
-
-    .section-text {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-6);
-      font-size: var(--font-size-base);
-      line-height: 1.6;
-      color: rgba(51, 51, 51, var(--opacity-90));
-    }
-
-    .section-text ol {
-      margin-left: var(--space-6);
-    }
-    .section-text ol li {
-      margin-bottom: var(--space-3);
-    }
-
-    .section-text ol li:last-child {
-      margin-bottom: var(--space-0);
-    }
-
-    .section-dark {
-      background: var(--color-brand-intercars-navy);
-      color: var(--color-base-white);
-    }
-
-    .section-dark .section-text {
-      color: rgba(255, 255, 255, var(--opacity-90));
-    }
-
-    .footer {
-      padding: var(--space-7) var(--space-0);
-      background: var(--color-palette-neutral-200);
-    }
-
-    .footer-container {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: var(--space-0) var(--space-4);
-    }
-
-    .footer-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-9);
-      margin-bottom: var(--space-7);
-    }
-
-    .footer-column {
-      flex: 1;
-      min-width: 170px;
-    }
-
-    .footer-column-title {
-      color: var(--color-brand-intercars-navy);
-      font-size: 1rem;
-      margin-bottom: var(--space-4);
-      font-weight: var(--font-weight-bold);
-    }
-
-    .footer-column-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-3);
-      font-size: var(--font-size-sm);
-      color: var(--color-palette-neutral-900);
-    }
-
-    .footer-column-list a {
-      color: var(--color-palette-neutral-900);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .footer-column-list a:hover {
-      color: var(--link-text-superior-default-light);
-      text-decoration: underline;
-    }
-
-    .footer-phone {
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      font-size: var(--font-size-xl);
-      font-weight: var(--font-weight-bold);
-      color: var(--color-palette-neutral-900);
-      margin-bottom: var(--space-4);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .footer-phone:hover {
-      color: var(--link-text-superior-default-light);
-    }
-
-    .footer-phone-label {
-      font-size: var(--font-size-sm);
-      color: var(--color-palette-neutral-900);
-      margin-bottom: var(--space-3);
-    }
-
-    .footer-phone-hours {
-      font-size: var(--font-size-sm);
-      color: var(--color-palette-neutral-900);
-    }
-
-    .footer-address-logo {
-      margin-bottom: var(--space-5);
-      height: 35px;
-      width: auto;
-    }
-
-    .footer-address-name {
-      font-size: var(--font-size-xl);
-      font-weight: var(--font-weight-bold);
-      color: var(--color-palette-neutral-900);
-      margin-bottom: var(--space-3);
-    }
-
-    .footer-address-text {
-      font-size: var(--font-size-sm);
-      color: var(--color-palette-neutral-900);
-      margin-bottom: var(--space-3);
-    }
-
-    .footer-address-text a {
-      color: var(--color-palette-neutral-900);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .footer-address-text a:hover {
-      color: var(--link-text-superior-default-light);
-    }
-
-    .footer-countries {
-      margin-bottom: var(--space-6);
-      position: relative;
-    }
-
-    .footer-countries-btn {
-      background: var(--color-palette-neutral-50);
-      border: var(--border-width-default) solid var(--color-palette-neutral-400);
-      padding: var(--space-3) var(--space-6);
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      font-size: var(--font-size-sm);
-      color: var(--color-palette-neutral-900);
-      cursor: pointer;
-      transition: background 0.3s;
-      border-radius: var(--button-border-radius);
-    }
-
-    .footer-countries-btn:hover {
-      background: var(--color-base-white);
-    }
-
-    .footer-countries-btn.open {
-      border-bottom-left-radius: var(--border-radius-none);
-      border-bottom-right-radius: var(--border-radius-none);
-      border-bottom: none;
-      padding-bottom: 13px;
-      position: relative;
-      z-index: 10;
-      border-bottom-color: transparent;
-    }
-
-    .footer-countries-content {
-      display: none;
-      margin-top: var(--space-0);
-      background: var(--color-palette-neutral-50);
-      border: var(--border-width-default) solid var(--color-palette-neutral-400);
-      border-top: none;
-      border-bottom-left-radius: var(--button-border-radius);
-      border-bottom-right-radius: var(--button-border-radius);
-      overflow: hidden;
-    }
-
-    .footer-countries-content.show {
-      display: block;
-      margin-top: calc(var(--border-width-default) * -1);
-      position: relative;
-      z-index: 0;
-    }
-
-    .footer-countries-inner {
-      padding: var(--space-9) var(--space-7);
-    }
-
-    .footer-countries-header {
-      margin-bottom: var(--space-3);
-    }
-
-    .footer-countries-title {
-      font-size: var(--font-size-base);
-      font-weight: var(--font-weight-bold);
-      color: var(--color-text-basic-default-light);
-      margin-bottom: var(--space-2);
-    }
-
-    .footer-countries-description {
-      font-size: var(--font-size-sm);
-      color: var(--color-text-basic-default-light);
-    }
-
-    .footer-countries-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-2);
-    }
-
-    .footer-country-link {
-      background: var(--color-base-white);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: var(--space-1) var(--space-6);
-      border: var(--border-width-default) solid transparent;
-      border-radius: var(--button-border-radius);
-      transition: all 0.3s;
-      text-decoration: none;
-    }
-
-    .footer-country-link:hover {
-      border-color: var(--link-text-superior-default-light);
-    }
-
-    .footer-country-flag {
-      width: var(--space-5);
-      height: var(--space-5);
-      margin-bottom: var(--space-2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .footer-country-flag img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .footer-country-name {
-      font-size: var(--font-size-xs);
-      text-align: center;
-      color: var(--color-text-basic-default-light);
-      font-weight: var(--font-weight-medium);
-    }
-
-    .footer-bottom {
-      border-top: var(--border-width-default) solid var(--color-palette-neutral-400);
-      padding-top: var(--space-6);
-    }
-
-    .footer-bottom-content {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: var(--space-6);
-    }
-
-    .footer-bottom-links {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: var(--space-6);
-    }
-
-    .footer-bottom-text {
-      font-size: var(--font-size-xs);
-      color: var(--color-palette-neutral-900);
-    }
-
-    .footer-bottom-link {
-      font-size: var(--font-size-xs);
-      color: var(--color-palette-neutral-900);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .footer-bottom-link:hover {
-      color: var(--link-text-superior-default-light);
-      text-decoration: underline;
-    }
-
-    .footer-social {
-      display: flex;
-      align-items: center;
-      gap: var(--space-5);
-    }
-
-    .footer-social a {
-      display: flex;
-      align-items: center;
-      width: var(--space-5);
-      height: var(--space-5);
-    }
-
-    .footer-social img {
-      width: var(--space-5);
-      height: auto;
-    }
-
-
-    .scroll-to-top {
-      position: fixed;
-      bottom: var(--space-9);
-      right: var(--space-6);
-      z-index: 50;
-      background: var(--button-background-primary-default-light);
-      opacity: var(--opacity-90);
-      color: var(--button-text-primary-default-light);
-      padding: var(--space-3);
-      border-radius: var(--button-border-radius);
-      box-shadow: 0 var(--space-1) var(--space-2) calc(var(--space-1) * -1) rgba(0, 0, 0, var(--opacity-10));
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s;
-      display: none;
-    }
-
-    .scroll-to-top.show {
-      display: block;
-    }
-
-    .scroll-to-top:hover {
-      background: rgba(207, 30, 53, var(--opacity-90));
-    }
-
-
-    @media (min-width: 640px) {
-      .hero {
-        height: calc(100vh - var(--space-10));
-      }
-
-      .hero-description {
-        font-size: var(--font-size-xl);
-      }
-
-      .hero-btn {
-        padding: var(--space-4) var(--space-7);
-        font-size: var(--font-size-lg);
-      }
-
-      .header-content {
-        height: var(--space-9);
-      }
-
-      .header-logo img {
-        height: var(--space-6);
-      }
-
-      .section {
-        padding: var(--space-9) var(--space-0);
-      }
-
-      .section-title {
-        font-size: 48px;
-      }
-
-      .section-text {
-        font-size: var(--font-size-lg);
-      }
-
-      .footer-countries-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .footer-bottom-content {
-        flex-direction: row;
-        align-items: center;
-      }
-
-      .footer-bottom-links {
-        flex-direction: row;
-        align-items: center;
-      }
-    }
-
-    @media (min-width: 768px) {
-      .section-grid {
-        flex-direction: row;
-        gap: 48px;
-        align-items: stretch;
-      }
-
-      .section-image {
-        width: 60%;
-        min-height: 500px;
-      }
-
-      .section-content {
-        width: 60%;
-      }
-
-      .section-grid.reverse,
-      #strefa-techniczna .section-grid {
-        flex-direction: row-reverse;
-      }
-
-      .hero-inner {
-        flex-direction: row;
-      }
-
-      .footer-countries-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .hat-mobile {
-        display: none;
-      }
-
-      .hat-desktop {
-        display: block;
-      }
-
-      .main-nav {
-        display: flex;
-        flex-direction: row;
-        position: static;
-        padding: 0;
-        box-shadow: none;
-        border-top: none;
-        width: auto;
-      }
-
-      .main-nav a {
-        padding: 0;
-        border-bottom: none;
-        width: auto;
-      }
-
-      .mobile-menu-btn {
-        display: none;
-      }
-
-      .main-nav {
-        gap: 32px;
-      }
-
-      .main-nav a {
-        font-size: 16px;
-      }
-
-      .section {
-        padding: 96px 0;
-      }
-
-      .footer-countries-grid {
-        grid-template-columns: repeat(8, 1fr);
-      }
-    }
-
-    @media (min-width: 1280px) {
-      .main-nav {
-        gap: 32px;
-      }
-    }
-
-    /* Hero grid promo styles */
-    .hero-grid-promo {
-      display: flex;
-      justify-content: center;
-      flex-direction: column-reverse;
-      gap: 1rem;
-      align-items: center;
-      height: 100%;
-    }
-
-    .hero-text {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      flex: 0;
-    }
-
-    .hero-edenred-image {
-      width: 50vw;
-      max-width: 400px;
-      height: auto;
-      object-fit: contain;
-      margin-top: var(--space-5);
-      margin-bottom: calc(var(--space-5) * -1);
-    }
-
-    @media (min-width: 1024px) {
-      .hero-grid-promo {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-        align-items: center;
-        height: 100%;
-      }
-
-      .hero-text {
-        align-items: flex-start;
-        text-align: left;
-      }
-
-      .hero-title {
-        font-size: 90px;
-        width: auto;
-        margin-left: var(--space-0);
-        text-align: left;
-      }
-
-      .hero-edenred-image {
-        width: auto;
-        height: 70vh;
-        max-width: none;
-      }
-    }
-
-    /* CTA pulse animation - 2 quick pulses, then 3s pause */
-    @keyframes ctaPulseRepeat {
-      0% {
-        transform: scale(1);
-      }
-
-      3.75% {
-        transform: scale(1.05);
-      }
-
-      7.5% {
-        transform: scale(1);
-      }
-
-      11.25% {
-        transform: scale(1.05);
-      }
-
-      15%,
-      100% {
-        transform: scale(1);
-      }
-    }
-
-    #hero .hero-btn {
-      animation: ctaPulseRepeat 4s ease-in-out infinite;
-    }
-
-    #hero .hero-btn:hover {
-      animation: none;
-    }
-  </style>
-</head>
-
-<body>
-  <a href="#main-content" class="skip-to-content">Przeskocz do głównej zawartości</a>
-
-  <div id="hat-overlay" class="hat-overlay"></div>
-  <aside class="header-hat">
-
-    <div class="hat-mobile">
-      <div class="hat-mobile-buttons">
-        <button id="hat-btn-biznes" class="hat-btn" aria-label="Rozwiń menu dla biznesu" aria-expanded="false">
-          Dla biznesu
-          <svg width="14" height="14" viewBox="0 0 129 128" fill="none" xmlns="http://www.w3.org/2000/svg"
-            class="hat-chevron" aria-hidden="true">
-            <path
-              d="M0 33.8261C0 32.8261 0.4 31.9261 1.1 31.1261C1.813 30.4061 2.786 30.0001 3.8 30.0001C4.814 30.0001 5.787 30.4061 6.5 31.1261L64 88.6261L121.5 31.1261C122.213 30.4061 123.186 30.0001 124.2 30.0001C125.214 30.0001 126.187 30.4061 126.9 31.1261C127.62 31.8391 128.026 32.8121 128.026 33.8261C128.026 34.8401 127.62 35.8131 126.9 36.5261L66.7 96.7261C65.987 97.4461 65.014 97.8521 64 97.8521C62.986 97.8521 62.013 97.4461 61.3 96.7261L1.1 36.5261C0.4 35.7261 0 34.8261 0 33.8261Z"
-              fill="currentColor" />
-          </svg>
-        </button>
-        <div class="hat-divider"></div>
-        <button id="hat-btn-kierowca" class="hat-btn" aria-label="Rozwiń menu dla kierowcy" aria-expanded="false">
-          Dla kierowcy
-          <svg width="14" height="14" viewBox="0 0 129 128" fill="none" xmlns="http://www.w3.org/2000/svg"
-            class="hat-chevron" aria-hidden="true">
-            <path
-              d="M0 33.8261C0 32.8261 0.4 31.9261 1.1 31.1261C1.813 30.4061 2.786 30.0001 3.8 30.0001C4.814 30.0001 5.787 30.4061 6.5 31.1261L64 88.6261L121.5 31.1261C122.213 30.4061 123.186 30.0001 124.2 30.0001C125.214 30.0001 126.187 30.4061 126.9 31.1261C127.62 31.8391 128.026 32.8121 128.026 33.8261C128.026 34.8401 127.62 35.8131 126.9 36.5261L66.7 96.7261C65.987 97.4461 65.014 97.8521 64 97.8521C62.986 97.8521 62.013 97.4461 61.3 96.7261L1.1 36.5261C0.4 35.7261 0 34.8261 0 33.8261Z"
-              fill="currentColor" />
-          </svg>
-        </button>
-      </div>
-
-
-      <div id="hat-mobile-content" class="hat-mobile-content">
-        <div id="hat-slider" class="hat-slider">
-
-          <div class="hat-slide" id="hat-list-container"></div>
-
-          <div class="hat-slide">
-            <button id="hat-back-btn" class="hat-back-btn" aria-label="Powrót do poprzedniego menu">
-              <svg width="14" height="14" viewBox="0 0 128 129" fill="none" xmlns="http://www.w3.org/2000/svg"
-                style="margin-right: 12px;" aria-hidden="true">
-                <path
-                  d="M33.8145 128C33.8145 128 33.7885 128 33.7805 128C31.7065 128 30.0005 126.294 30.0005 124.22C30.0005 123.209 30.4055 122.24 31.1245 121.53L88.6545 64L31.1345 6.47C30.4235 5.759 30.0245 4.795 30.0245 3.79C30.0245 1.711 31.7355 0 33.8145 0C34.8195 0 35.7835 0.399 36.4945 1.11L96.7045 61.32C97.4155 62.03 97.8145 62.995 97.8145 64C97.8145 65.005 97.4155 65.97 96.7045 66.68L36.4945 126.89C35.7845 127.601 34.8195 128.001 33.8145 128Z"
-                  fill="currentColor" style="transform: rotate(180deg); transform-origin: center;" />
-              </svg>
-              Powrót
-            </button>
-            <div id="hat-more-list-mobile"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="hat-desktop">
-      <div class="hat-desktop-container">
-        <div class="hat-desktop-left">
-          <a href="https://marketing.intercars.com/pl/e-catalog" target="_blank" class="hat-desktop-link">
-            <img src="https://cdn.intercars.eu/files/icons/ecat.webp" alt="Ikona katalogu e-Catalog">
-            <span>Inter Cars e-Catalog</span>
-          </a>
-          <div class="hat-desktop-divider"></div>
-          <a href="https://intercars.com.pl/" target="_blank" class="hat-desktop-link">Osobowe</a>
-          <div class="hat-desktop-divider"></div>
-          <a href="https://intercars.com.pl/pl/truck" target="_blank" class="hat-desktop-link">Ciężarowe</a>
-          <div class="hat-desktop-divider"></div>
-          <a href="https://intercars.com.pl/pl/motocykle" target="_blank" class="hat-desktop-link">Motocykle</a>
-          <div class="hat-desktop-divider"></div>
-          <a href="https://intercars.com.pl/pl/marine" target="_blank" class="hat-desktop-link">Marine</a>
-          <div class="hat-desktop-divider"></div>
-          <a href="https://intercars.com.pl/pl/przemysl" target="_blank" class="hat-desktop-link">Przemysł</a>
-          <div class="hat-desktop-divider"></div>
-          <a href="https://intercars.com.pl/pl/tuning" target="_blank" class="hat-desktop-link">Tuning</a>
-          <div class="hat-desktop-divider"></div>
-          <a href="https://intercars.com.pl/pl/off-road" target="_blank" class="hat-desktop-link">Off road</a>
-          <div class="hat-desktop-divider"></div>
-
-          <div class="hat-more-dropdown" id="more-dropdown-container">
-            <button id="more-dropdown-btn" class="hat-more-btn" aria-label="Rozwiń dodatkowe menu"
-              aria-expanded="false">
-              Więcej
-              <img src="https://cdn.intercars.eu/files/icons/arrow-down.svg" alt="Ikona strzałki w dół" width="14"
-                height="14" style="opacity: 0.7; transition: transform 0.3s;" aria-hidden="true" />
-            </button>
-            <div id="more-dropdown-content" class="hat-more-content">
-              <div class="hat-more-scroll" id="more-desktop-list"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="hat-desktop-right">
-          <a href="https://intercars.pl/" target="_blank" class="hat-desktop-link">
-            <img src="https://cdn.intercars.eu/files/icons/shop.webp" alt="Ikona koszyka zakupowego">
-            <span>Sklep internetowy</span>
-          </a>
-          <div class="hat-desktop-divider"></div>
-          <a href="https://motointegrator.com/pl/pl/" target="_blank" class="hat-desktop-link">
-            <img src="https://cdn.intercars.eu/files/icons/tools.webp" alt="Ikona kluczy warsztatowych">
-            <span>Znajdź warsztat</span>
-          </a>
-          <div class="hat-desktop-divider"></div>
-          <a href="https://intercars.com.pl/pl/szukaj" target="_blank" class="hat-desktop-link">
-            <img src="https://cdn.intercars.eu/files/icons/search.webp" alt="Ikona lupy">
-            <span>Szukaj</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </aside>
-
-
-  <header id="main-header" class="main-header">
-    <div class="header-container">
-      <div class="header-content">
-        <a href="#"
-          class="header-logo">
-          <img src="https://cdn.intercars.eu/files/1/3/8/5/8/1/138581.webp" alt="Inter Cars" />
-        </a>
-
-
-        <nav id="main-nav" class="main-nav">
-          <a href="#jak-odebrac">Jak odebrać bonus?</a>
-          <a href="#marki">Marki objęte promocją</a>
-          <a href="#strefa-techniczna">Strefa techniczna</a>
-          <a href="#ekspert">Zostań ekspertem</a>
-        </nav>
-
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-
-  <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
-
-
-  <main id="main-content">
-
-    <section id="hero" class="hero">
-      <div class="hero-video-container">
-        <video autoplay muted loop playsinline class="hero-video">
-          <source src="bg.mp4" type="video/mp4" />
-        </video>
-        <svg class="hero-svg-shape svg-mobile" width="300" height="971" viewBox="0 0 300 971" fill="none"
-          xmlns="http://www.w3.org/2000/svg" style="opacity: 0.8;">
-          <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M-3.33834e-07 452L233 -4.22256e-06L-3.33834e-07 2.41893e-05V452Z" fill="#CE1E35" />
-        </svg>
-        <svg class="hero-svg-shape svg-desktop" width="800" height="971" viewBox="0 0 800 971" fill="none"
-          xmlns="http://www.w3.org/2000/svg" style="opacity: 0.8;">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M836.5 0L501.758 1.90735e-05L0 971L836.5 971V0Z"
-            fill="#CE1E35" />
-        </svg>
-        <div class="hero-overlay"></div>
-      </div>
-
-      <div class="hero-content">
-        <div class="hero-inner">
-          <div class="hero-grid-promo">
-            <div class="hero-text">
-              <h1 class="hero-title">Bonus za podwozie</h1>
-              <h2 style="font-size: 2rem; line-height: 1.25; font-weight: 600; color: white; margin:12px 0;">Kupuj części. Zrób obrót. Zgarnij bonus na karcie Edenred!</h2>
-              <p class="hero-description">W terminie od 1 lutego do 30 kwietnia 2026 r. kupuj części układu hamulcowego i zawieszenia oraz amortyzatory wskazanych marek. Zrealizuj swój cel zakupowy i zgarnij bonus w formie doładowania karty Edenred!</p>
-              <div class="hero-btn-wrapper">
-                <a href="https://marketing.intercars.com/pl/e-catalog" target="_blank" class="hero-btn">
-                  Przejdź do promocji
-                  <svg width="20" height="20" viewBox="0 0 128 129" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M33.8145 128C33.8145 128 33.7885 128 33.7805 128C31.7065 128 30.0005 126.294 30.0005 124.22C30.0005 123.209 30.4055 122.24 31.1245 121.53L88.6545 64L31.1345 6.47C30.4235 5.759 30.0245 4.795 30.0245 3.79C30.0245 1.711 31.7355 0 33.8145 0C34.8195 0 35.7835 0.399 36.4945 1.11L96.7045 61.32C97.4155 62.03 97.8145 62.995 97.8145 64C97.8145 65.005 97.4155 65.97 96.7045 66.68L36.4945 126.89C35.7845 127.601 34.8195 128.001 33.8145 128Z"
-                      fill="white" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <img src="hero-img.png" alt="" class="hero-edenred-image"
-              style="filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="jak-odebrac" class="section">
-      <div class="section-container">
-        <div class="section-grid">
-          <div class="section-image" style="background-image: url('karta.png');" role="img"
-            aria-label="Car brake system">
-          </div>
-          <div class="section-content">
-            <h2 class="section-title">Jak odebrać bonus? To naprawdę proste!</h2>
-            <div class="section-text">
-              <ol>
-                <li>Kupuj tarcze, klocki, zaciski, czujniki i przewody hamulcowe, wahacze, łączniki i sworznie, amortyzatory, sprężyny, miechy, mocowania i odboje — wyłącznie od wskazanych marek (pełna lista na dole strony).</li>
-                <li>Zrób wymagany obrót.</li>
-                <li>Odbierz bonus na karcie Edenred.</li>
-              </ol>
-              <p><strong>Wysokość nagrody i indywidualny cel zakupowy sprawdzisz po zalogowaniu na swoje konto w e-Catalog. Promocja obowiązuje od 1 lutego do 30 kwietnia 2026 r.</strong> </p>
-              <a href="https://marketing.intercars.com/pl/e-catalog" target="_blank" class="hero-btn">
-                Zaloguj się teraz
-                <img src="https://cdn.intercars.eu/files/icons/arrow-right.svg" width="20" height="20"
-                  alt="Ikona strzałki w prawo">
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="marki" class="section">
-      <div class="section-container">
-      <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">Marki objęte promocją</h2>
-        <div
-          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; align-items: center; justify-items: center;">
-          <img src="https://cdn.intercars.eu/files/6/0/3/3/2/60332/1478x1108,f.webp" alt="ATE"
-            style="max-width: 126px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/4/1/5/9/5/41595/1478x1108,f.webp" alt="ARNOTT"
-            style="max-width: 150px; height: auto;" />
-            <img src="https://cdn.intercars.eu/files/1/3/8/4/9/2/138492.webp" alt="Bilstein"
-            style="max-width: 150px; height: auto;" />
-            <img src="https://cdn.intercars.eu/files/1/1/8/3/0/4/118304/240x,c.webp" alt="Blue Print"
-              style="max-width: 150px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/1/3/8/2/6/9/138269.svg" alt="Bosch"
-            style="max-width: 150px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/1/3/8/2/7/0/138270.svg" alt="Brembo"
-            style="max-width: 150px; height: auto;" />
-            <img src="https://cdn.intercars.eu/files/1/3/8/4/9/3/138493.webp" alt="CTR"
-            style="max-width: 140px; height: auto;" />
-            <img src="https://cdn.intercars.eu/files/lp/assets/logos/delphi.webp" alt="Delphi"
-              style="max-width: 150px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/1/3/8/2/7/2/138272.svg" alt="Febi Bilstein"
-            style="max-width: 100px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/1/3/8/2/7/3/138273.svg" alt="Ferodo"
-            style="max-width: 150px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/1/3/8/4/9/4/138494.webp" alt="Monroe"
-            style="max-width: 150px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/3/6/1/1/0/36110/1478x1108,f.webp" alt="Moog"
-            style="max-width: 150px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/1/3/8/4/9/5/138495.webp" alt="KYB"
-            style="max-width: 150px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/9/5/1/9/3/95193/240x,c.webp" alt="Lesjofors"
-            style="max-width: 150px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/4/4/8/3/8/44838/240x,c.webp" alt="Meyle"
-            style="max-width: 130px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/lp/assets/logos/ngk.webp" alt="NGK"
-            style="max-width: 130px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/1/0/7/2/3/3/107233/240x,c.webp" alt="Schaeffler"
-            style="max-width: 150px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/lp/assets/logos/fag.webp" alt="FAG"
-            style="max-width: 110px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/1/3/8/4/9/6/138496.webp" alt="Sasic"
-            style="max-width: 140px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/9/2/0/7/8/92078/240x,c.webp" alt="SNR"
-            style="max-width: 140px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/1/3/8/4/9/7/138497.webp" alt="Tedgum"
-            style="max-width: 130px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/6/8/0/7/9/68079/220x220,f.webp" alt="Textar"
-            style="max-width: 130px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/1/3/8/4/9/8/138498.webp" alt="ZF"
-            style="max-width: 120px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/1/9/9/199/240x,c.webp" alt="Lemförder"
-            style="max-width: 150px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/2/1/9/219/240x,c.webp" alt="Sachs"
-            style="max-width: 150px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/1/3/8/2/7/5/138275.svg" alt="TRW"
-            style="max-width: 140px; height: auto;" />
-          <img src="https://cdn.intercars.eu/files/1/3/8/4/9/9/138499.webp" alt="555"
-            style="max-width: 120px; height: auto;" />
-        </div>
-      </div>
-    </section>
-
-    <section id="strefa-techniczna" class="section section-dark">
-      <div class="section-container">
-        <div class="section-grid">
-          <div class="section-content">
-            <h2 class="section-title" style="color: white;">Strefa techniczna</h2>
-            <div class="section-text">
-              <p>Rzetelne informacje i aktualne materiały techniczne – wiedza ekspercka, porady i instrukcje od renomowanych producentów. Wszystko w jednym miejscu!</p>
-              <div class="hero-btn-wrapper" style="margin-top: 2rem;">
-                <div class="hero-btn-border">
-                  <div class="hero-btn-border-inner"></div>
-                </div>
-                <a href="https://intercars.com.pl/pl/informacje/ciekawostki" target="_blank" class="hero-btn">
-                  Chcę wiedzieć więcej
-                  <img src="https://cdn.intercars.eu/files/icons/arrow-right.svg" width="20" height="20"
-                    alt="Ikona strzałki w prawo">
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="section-image" style="background-image: url('techniczna.png');" role="img"
-            aria-label="Technical documentation">
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <section id="ekspert" class="section">
-      <div class="section-container">
-        <div class="section-grid">
-          <div class="section-image"
-            style="background-image: url('https://cdn.intercars.eu/files/1/3/8/0/1/0/138010.webp');" role="img"
-            aria-label="Brake expert">
-          </div>
-          <div class="section-content">
-            <h2 class="section-title">Zostań ekspertem od układów hamulcowych</h2>
-            <div class="section-text">
-              <p>Układy hamulcowe to jedne z najczęściej wykonywanych usług w warsztacie — a jednocześnie jedne z najbardziej odpowiedzialnych. Dlatego w Inter Cars uruchomiliśmy program „Zostań ekspertem od układów hamulcowych”, który realnie wspiera Twój warsztat w:</p>
-              <ul style="padding-left: 24px;">
-                <li>rozwoju kompetencji technicznych i sprzedażowych</li>
-                <li>podnoszeniu standardów pracy przy układach hamulcowych</li>
-                <li>lepszej komunikacji jakości usług z klientem</li>
-                <li>budowaniu zaufania i lojalności klientów</li>
-                </ul>
-                <p> <strong>Podnieś jakość usług, zwiększ zaufanie klientów i rozwijaj swój warsztat z Inter Cars — partnerem, który wspiera Cię wiedzą, szkoleniami i doświadczeniem.</strong></p>
-              <div class="hero-btn-wrapper">
-                <div class="hero-btn-border">
-                  <div class="hero-btn-border-inner"></div>
-                </div>
-                <a href="https://marketing.intercars.com/pl/zostan-ekspertem-od-ukladow-hamulcowych-z-inter-cars" target="_blank" class="hero-btn">
-                  Zostań ekspertem od układów hamulcowych
-                  <img src="https://cdn.intercars.eu/files/icons/arrow-right.svg" width="20" height="20"
-                    alt="Ikona strzałki w prawo">
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-
-  </main>
-  <footer id="footer" class="footer">
-    <div class="footer-container">
-      <div class="footer-grid">
-
-        <div class="footer-column">
-          <h6 class="footer-column-title">O Inter Cars</h6>
-          <ul class="footer-column-list">
-            <li><a href="https://intercars.com.pl/pl/informacje" target="_blank"
-                rel="noopener noreferrer">Informacje</a></li>
-            <li><a href="https://intercars.com.pl/pl/OWS" target="_blank" rel="noopener noreferrer">Ogólne warunki
-                sprzedaży</a></li>
-            <li><a href="https://inwestor.intercars.com.pl/" target="_blank" rel="noopener noreferrer">Relacje
-                Inwestorskie</a></li>
-            <li><a href="https://intercars.com.pl/pl/strategia-podatkowa" target="_blank"
-                rel="noopener noreferrer">Strategia podatkowa</a></li>
-            <li><a href="https://intercars.com/pl" target="_blank" rel="noopener noreferrer">Serwis korporacyjny</a>
-            </li>
-            <li><a href="https://career.intercars.eu/" target="_blank" rel="noopener noreferrer">Kariera</a></li>
-            <li><a href="https://intercars.com.pl/pl/kontakt/mapa/filie/lista" target="_blank"
-                rel="noopener noreferrer">Mapa filii</a></li>
-            <li><a href="https://intercars.com.pl/pl/kontakt/mapa/nasze-filie/lista" target="_blank"
-                rel="noopener noreferrer">Nasze oddziały w największych miastach</a></li>
-          </ul>
-        </div>
-
-
-        <div class="footer-column">
-          <h6 class="footer-column-title">Asortyment</h6>
-          <ul class="footer-column-list">
-            <li><a href="https://intercars.com.pl/pl/asortyment/czesci-zamienne" target="_blank"
-                rel="noopener noreferrer">Części zamienne</a></li>
-            <li><a href="https://intercars.com.pl/pl/asortyment/wyposazenie-warsztatu" target="_blank"
-                rel="noopener noreferrer">Wyposażenie warsztatu</a></li>
-            <li><a href="https://intercars.com.pl/pl/asortyment/opony" target="_blank"
-                rel="noopener noreferrer">Opony</a></li>
-            <li><a href="https://intercars.com.pl/pl/asortyment/akumulatory" target="_blank"
-                rel="noopener noreferrer">Akumulatory</a></li>
-            <li><a href="https://intercars.com.pl/pl/asortyment/chemia-i-plyny" target="_blank"
-                rel="noopener noreferrer">Chemia i płyny</a></li>
-            <li><a href="https://intercars.com.pl/pl/asortyment/oferta-ciezarowa" target="_blank"
-                rel="noopener noreferrer">Oferta ciężarowa</a></li>
-            <li><a href="https://intercars.com.pl/pl/asortyment/katalogi-ofertowe" target="_blank"
-                rel="noopener noreferrer">Katalogi ofertowe</a></li>
-          </ul>
-        </div>
-
-
-        <div class="footer-column">
-          <h6 class="footer-column-title">Usługi</h6>
-          <ul class="footer-column-list">
-            <li><a href="https://intercars.com.pl/pl/uslugi/ekologia" target="_blank"
-                rel="noopener noreferrer">Ekologia</a></li>
-            <li><a href="https://intercars.com.pl/pl/uslugi/siec" target="_blank" rel="noopener noreferrer">Sieć
-                osobowa QSC</a></li>
-            <li><a href="https://qservicetruck.eu/pl" target="_blank" rel="noopener noreferrer">Sieć ciężarowa QST</a>
-            </li>
-            <li><a href="https://intercars.com.pl/pl/uslugi/finansowanie" target="_blank"
-                rel="noopener noreferrer">Finansowanie</a></li>
-            <li><a href="https://intercars.com.pl/pl/uslugi/wsparcie" target="_blank"
-                rel="noopener noreferrer">Wsparcie</a></li>
-            <li><a href="https://intercars.com.pl/pl/szkolenia/szkolenia-stacjonarne-i-online" target="_blank"
-                rel="noopener noreferrer">Szkolenia stacjonarne</a></li>
-            <li><a href="https://intercars.com.pl/pl/szkolenia/szkolenia-show-car" target="_blank"
-                rel="noopener noreferrer">Szkolenia Show Car</a></li>
-            <li><a href="https://intercars.com.pl/pl/szkolenia/e-learning" target="_blank"
-                rel="noopener noreferrer">E-Learning</a></li>
-          </ul>
-        </div>
-
-
-        <div class="footer-column">
-          <h6 class="footer-column-title">Oprogramowanie</h6>
-          <ul class="footer-column-list">
-            <li><a href="https://intercars.com.pl/pl/oprogramowanie/e-catalog" target="_blank"
-                rel="noopener noreferrer">Inter Cars e-Catalog</a></li>
-            <li><a href="https://intercars.com.pl/pl/oprogramowanie" target="_blank"
-                rel="noopener noreferrer">HaynesPro</a></li>
-            <li><a href="https://intercars.com.pl/pl/oprogramowanie/esowa" target="_blank"
-                rel="noopener noreferrer">eSowa</a></li>
-          </ul>
-        </div>
-
-
-        <div class="footer-column">
-          <h6 class="footer-column-title">Infolinia</h6>
-          <div>
-            <a href="tel:801802020" class="footer-phone">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                </path>
-              </svg>
-              801 80 20 20
-            </a>
-            <p class="footer-phone-hours">Pon-Pt 8:00 - 18:00</p>
-            <p class="footer-phone-hours">Sob 9:00 - 13:00</p>
-          </div>
-          <div style="margin-top: 24px;">
-            <p class="footer-phone-label">Klienci flotowi:</p>
-            <a href="tel:227141414" class="footer-phone">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                </path>
-              </svg>
-              22 714 14 14
-            </a>
-          </div>
-        </div>
-
-
-        <div class="footer-column">
-          <img src="https://cdn.intercars.eu/files/1/1/0/5/5/4/110554/100x35.webp"
-            srcset="https://cdn.intercars.eu/files/1/1/0/5/5/4/110554/200x70.webp 2x" alt="Logo Inter Cars"
-            class="footer-address-logo" />
-          <p class="footer-address-name">Inter Cars S.A.</p>
-          <div class="footer-address-text">
-            <p>ul. Gdańska 15,</p>
-            <p>Cząstków Mazowiecki,</p>
-            <p>05-152 Czosnów</p>
-          </div>
-          <div class="footer-address-text">
-            <p><a href="tel:+48227141710">+48 22 714 17 10</a></p>
-            <p><a href="tel:+48227141712">+48 22 714 17 12</a></p>
-          </div>
-          <p class="footer-address-text">
-            <a href="mailto:sekretariat@intercars.eu">
-              sekretariat@intercars.eu
-            </a>
-          </p>
-        </div>
-      </div>
-
-
-      <div class="footer-countries">
-        <button id="footer-countries-btn" class="footer-countries-btn"
-          aria-label="Rozwiń listę krajów Inter Cars w Europie" aria-expanded="false">
-          Inter Cars w Europie
-          <svg width="12" height="12" viewBox="0 0 129 128" fill="none" xmlns="http://www.w3.org/2000/svg"
-            style="transition: transform 0.3s;" aria-hidden="true">
-            <path
-              d="M0 33.8261C0 32.8261 0.4 31.9261 1.1 31.1261C1.813 30.4061 2.786 30.0001 3.8 30.0001C4.814 30.0001 5.787 30.4061 6.5 31.1261L64 88.6261L121.5 31.1261C122.213 30.4061 123.186 30.0001 124.2 30.0001C125.214 30.0001 126.187 30.4061 126.9 31.1261C127.62 31.8391 128.026 32.8121 128.026 33.8261C128.026 34.8401 127.62 35.8131 126.9 36.5261L66.7 96.7261C65.987 97.4461 65.014 97.8521 64 97.8521C62.986 97.8521 62.013 97.4461 61.3 96.7261L1.1 36.5261C0.4 35.7261 0 34.8261 0 33.8261Z"
-              fill="currentColor" />
-          </svg>
-        </button>
-        <div id="footer-countries-content" class="footer-countries-content">
-          <div class="footer-countries-inner">
-            <div class="footer-countries-header">
-              <h3 class="footer-countries-title">Inter Cars w Europie</h3>
-              <p class="footer-countries-description">
-                Rodzina spółek Inter Cars jest wyjątkowo liczna. Jesteśmy obecni w 26 krajach w Europie. W 21 z nich
-                posiadamy sieć sprzedaży stacjonarnej.<br />
-                Wybierz kraj i przejdź na stronę.
-              </p>
-            </div>
-            <div class="footer-countries-grid" id="footer-countries-list"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <div class="footer-bottom-content">
-          <div class="footer-bottom-links">
-            <p class="footer-bottom-text">
-              Powered by IC Developers Team © 2025 Inter Cars
-            </p>
-            <a href="https://intercars.com.pl/pl/polityka-cookies" target="_blank" rel="noopener noreferrer"
-              class="footer-bottom-link">
-              Polityka prywatności i cookies
-            </a>
-            <a href="https://intercars.com.pl/pl/faq-rodo" target="_blank" rel="noopener noreferrer"
-              class="footer-bottom-link">
-              FAQ RODO
-            </a>
-            <a href="https://intercars.com/pl/rodo" target="_blank" rel="noopener noreferrer"
-              class="footer-bottom-link">
-              Informacja o przetwarzaniu danych kontrahentów i ich reprezentantów
-            </a>
-          </div>
-
-          <div class="footer-social">
-            <a href="https://www.linkedin.com/company/inter-cars-s-a-/" target="_blank"
-              rel="noopener noreferrer nofollow">
-              <img src="https://cdn.intercars.eu/files/icons/linkedin.webp" alt="LinkedIn" />
-            </a>
-            <a href="https://www.instagram.com/intercars.sa/?hl=pl" target="_blank" rel="noopener noreferrer nofollow">
-              <img src="https://cdn.intercars.eu/files/icons/instagram.webp" alt="Instagram" />
-            </a>
-            <a href="https://www.youtube.com/@GrupaInterCarsSA/videos" target="_blank"
-              rel="noopener noreferrer nofollow">
-              <img src="https://cdn.intercars.eu/files/icons/youtube.webp" alt="Youtube" />
-            </a>
-            <a href="https://www.facebook.com/InterCarsOfficial" target="_blank" rel="noopener noreferrer nofollow">
-              <img src="https://cdn.intercars.eu/files/icons/facebook.webp" alt="Facebook" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-
-  <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top">
-    <svg width="24" height="24" viewBox="0 0 129 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M0 33.8261C0 32.8261 0.4 31.9261 1.1 31.1261C1.813 30.4061 2.786 30.0001 3.8 30.0001C4.814 30.0001 5.787 30.4061 6.5 31.1261L64 88.6261L121.5 31.1261C122.213 30.4061 123.186 30.0001 124.2 30.0001C125.214 30.0001 126.187 30.4061 126.9 31.1261C127.62 31.8391 128.026 32.8121 128.026 33.8261C128.026 34.8401 127.62 35.8131 126.9 36.5261L66.7 96.7261C65.987 97.4461 65.014 97.8521 64 97.8521C62.986 97.8521 62.013 97.4461 61.3 96.7261L1.1 36.5261C0.4 35.7261 0 34.8261 0 33.8261Z"
-        fill="white" style="transform: rotate(180deg); transform-origin: center;" />
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+    <style>
+
+          :root {
+      --color-background: #ffffff;
+      --color-foreground: #333333;
+      --color-primary: #cf1e35;
+      --color-primary-hover: #901525;
+      --color-secondary: #2c3b4c;
+      --color-muted: #b4c2d3;
+      --color-muted-foreground: #767676;
+      --color-accent: #1f65b5;
+      --color-border: #767676;
+      --radius: 4px;
+      /* z-index scale */
+      --z-base: 0;
+      --z-content: 10;
+      --z-overlay: 40;
+      --z-header: 50;
+      --z-dropdown: 51;
+      --z-modal: 100;
+      --z-hat: 150;
+      --z-hat-buttons: 151;
+      --z-skip: 200;
+    }
+
+      * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--color-secondary);
+  font-family: "Neue Montreal";
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  padding: 2.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
+}
+
+.nav-item {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.nav-item a {
+  position: relative;
+  top: 20px;
+  text-decoration: none;
+  color: #fff;
+  opacity: 0.35;
+}
+
+.nav-item a#active {
+  opacity: 1;
+}
+
+.hero {
+  position: absolute;
+  width: 95%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.icon,
+.icon-2 {
+  flex: 0.5;
+  padding: 0 5em;
+  font-size: 30px;
+  opacity: 0.5;
+}
+
+.icon-2 {
+  text-align: right;
+}
+
+.icon ion-icon,
+.icon-2 ion-icon {
+  transform: scale(0);
+}
+
+.title {
+  flex: 2;
+  text-align: center;
+  font-size: 40px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.title p {
+  position: relative;
+  top: 50px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.preview {
+  position: absolute;
+  bottom: 2em;
+  right: 2em;
+  display: flex;
+  gap: 0.3em;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.preview img {
+  position: relative;
+  top: 100px;
+  width: 80px;
+  height: 50px;
+}
+
+.slide-num {
+  margin: 3em 0;
+  text-align: center;
+  color: #fff;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.slide-num p {
+  position: relative;
+  top: 30px;
+}
+
+.container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 1em;
+}
+
+.container .col {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.col .item {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  background: gainsboro;
+  overflow: hidden;
+}
+
+.c-1,
+.c-3,
+.c-5 {
+  top: 100%;
+}
+
+.c-1 .item,
+.c-3 .item,
+.c-5 .item {
+  top: 100%;
+}
+
+.c-2 .item,
+.c-4 .item {
+  top: -100%;
+}
+
+.header {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.header-item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  transform: scale(1);
+}
+
+.header-logo {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  overflow: hidden;
+}
+
+.letter {
+  flex: 1;
+  font-size: calc(100vw / 12);
+  font-family: "Google Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.letter-wrapper {
+  position: relative;
+}
+
+.logo-wrapper {
+  position: relative;
+  width: 400px;
+  height: auto;
+}
+
+.logo-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.hero-svg-shape {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.svg-mobile {
+  display: block;
+  right: auto;
+}
+
+.svg-desktop {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .svg-mobile {
+    display: none;
+  }
+
+  .svg-desktop {
+    display: block;
+  }
+}
+
+@media (max-width: 900px) {
+  .slide-num {
+    text-align: left;
+    padding-left: 2em;
+    margin-bottom: 2.5em;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .icon,
+  .icon-2 {
+    padding: 0 1em;
+    font-size: 16px;
+  }
+
+  .preview img {
+    width: 60px;
+    height: 40px;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <svg class="hero-svg-shape svg-mobile" width="300" height="971" viewBox="0 0 300 971" fill="none"
+      xmlns="http://www.w3.org/2000/svg" style="opacity: 0.8;">
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M-3.33834e-07 452L233 -4.22256e-06L-3.33834e-07 2.41893e-05V452Z" fill="#CE1E35" />
     </svg>
-  </button>
+    <svg class="hero-svg-shape svg-desktop" width="800" height="971" viewBox="0 0 800 971" fill="none"
+      xmlns="http://www.w3.org/2000/svg" style="opacity: 0.8;">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M836.5 0L501.758 1.90735e-05L0 971L836.5 971V0Z"
+        fill="#CE1E35" />
+    </svg>
 
+    <div class="container">
+      <div class="col c-1">
+        <div class="item"><img src="./gallery/img0.webp" alt="" /></div>
+        <div class="item"><img src="./gallery/img1.webp" alt="" /></div>
+        <div class="item"><img src="./gallery/img2.webp" alt="" /></div>
+        <div class="item"><img src="./gallery/img3.webp" alt="" /></div>
+        <div class="item"><img src="./gallery/img4.webp" alt="" /></div>
+      </div>
+      <div class="col c-2">
+        <div class="item"><img src="./gallery/img5.webp" alt="" /></div>
+        <div class="item"><img src="./gallery/img6.webp" alt="" /></div>
+        <div class="item"><img src="./gallery/img7.webp" alt="" /></div>
+        <div class="item"><img src="./gallery/img8.webp" alt="" /></div>
+        <div class="item"><img src="./gallery/img9.webp" alt="" /></div>
+      </div>
+      <div class="col c-3">
+        <div class="item"><img src="./gallery/img10.webp" alt="" /></div>
+        <div class="item"><img src="./gallery/img11.webp" alt="" /></div>
+        <div class="item"><img src="./gallery/img12.webp" alt="" /></div>
+        <div class="item"><img src="./gallery/img13.webp" alt="" /></div>
+        <div class="item"><img src="./gallery/img14.webp" alt="" /></div>
+      </div>
+      <div class="col c-4">
+        <div class="item"><img src="./gallery/img15.webp" alt="" /></div>
+        <div class="item"><img src="./gallery/img16.webp" alt="" /></div>
+        <div class="item"><img src="./gallery/img17.webp" alt="" /></div>
+        <div class="item"><img src="./gallery/img18.webp" alt="" /></div>
+        <div class="item"><img src="./gallery/img19.webp" alt="" /></div>
+      </div>
+    </div>
 
-  <script>
-    "use strict";
-    const countries = [
-      { name: 'Austria', flag: 'https://cdn.intercars.eu/files/1/3/4/7/6/0/134760.svg', url: 'https://at.intercars.com/' },
-      { name: 'Albania', flag: 'https://cdn.intercars.eu/files/1/2/0/2/9/5/120295/54x36,f.webp', url: 'https://intercars.com.al/' },
-      { name: 'Belgia', flag: 'https://cdn.intercars.eu/files/1/1/6/5/5/8/116558/54x36,f.webp', url: 'https://intercars.be/' },
-      { name: 'Bośnia i Hercegowina', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/9/113839.svg', url: 'https://intercars.ba/' },
-      { name: 'Bułgaria', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/5/113845.svg', url: 'https://bg.intercars.eu/' },
-      { name: 'Chorwacja', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/2/113832.svg', url: 'https://intercars.hr/' },
-      { name: 'Czechy', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/7/113837.svg', url: 'https://www.intercars.cz/' },
-      { name: 'Estonia', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/8/113838.svg', url: 'https://intercars.ee/' },
-      { name: 'Niemcy', flag: 'https://cdn.intercars.eu/files/1/1/6/5/5/7/116557/54x36,f.webp', url: 'https://intercars.de/de' },
-      { name: 'Grecja', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/3/113843.svg', url: 'https://intercars.com.gr/el' },
-      { name: 'Węgry', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/0/113840.svg', url: 'https://intercars.hu/hu' },
-      { name: 'Włochy', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/1/113831.svg', url: 'https://it.intercars.eu/it' },
-      { name: 'Łotwa', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/1/113841.svg', url: 'https://intercars.lv/' },
-      { name: 'Litwa', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/5/113835.svg', url: 'https://intercars.lt/' },
-      { name: 'Mołdawia', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/7/113847.svg', url: 'https://www.intercars.md/' },
-      { name: 'Polska', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/4/113834.svg', url: 'https://intercars.com.pl/' },
-      { name: 'Rumunia', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/2/113842.svg', url: 'https://intercars.ro/' },
-      { name: 'Serbia', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/8/113848.svg', url: 'https://rs.intercars.eu/sr' },
-      { name: 'Słowacja', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/4/113844.svg', url: 'https://www.intercars.sk/' },
-      { name: 'Słowenia', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/6/113836.svg', url: 'https://intercars.si/sl' },
-      { name: 'Ukraina', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/3/113833.svg', url: 'https://intercars.com.ua/' },
-      { name: 'Wielka Brytania', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/6/113846.svg', url: 'https://ic24.uk/' },
-    ];
-
-    const moreItemsData = [
-      { label: "Intercars.com", href: "https://intercars.com/" },
-      { label: "Flota", href: "http://flota.intercars.com.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-      { label: "Bio-Service", href: "http://bio-service.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-      { label: "eSOWA", href: "https://intercars.com.pl/pl/oprogramowanie/esowa" },
-      { label: "Feber", href: "http://www.feber.com.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-      { label: "Ford Trucks", href: "https://www.ford-trucks.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-      { label: "ILS", href: "http://ilslogistics.eu/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-      { label: "InterMotors", href: "https://www.intermotors.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-      { label: "Intermeko", href: "http://www.intermeko.eu/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-      { label: "Lauber", href: "http://www.lauber.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-      { label: "Q Service Castrol", href: "http://qservicecastrol.eu/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-      { label: "Q-Service Moto", href: "http://qservicemoto.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-      { label: "Q-Service Truck", href: "http://q-servicetruck.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-      { label: "Relacje inwestorskie", href: "http://inwestor.intercars.com.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-      { label: "Wszystko dla warsztatu", href: "https://intercars.pl/wszystko-dla-warsztatu" }
-    ];
-
-    const businessLinks = [
-      { label: "Inter Cars e-Catalog", href: "https://elink.intercars.eu/e-catalog/" },
-      { label: "Osobowe", href: "https://intercars.com.pl/" },
-      { label: "Ciężarowe", href: "https://intercars.com.pl/pl/truck" },
-      { label: "Motocykle", href: "https://intercars.com.pl/pl/motocykle" },
-      { label: "Marine", href: "https://intercars.com.pl/pl/marine" },
-      { label: "Przemysł", href: "https://intercars.com.pl/pl/przemysl" },
-      { label: "Tuning", href: "https://intercars.com.pl/pl/tuning" },
-      { label: "Off road", href: "https://intercars.com.pl/pl/off-road" },
-    ];
-
-    const driverLinks = [
-      { label: "Sklep internetowy", href: "https://intercars.pl/" },
-      { label: "Znajdź warsztat", href: "https://motointegrator.com/pl/pl/" },
-      { label: "Szukaj", href: "https://intercars.com.pl/pl/szukaj" }
-    ];
-
-    const moreDesktopList = document.getElementById('more-desktop-list');
-    const mobileMoreList = document.getElementById('hat-more-list-mobile');
-
-    moreItemsData.forEach(item => {
-      const a = document.createElement('a');
-      a.className = "hat-more-link";
-      a.href = item.href;
-      a.target = "_blank";
-      a.innerHTML = `<svg width="14" height="14" viewBox="0 0 128 129" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.4; margin-right: 12px; transition: all 0.3s;">
-        <path d="M33.8145 128C33.8145 128 33.7885 128 33.7805 128C31.7065 128 30.0005 126.294 30.0005 124.22C30.0005 123.209 30.4055 122.24 31.1245 121.53L88.6545 64L31.1345 6.47C30.4235 5.759 30.0245 4.795 30.0245 3.79C30.0245 1.711 31.7355 0 33.8145 0C34.8195 0 35.7835 0.399 36.4945 1.11L96.7045 61.32C97.4155 62.03 97.8145 62.995 97.8145 64C97.8145 65.005 97.4155 65.97 96.7045 66.68L36.4945 126.89C35.7845 127.601 34.8195 128.001 33.8145 128Z" fill="white"/>
-      </svg><span>${item.label}</span>`;
-      moreDesktopList.appendChild(a);
-
-      const ma = document.createElement('a');
-      ma.className = "hat-link";
-      ma.href = item.href;
-      ma.target = "_blank";
-      ma.innerHTML = `<svg width="14" height="14" viewBox="0 0 128 129" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.4; margin-right: 12px;">
-        <path d="M33.8145 128C33.8145 128 33.7885 128 33.7805 128C31.7065 128 30.0005 126.294 30.0005 124.22C30.0005 123.209 30.4055 122.24 31.1245 121.53L88.6545 64L31.1345 6.47C30.4235 5.759 30.0245 4.795 30.0245 3.79C30.0245 1.711 31.7355 0 33.8145 0C34.8195 0 35.7835 0.399 36.4945 1.11L96.7045 61.32C97.4155 62.03 97.8145 62.995 97.8145 64C97.8145 65.005 97.4155 65.97 96.7045 66.68L36.4945 126.89C35.7845 127.601 34.8195 128.001 33.8145 128Z" fill="currentColor"/>
-      </svg><span>${item.label}</span>`;
-      mobileMoreList.appendChild(ma);
-    });
-
-    const moreBtn = document.getElementById('more-dropdown-btn');
-    const moreContent = document.getElementById('more-dropdown-content');
-    const moreContainer = document.getElementById('more-dropdown-container');
-
-    moreBtn.onclick = () => {
-      moreContent.classList.toggle('show');
-      const icon = moreBtn.querySelector('svg');
-      icon.style.transform = moreContent.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
-    };
-
-    document.addEventListener('click', (e) => {
-      if (!moreContainer.contains(e.target)) {
-        moreContent.classList.remove('show');
-        moreBtn.querySelector('svg').style.transform = 'rotate(0deg)';
-      }
-    });
-
-    const header = document.getElementById('main-header');
-    const scrollBtn = document.getElementById('scroll-to-top');
-
-    function updateActiveLink() {
-      const sections = document.querySelectorAll('section[id], footer[id]');
-      const scrollPosition = window.scrollY + 100;
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-        const navLink = document.querySelector(`nav a[href="#${sectionId}"]`);
-
-        if (navLink) {
-          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            document.querySelectorAll('nav a').forEach(link => {
-              link.classList.remove('active');
-            });
-            navLink.classList.add('active');
-          }
-        }
-      });
-    }
-
-    let isScrolling = false;
-
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-
-      if (scrollY > 40) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-
-      if (scrollY > 500) {
-        scrollBtn.classList.add('show');
-      } else {
-        scrollBtn.classList.remove('show');
-      }
-
-      if (!isScrolling) {
-        window.requestAnimationFrame(() => {
-          updateActiveLink();
-          isScrolling = false;
-        });
-        isScrolling = true;
-      }
-    });
-
-    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    function handleNavClick(e, href) {
-      e.preventDefault();
-
-      const nav = document.getElementById('main-nav');
-      if (nav.classList.contains('show')) {
-        toggleMobileMenu();
-      }
-
-      setTimeout(() => {
-        const element = document.querySelector(href);
-        if (element) {
-          const headerOffset = 80;
-          const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth"
-          });
-        }
-      }, 300);
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href && href.startsWith('#') && href.length > 1) {
-          handleNavClick(e, href);
-        }
-      });
-    });
-
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const nav = document.getElementById('main-nav');
-    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-
-    function toggleMobileMenu() {
-      const isHidden = !nav.classList.contains('show');
-
-      if (isHidden) {
-        nav.classList.add('show');
-        mobileMenuOverlay.classList.add('show');
-        document.body.style.overflow = "hidden";
-        menuBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>`;
-        header.style.backdropFilter = 'none';
-        header.style.boxShadow = 'none';
-        header.style.borderBottom = 'none';
-      } else {
-        nav.classList.remove('show');
-        mobileMenuOverlay.classList.remove('show');
-        document.body.style.overflow = "auto";
-        menuBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>`;
-        header.style.backdropFilter = '';
-        header.style.boxShadow = '';
-        header.style.borderBottom = '';
-      }
-    }
-
-    menuBtn.onclick = toggleMobileMenu;
-    mobileMenuOverlay.onclick = toggleMobileMenu;
-
-    const hatBtnBiznes = document.getElementById('hat-btn-biznes');
-    const hatBtnKierowca = document.getElementById('hat-btn-kierowca');
-    const hatMobileContent = document.getElementById('hat-mobile-content');
-    const hatOverlay = document.getElementById('hat-overlay');
-    const hatSlider = document.getElementById('hat-slider');
-    const hatListContainer = document.getElementById('hat-list-container');
-    const hatBackBtn = document.getElementById('hat-back-btn');
-
-    let activeTab = 'biznes';
-    let isHatOpen = false;
-
-    function updateHatList() {
-      hatListContainer.innerHTML = '';
-      const links = activeTab === 'biznes' ? businessLinks : driverLinks;
-      links.forEach(link => {
-        const a = document.createElement('a');
-        a.className = "hat-link";
-        a.href = link.href;
-        a.target = "_blank";
-        a.innerHTML = '<span>' + link.label + '</span>';
-        hatListContainer.appendChild(a);
-      });
-
-      if (activeTab === 'biznes') {
-        const moreBtn = document.createElement('button');
-        moreBtn.className = "hat-link";
-        moreBtn.style.cursor = 'pointer';
-        moreBtn.style.border = 'none';
-        moreBtn.style.background = 'transparent';
-        moreBtn.style.width = '100%';
-        moreBtn.style.justifyContent = 'space-between';
-        moreBtn.innerHTML = `<span>Więcej</span><svg width="14" height="14" viewBox="0 0 128 129" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M33.8145 128C33.8145 128 33.7885 128 33.7805 128C31.7065 128 30.0005 126.294 30.0005 124.22C30.0005 123.209 30.4055 122.24 31.1245 121.53L88.6545 64L31.1345 6.47C30.4235 5.759 30.0245 4.795 30.0245 3.79C30.0245 1.711 31.7355 0 33.8145 0C34.8195 0 35.7835 0.399 36.4945 1.11L96.7045 61.32C97.4155 62.03 97.8145 62.995 97.8145 64C97.8145 65.005 97.4155 65.97 96.7045 66.68L36.4945 126.89C35.7845 127.601 34.8195 128.001 33.8145 128Z" fill="currentColor"/>
-        </svg>`;
-        moreBtn.onclick = () => {
-          hatSlider.style.transform = 'translateX(-100%)';
-        };
-        hatListContainer.appendChild(moreBtn);
-      }
-    }
-
-    function toggleHat(tab) {
-      if (activeTab === tab && isHatOpen) {
-        closeHat();
-      } else {
-        activeTab = tab;
-        isHatOpen = true;
-        hatMobileContent.classList.add('show');
-        hatOverlay.classList.add('show');
-        document.body.style.overflow = 'hidden';
-        updateHatList();
-        hatSlider.style.transform = 'translateX(0%)';
-
-        if (tab === 'biznes') {
-          hatBtnBiznes.classList.add('active');
-          hatBtnKierowca.classList.remove('active');
-        } else {
-          hatBtnKierowca.classList.add('active');
-          hatBtnBiznes.classList.remove('active');
-        }
-      }
-    }
-
-    function closeHat() {
-      isHatOpen = false;
-      hatMobileContent.classList.remove('show');
-      hatOverlay.classList.remove('show');
-      document.body.style.overflow = '';
-      hatBtnBiznes.classList.remove('active');
-      hatBtnKierowca.classList.remove('active');
-    }
-
-    hatBtnBiznes.onclick = () => toggleHat('biznes');
-    hatBtnKierowca.onclick = () => toggleHat('kierowca');
-    hatOverlay.onclick = closeHat;
-    hatBackBtn.onclick = () => { hatSlider.style.transform = 'translateX(0%)'; };
-
-    const footerBtn = document.getElementById('footer-countries-btn');
-    const footerContent = document.getElementById('footer-countries-content');
-    const countriesList = document.getElementById('footer-countries-list');
-
-    countries.forEach(country => {
-      const a = document.createElement('a');
-      a.href = country.url;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      a.className = "footer-country-link";
-      a.innerHTML = `
-        <div class="footer-country-flag">
-          <img src="${country.flag}" alt="${country.name}" />
+    <div class="header">
+      <div class="header-item header-logo">
+        <div class="logo-wrapper">
+          <img src="https://cdn.intercars.eu/files/1/3/8/5/8/1/138581.webp" alt="Inter Cars Logo" />
         </div>
-        <p class="footer-country-name">${country.name}</p>
-      `;
-      countriesList.appendChild(a);
-    });
+      </div>
+      <div class="header-item header-item-1">
+        <div class="letter"><div class="letter-wrapper">RODZINNE WAKACJE</div></div>
+      </div>
+      <div class="header-item header-item-2">
+        <div class="letter"><div class="letter-wrapper" style="background-color: var(--color-primary); padding-left: 24px; padding-right: 24px;">Z INTER CARS</div></div>
+      </div>
+    </div>
 
-    footerBtn.onclick = () => {
-      const isHidden = !footerContent.classList.contains('show');
-      if (isHidden) {
-        footerContent.classList.add('show');
-        footerBtn.classList.add('open');
-        footerBtn.querySelector('svg').style.transform = 'rotate(180deg)';
-      } else {
-        footerContent.classList.remove('show');
-        footerBtn.classList.remove('open');
-        footerBtn.querySelector('svg').style.transform = 'rotate(0deg)';
-      }
-    };
-  </script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script>
+      // Initial states
+      gsap.set(".logo-wrapper", { y: 400 });
+      gsap.set(".letter-wrapper", { y: 400 });
+      gsap.set(".container", { opacity: 0 });
+      gsap.set(".svg-mobile", { left: "-100%" });
+      gsap.set(".svg-desktop", { right: "-100%" });
 
+      let tl = gsap.timeline({delay: 0.5});
+
+      // Logo and text opening animation
+      tl.to(".logo-wrapper", {
+        y: 0,
+        duration: 1,
+        ease: "power3.out"
+      })
+      .to(".letter-wrapper", {
+        y: 0,
+        stagger: 0.5,
+        duration: 4,
+        ease: "power3.out"
+      }, "-=0.5")
+      .to(".header", {
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out"
+      })
+      .set(".header", { display: "none" })
+      .to(".container", {
+        opacity: 1,
+        ease: "power2.inOut"
+      });
+
+      tl.to(".col", {
+        top: "0",
+        duration: 1,
+        ease: "power4.inOut"
+      });
+
+      tl.to(".c-1 .item", {
+        top: "0",
+        stagger: 0.25,
+        duration: 3,
+        ease: "power4.inOut"
+      }, "-=2");
+
+      tl.to(".c-2 .item", {
+        top: "0",
+        stagger: -0.25,
+        duration: 3,
+        ease: "power4.inOut"
+      }, "-=4");
+
+      tl.to(".c-3 .item", {
+        top: "0",
+        stagger: 0.25,
+        duration: 3,
+        ease: "power4.inOut"
+      }, "-=4");
+
+      tl.to(".c-4 .item", {
+        top: "0",
+        stagger: -0.25,
+        duration: 3,
+        ease: "power4.inOut"
+      }, "-=4");
+
+      tl.to(".c-5 .item", {
+        top: "0",
+        stagger: 0.25,
+        duration: 3,
+        ease: "power4.inOut"
+      }, "-=4");
+
+      tl.to(".container", {
+        scale: 6,
+        duration: 6,
+        ease: "power4.inOut",
+        transformOrigin: "65% 100%"
+      }, "-=0.5");
+
+      tl.to(".svg-mobile", {
+        left: 0,
+        duration: 1.5,
+        ease: "power3.out"
+      });
+
+      tl.to(".svg-desktop", {
+        right: 0,
+        duration: 1.5,
+        ease: "power3.out"
+      }, "<");
+
+      tl.to(".nav-item a, .title p, .slide-num p, .preview img", {
+        top: 0,
+        stagger: 0.075,
+        duration: 1,
+        ease: "power3.out",
+      }, "-=1.5");
+
+      tl.to(".icon ion-icon, .icon-2 ion-icon", {
+        scale: 1,
+        stagger: 0.05,
+        ease: "power3.out",
+      }, "-=1");
+    </script>
+  </body>
 </html>
