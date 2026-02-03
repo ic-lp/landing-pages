@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -55,8 +56,7 @@
   <meta property="og:title" content="Rodzinne Wakacje z Inter Cars - Wygraj pobyt w MAXCAMP nad Bałtykiem" />
   <meta property="og:description"
     content="Walcz o rodzinne wakacje z Inter Cars! 7 dni w ośrodku MAXCAMP w Dziwnowie lub Międzywodziu dla 5 osób. Zbieraj punkty za zakupy do 31 maja. 1000 zł = 1 punkt." />
-  <meta property="og:url"
-    content="https://marketing.intercars.com/pl/wakacje-z-inter-cars" />
+  <meta property="og:url" content="https://marketing.intercars.com/pl/wakacje-z-inter-cars" />
   <meta property="og:site_name" content="Inter Cars" />
   <meta property="og:image" content="https://cdn.intercars.eu/files/icons/og.png" />
   <meta property="og:type" content="website" />
@@ -159,7 +159,12 @@
     }
 
     /* Hierarchia nagłówków h1-h6 */
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       font-weight: 700;
       line-height: 1.2;
       margin-bottom: 16px;
@@ -221,6 +226,7 @@
       justify-content: space-between;
       height: 64px;
       padding: 0 24px;
+      background: linear-gradient(to bottom, #021020 0%, #021020 0%, transparent 100%);
     }
 
     .header-logo img {
@@ -267,7 +273,9 @@
 
     .main-nav a:hover,
     .main-nav a.active {
-      color: var(--color-primary);
+      text-decoration: underline;
+      text-decoration-color: white;
+      color: white;
     }
 
     .main-nav a:focus-visible {
@@ -319,17 +327,23 @@
       height: 100dvh;
     }
 
+    .hero-container {
+      position: relative;
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+      z-index: 3;
+      pointer-events: none;
+    }
+
     .hero-left {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(to right, #06101e, transparent);
+      pointer-events: all;
+      position: relative;
       padding: 80px 24px 40px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      min-height: 100dvh;
       gap: 32px;
       z-index: 2;
       color: #ffffff;
@@ -351,7 +365,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(to right, #06101e, transparent);
+      background: linear-gradient(to right, rgba(2, 16, 32, 0.95) 0%, rgba(2, 16, 32, 0.8) 40%, transparent 100%);
       z-index: 2;
       pointer-events: none;
     }
@@ -375,10 +389,10 @@
 
     .hero-main-title {
       color: white;
-      font-size: clamp(28px, 7vw, 15vw);
+      font-size: clamp(32px, 5vw, 72px);
       font-weight: 700;
-      line-height: 1;
-      max-width: 65vw;
+      line-height: 1.1;
+      max-width: 700px;
       opacity: 0;
       animation: fadeInUp 0.8s ease-out 0.2s forwards;
     }
@@ -472,6 +486,7 @@
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -483,6 +498,7 @@
         opacity: 0;
         transform: translateX(-30px);
       }
+
       to {
         opacity: 1;
         transform: translateX(0);
@@ -493,12 +509,15 @@
       0% {
         transform: translateY(0);
       }
+
       12% {
         transform: translateY(-12px);
       }
+
       24% {
         transform: translateY(0);
       }
+
       100% {
         transform: translateY(0);
       }
@@ -602,7 +621,7 @@
     .section-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
       background: var(--color-primary);
       color: white;
       padding: 12px 24px;
@@ -615,7 +634,8 @@
 
     .section-btn:hover {
       background: var(--color-primary-hover);
-      gap: 12px;
+      gap: 16px;
+      transform: translateY(-2px);
     }
 
     .section-dark {
@@ -1297,7 +1317,7 @@
       position: relative;
       overflow: hidden;
       padding: 0;
-      
+
     }
 
     .campaign-multiplier-container {
@@ -1344,12 +1364,16 @@
     }
 
     @keyframes wiggle {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: rotate(0deg);
       }
+
       25% {
         transform: rotate(-5deg);
       }
+
       75% {
         transform: rotate(5deg);
       }
@@ -1359,18 +1383,23 @@
       0% {
         background-position: 0% 50%;
       }
+
       50% {
         background-position: 100% 50%;
       }
+
       100% {
         background-position: 0% 50%;
       }
     }
 
     @keyframes pulse {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: scale(1);
       }
+
       50% {
         transform: scale(1.05);
       }
@@ -1387,8 +1416,6 @@
     }
 
     .countdown-timer {
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
       border-radius: var(--radius);
       padding: 24px;
       position: relative;
@@ -1419,7 +1446,6 @@
     }
 
     .countdown-item {
-      background: white;
       border-radius: var(--radius);
       padding: 16px 20px;
       min-width: 90px;
@@ -1433,7 +1459,7 @@
       display: block;
       line-height: 1;
       margin-bottom: 8px;
-      color: #cf1e35;
+      color: #ffffff;
     }
 
     .countdown-unit {
@@ -1529,6 +1555,233 @@
     .about-description p {
       margin-bottom: 16px;
       line-height: 1.6;
+    }
+
+    /* Bento Grid */
+    .bento-section {
+      background: #021020;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bento-wrapper {
+      display: flex;
+      gap: 3%;
+      min-height: 100vh;
+    }
+
+    .bento-left {
+      width: 40%;
+      background: url('bg.webp') center center / cover no-repeat;
+      position: relative;
+    }
+
+    .bento-right {
+      width: 57%;
+      padding: 80px 40px 80px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .bento-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      width: 100%;
+    }
+
+    .bento-row {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .bento-row .bento-card {
+      flex: 1;
+    }
+
+    .bento-card {
+      border-radius: var(--radius);
+      padding: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .bento-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+
+    .bento-card-hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 32px;
+      background: linear-gradient(135deg, rgba(207, 30, 53, 0.15) 0%, rgba(44, 59, 76, 0.15) 100%);
+    }
+
+    .bento-hero-title {
+      font-size: 42px;
+      font-weight: 800;
+      color: white;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .bento-points {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 24px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .money-icon {
+      fill: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .bento-point {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .bento-point-value {
+      font-size: 60px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .bento-point-text {
+      font-size: 18px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.3;
+    }
+
+    .bento-offers-text {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .bento-card-multiplier {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: linear-gradient(135deg, rgba(207, 30, 53, 0.2) 0%, rgba(44, 59, 76, 0.1) 100%);
+    }
+
+    @keyframes pulse-badge {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .multiplier-icon {
+      width: 150px;
+      height: auto;
+      animation: wiggle 2s ease-in-out infinite;
+    }
+
+    .bento-card-multiplier h3 {
+      font-size: 24px;
+      font-weight: 800;
+      color: white;
+      margin: 0;
+    }
+
+    .bento-card-multiplier p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0;
+    }
+
+    /* Countdown Card */
+    .bento-card-countdown {
+      background: linear-gradient(135deg, rgba(44, 59, 76, 0.2) 0%, rgba(207, 30, 53, 0.1) 100%);
+    }
+
+    .bento-card-countdown .countdown-timer {
+      padding: 0;
+    }
+
+    .bento-card-countdown .countdown-label {
+      color: white;
+    }
+
+    .bento-card-countdown .countdown-item {
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: white;
+    }
+
+    .bento-card-countdown .countdown-number {
+      color: #ffffff;
+    }
+
+    .bento-card-countdown .countdown-unit {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .bento-card-cta {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: linear-gradient(135deg, rgba(207, 30, 53, 0.25) 0%, rgba(44, 59, 76, 0.15) 100%);
+    }
+
+    .bento-card-cta h3 {
+      font-size: 28px;
+      font-weight: 900;
+      color: white;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    .bento-card-cta p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .bento-card-cta .cta-btn-large {
+      font-size: 18px;
+      padding: 16px 32px;
+      margin: 0;
+      gap: 12px;
+    }
+
+    .bento-card-cta .cta-btn-large:hover {
+      gap: 16px;
+      transform: none;
     }
 
     /* Lightbox */
@@ -1630,6 +1883,7 @@
     }
 
     @media (max-width: 576px) {
+
       .lightbox-prev,
       .lightbox-next {
         padding: 8px;
@@ -1654,7 +1908,7 @@
 
       .campaign-hero-left {
         min-height: 400px;
-        width: 100%;      
+        width: 100%;
       }
 
       .campaign-hero-right {
@@ -1761,7 +2015,83 @@
       h6 {
         font-size: 16px;
       }
+
+      .bento-wrapper {
+        flex-direction: column;
+        min-height: auto;
+      }
+
+      .bento-left {
+        width: 100%;
+        min-height: 300px;
+      }
+
+      .bento-right {
+        width: 100%;
+        padding: 40px 16px;
+      }
+
+      .bento-grid {
+        gap: 16px;
+      }
+
+      .bento-card {
+        padding: 24px;
+        border-radius: var(--radius);
+      }
+
+      .bento-row {
+        flex-direction: column;
+      }
+
+      .bento-hero-title {
+        font-size: 28px;
+      }
+
+      .bento-points {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+      }
+
+      .money-icon {
+        width: 48px;
+        height: 48px;
+      }
+
+      .bento-point-value {
+        font-size: 28px;
+      }
+
+      .bento-point-text {
+        font-size: 16px;
+      }
+
+      .bento-offers-text {
+        font-size: 14px;
+      }
+
+      .x2-badge {
+        font-size: 20px;
+        padding: 8px 16px;
+        top: 12px;
+        right: 12px;
+      }
+
+      .bento-card-multiplier h3 {
+        font-size: 20px;
+      }
+
+      .bento-card-cta h3 {
+        font-size: 22px;
+      }
+
+      .bento-card-cta .cta-btn-large {
+        font-size: 16px;
+        padding: 14px 28px;
+      }
     }
+
     @media (min-width: 576px) and (max-width: 1023px) {
       .campaign-hero {
         min-height: 450px;
@@ -1773,7 +2103,7 @@
 
       .campaign-hero-left {
         min-height: 400px;
-        width: 100%;      
+        width: 100%;
       }
 
       .campaign-hero-right {
@@ -1978,6 +2308,55 @@
       h6 {
         font-size: 17px;
       }
+
+      .bento-wrapper {
+        flex-direction: column;
+        min-height: auto;
+      }
+
+      .bento-left {
+        width: 100%;
+        min-height: 400px;
+      }
+
+      .bento-right {
+        width: 100%;
+        padding: 60px 20px;
+      }
+
+      .bento-grid {
+        gap: 20px;
+      }
+
+      .bento-card {
+        padding: 32px;
+        border-radius: var(--radius);
+      }
+
+      .bento-row {
+        flex-direction: row;
+      }
+
+      .bento-hero-title {
+        font-size: 36px;
+      }
+
+      .bento-point-value {
+        font-size: 32px;
+      }
+
+      .money-icon {
+        width: 56px;
+        height: 56px;
+      }
+
+      .bento-card-multiplier h3 {
+        font-size: 22px;
+      }
+
+      .bento-card-cta h3 {
+        font-size: 24px;
+      }
     }
 
     @media (min-width: 1024px) {
@@ -2141,15 +2520,14 @@
 
 
         <nav id="main-nav" class="main-nav">
-          <a href="#why-expert">Dlaczego ekspert?</a>
-          <a href="#knowledge">Wiedza</a>
-          <a href="#training">Szkolenia</a>
-          <a href="#equipment">Wyposażenie</a>
-          <a href="#marketing">Marketing</a>
-          <a href="#partner">Partnerzy</a>
+          <a href="#about">O ośrodku</a>
+          <a href="#campaign">Kampania</a>
+          <a href="#strategic-partner">Partner strategiczny</a>
+          <a href="#partners">Partnerzy</a>
         </nav>
 
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false"
+          aria-controls="main-nav">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
             <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -2169,46 +2547,51 @@
   <main id="main-content" tabindex="-1">
 
     <section id="hero" class="hero">
-      <div class="hero-left">
-        <h1 class="hero-main-title">Rodzinne Wakacje z Inter Cars!</h1>
-        <p class="hero-subtitle">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
-            <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="currentColor"/>
-          </svg>
-          Ośrodek MAXCAMP — Dziwnów lub Międzywodzie
-        </p>
+      <div class="hero-container">
+        <div class="hero-left">
+          <h1 class="hero-main-title">Rodzinne Wakacje z Inter Cars!</h1>
+          <p class="hero-subtitle">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+              style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z"
+                fill="currentColor" />
+            </svg>
+            Ośrodek MAXCAMP — Dziwnów lub Międzywodzie
+          </p>
 
-        <div class="hero-features">
-          <div class="hero-feature-box">
-            <div class="hero-feature-title">7 dni</div>
-            <div class="hero-feature-desc">w okresie 27.06 – 25.07</div>
+          <div class="hero-features">
+            <div class="hero-feature-box">
+              <div class="hero-feature-title">7 dni</div>
+              <div class="hero-feature-desc">w okresie 27.06 – 25.07</div>
+            </div>
+
+            <div class="hero-feature-box">
+              <div class="hero-feature-title">5 osób</div>
+              <div class="hero-feature-desc">+ małe zwierzę domowe</div>
+            </div>
+
+            <div class="hero-feature-box">
+              <div class="hero-feature-title">Atrakcje</div>
+              <div class="hero-feature-desc">dla dzieci i dorosłych</div>
+            </div>
           </div>
 
-          <div class="hero-feature-box">
-            <div class="hero-feature-title">5 osób</div>
-            <div class="hero-feature-desc">+ małe zwierzę domowe</div>
-          </div>
+          <a href="#training" class="hero-cta">
+            Dowiedz się więcej
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" fill="currentColor" />
+            </svg>
+          </a>
+          <p class="cta-info-text">
+            Więcej informacji w Inter Cars e-Catalog, wiadomościach e-mail i u Twojego przedstawiciela handlowego
+          </p>
 
-          <div class="hero-feature-box">
-            <div class="hero-feature-title">Atrakcje</div>
-            <div class="hero-feature-desc">dla dzieci i dorosłych</div>
-          </div>
         </div>
-
-        <a href="#training" class="hero-cta">
-          Dowiedz się więcej
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" fill="currentColor"/>
-          </svg>
-        </a>
-                <p class="cta-info-text">
-          Więcej informacji w Inter Cars e-Catalog, wiadomościach e-mail i u Twojego przedstawiciela handlowego
-        </p>
-
       </div>
 
       <div class="hero-right" id="hero-slideshow">
-        <img src="gallery/img9.webp" alt="Maxcamp" class="active"/>
+        <img src="gallery/img9.webp" alt="Maxcamp" class="active" />
         <img src="gallery/img1.webp" alt="Maxcamp" />
         <img src="gallery/img2.webp" alt="Maxcamp" />
         <img src="gallery/img3.webp" alt="Maxcamp" />
@@ -2238,11 +2621,16 @@
           <div class="about-content">
             <h2 class="section-title">Ośrodki MAXCAMP to idealne miejsce na rodzinne wakacje nad Bałtykiem!</h2>
             <div class="about-logo">
-              <img src="https://www.domkimaxcamp.pl/wp-content/uploads/2019/05/domki-nad-morzem.jpg" alt="MAXCAMP Logo" />
+              <img src="https://www.domkimaxcamp.pl/wp-content/uploads/2019/05/domki-nad-morzem.jpg"
+                alt="MAXCAMP Logo" />
             </div>
             <div class="about-description">
-              <p>Ośrodek wypoczynkowy nad morzem MAXCAMP to przyjazne miejsce dla rodzin z dziećmi oraz wszystkich osób, które pragną wypoczynku w komfortowych warunkach w najbliższym otoczeniu natury w domkach nad morzem.</p>
-              <p>Pragniemy zaprosić Państwa do naszego ośrodka, który położony jest 100 metrów od przepięknej, piaszczystej i szerokiej plaży, usytuowanego w zacisznym miejscu wśród zielonych lasów sosnowych w domkach drewnianych bardzo blisko morza.</p>
+              <p>Ośrodek wypoczynkowy nad morzem MAXCAMP to przyjazne miejsce dla rodzin z dziećmi oraz wszystkich osób,
+                które pragną wypoczynku w komfortowych warunkach w najbliższym otoczeniu natury w domkach nad morzem.
+              </p>
+              <p>Pragniemy zaprosić Państwa do naszego ośrodka, który położony jest 100 metrów od przepięknej,
+                piaszczystej i szerokiej plaży, usytuowanego w zacisznym miejscu wśród zielonych lasów sosnowych w
+                domkach drewnianych bardzo blisko morza.</p>
             </div>
           </div>
           <div class="about-gallery">
@@ -2252,78 +2640,86 @@
       </div>
     </section>
 
-    <section id="campaign" class="campaign-hero">
-      <div class="campaign-hero-container">
-        <div class="campaign-hero-left"></div>
-        <div class="campaign-hero-right">
-          <h2 class="campaign-hero-title">Do 31 maja walcz o wysokie miejsce w rankingu zakupowym i wygraj rodzinne wakacje z Inter Cars!</h2>
+    <section id="campaign" class="bento-section">
+      <div class="bento-wrapper">
+        <div class="bento-left"></div>
+        <div class="bento-right">
+          <div class="bento-grid">
 
-          <div class="campaign-points">
-            <div class="campaign-point">
-              <span class="campaign-point-value">1000 zł</span>
-              <span class="campaign-point-text">wydane w Inter Cars = 1 punkt do rankingu</span>
+            <!-- Wiersz 1: Hero - pełna szerokość -->
+            <div class="bento-card bento-card-hero">
+              <h2 class="bento-hero-title">Do 31 maja walcz o wysokie miejsce w rankingu zakupowym i wygraj rodzinne
+                wakacje z Inter Cars!</h2>
+              <div class="bento-points">
+                <svg class="money-icon" width="64" height="64" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="m306.93 257.05c-1.86 1.86-2.93 4.43-2.93 7.07 0 2.63 1.07 5.21 2.93 7.069 1.86 1.86 4.44 2.931 7.07 2.931s5.21-1.07 7.07-2.931c1.86-1.859 2.93-4.439 2.93-7.069 0-2.641-1.07-5.21-2.93-7.07-1.86-1.87-4.44-2.93-7.07-2.93s-5.21 1.06-7.07 2.93z" />
+                  <path
+                    d="m425.05 179.189c1.86-1.859 2.93-4.439 2.93-7.069 0-2.641-1.07-5.221-2.93-7.07-1.86-1.86-4.44-2.93-7.07-2.93-2.64 0-5.21 1.069-7.07 2.93-1.87 1.86-2.93 4.43-2.93 7.07 0 2.63 1.06 5.21 2.93 7.069 1.86 1.86 4.43 2.931 7.07 2.931 2.63 0 5.21-1.07 7.07-2.931z" />
+                  <path
+                    d="m108 170v-12h10.853c4.281 2.948 8.675 5.738 13.147 8.402v81.491c0 14.46 11.765 26.225 26.225 26.225h110.775c5.523 0 10-4.478 10-10s-4.477-10-10-10h-73.89c-3.886-21.909-21.2-39.223-43.109-43.11v-33.923c19.576 9.284 40.415 15.953 61.696 19.653l36.123 6.281c1.991.346 3.976.514 5.94.514 2.753 0 5.461-.338 8.079-.97 10.507 17.239 29.494 28.231 50.162 28.231 32.354 0 58.676-26.322 58.676-58.676s-26.323-58.676-58.677-58.676c-18.3 0-35.244 8.442-46.251 22.557l-46.696-25.824c-3.425-1.895-5.553-5.503-5.553-9.416 0-5.933 4.826-10.759 10.759-10.759h206.632c3.886 21.909 21.2 39.223 43.109 43.11v77.898c-21.909 3.886-39.223 21.2-43.109 43.11h-73.891c-5.523 0-10 4.478-10 10s4.477 10 10 10h110.775c14.46 0 26.225-11.765 26.225-26.225v-151.667c0-14.461-11.765-26.226-26.225-26.226h-131.367l-49.938-38.507c-12.956-9.991-29.102-15.493-45.464-15.493h-135.006v-6c0-5.522-4.477-10-10-10h-88c-5.523 0-10 4.478-10 10v160c0 5.522 4.477 10 10 10h88c5.523 0 10-4.478 10-10zm66.604 84.117h-16.379c-3.433 0-6.225-2.792-6.225-6.225v-16.379c10.857 3.176 19.428 11.747 22.604 22.604zm139.396-120.675c21.326 0 38.676 17.35 38.676 38.675 0 21.326-17.35 38.676-38.676 38.676-13.512 0-25.931-7.129-32.891-18.33 3.013-3.24 5.446-7.095 7.07-11.449 4.17-11.182 2.088-23.485-4.663-32.677 7.258-9.311 18.418-14.895 30.484-14.895zm155.775 120.675h-16.379c3.176-10.857 11.747-19.428 22.604-22.604v16.379c0 3.433-2.792 6.225-6.225 6.225zm6.225-157.891v16.378c-10.857-3.176-19.428-11.747-22.604-22.604h16.379c3.433 0 6.225 2.793 6.225 6.226zm-232.994-60.226c11.966 0 23.774 4.024 33.25 11.331l29.399 22.669h-79.396c-16.96 0-30.759 13.798-30.759 30.759 0 11.187 6.082 21.501 15.872 26.917l51.448 28.453c6.283 3.475 9.128 11.168 6.62 17.895-2.458 6.587-9.269 10.495-16.195 9.29l-36.123-6.281c-31.973-5.559-62.866-18.419-89.338-37.189-1.69-1.199-3.712-1.843-5.784-1.843h-14v-102.001zm-155.006 124h-68v-140h68z" />
+                  <path
+                    d="m502 332h-88c-5.051 0-9.215 3.748-9.893 8.612-12.965-6.345-27.182-9.663-41.871-9.663-28.238 0-54.868 12.386-73.061 33.982l-10.063 11.946h-58.486c-19.164 0-34.755 15.591-34.755 34.754 0 3.094.412 6.092 1.174 8.948-9.216-3.815-17.68-9.448-24.945-16.715l-48.612-48.626c-13.515-13.518-35.556-13.571-49.134-.118-6.629 6.567-10.292 15.324-10.314 24.655-.022 9.332 3.6 18.105 10.199 24.705l54.327 54.327c26.563 26.564 61.882 41.193 99.449 41.193h185.985v2c0 5.522 4.477 10 10 10h88c5.523 0 10-4.478 10-10v-160c0-5.522-4.477-10-10-10zm-283.985 148c-32.225 0-62.521-12.549-85.306-35.335l-54.327-54.327c-2.809-2.809-4.351-6.543-4.341-10.515.009-3.973 1.568-7.7 4.39-10.495 5.779-5.727 15.161-5.705 20.914.051l48.612 48.626c18.297 18.302 42.626 28.381 68.505 28.381h113.057c5.523 0 10-4.478 10-10s-4.477-10-10-10h-108.893c-8.136 0-14.755-6.619-14.755-14.755s6.619-14.754 14.755-14.754h63.138c2.949 0 5.748-1.302 7.648-3.558l13.06-15.504c14.384-17.074 35.438-26.867 57.765-26.867 14.982 0 29.352 4.347 41.763 12.599v116.453zm273.985 12h-68v-140h68z" />
+                </svg>
+                <div class="bento-point">
+                  <span class="bento-point-value">1000 zł – 1 punkt</span>
+                  <span class="bento-point-text">Za każde wydane 1000 zł w Inter Cars otrzymasz 1 punkt do rankingu</span>
+                </div>
+              </div>
+              <p class="bento-offers-text">Korzystaj z ofert specjalnych, dzięki którym zarobisz więcej punktów do
+                rankingu!</p>
             </div>
-          </div>
 
-          <div class="campaign-special-offers">
-            <p class="campaign-special-offers-text">Korzystaj z ofert specjalnych, dzięki którym zarobisz więcej punktów do rankingu!</p>
+            <div class="bento-row">
+              <div class="bento-card bento-card-multiplier">
+                <img src="x2.webp" alt="x2" class="multiplier-icon">
+                <h3>Zakupy mnożymy x2!</h3>
+                <p>Przez cały czas trwania promocji!</p>
+              </div>
+
+              <div class="bento-card bento-card-countdown">
+                <div class="countdown-timer">
+                  <div class="countdown-label">Do końca promocji pozostało:</div>
+                  <div class="countdown-display">
+                    <div class="countdown-item">
+                      <span class="countdown-number" id="months">--</span>
+                      <span class="countdown-unit">Miesiące</span>
+                    </div>
+                    <div class="countdown-item">
+                      <span class="countdown-number" id="days">--</span>
+                      <span class="countdown-unit">Dni</span>
+                    </div>
+                    <div class="countdown-item">
+                      <span class="countdown-number" id="hours">--</span>
+                      <span class="countdown-unit">Godzin</span>
+                    </div>
+                    <div class="countdown-item">
+                      <span class="countdown-number" id="minutes">--</span>
+                      <span class="countdown-unit">Minut</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Wiersz 3: CTA - pełna szerokość -->
+            <div class="bento-card bento-card-cta">
+              <h3>Pamiętaj!</h3>
+              <p>Regularnie sprawdzaj swój wynik w Inter Cars e-Catalog!</p>
+              <a href="#" class="cta-btn-large">
+                Sprawdź wynik!
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" fill="currentColor" />
+                </svg>
+              </a>
+            </div>
+
           </div>
         </div>
       </div>
     </section>
 
-    <section class="campaign-multiplier">
-      <div class="campaign-multiplier-container">
-        <div class="campaign-multiplier-left">
-                    <div class="countdown-timer">
-            <div class="countdown-label">Do końca promocji pozostało:</div>
-            <div class="countdown-display">
-              <div class="countdown-item">
-                <span class="countdown-number" id="months">--</span>
-                <span class="countdown-unit">Miesięcy</span>
-              </div>
-              <div class="countdown-item">
-                <span class="countdown-number" id="days">--</span>
-                <span class="countdown-unit">Dni</span>
-              </div>
-              <div class="countdown-item">
-                <span class="countdown-number" id="hours">--</span>
-                <span class="countdown-unit">Godzin</span>
-              </div>
-              <div class="countdown-item">
-                <span class="countdown-number" id="minutes">--</span>
-                <span class="countdown-unit">Minut</span>
-              </div>
-            </div>
-            <p class="countdown-footer-note">Dodatkowo, w każdym miesiącu trwania promocji, premiujemy zakupy (x3) od innego Partnera – szczegóły znajdziesz w wiadomościach e-mail.</p>
-          </div>
-
-        </div>
-        <div class="campaign-multiplier-right">
-          <div class="campaign-multiplier-content">
-            <div class="campaign-multiplier-image-col">
-              <img src="x2.webp" alt="x2" class="campaign-multiplier-image" width="100">
-            </div>
-            <div class="campaign-multiplier-text-col">
-              <h2>Zakupy mnożymy x2!</h2>
-              <p class="campaign-multiplier-text">Przez cały czas trwania promocji!</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="cta" class="section cta-section">
-      <div class="section-container">
-        <h2 class="cta-title">PAMIĘTAJ!<br>REGULARNIE SPRAWDZAJ SWÓJ WYNIK W INTER CARS e-CATALOG!</h2>
-        <a href="#" class="cta-btn-large">
-          SPRAWDŹ WYNIK!
-          <img src="https://cdn.intercars.eu/files/icons/arrow-right.svg" width="24" height="24" alt="">
-        </a>
-      </div>
-    </section>
-
-    <section id="strategic-partner" class="section">
+    <section id="strategic-partner" class="section" style="border-bottom: 1px solid #e7e7e7;">
       <div class="section-container">
         <h2 class="section-title section-title-center">Partner strategiczny</h2>
         <div class="strategic-partner-logo">
@@ -2346,17 +2742,21 @@
           <div class="footer-column">
             <h3 class="footer-column-title">O Inter Cars</h3>
             <ul class="footer-column-list">
-              <li><a href="https://intercars.com.pl/pl/informacje" target="_blank" rel="noopener noreferrer">Informacje</a></li>
+              <li><a href="https://intercars.com.pl/pl/informacje" target="_blank"
+                  rel="noopener noreferrer">Informacje</a></li>
               <li><a href="https://intercars.com.pl/pl/OWS" target="_blank" rel="noopener noreferrer">Ogólne warunki
                   sprzedaży</a></li>
               <li><a href="https://inwestor.intercars.com.pl/" target="_blank" rel="noopener noreferrer">Relacje
                   Inwestorskie</a></li>
-              <li><a href="https://intercars.com.pl/pl/strategia-podatkowa" target="_blank" rel="noopener noreferrer">Strategia podatkowa</a></li>
+              <li><a href="https://intercars.com.pl/pl/strategia-podatkowa" target="_blank"
+                  rel="noopener noreferrer">Strategia podatkowa</a></li>
               <li><a href="https://intercars.com/pl" target="_blank" rel="noopener noreferrer">Serwis korporacyjny</a>
               </li>
               <li><a href="https://career.intercars.eu/" target="_blank" rel="noopener noreferrer">Kariera</a></li>
-              <li><a href="https://intercars.com.pl/pl/kontakt/mapa/filie/lista" target="_blank" rel="noopener noreferrer">Mapa filii</a></li>
-              <li><a href="https://intercars.com.pl/pl/kontakt/mapa/nasze-filie/lista" target="_blank" rel="noopener noreferrer">Nasze oddziały w największych miastach</a></li>
+              <li><a href="https://intercars.com.pl/pl/kontakt/mapa/filie/lista" target="_blank"
+                  rel="noopener noreferrer">Mapa filii</a></li>
+              <li><a href="https://intercars.com.pl/pl/kontakt/mapa/nasze-filie/lista" target="_blank"
+                  rel="noopener noreferrer">Nasze oddziały w największych miastach</a></li>
             </ul>
           </div>
 
@@ -2364,13 +2764,20 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Asortyment</h3>
             <ul class="footer-column-list">
-              <li><a href="https://intercars.com.pl/pl/asortyment/czesci-zamienne" target="_blank" rel="noopener noreferrer">Części zamienne</a></li>
-              <li><a href="https://intercars.com.pl/pl/asortyment/wyposazenie-warsztatu" target="_blank" rel="noopener noreferrer">Wyposażenie warsztatu</a></li>
-              <li><a href="https://intercars.com.pl/pl/asortyment/opony" target="_blank" rel="noopener noreferrer">Opony</a></li>
-              <li><a href="https://intercars.com.pl/pl/asortyment/akumulatory" target="_blank" rel="noopener noreferrer">Akumulatory</a></li>
-              <li><a href="https://intercars.com.pl/pl/asortyment/chemia-i-plyny" target="_blank" rel="noopener noreferrer">Chemia i płyny</a></li>
-              <li><a href="https://intercars.com.pl/pl/asortyment/oferta-ciezarowa" target="_blank" rel="noopener noreferrer">Oferta ciężarowa</a></li>
-              <li><a href="https://intercars.com.pl/pl/asortyment/katalogi-ofertowe" target="_blank" rel="noopener noreferrer">Katalogi ofertowe</a></li>
+              <li><a href="https://intercars.com.pl/pl/asortyment/czesci-zamienne" target="_blank"
+                  rel="noopener noreferrer">Części zamienne</a></li>
+              <li><a href="https://intercars.com.pl/pl/asortyment/wyposazenie-warsztatu" target="_blank"
+                  rel="noopener noreferrer">Wyposażenie warsztatu</a></li>
+              <li><a href="https://intercars.com.pl/pl/asortyment/opony" target="_blank"
+                  rel="noopener noreferrer">Opony</a></li>
+              <li><a href="https://intercars.com.pl/pl/asortyment/akumulatory" target="_blank"
+                  rel="noopener noreferrer">Akumulatory</a></li>
+              <li><a href="https://intercars.com.pl/pl/asortyment/chemia-i-plyny" target="_blank"
+                  rel="noopener noreferrer">Chemia i płyny</a></li>
+              <li><a href="https://intercars.com.pl/pl/asortyment/oferta-ciezarowa" target="_blank"
+                  rel="noopener noreferrer">Oferta ciężarowa</a></li>
+              <li><a href="https://intercars.com.pl/pl/asortyment/katalogi-ofertowe" target="_blank"
+                  rel="noopener noreferrer">Katalogi ofertowe</a></li>
             </ul>
           </div>
 
@@ -2378,16 +2785,22 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Usługi</h3>
             <ul class="footer-column-list">
-              <li><a href="https://intercars.com.pl/pl/uslugi/ekologia" target="_blank" rel="noopener noreferrer">Ekologia</a></li>
+              <li><a href="https://intercars.com.pl/pl/uslugi/ekologia" target="_blank"
+                  rel="noopener noreferrer">Ekologia</a></li>
               <li><a href="https://intercars.com.pl/pl/uslugi/siec" target="_blank" rel="noopener noreferrer">Sieć
                   osobowa QSC</a></li>
               <li><a href="https://qservicetruck.eu/pl" target="_blank" rel="noopener noreferrer">Sieć ciężarowa QST</a>
               </li>
-              <li><a href="https://intercars.com.pl/pl/uslugi/finansowanie" target="_blank" rel="noopener noreferrer">Finansowanie</a></li>
-              <li><a href="https://intercars.com.pl/pl/uslugi/wsparcie" target="_blank" rel="noopener noreferrer">Wsparcie</a></li>
-              <li><a href="https://intercars.com.pl/pl/szkolenia/szkolenia-stacjonarne-i-online" target="_blank" rel="noopener noreferrer">Szkolenia stacjonarne</a></li>
-              <li><a href="https://intercars.com.pl/pl/szkolenia/szkolenia-show-car" target="_blank" rel="noopener noreferrer">Szkolenia Show Car</a></li>
-              <li><a href="https://intercars.com.pl/pl/szkolenia/e-learning" target="_blank" rel="noopener noreferrer">E-Learning</a></li>
+              <li><a href="https://intercars.com.pl/pl/uslugi/finansowanie" target="_blank"
+                  rel="noopener noreferrer">Finansowanie</a></li>
+              <li><a href="https://intercars.com.pl/pl/uslugi/wsparcie" target="_blank"
+                  rel="noopener noreferrer">Wsparcie</a></li>
+              <li><a href="https://intercars.com.pl/pl/szkolenia/szkolenia-stacjonarne-i-online" target="_blank"
+                  rel="noopener noreferrer">Szkolenia stacjonarne</a></li>
+              <li><a href="https://intercars.com.pl/pl/szkolenia/szkolenia-show-car" target="_blank"
+                  rel="noopener noreferrer">Szkolenia Show Car</a></li>
+              <li><a href="https://intercars.com.pl/pl/szkolenia/e-learning" target="_blank"
+                  rel="noopener noreferrer">E-Learning</a></li>
             </ul>
           </div>
 
@@ -2395,9 +2808,12 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Oprogramowanie</h3>
             <ul class="footer-column-list">
-              <li><a href="https://intercars.com.pl/pl/oprogramowanie/e-catalog" target="_blank" rel="noopener noreferrer">Inter Cars e-Catalog</a></li>
-              <li><a href="https://intercars.com.pl/pl/oprogramowanie" target="_blank" rel="noopener noreferrer">HaynesPro</a></li>
-              <li><a href="https://intercars.com.pl/pl/oprogramowanie/esowa" target="_blank" rel="noopener noreferrer">eSowa</a></li>
+              <li><a href="https://intercars.com.pl/pl/oprogramowanie/e-catalog" target="_blank"
+                  rel="noopener noreferrer">Inter Cars e-Catalog</a></li>
+              <li><a href="https://intercars.com.pl/pl/oprogramowanie" target="_blank"
+                  rel="noopener noreferrer">HaynesPro</a></li>
+              <li><a href="https://intercars.com.pl/pl/oprogramowanie/esowa" target="_blank"
+                  rel="noopener noreferrer">eSowa</a></li>
             </ul>
           </div>
 
@@ -2487,25 +2903,31 @@
               <p class="footer-bottom-text">
                 Powered by IC Developers Team © 2025 Inter Cars
               </p>
-              <a href="https://intercars.com.pl/pl/polityka-cookies" target="_blank" rel="noopener noreferrer" class="footer-bottom-link">
+              <a href="https://intercars.com.pl/pl/polityka-cookies" target="_blank" rel="noopener noreferrer"
+                class="footer-bottom-link">
                 Polityka prywatności i cookies
               </a>
-              <a href="https://intercars.com.pl/pl/faq-rodo" target="_blank" rel="noopener noreferrer" class="footer-bottom-link">
+              <a href="https://intercars.com.pl/pl/faq-rodo" target="_blank" rel="noopener noreferrer"
+                class="footer-bottom-link">
                 FAQ RODO
               </a>
-              <a href="https://intercars.com/pl/rodo" target="_blank" rel="noopener noreferrer" class="footer-bottom-link">
+              <a href="https://intercars.com/pl/rodo" target="_blank" rel="noopener noreferrer"
+                class="footer-bottom-link">
                 Informacja o przetwarzaniu danych kontrahentów i ich reprezentantów
               </a>
             </div>
 
             <div class="footer-social">
-              <a href="https://www.linkedin.com/company/inter-cars-s-a-/" target="_blank" rel="noopener noreferrer nofollow">
+              <a href="https://www.linkedin.com/company/inter-cars-s-a-/" target="_blank"
+                rel="noopener noreferrer nofollow">
                 <img src="https://cdn.intercars.eu/files/icons/linkedin.webp" alt="LinkedIn" />
               </a>
-              <a href="https://www.instagram.com/intercars.sa/?hl=pl" target="_blank" rel="noopener noreferrer nofollow">
+              <a href="https://www.instagram.com/intercars.sa/?hl=pl" target="_blank"
+                rel="noopener noreferrer nofollow">
                 <img src="https://cdn.intercars.eu/files/icons/instagram.webp" alt="Instagram" />
               </a>
-              <a href="https://www.youtube.com/@GrupaInterCarsSA/videos" target="_blank" rel="noopener noreferrer nofollow">
+              <a href="https://www.youtube.com/@GrupaInterCarsSA/videos" target="_blank"
+                rel="noopener noreferrer nofollow">
                 <img src="https://cdn.intercars.eu/files/icons/youtube.webp" alt="Youtube" />
               </a>
               <a href="https://www.facebook.com/InterCarsOfficial" target="_blank" rel="noopener noreferrer nofollow">
@@ -2520,18 +2942,21 @@
 
     <div id="lightbox" class="lightbox">
       <button class="lightbox-close" aria-label="Zamknij">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
       <button class="lightbox-prev" aria-label="Poprzednie zdjęcie">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
           <polyline points="15 18 9 12 15 6"></polyline>
         </svg>
       </button>
       <button class="lightbox-next" aria-label="Następne zdjęcie">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
           <polyline points="9 18 15 12 9 6"></polyline>
         </svg>
       </button>
@@ -2736,7 +3161,7 @@
         'delphi', 'denso', 'driv', 'elring', 'exide', 'febi', 'filtron', 'gates',
         'hella', 'hepu', 'mahle-knecht', 'kyb', 'magneti-marelli', 'mann-hummel',
         'meyle', 'ngk', 'nissens', 'nrf', 'ntn-snr', 'osram', 'schaeffler',
-        'textar', 'total', 'valeo', 'varta', 'wabco', 'zf_trw', 'michelin'
+        'textar', 'total', 'valeo', 'varta', 'wabco', 'zftrw', 'michelin'
       ];
 
       if (partnersGrid) {
@@ -2990,14 +3415,14 @@
       }
 
       if (lightboxEl) {
-        lightboxEl.addEventListener('click', function(e) {
+        lightboxEl.addEventListener('click', function (e) {
           if (e.target === lightboxEl) {
             closeLightbox();
           }
         });
       }
 
-      document.addEventListener('keydown', function(e) {
+      document.addEventListener('keydown', function (e) {
         const lightbox = document.getElementById('lightbox');
         if (!lightbox.classList.contains('active')) return;
 
@@ -3041,4 +3466,5 @@
       setInterval(updateCountdown, 60000);
     </script>
 </body>
+
 </html>
