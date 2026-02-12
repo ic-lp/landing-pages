@@ -7,13 +7,15 @@
   <title>Rodzinne Wakacje z Inter Cars - Wygraj pobyt w MAXCAMP nad Bałtykiem</title>
   <meta name="description"
     content="Walcz o rodzinne wakacje z Inter Cars! 7 dni w ośrodku MAXCAMP w Dziwnowie lub Międzywodziu dla 5 osób. Zbieraj punkty za zakupy do 31 maja. 1000 zł = 1 punkt. Sprawdź szczegóły promocji!" />
+  <link rel="canonical" href="https://marketing.intercars.com/pl/wakacje-z-inter-cars" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wdth,wght@0,75..125,200..900;1,75..125,200..900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wdth,wght@0,75..125,200..900;1,75..125,200..900&amp;display=swap"
     rel="stylesheet">
   <style>
-    html:not(.fonts-loaded) body {
+    html.fonts-loading body {
       opacity: 0;
     }
 
@@ -27,7 +29,12 @@
   </style>
   <script>
     (function () {
-      const reveal = () => document.documentElement.classList.add("fonts-loaded");
+      const root = document.documentElement;
+      root.classList.add("fonts-loading");
+      const reveal = () => {
+        root.classList.remove("fonts-loading");
+        root.classList.add("fonts-loaded");
+      };
       if ("fonts" in document) {
         document.fonts.ready.then(reveal);
         setTimeout(reveal, 1500);
@@ -59,6 +66,7 @@
   <meta property="og:url" content="https://marketing.intercars.com/pl/wakacje-z-inter-cars" />
   <meta property="og:site_name" content="Inter Cars" />
   <meta property="og:image" content="https://cdn.intercars.eu/files/icons/og.png" />
+  <meta property="og:image:alt" content="Rodzinne Wakacje z Inter Cars - grafika promocji" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pl_PL" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -66,6 +74,7 @@
   <meta name="twitter:description"
     content="Walcz o rodzinne wakacje z Inter Cars! 7 dni w ośrodku MAXCAMP w Dziwnowie lub Międzywodziu dla 5 osób. Zbieraj punkty za zakupy do 31 maja. 1000 zł = 1 punkt." />
   <meta name="twitter:image" content="https://cdn.intercars.eu/files/icons/og.png" />
+  <meta name="twitter:image:alt" content="Rodzinne Wakacje z Inter Cars - grafika promocji" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -111,7 +120,6 @@
       --color-accent: #1f65b5;
       --color-border: #767676;
       --radius: 4px;
-      /* z-index scale */
       --z-base: 0;
       --z-content: 10;
       --z-overlay: 40;
@@ -126,7 +134,6 @@
       padding: 0;
       box-sizing: border-box;
     }
-
 
     .skip-to-content {
       position: absolute;
@@ -145,6 +152,18 @@
       top: 0;
     }
 
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     html {
       scroll-behavior: smooth;
     }
@@ -158,7 +177,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Hierarchia nagłówków h1-h6 */
     h1,
     h2,
     h3,
@@ -239,6 +257,16 @@
       gap: 24px;
     }
 
+    .main-nav-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
     .main-nav.show {
       display: flex;
       flex-direction: column;
@@ -246,12 +274,22 @@
       top: 100%;
       left: 0;
       right: 0;
-      background: rgba(0, 0, 0, 0.95);
+      background: var(--color-secondary);
       backdrop-filter: blur(10px);
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
       z-index: var(--z-dropdown);
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       padding: 24px 16px;
+    }
+
+    .main-nav.show .main-nav-list {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 40px;
+    }
+
+    .main-nav.show .main-nav-list li {
+      width: 100%;
     }
 
     .main-header.scrolled .main-nav.show {
@@ -452,13 +490,35 @@
       color: rgba(255, 255, 255, 0.8);
     }
 
+    .hero-slideshow-toggle {
+      align-self: flex-start;
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      background: rgba(2, 16, 32, 0.5);
+      color: #ffffff;
+      border-radius: var(--radius);
+      padding: 8px 12px;
+      font-size: 14px;
+      line-height: 1.2;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .hero-slideshow-toggle:hover {
+      background: rgba(2, 16, 32, 0.72);
+    }
+
+    .hero-slideshow-toggle:focus-visible {
+      outline: 2px solid #ffffff;
+      outline-offset: 3px;
+    }
+
     .hero-cta {
       display: inline-flex;
       align-items: center;
       gap: 12px;
       background: var(--color-primary);
       color: white;
-      padding: 20px 60px;
+      padding: 20px 50px;
       border-radius: var(--radius);
       text-decoration: none;
       font-size: 18px;
@@ -783,6 +843,10 @@
       width: auto;
     }
 
+    .footer-address {
+      font-style: normal;
+    }
+
     .footer-address-name {
       font-size: 16px;
       margin-bottom: 16px;
@@ -826,6 +890,11 @@
 
     .footer-countries-btn:hover {
       background: white;
+    }
+
+    .footer-countries-btn:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
     }
 
     .footer-countries-btn.open {
@@ -1005,6 +1074,11 @@
       background: rgba(207, 30, 53, 0.9);
     }
 
+    .scroll-to-top:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 4px;
+    }
+
     .gallery-container {
       width: 100%;
       margin: 40px auto;
@@ -1058,6 +1132,11 @@
     .gallery-item:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-item:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 4px;
     }
 
     .gallery-item img {
@@ -1511,7 +1590,6 @@
       font-size: 14px;
       color: rgba(255, 255, 255, 0.8);
       line-height: 1.6;
-      margin-top: 16px;
       opacity: 0;
       animation: fadeInUp 0.8s ease-out 1.4s forwards;
     }
@@ -1552,7 +1630,15 @@
       line-height: 1.6;
     }
 
-    /* Campaign Layout - New */
+    .about-features-list {
+      margin-left: 30px;
+      margin-bottom: 16px;
+    }
+
+    .about-features-list li {
+      margin-bottom: 4px;
+    }
+
     .campaign-layout {
       position: relative;
       background: #f4f6f8;
@@ -1574,19 +1660,19 @@
     }
 
     .campaign-bg::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 150px;
-        background: linear-gradient(to bottom, transparent, #f4f6f8);
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 150px;
+      background: linear-gradient(to bottom, transparent, #f4f6f8);
     }
-    
+
     .campaign-bg-overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(0,0,0,0.1);
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.1);
     }
 
     .campaign-content-container {
@@ -1614,19 +1700,19 @@
       font-size: 48px;
       color: #333;
       line-height: 1.1;
-      text-shadow: 0 2px 20px rgba(255,255,255,0.8);
+      text-shadow: 0 2px 20px rgba(255, 255, 255, 0.8);
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
     }
 
     .campaign-main-subtitle {
-     font-size: 20px;
-     color: #444;
-     font-weight: 500;
-     max-width: 900px;
-     margin: 0 auto;
-     text-shadow: 0 1px 10px rgba(255,255,255,0.8);
+      font-size: 20px;
+      color: #444;
+      font-weight: 500;
+      max-width: 900px;
+      margin: 0 auto;
+      text-shadow: 0 1px 10px rgba(255, 255, 255, 0.8);
     }
 
     .campaign-cards-row {
@@ -1641,7 +1727,7 @@
       border-radius: var(--radius);
       padding: 40px;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1650,8 +1736,8 @@
       transition: box-shadow 0.3s ease;
     }
 
-    .campaign-card:hover {
-        box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    .campaign-card-countdown {
+      grid-column: 1 / -1;
     }
 
     .campaign-card-icon {
@@ -1663,14 +1749,14 @@
     }
 
     .money-icon-card {
-        width: 64px;
-        height: 64px;
-        fill: var(--color-secondary);
+      width: 64px;
+      height: 64px;
+      fill: var(--color-secondary);
     }
-    
+
     .icon-img-responsive {
-        height: 100px;
-        width: auto;
+      height: 100px;
+      width: auto;
     }
 
     .campaign-card-title {
@@ -1686,7 +1772,7 @@
     }
 
     .layout-countdown-timer {
-        width: 100%;
+      width: 100%;
     }
 
     .layout-countdown-display {
@@ -1725,7 +1811,7 @@
     }
 
     .campaign-info-banner {
-      background: #fdf2f2; /* Light red/primary tint */
+      background: #fdf2f2;
       border: 1px solid rgba(207, 30, 53, 0.2);
       border-radius: var(--radius);
       padding: 24px;
@@ -1754,34 +1840,51 @@
 
     .campaign-footer-text {
       color: #666;
-      margin-bottom: 24px;
+      margin-top: 24px;
       font-size: 14px;
     }
-       
-    @media (max-width: 900px) {
-        .campaign-cards-row {
-            grid-template-columns: 1fr;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .campaign-info-banner {
-            flex-direction: column;
-            text-align: center;
-            gap: 16px;
-        }
 
-        .campaign-main-title {
-            font-size: 32px;
-        }
-        
-        .campaign-bg {
-          height: 50%;
-        }
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .hero-right img {
+        transition: none;
+      }
     }
 
-    /* Lightbox */
+    @media (max-width: 900px) {
+      .campaign-cards-row {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .campaign-info-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+      }
+
+      .campaign-main-title {
+        font-size: 32px;
+      }
+
+      .campaign-bg {
+        height: 50%;
+      }
+    }
+
     .lightbox {
       position: fixed;
       top: 0;
@@ -1854,6 +1957,13 @@
       transform: scale(1.1);
     }
 
+    .lightbox-close:focus-visible,
+    .lightbox-prev:focus-visible,
+    .lightbox-next:focus-visible {
+      outline: 2px solid #ffffff;
+      outline-offset: 3px;
+    }
+
     .lightbox-close {
       top: 24px;
       right: 24px;
@@ -1880,6 +1990,38 @@
     }
 
     @media (max-width: 576px) {
+      .header-content {
+        height: auto;
+        min-height: 76px;
+        padding: 12px 16px;
+      }
+
+      .hero-left {
+        padding: 72px 16px 20px;
+        gap: 16px;
+      }
+
+      .hero-features {
+        gap: 10px;
+      }
+
+      .hero-feature-box {
+        padding: 14px 16px;
+      }
+
+      .hero-feature-title {
+        font-size: 20px;
+        margin-bottom: 2px;
+      }
+
+      .hero-feature-desc {
+        font-size: 12px;
+      }
+
+      .hero-slideshow-toggle {
+        padding: 6px 10px;
+        font-size: 12px;
+      }
 
       .lightbox-prev,
       .lightbox-next {
@@ -1988,7 +2130,6 @@
         font-size: 11px;
       }
 
-      /* Responsywne nagłówki dla mobile */
       h1 {
         font-size: 32px;
       }
@@ -2152,6 +2293,10 @@
         background: transparent;
       }
 
+      .main-nav-list {
+        gap: 24px;
+      }
+
       .mobile-menu-btn {
         display: none;
       }
@@ -2201,7 +2346,6 @@
         font-size: 20px;
       }
 
-      /* Sekcje pozostają w kolumnie na tablecie */
       .section-grid {
         flex-direction: column;
         gap: 32px;
@@ -2238,7 +2382,6 @@
         align-items: center;
       }
 
-      /* About grid pozostaje w kolumnie na tablecie */
       .about-grid {
         flex-direction: column;
         gap: 32px;
@@ -2281,7 +2424,6 @@
         font-size: 18px;
       }
 
-      /* Responsywne nagłówki dla tablet */
       h1 {
         font-size: 40px;
       }
@@ -2392,6 +2534,10 @@
         background: transparent;
       }
 
+      .main-nav-list {
+        gap: 32px;
+      }
+
       .mobile-menu-btn {
         display: none;
       }
@@ -2441,7 +2587,6 @@
         font-size: 24px;
       }
 
-      /* Na deskopie sekcje w rzędzie */
       .section-grid {
         flex-direction: row;
         gap: 48px;
@@ -2483,7 +2628,6 @@
         align-items: center;
       }
 
-      /* Na deskopie about grid w rzędzie 30%/70% */
       .about-grid {
         flex-direction: row;
         gap: 48px;
@@ -2506,25 +2650,22 @@
 
 <body>
   <a href="#main-content" class="skip-to-content">Przejdź do treści głównej</a>
-
   <header id="main-header" class="main-header">
     <div class="header-container">
       <div class="header-content">
-        <a href="https://marketing.intercars.com/pl/zostan-ekspertem-od-ukladow-hamulcowych-z-inter-cars"
-          class="header-logo">
+        <a href="/" class="header-logo">
           <img src="https://cdn.intercars.eu/files/1/3/8/8/7/7/138877.webp" alt="Inter Cars" />
         </a>
-
-
-        <nav id="main-nav" class="main-nav">
-          <a href="#about">O ośrodku</a>
-          <a href="#campaign">Kampania</a>
-          <a href="#strategic-partner">Partner strategiczny</a>
-          <a href="#partners">Partnerzy</a>
+        <nav id="main-nav" class="main-nav" aria-label="Nawigacja główna">
+          <ul class="main-nav-list">
+            <li><a href="#about">Nagroda</a></li>
+            <li><a href="#campaign">O promocji</a></li>
+            <li><a href="#wynik">Sprawdź wynik</a></li>
+            <li><a href="#partners">Partnerzy</a></li>
+          </ul>
         </nav>
-
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false"
-          aria-controls="main-nav">
+        <button id="mobile-menu-btn" class="mobile-menu-btn" type="button" aria-label="Otwórz menu"
+          aria-expanded="false" aria-controls="main-nav">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
             <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -2535,46 +2676,36 @@
       </div>
     </div>
   </header>
-
-
-
   <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
-
-
   <main id="main-content" tabindex="-1">
-
-    <section id="hero" class="hero">
+    <section id="hero" class="hero" aria-labelledby="hero-title">
       <div class="hero-container">
         <div class="hero-left">
-          <h1 class="hero-main-title">Rodzinne Wakacje z Inter Cars!</h1>
+          <h1 id="hero-title" class="hero-main-title">Rodzinne Wakacje z Inter Cars!</h1>
           <p class="hero-subtitle">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-              style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+              style="display: inline-block; vertical-align: middle; margin-right: 8px;" aria-hidden="true">
               <path
                 d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z"
                 fill="currentColor" />
             </svg>
             Ośrodek MAXCAMP — Dziwnów lub Międzywodzie
           </p>
-
           <div class="hero-features">
             <div class="hero-feature-box">
               <div class="hero-feature-title">7 dni</div>
               <div class="hero-feature-desc">w okresie 27.06 – 25.07</div>
             </div>
-
             <div class="hero-feature-box">
               <div class="hero-feature-title">5 osób</div>
               <div class="hero-feature-desc">+ małe zwierzę domowe</div>
             </div>
-
             <div class="hero-feature-box">
               <div class="hero-feature-title">Atrakcje</div>
               <div class="hero-feature-desc">dla dzieci i dorosłych</div>
             </div>
           </div>
-
-          <a href="#training" class="hero-cta">
+          <a href="#campaign" class="hero-cta">
             Dowiedz się więcej
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" fill="currentColor" />
@@ -2587,47 +2718,53 @@
         </div>
       </div>
 
-      <div class="hero-right" id="hero-slideshow">
-        <img src="gallery/img9.webp" alt="Maxcamp" class="active" />
-        <img src="gallery/img1.webp" alt="Maxcamp" />
-        <img src="gallery/img2.webp" alt="Maxcamp" />
-        <img src="gallery/img3.webp" alt="Maxcamp" />
-        <img src="gallery/img4.webp" alt="Maxcamp" />
-        <img src="gallery/img10.webp" alt="Maxcamp" />
-        <img src="gallery/img7.webp" alt="Maxcamp" />
-        <img src="gallery/img8.webp" alt="Maxcamp" />
-        <img src="gallery/img0.webp" alt="Maxcamp" />
-        <img src="gallery/img11.webp" alt="Maxcamp" />
-        <img src="gallery/img18.webp" alt="Maxcamp" />
-        <img src="gallery/img17.webp" alt="Maxcamp" />
-        <img src="gallery/img5.webp" alt="Maxcamp" />
-        <img src="gallery/img16.webp" alt="Maxcamp" />
-        <img src="gallery/img12.webp" alt="Maxcamp" />
-        <img src="gallery/img13.webp" alt="Maxcamp" />
-        <img src="gallery/img6.webp" alt="Maxcamp" />
-        <img src="gallery/img14.webp" alt="Maxcamp" />
-        <img src="gallery/img15.webp" alt="Maxcamp" />
-        <img src="gallery/img19.webp" alt="Maxcamp" />
+      <div class="hero-right" id="hero-slideshow" aria-hidden="true">
+        <img src="gallery/img9.webp" alt="" class="active" width="1920" height="1277" loading="eager" decoding="async"
+          fetchpriority="high" />
+        <img src="gallery/img1.webp" alt="" loading="lazy" decoding="async" />
+        <img src="gallery/img2.webp" alt="" loading="lazy" decoding="async" />
+        <img src="gallery/img3.webp" alt="" loading="lazy" decoding="async" />
+        <img src="gallery/img4.webp" alt="" loading="lazy" decoding="async" />
+        <img src="gallery/img10.webp" alt="" loading="lazy" decoding="async" />
+        <img src="gallery/img7.webp" alt="" loading="lazy" decoding="async" />
+        <img src="gallery/img8.webp" alt="" loading="lazy" decoding="async" />
+        <img src="gallery/img0.webp" alt="" loading="lazy" decoding="async" />
+        <img src="gallery/img11.webp" alt="" loading="lazy" decoding="async" />
+        <img src="gallery/img18.webp" alt="" loading="lazy" decoding="async" />
+        <img src="gallery/img17.webp" alt="" loading="lazy" decoding="async" />
+        <img src="gallery/img5.webp" alt="" loading="lazy" decoding="async" />
+        <img src="gallery/img16.webp" alt="" loading="lazy" decoding="async" />
+        <img src="gallery/img12.webp" alt="" loading="lazy" decoding="async" />
+        <img src="gallery/img13.webp" alt="" loading="lazy" decoding="async" />
+        <img src="gallery/img6.webp" alt="" loading="lazy" decoding="async" />
+        <img src="gallery/img14.webp" alt="" loading="lazy" decoding="async" />
+        <img src="gallery/img15.webp" alt="" loading="lazy" decoding="async" />
+        <img src="gallery/img19.webp" alt="" loading="lazy" decoding="async" />
       </div>
     </section>
 
 
-    <section id="about" class="section">
+    <section id="about" class="section" aria-labelledby="about-title">
       <div class="section-container">
         <div class="about-grid">
           <div class="about-content">
-            <h2 class="section-title">Ośrodki MAXCAMP to idealne miejsce na rodzinne wakacje nad Bałtykiem!</h2>
+            <h2 id="about-title" class="section-title">Ośrodki MAXCAMP to idealne miejsce na rodzinne wakacje nad
+              Bałtykiem!</h2>
             <div class="about-logo">
-              <img src="https://www.domkimaxcamp.pl/wp-content/uploads/2019/05/domki-nad-morzem.jpg"
-                alt="MAXCAMP Logo" />
+              <img src="logo-miedzywodzie.jpg" alt="Logo MAXCAMP Międzywodzie" width="285" height="88"
+                style="margin-bottom: 20px;" />
+              <img src="logo-dziwnow.png" alt="Logo MAXCAMP Dziwnów" width="288" height="85" />
             </div>
             <div class="about-description">
-              <p>Ośrodek wypoczynkowy nad morzem MAXCAMP to przyjazne miejsce dla rodzin z dziećmi oraz wszystkich osób,
+              <p>Ośrodki wypoczynkowe nad morzem MAXCAMP to przyjazne miejsce dla rodzin z dziećmi oraz wszystkich osób,
                 które pragną wypoczynku w komfortowych warunkach w najbliższym otoczeniu natury w domkach nad morzem.
               </p>
-              <p>Pragniemy zaprosić Państwa do naszego ośrodka, który położony jest 100 metrów od przepięknej,
-                piaszczystej i szerokiej plaży, usytuowanego w zacisznym miejscu wśród zielonych lasów sosnowych w
-                domkach drewnianych bardzo blisko morza.</p>
+              <ul class="about-features-list">
+                <li>blisko morza</li>
+                <li>cicha, spokojna okolica</li>
+                <li>komfortowe warunki</li>
+                <li>atrakcje na miejscu</li>
+              </ul>
             </div>
           </div>
           <div class="about-gallery">
@@ -2637,26 +2774,36 @@
       </div>
     </section>
 
-    <section id="campaign" class="campaign-layout">
+    <section id="campaign" class="campaign-layout" aria-labelledby="campaign-title">
       <div class="campaign-bg">
         <div class="campaign-overlay"></div>
       </div>
-      
+
       <div class="campaign-content-container">
         <div class="campaign-header-block">
-          <h2 class="campaign-main-title">Wygraj rodzinne wakacje z Inter Cars!</h2>
-          <p class="campaign-main-subtitle">Do 31 maja walcz o wysokie miejsce w rankingu zakupowym. Korzystaj z ofert specjalnych, dzięki którym zarobisz więcej punktów do rankingu!</p>
+          <h2 id="campaign-title" class="campaign-main-title">Wygraj rodzinne wakacje z Inter Cars!</h2>
+          <p class="campaign-main-subtitle">Do 31 maja walcz o wysokie miejsce w rankingu zakupowym. Korzystaj z ofert
+            specjalnych, dzięki którym zarobisz więcej punktów do rankingu!</p>
         </div>
 
         <div class="campaign-cards-row">
           <!-- Card 1 -->
           <div class="campaign-card">
             <div class="campaign-card-icon">
-              <svg class="money-icon-card" width="64" height="64" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                  <path d="m306.93 257.05c-1.86 1.86-2.93 4.43-2.93 7.07 0 2.63 1.07 5.21 2.93 7.069 1.86 1.86 4.44 2.931 7.07 2.931s5.21-1.07 7.07-2.931c1.86-1.859 2.93-4.439 2.93-7.069 0-2.641-1.07-5.21-2.93-7.07-1.86-1.87-4.44-2.93-7.07-2.93s-5.21 1.06-7.07 2.93z" fill="var(--color-primary)"/>
-                  <path d="m425.05 179.189c1.86-1.859 2.93-4.439 2.93-7.069 0-2.641-1.07-5.221-2.93-7.07-1.86-1.86-4.44-2.93-7.07-2.93-2.64 0-5.21 1.069-7.07 2.93-1.87 1.86-2.93 4.43-2.93 7.07 0 2.63 1.06 5.21 2.93 7.069 1.86 1.86 4.43 2.931 7.07 2.931 2.63 0 5.21-1.07 7.07-2.931z" fill="var(--color-primary)"/>
-                  <path d="m108 170v-12h10.853c4.281 2.948 8.675 5.738 13.147 8.402v81.491c0 14.46 11.765 26.225 26.225 26.225h110.775c5.523 0 10-4.478 10-10s-4.477-10-10-10h-73.89c-3.886-21.909-21.2-39.223-43.109-43.11v-33.923c19.576 9.284 40.415 15.953 61.696 19.653l36.123 6.281c1.991.346 3.976.514 5.94.514 2.753 0 5.461-.338 8.079-.97 10.507 17.239 29.494 28.231 50.162 28.231 32.354 0 58.676-26.322 58.676-58.676s-26.323-58.676-58.677-58.676c-18.3 0-35.244 8.442-46.251 22.557l-46.696-25.824c-3.425-1.895-5.553-5.503-5.553-9.416 0-5.933 4.826-10.759 10.759-10.759h206.632c3.886 21.909 21.2 39.223 43.109 43.11v77.898c-21.909 3.886-39.223 21.2-43.109 43.11h-73.891c-5.523 0-10 4.478-10 10s4.477 10 10 10h110.775c14.46 0 26.225-11.765 26.225-26.225v-151.667c0-14.461-11.765-26.226-26.225-26.226h-131.367l-49.938-38.507c-12.956-9.991-29.102-15.493-45.464-15.493h-135.006v-6c0-5.522-4.477-10-10-10h-88c-5.523 0-10 4.478-10 10v160c0 5.522 4.477 10 10 10h88c5.523 0 10-4.478 10-10zm66.604 84.117h-16.379c-3.433 0-6.225-2.792-6.225-6.225v-16.379c10.857 3.176 19.428 11.747 22.604 22.604zm139.396-120.675c21.326 0 38.676 17.35 38.676 38.675 0 21.326-17.35 38.676-38.676 38.676-13.512 0-25.931-7.129-32.891-18.33 3.013-3.24 5.446-7.095 7.07-11.449 4.17-11.182 2.088-23.485-4.663-32.677 7.258-9.311 18.418-14.895 30.484-14.895zm155.775 120.675h-16.379c3.176-10.857 11.747-19.428 22.604-22.604v16.379c0 3.433-2.792 6.225-6.225 6.225zm6.225-157.891v16.378c-10.857-3.176-19.428-11.747-22.604-22.604h16.379c3.433 0 6.225 2.793 6.225 6.226zm-232.994-60.226c11.966 0 23.774 4.024 33.25 11.331l29.399 22.669h-79.396c-16.96 0-30.759 13.798-30.759 30.759 0 11.187 6.082 21.501 15.872 26.917l51.448 28.453c6.283 3.475 9.128 11.168 6.62 17.895-2.458 6.587-9.269 10.495-16.195 9.29l-36.123-6.281c-31.973-5.559-62.866-18.419-89.338-37.189-1.69-1.199-3.712-1.843-5.784-1.843h-14v-102.001zm-155.006 124h-68v-140h68z" fill="#021020"/>
-                  <path d="m502 332h-88c-5.051 0-9.215 3.748-9.893 8.612-12.965-6.345-27.182-9.663-41.871-9.663-28.238 0-54.868 12.386-73.061 33.982l-10.063 11.946h-58.486c-19.164 0-34.755 15.591-34.755 34.754 0 3.094.412 6.092 1.174 8.948-9.216-3.815-17.68-9.448-24.945-16.715l-48.612-48.626c-13.515-13.518-35.556-13.571-49.134-.118-6.629 6.567-10.292 15.324-10.314 24.655-.022 9.332 3.6 18.105 10.199 24.705l54.327 54.327c26.563 26.564 61.882 41.193 99.449 41.193h185.985v2c0 5.522 4.477 10 10 10h88c5.523 0 10-4.478 10-10v-160c0-5.522-4.477-10-10-10zm-283.985 148c-32.225 0-62.521-12.549-85.306-35.335l-54.327-54.327c-2.809-2.809-4.351-6.543-4.341-10.515.009-3.973 1.568-7.7 4.39-10.495 5.779-5.727 15.161-5.705 20.914.051l48.612 48.626c18.297 18.302 42.626 28.381 68.505 28.381h113.057c5.523 0 10-4.478 10-10s-4.477-10-10-10h-108.893c-8.136 0-14.755-6.619-14.755-14.755s6.619-14.754 14.755-14.754h63.138c2.949 0 5.748-1.302 7.648-3.558l13.06-15.504c14.384-17.074 35.438-26.867 57.765-26.867 14.982 0 29.352 4.347 41.763 12.599v116.453zm273.985 12h-68v-140h68z" fill="#021020"/>
+              <svg class="money-icon-card" width="64" height="64" viewBox="0 0 512 512"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="m306.93 257.05c-1.86 1.86-2.93 4.43-2.93 7.07 0 2.63 1.07 5.21 2.93 7.069 1.86 1.86 4.44 2.931 7.07 2.931s5.21-1.07 7.07-2.931c1.86-1.859 2.93-4.439 2.93-7.069 0-2.641-1.07-5.21-2.93-7.07-1.86-1.87-4.44-2.93-7.07-2.93s-5.21 1.06-7.07 2.93z"
+                  fill="var(--color-primary)" />
+                <path
+                  d="m425.05 179.189c1.86-1.859 2.93-4.439 2.93-7.069 0-2.641-1.07-5.221-2.93-7.07-1.86-1.86-4.44-2.93-7.07-2.93-2.64 0-5.21 1.069-7.07 2.93-1.87 1.86-2.93 4.43-2.93 7.07 0 2.63 1.06 5.21 2.93 7.069 1.86 1.86 4.43 2.931 7.07 2.931 2.63 0 5.21-1.07 7.07-2.931z"
+                  fill="var(--color-primary)" />
+                <path
+                  d="m108 170v-12h10.853c4.281 2.948 8.675 5.738 13.147 8.402v81.491c0 14.46 11.765 26.225 26.225 26.225h110.775c5.523 0 10-4.478 10-10s-4.477-10-10-10h-73.89c-3.886-21.909-21.2-39.223-43.109-43.11v-33.923c19.576 9.284 40.415 15.953 61.696 19.653l36.123 6.281c1.991.346 3.976.514 5.94.514 2.753 0 5.461-.338 8.079-.97 10.507 17.239 29.494 28.231 50.162 28.231 32.354 0 58.676-26.322 58.676-58.676s-26.323-58.676-58.677-58.676c-18.3 0-35.244 8.442-46.251 22.557l-46.696-25.824c-3.425-1.895-5.553-5.503-5.553-9.416 0-5.933 4.826-10.759 10.759-10.759h206.632c3.886 21.909 21.2 39.223 43.109 43.11v77.898c-21.909 3.886-39.223 21.2-43.109 43.11h-73.891c-5.523 0-10 4.478-10 10s4.477 10 10 10h110.775c14.46 0 26.225-11.765 26.225-26.225v-151.667c0-14.461-11.765-26.226-26.225-26.226h-131.367l-49.938-38.507c-12.956-9.991-29.102-15.493-45.464-15.493h-135.006v-6c0-5.522-4.477-10-10-10h-88c-5.523 0-10 4.478-10 10v160c0 5.522 4.477 10 10 10h88c5.523 0 10-4.478 10-10zm66.604 84.117h-16.379c-3.433 0-6.225-2.792-6.225-6.225v-16.379c10.857 3.176 19.428 11.747 22.604 22.604zm139.396-120.675c21.326 0 38.676 17.35 38.676 38.675 0 21.326-17.35 38.676-38.676 38.676-13.512 0-25.931-7.129-32.891-18.33 3.013-3.24 5.446-7.095 7.07-11.449 4.17-11.182 2.088-23.485-4.663-32.677 7.258-9.311 18.418-14.895 30.484-14.895zm155.775 120.675h-16.379c3.176-10.857 11.747-19.428 22.604-22.604v16.379c0 3.433-2.792 6.225-6.225 6.225zm6.225-157.891v16.378c-10.857-3.176-19.428-11.747-22.604-22.604h16.379c3.433 0 6.225 2.793 6.225 6.226zm-232.994-60.226c11.966 0 23.774 4.024 33.25 11.331l29.399 22.669h-79.396c-16.96 0-30.759 13.798-30.759 30.759 0 11.187 6.082 21.501 15.872 26.917l51.448 28.453c6.283 3.475 9.128 11.168 6.62 17.895-2.458 6.587-9.269 10.495-16.195 9.29l-36.123-6.281c-31.973-5.559-62.866-18.419-89.338-37.189-1.69-1.199-3.712-1.843-5.784-1.843h-14v-102.001zm-155.006 124h-68v-140h68z"
+                  fill="#021020" />
+                <path
+                  d="m502 332h-88c-5.051 0-9.215 3.748-9.893 8.612-12.965-6.345-27.182-9.663-41.871-9.663-28.238 0-54.868 12.386-73.061 33.982l-10.063 11.946h-58.486c-19.164 0-34.755 15.591-34.755 34.754 0 3.094.412 6.092 1.174 8.948-9.216-3.815-17.68-9.448-24.945-16.715l-48.612-48.626c-13.515-13.518-35.556-13.571-49.134-.118-6.629 6.567-10.292 15.324-10.314 24.655-.022 9.332 3.6 18.105 10.199 24.705l54.327 54.327c26.563 26.564 61.882 41.193 99.449 41.193h185.985v2c0 5.522 4.477 10 10 10h88c5.523 0 10-4.478 10-10v-160c0-5.522-4.477-10-10-10zm-283.985 148c-32.225 0-62.521-12.549-85.306-35.335l-54.327-54.327c-2.809-2.809-4.351-6.543-4.341-10.515.009-3.973 1.568-7.7 4.39-10.495 5.779-5.727 15.161-5.705 20.914.051l48.612 48.626c18.297 18.302 42.626 28.381 68.505 28.381h113.057c5.523 0 10-4.478 10-10s-4.477-10-10-10h-108.893c-8.136 0-14.755-6.619-14.755-14.755s6.619-14.754 14.755-14.754h63.138c2.949 0 5.748-1.302 7.648-3.558l13.06-15.504c14.384-17.074 35.438-26.867 57.765-26.867 14.982 0 29.352 4.347 41.763 12.599v116.453zm273.985 12h-68v-140h68z"
+                  fill="#021020" />
               </svg>
             </div>
             <h3 class="campaign-card-title">1000 zł = 1 punkt</h3>
@@ -2666,104 +2813,108 @@
           <!-- Card 2 -->
           <div class="campaign-card">
             <div class="campaign-card-icon">
-               <img src="x2.webp" alt="x2" class="icon-img-responsive">
+              <img src="https://cdn.intercars.eu/files/1/3/8/8/7/9/138879/1920x.webp" alt="x2"
+                class="icon-img-responsive">
             </div>
             <h3 class="campaign-card-title">Zakupy mnożymy x2!</h3>
-            <p class="campaign-card-desc">Hengst Filtration - przez cały czas trwania promocji!</p>
+            <p class="campaign-card-desc">Przez cały czas trwania promocji</p>
           </div>
 
           <!-- Card 3 -->
-          <div class="campaign-card campaign-card-countdown">
-              <div class="campaign-card-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="64" height="64" class="money-icon-card" fill="#021020">
-                  <g id="Outline">
-                    <path d="M309.989,227.827c29.6-18.925,54.1-43.444,70.859-70.91,16.326-26.758,25.2-55.46,26.472-85.417H408A23.527,23.527,0,0,0,431.5,48V24a7.5,7.5,0,0,0-7.5-7.5H88A7.5,7.5,0,0,0,80.5,24V48A23.527,23.527,0,0,0,104,71.5h.677c1.27,29.957,10.148,58.659,26.475,85.417,16.758,27.466,41.26,51.985,70.859,70.91a33.46,33.46,0,0,1,0,56.346c-29.6,18.925-54.1,43.444-70.859,70.91-16.328,26.761-25.207,55.465-26.474,85.425A24.524,24.524,0,0,0,80.5,465v23a7.5,7.5,0,0,0,7.5-7.5H424a7.5,7.5,0,0,0,7.5-7.5V464A23.527,23.527,0,0,0,408,440.5h-.677c-1.271-29.957-10.148-58.659-26.475-85.417-16.758-27.466-41.261-51.985-70.859-70.91a33.46,33.46,0,0,1,0-56.346ZM95.5,48V31.5h321V48a8.51,8.51,0,0,1-8.5,8.5H104A8.51,8.51,0,0,1,95.5,48Zm321,416v16.5H95.5V465a9.511,9.511,0,0,1,9.5-9.5H408A8.51,8.51,0,0,1,416.5,464ZM156.326,440.5c9.833-15.6,34.228-30.213,69.191-41.093,13.416-4.175,23.818-10.142,30.483-17.343,6.664,7.2,17.067,13.168,30.483,17.343,34.963,10.88,59.358,25.493,69.191,41.093ZM279.58,256a48.221,48.221,0,0,0,22.328,40.812C357.044,332.062,389.639,384.1,392.3,440.5H372.437c-8.976-22.222-37.552-41.741-81.5-55.415-14.954-4.654-25.352-11.915-27.814-19.422a7.5,7.5,0,0,0-14.253,0c-2.462,7.507-12.859,14.768-27.813,19.422-43.946,13.675-72.528,33.193-81.5,55.415H119.7c2.663-56.4,35.258-108.438,90.393-143.688a48.462,48.462,0,0,0,0-81.624C154.956,179.938,122.361,127.9,119.7,71.5H392.3c-2.662,56.4-35.251,108.438-90.387,143.688A48.221,48.221,0,0,0,279.58,256Z"></path>
-                    <path d="M358.318,124.12a7.5,7.5,0,0,0-6.418-3.62H160.1a7.5,7.5,0,0,0-6.641,10.986c14.123,26.9,36.873,50.892,65.791,69.383a65.309,65.309,0,0,1,29.344,44.671,7.5,7.5,0,0,0,14.812,0,65.313,65.313,0,0,1,29.344-44.672c28.917-18.49,51.667-42.482,65.79-69.382A7.5,7.5,0,0,0,358.318,124.12ZM284.67,188.23A80.5,80.5,0,0,0,256,220.106a80.489,80.489,0,0,0-28.67-31.875c-22.679-14.5-41.2-32.563-54.18-52.731h165.7C325.87,155.668,307.349,173.729,284.67,188.23Z"></path>
-                    <path d="M256,264.5a7.5,7.5,0,0,0-7.5,7.5v7.987a7.5,7.5,0,1,0,15,0V272A7.5,7.5,0,0,0,256,264.5Z"></path>
-                    <path d="M256,304.5a7.5,7.5,0,0,0-7.5,7.5v7.987a7.5,7.5,0,1,0,15,0V312A7.5,7.5,0,0,0,256,304.5Z"></path>
-                  </g>
-                </svg>
-              </div>
-              <h3 class="campaign-card-title">Do końca akcji pozostało:</h3>
-              <div class="layout-countdown-timer">
-                <div class="layout-countdown-display">
-                  <div class="layout-countdown-item">
-                    <span class="layout-countdown-number" id="days">--</span>
-                    <span class="layout-countdown-unit">Dni</span>
-                  </div>
-                  <div class="layout-countdown-divider"></div>
-                  <div class="layout-countdown-item">
-                    <span class="layout-countdown-number" id="hours">--</span>
-                    <span class="layout-countdown-unit">Godzin</span>
-                  </div>
-                  <div class="layout-countdown-divider"></div>
-                  <div class="layout-countdown-item">
-                    <span class="layout-countdown-number" id="minutes">--</span>
-                    <span class="layout-countdown-unit">Minut</span>
-                  </div>
-                  <div class="layout-countdown-divider"></div>
-                  <div class="layout-countdown-item">
-                    <span class="layout-countdown-number" id="seconds">--</span>
-                    <span class="layout-countdown-unit">Sekund</span>
-                  </div>
+          <div class="campaign-card">
+            <div class="campaign-card-icon">
+              <svg width="100" height="100" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M98.528 357.248L53.523 435.199C46.491 447.378 56.382 462.359 70.345 460.676L114.823 455.317C118.588 454.863 122.201 456.949 123.691 460.437L141.289 501.636C146.814 514.569 164.732 515.645 171.764 503.465L218.049 423.298H293.951L340.236 503.465C347.268 515.644 365.186 514.569 370.711 501.636L388.309 460.437C389.799 456.949 393.412 454.863 397.177 455.317L441.655 460.676C455.618 462.358 465.508 447.378 458.477 435.199L413.472 357.248H98.528Z"
+                  fill="#D83131" />
+                <path
+                  d="M458.477 435.199L413.472 357.248H391.448L434.783 432.307C441.815 444.487 431.924 459.467 417.961 457.784L373.483 452.426C369.718 451.972 366.105 454.058 364.615 457.546L347.017 498.745C345.781 501.64 343.921 503.935 341.703 505.626C349.496 515.459 365.537 513.748 370.711 501.637L388.309 460.438C389.799 456.95 393.412 454.864 397.177 455.318L441.655 460.677C455.618 462.359 465.509 447.379 458.477 435.199Z"
+                  fill="#C41926" />
+                <path
+                  d="M270.257 420.407L195.633 418.005L148.07 500.574C146.878 502.639 145.367 504.314 143.662 505.624C150.803 514.634 165.542 514.242 171.764 503.466L218.049 423.299H271.927L270.257 420.407Z"
+                  fill="#C41926" />
+                <path
+                  d="M256 0C252.024 0 248.075 0.118 244.153 0.333C332.909 5.192 407.218 64.297 434.481 145.067V281.6C407.218 362.37 332.909 421.475 244.153 426.334C248.076 426.549 252.024 426.667 256 426.667C349.946 426.667 429.707 365.94 458.175 281.6V145.067C429.707 60.727 349.946 0 256 0Z"
+                  fill="#FA6F0C" />
+                <circle cx="255.5" cy="213.5" r="213.5" fill="#FE950D" />
+                <path
+                  d="M403.091 281.6C377.321 337.03 321.154 375.467 256 375.467C190.846 375.467 134.679 337.03 108.909 281.6V145.067C134.679 89.637 190.846 51.2 256 51.2C321.154 51.2 377.321 89.637 403.091 145.067V281.6Z"
+                  fill="#FEDF30" />
+                <path
+                  d="M336.532 95.5068C349.775 95.6379 362.326 97.8037 373.746 102.572L373.747 102.571C373.767 102.58 373.787 102.589 373.808 102.598C373.828 102.606 373.849 102.614 373.869 102.622L373.868 102.623C385.829 107.576 396.065 115.122 403.561 125.623H403.562C411.378 136.574 414.853 149.267 414.854 162.632C414.854 170.671 413.339 178.532 410.106 185.964C408.571 189.493 406.719 192.831 404.554 195.955C408.287 200.288 411.312 205.163 413.59 210.511H413.589C416.976 218.313 418.5 226.599 418.5 235.054L418.489 236.409C418.258 250.388 414.422 263.543 406.221 274.892C406.18 274.947 406.14 275.003 406.099 275.059C398.018 286.016 387.16 293.968 374.411 299.21C374.358 299.232 374.304 299.254 374.25 299.275C362.193 304.119 348.986 306.358 335.005 306.493L333.649 306.5C318.356 306.5 303.965 303.906 291.175 297.848C291.089 297.807 291.003 297.765 290.918 297.724C288.19 296.387 285.567 294.92 283.057 293.322C279.25 300.048 272.111 304.23 264.35 304.23H213.076C205.514 304.23 198.507 300.257 194.625 293.767L189.194 284.688L183.164 294.223C179.223 300.453 172.366 304.23 164.994 304.23H116C107.938 304.23 100.553 299.72 96.8721 292.548C93.1908 285.376 93.8316 276.746 98.5312 270.196L134.893 219.517L102.099 171.321C97.6175 164.736 97.1448 156.212 100.87 149.171C104.596 142.13 111.909 137.727 119.874 137.727H171.602L172.327 137.738C179.801 137.99 186.63 142.114 190.323 148.655L191.306 150.396L192.366 148.545L192.734 147.926C196.641 141.6 203.557 137.727 211.025 137.727H258.207C259.471 135.09 260.906 132.524 262.522 130.035L262.579 129.949C270.12 118.459 280.551 109.872 293.121 104.096V104.095C293.143 104.084 293.165 104.075 293.188 104.064C293.212 104.053 293.236 104.041 293.261 104.03V104.031C306.029 98.1104 320.21 95.5001 335.244 95.5L336.532 95.5068ZM246.559 218.592L250.52 224.388C251.528 221.576 253.12 218.976 255.229 216.775C259.284 212.542 264.892 210.148 270.755 210.148H293.464V190.943H272.351C270.1 190.943 267.887 190.589 265.785 189.915L246.559 218.592Z"
+                  fill="#C41926" stroke="#C41926" stroke-width="43" stroke-linejoin="round" />
+                <path
+                  d="M335.244 117C346.79 117 356.893 118.816 365.553 122.449C374.364 126.081 381.2 131.303 386.061 138.114C390.923 144.924 393.353 153.097 393.353 162.632C393.353 167.929 392.366 172.848 390.391 177.389C388.416 181.929 385.682 185.865 382.188 189.194C378.694 192.524 374.668 195.097 370.111 196.913V198.503C375.731 200.016 380.516 202.589 384.466 206.221C388.568 209.702 391.682 213.94 393.809 218.935C395.936 223.778 397 229.151 397 235.054C397 245.648 394.265 254.73 388.796 262.298C383.326 269.714 375.806 275.39 366.236 279.325C356.817 283.108 345.955 285 333.65 285C320.736 285 309.645 282.806 300.378 278.417C291.111 273.876 283.971 267.594 278.958 259.573C273.945 251.551 271.211 242.243 270.755 231.648H313.14C313.14 235.281 313.975 238.46 315.646 241.184C317.469 243.757 319.901 245.725 322.939 247.087C326.13 248.449 329.623 249.13 333.421 249.13C339.65 249.13 344.436 247.465 347.778 244.136C351.272 240.806 353.019 236.568 353.019 231.422C353.019 227.941 352.335 225.066 350.968 222.795C349.6 220.374 347.473 218.557 344.587 217.346C341.852 215.984 338.434 215.303 334.332 215.303H314.963V183.973H332.51C336.46 183.973 339.726 183.292 342.309 181.93C345.043 180.568 347.095 178.676 348.462 176.254C349.981 173.833 350.74 171.032 350.74 167.854C350.74 164.524 350.056 161.799 348.689 159.68C347.322 157.41 345.347 155.746 342.764 154.687C340.334 153.476 337.295 152.87 333.65 152.87C330.004 152.87 326.737 153.551 323.851 154.913C321.116 156.124 318.913 157.94 317.242 160.362C315.723 162.784 314.812 165.811 314.508 169.444H272.35C272.806 158.698 275.54 149.465 280.554 141.746C285.719 133.875 292.935 127.821 302.202 123.583C311.621 119.194 322.635 117 335.244 117Z"
+                  fill="#FEDF30" />
+                <path
+                  d="M188.009 188.286L190.516 193.054H191.883L194.39 188.286L211.025 159.226H260.476L220.597 218.708L264.349 282.73H213.076L193.25 249.584L190.288 244.136H188.921L185.958 249.584L164.994 282.73H116L161.12 219.844L119.874 159.226H171.602L188.009 188.286Z"
+                  fill="#FEDF30" />
+                <path
+                  d="M119.874 159.227L161.12 219.844L116 282.73H164.994L185.958 249.584L188.921 244.136H190.288L193.25 249.584L213.076 282.73H264.35L220.597 218.708L260.476 159.227H211.025L194.39 188.286L191.883 193.054H190.517L188.01 188.286L171.602 159.227H119.874ZM353.019 231.422C353.019 236.568 351.271 240.806 347.777 244.136L347.46 244.442C344.135 247.567 339.455 249.131 333.421 249.131L332.713 249.122C329.188 249.042 325.93 248.364 322.939 247.087C319.901 245.725 317.469 243.757 315.646 241.185C313.975 238.46 313.14 235.281 313.14 231.648H270.755C271.211 242.243 273.945 251.552 278.958 259.573C283.971 267.595 291.111 273.876 300.378 278.417C309.645 282.806 320.736 285 333.649 285C345.57 285 356.137 283.225 365.349 279.674L366.235 279.325C375.507 275.513 382.854 270.067 388.276 262.988L388.796 262.298C394.094 254.967 396.827 246.215 396.992 236.043L397 235.054C397 229.52 396.065 224.451 394.195 219.849L393.81 218.935C391.683 213.94 388.567 209.703 384.466 206.222C380.516 202.59 375.731 200.016 370.11 198.503V196.913C374.668 195.097 378.694 192.524 382.188 189.194C385.682 185.865 388.416 181.929 390.391 177.389C392.242 173.132 393.226 168.542 393.342 163.62L393.354 162.632C393.353 153.395 391.072 145.436 386.51 138.756L386.062 138.114C381.352 131.516 374.789 126.409 366.373 122.794L365.553 122.449C357.164 118.93 347.42 117.115 336.322 117.005L335.244 117C322.635 117 311.621 119.194 302.202 123.583C292.935 127.821 285.719 133.875 280.554 141.745C275.54 149.464 272.806 158.698 272.351 169.443H314.508C314.812 165.811 315.723 162.784 317.242 160.362C318.809 158.092 320.843 156.354 323.345 155.147L323.851 154.913C326.737 153.551 330.004 152.869 333.649 152.869C337.295 152.869 340.334 153.476 342.765 154.687L343.241 154.893C345.591 155.957 347.408 157.552 348.689 159.681L348.938 160.085C350.139 162.142 350.74 164.733 350.74 167.854L350.731 168.445C350.642 171.381 349.886 173.985 348.462 176.255L348.197 176.702C346.835 178.91 344.872 180.653 342.309 181.93L341.816 182.177C339.315 183.374 336.213 183.973 332.51 183.973H314.964V215.303H334.332C338.434 215.303 341.852 215.985 344.587 217.347C347.473 218.557 349.601 220.373 350.968 222.795C352.335 225.065 353.019 227.941 353.019 231.422ZM418.354 162.632C418.354 171.117 416.753 179.458 413.316 187.36C412.049 190.274 410.575 193.067 408.898 195.728C412.042 199.732 414.651 204.133 416.699 208.883C416.737 208.968 416.773 209.054 416.811 209.14C420.289 217.162 421.897 225.63 421.995 234.214L422 235.054C422 250.17 418.012 264.552 409.058 276.941C409.011 277.006 408.964 277.071 408.916 277.136C400.41 288.67 389.008 296.992 375.742 302.446C375.68 302.472 375.617 302.498 375.555 302.523C362.616 307.721 348.487 310 333.649 310C317.968 310 303.041 307.34 289.677 301.011C289.577 300.963 289.477 300.916 289.378 300.867C287.577 299.985 285.819 299.044 284.104 298.051C279.42 304.093 272.155 307.73 264.35 307.73H213.076C204.282 307.73 196.135 303.11 191.621 295.563L189.111 291.367L186.122 296.094C181.54 303.338 173.566 307.73 164.994 307.73H116C106.626 307.73 98.0395 302.486 93.7588 294.146C89.4781 285.807 90.2227 275.773 95.6875 268.156L130.623 219.464L99.2051 173.29C93.9945 165.632 93.4446 155.721 97.7764 147.534C102.108 139.347 110.612 134.227 119.874 134.227H171.602L172.445 134.24C179.894 134.491 186.789 138.052 191.312 143.854C196.008 137.831 203.258 134.227 211.025 134.227H256.043C257.117 132.152 258.297 130.117 259.588 128.129L259.653 128.028C267.581 115.949 278.534 106.951 291.643 100.924C291.673 100.91 291.704 100.896 291.734 100.882C291.758 100.871 291.782 100.859 291.806 100.848C305.118 94.6778 319.815 92.0001 335.244 92C349.37 92 362.886 94.2191 375.224 99.3945L375.223 99.3965C387.697 104.565 398.487 112.489 406.41 123.59L407.174 124.685C414.931 136.054 418.353 149.081 418.354 162.632Z"
+                  fill="#D83131" />
+              </svg>
+            </div>
+            <h3 class="campaign-card-title">Premiujemy x3!</h3>
+            <p class="campaign-card-desc">Dodatkowo, w każdym miesiącu, produkty innego partnera! </p>
+          </div>
+          <div id="wynik" class="campaign-card campaign-card-countdown" aria-labelledby="wynik-title">
+            <h3 id="wynik-title" class="campaign-card-title">Do końca akcji pozostało:</h3>
+            <div class="layout-countdown-timer">
+              <div class="layout-countdown-display">
+                <div class="layout-countdown-item">
+                  <span class="layout-countdown-number" id="days">--</span>
+                  <span class="layout-countdown-unit">Dni</span>
+                </div>
+                <div class="layout-countdown-divider"></div>
+                <div class="layout-countdown-item">
+                  <span class="layout-countdown-number" id="hours">--</span>
+                  <span class="layout-countdown-unit">Godzin</span>
+                </div>
+                <div class="layout-countdown-divider"></div>
+                <div class="layout-countdown-item">
+                  <span class="layout-countdown-number" id="minutes">--</span>
+                  <span class="layout-countdown-unit">Minut</span>
+                </div>
+                <div class="layout-countdown-divider"></div>
+                <div class="layout-countdown-item">
+                  <span class="layout-countdown-number" id="seconds">--</span>
+                  <span class="layout-countdown-unit">Sekund</span>
                 </div>
               </div>
+            </div>
+            <div class="campaign-footer-cta">
+              <a href="#campaign" class="hero-cta">
+                Sprawdź wyniki <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" fill="currentColor" />
+                </svg>
+              </a>
+              <p class="campaign-footer-text">Pamiętaj! Regularnie sprawdzaj swój wynik w Inter Cars e-Catalog!</p>
+            </div>
+
           </div>
         </div>
-
-        <div class="campaign-info-banner">
-          <div class="banner-icon-container">
-            <svg width="100" height="100" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M98.528 357.248L53.523 435.199C46.491 447.378 56.382 462.359 70.345 460.676L114.823 455.317C118.588 454.863 122.201 456.949 123.691 460.437L141.289 501.636C146.814 514.569 164.732 515.645 171.764 503.465L218.049 423.298H293.951L340.236 503.465C347.268 515.644 365.186 514.569 370.711 501.636L388.309 460.437C389.799 456.949 393.412 454.863 397.177 455.317L441.655 460.676C455.618 462.358 465.508 447.378 458.477 435.199L413.472 357.248H98.528Z" fill="#D83131"/>
-              <path d="M458.477 435.199L413.472 357.248H391.448L434.783 432.307C441.815 444.487 431.924 459.467 417.961 457.784L373.483 452.426C369.718 451.972 366.105 454.058 364.615 457.546L347.017 498.745C345.781 501.64 343.921 503.935 341.703 505.626C349.496 515.459 365.537 513.748 370.711 501.637L388.309 460.438C389.799 456.95 393.412 454.864 397.177 455.318L441.655 460.677C455.618 462.359 465.509 447.379 458.477 435.199Z" fill="#C41926"/>
-              <path d="M270.257 420.407L195.633 418.005L148.07 500.574C146.878 502.639 145.367 504.314 143.662 505.624C150.803 514.634 165.542 514.242 171.764 503.466L218.049 423.299H271.927L270.257 420.407Z" fill="#C41926"/>
-              <path d="M256 0C252.024 0 248.075 0.118 244.153 0.333C332.909 5.192 407.218 64.297 434.481 145.067V281.6C407.218 362.37 332.909 421.475 244.153 426.334C248.076 426.549 252.024 426.667 256 426.667C349.946 426.667 429.707 365.94 458.175 281.6V145.067C429.707 60.727 349.946 0 256 0Z" fill="#FA6F0C"/>
-              <circle cx="255.5" cy="213.5" r="213.5" fill="#FE950D"/>
-              <path d="M403.091 281.6C377.321 337.03 321.154 375.467 256 375.467C190.846 375.467 134.679 337.03 108.909 281.6V145.067C134.679 89.637 190.846 51.2 256 51.2C321.154 51.2 377.321 89.637 403.091 145.067V281.6Z" fill="#FEDF30"/>
-              <path d="M336.532 95.5068C349.775 95.6379 362.326 97.8037 373.746 102.572L373.747 102.571C373.767 102.58 373.787 102.589 373.808 102.598C373.828 102.606 373.849 102.614 373.869 102.622L373.868 102.623C385.829 107.576 396.065 115.122 403.561 125.623H403.562C411.378 136.574 414.853 149.267 414.854 162.632C414.854 170.671 413.339 178.532 410.106 185.964C408.571 189.493 406.719 192.831 404.554 195.955C408.287 200.288 411.312 205.163 413.59 210.511H413.589C416.976 218.313 418.5 226.599 418.5 235.054L418.489 236.409C418.258 250.388 414.422 263.543 406.221 274.892C406.18 274.947 406.14 275.003 406.099 275.059C398.018 286.016 387.16 293.968 374.411 299.21C374.358 299.232 374.304 299.254 374.25 299.275C362.193 304.119 348.986 306.358 335.005 306.493L333.649 306.5C318.356 306.5 303.965 303.906 291.175 297.848C291.089 297.807 291.003 297.765 290.918 297.724C288.19 296.387 285.567 294.92 283.057 293.322C279.25 300.048 272.111 304.23 264.35 304.23H213.076C205.514 304.23 198.507 300.257 194.625 293.767L189.194 284.688L183.164 294.223C179.223 300.453 172.366 304.23 164.994 304.23H116C107.938 304.23 100.553 299.72 96.8721 292.548C93.1908 285.376 93.8316 276.746 98.5312 270.196L134.893 219.517L102.099 171.321C97.6175 164.736 97.1448 156.212 100.87 149.171C104.596 142.13 111.909 137.727 119.874 137.727H171.602L172.327 137.738C179.801 137.99 186.63 142.114 190.323 148.655L191.306 150.396L192.366 148.545L192.734 147.926C196.641 141.6 203.557 137.727 211.025 137.727H258.207C259.471 135.09 260.906 132.524 262.522 130.035L262.579 129.949C270.12 118.459 280.551 109.872 293.121 104.096V104.095C293.143 104.084 293.165 104.075 293.188 104.064C293.212 104.053 293.236 104.041 293.261 104.03V104.031C306.029 98.1104 320.21 95.5001 335.244 95.5L336.532 95.5068ZM246.559 218.592L250.52 224.388C251.528 221.576 253.12 218.976 255.229 216.775C259.284 212.542 264.892 210.148 270.755 210.148H293.464V190.943H272.351C270.1 190.943 267.887 190.589 265.785 189.915L246.559 218.592Z" fill="#C41926" stroke="#C41926" stroke-width="43" stroke-linejoin="round"/>
-              <path d="M335.244 117C346.79 117 356.893 118.816 365.553 122.449C374.364 126.081 381.2 131.303 386.061 138.114C390.923 144.924 393.353 153.097 393.353 162.632C393.353 167.929 392.366 172.848 390.391 177.389C388.416 181.929 385.682 185.865 382.188 189.194C378.694 192.524 374.668 195.097 370.111 196.913V198.503C375.731 200.016 380.516 202.589 384.466 206.221C388.568 209.702 391.682 213.94 393.809 218.935C395.936 223.778 397 229.151 397 235.054C397 245.648 394.265 254.73 388.796 262.298C383.326 269.714 375.806 275.39 366.236 279.325C356.817 283.108 345.955 285 333.65 285C320.736 285 309.645 282.806 300.378 278.417C291.111 273.876 283.971 267.594 278.958 259.573C273.945 251.551 271.211 242.243 270.755 231.648H313.14C313.14 235.281 313.975 238.46 315.646 241.184C317.469 243.757 319.901 245.725 322.939 247.087C326.13 248.449 329.623 249.13 333.421 249.13C339.65 249.13 344.436 247.465 347.778 244.136C351.272 240.806 353.019 236.568 353.019 231.422C353.019 227.941 352.335 225.066 350.968 222.795C349.6 220.374 347.473 218.557 344.587 217.346C341.852 215.984 338.434 215.303 334.332 215.303H314.963V183.973H332.51C336.46 183.973 339.726 183.292 342.309 181.93C345.043 180.568 347.095 178.676 348.462 176.254C349.981 173.833 350.74 171.032 350.74 167.854C350.74 164.524 350.056 161.799 348.689 159.68C347.322 157.41 345.347 155.746 342.764 154.687C340.334 153.476 337.295 152.87 333.65 152.87C330.004 152.87 326.737 153.551 323.851 154.913C321.116 156.124 318.913 157.94 317.242 160.362C315.723 162.784 314.812 165.811 314.508 169.444H272.35C272.806 158.698 275.54 149.465 280.554 141.746C285.719 133.875 292.935 127.821 302.202 123.583C311.621 119.194 322.635 117 335.244 117Z" fill="#FEDF30"/>
-              <path d="M188.009 188.286L190.516 193.054H191.883L194.39 188.286L211.025 159.226H260.476L220.597 218.708L264.349 282.73H213.076L193.25 249.584L190.288 244.136H188.921L185.958 249.584L164.994 282.73H116L161.12 219.844L119.874 159.226H171.602L188.009 188.286Z" fill="#FEDF30"/>
-              <path d="M119.874 159.227L161.12 219.844L116 282.73H164.994L185.958 249.584L188.921 244.136H190.288L193.25 249.584L213.076 282.73H264.35L220.597 218.708L260.476 159.227H211.025L194.39 188.286L191.883 193.054H190.517L188.01 188.286L171.602 159.227H119.874ZM353.019 231.422C353.019 236.568 351.271 240.806 347.777 244.136L347.46 244.442C344.135 247.567 339.455 249.131 333.421 249.131L332.713 249.122C329.188 249.042 325.93 248.364 322.939 247.087C319.901 245.725 317.469 243.757 315.646 241.185C313.975 238.46 313.14 235.281 313.14 231.648H270.755C271.211 242.243 273.945 251.552 278.958 259.573C283.971 267.595 291.111 273.876 300.378 278.417C309.645 282.806 320.736 285 333.649 285C345.57 285 356.137 283.225 365.349 279.674L366.235 279.325C375.507 275.513 382.854 270.067 388.276 262.988L388.796 262.298C394.094 254.967 396.827 246.215 396.992 236.043L397 235.054C397 229.52 396.065 224.451 394.195 219.849L393.81 218.935C391.683 213.94 388.567 209.703 384.466 206.222C380.516 202.59 375.731 200.016 370.11 198.503V196.913C374.668 195.097 378.694 192.524 382.188 189.194C385.682 185.865 388.416 181.929 390.391 177.389C392.242 173.132 393.226 168.542 393.342 163.62L393.354 162.632C393.353 153.395 391.072 145.436 386.51 138.756L386.062 138.114C381.352 131.516 374.789 126.409 366.373 122.794L365.553 122.449C357.164 118.93 347.42 117.115 336.322 117.005L335.244 117C322.635 117 311.621 119.194 302.202 123.583C292.935 127.821 285.719 133.875 280.554 141.745C275.54 149.464 272.806 158.698 272.351 169.443H314.508C314.812 165.811 315.723 162.784 317.242 160.362C318.809 158.092 320.843 156.354 323.345 155.147L323.851 154.913C326.737 153.551 330.004 152.869 333.649 152.869C337.295 152.869 340.334 153.476 342.765 154.687L343.241 154.893C345.591 155.957 347.408 157.552 348.689 159.681L348.938 160.085C350.139 162.142 350.74 164.733 350.74 167.854L350.731 168.445C350.642 171.381 349.886 173.985 348.462 176.255L348.197 176.702C346.835 178.91 344.872 180.653 342.309 181.93L341.816 182.177C339.315 183.374 336.213 183.973 332.51 183.973H314.964V215.303H334.332C338.434 215.303 341.852 215.985 344.587 217.347C347.473 218.557 349.601 220.373 350.968 222.795C352.335 225.065 353.019 227.941 353.019 231.422ZM418.354 162.632C418.354 171.117 416.753 179.458 413.316 187.36C412.049 190.274 410.575 193.067 408.898 195.728C412.042 199.732 414.651 204.133 416.699 208.883C416.737 208.968 416.773 209.054 416.811 209.14C420.289 217.162 421.897 225.63 421.995 234.214L422 235.054C422 250.17 418.012 264.552 409.058 276.941C409.011 277.006 408.964 277.071 408.916 277.136C400.41 288.67 389.008 296.992 375.742 302.446C375.68 302.472 375.617 302.498 375.555 302.523C362.616 307.721 348.487 310 333.649 310C317.968 310 303.041 307.34 289.677 301.011C289.577 300.963 289.477 300.916 289.378 300.867C287.577 299.985 285.819 299.044 284.104 298.051C279.42 304.093 272.155 307.73 264.35 307.73H213.076C204.282 307.73 196.135 303.11 191.621 295.563L189.111 291.367L186.122 296.094C181.54 303.338 173.566 307.73 164.994 307.73H116C106.626 307.73 98.0395 302.486 93.7588 294.146C89.4781 285.807 90.2227 275.773 95.6875 268.156L130.623 219.464L99.2051 173.29C93.9945 165.632 93.4446 155.721 97.7764 147.534C102.108 139.347 110.612 134.227 119.874 134.227H171.602L172.445 134.24C179.894 134.491 186.789 138.052 191.312 143.854C196.008 137.831 203.258 134.227 211.025 134.227H256.043C257.117 132.152 258.297 130.117 259.588 128.129L259.653 128.028C267.581 115.949 278.534 106.951 291.643 100.924C291.673 100.91 291.704 100.896 291.734 100.882C291.758 100.871 291.782 100.859 291.806 100.848C305.118 94.6778 319.815 92.0001 335.244 92C349.37 92 362.886 94.2191 375.224 99.3945L375.223 99.3965C387.697 104.565 398.487 112.489 406.41 123.59L407.174 124.685C414.931 136.054 418.353 149.081 418.354 162.632Z" fill="#D83131"/>
-            </svg>
-          </div>
-          <div class="banner-content">
-             Dodatkowo, w każdym miesiącu trwania promocji, premiujemy <strong>zakupy (x3) od innego Partnera</strong> <br> – szczegóły znajdziesz w wiadomościach e-mail.
-          </div>
-        </div>
-
-        <div class="campaign-footer-cta">
-          <p class="campaign-footer-text">Pamiętaj! Regularnie sprawdzaj swój wynik w Inter Cars e-Catalog!</p>
-          <a href="#" class="cta-btn-large">
-             Sprawdź wynik!
-             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" fill="currentColor" />
-             </svg>
-          </a>
-        </div>
-
       </div>
     </section>
-
-    <section id="strategic-partner" class="section" style="border-bottom: 1px solid #e7e7e7;">
+    <section id="strategic-partner" class="section" style="border-bottom: 1px solid #e7e7e7;"
+      aria-labelledby="strategic-partner-title">
       <div class="section-container">
-        <h2 class="section-title section-title-center">Partner strategiczny</h2>
+        <h2 id="strategic-partner-title" class="section-title section-title-center">Partner strategiczny</h2>
         <div class="strategic-partner-logo">
-          <img src="https://cdn.intercars.eu/files/1/3/8/8/7/9/138879/1920x.webp" alt="Partner Strategiczny" />
+          <img src="https://cdn.intercars.eu/files/1/3/8/8/7/9/138879/1920x.webp"
+            alt="Grafika promocyjna z oznaczeniem x2" />
         </div>
       </div>
     </section>
-
-    <section id="partners" class="section">
+    <section id="partners" class="section" aria-labelledby="partners-title">
       <div class="section-container">
-        <h2 class="section-title section-title-center">Partnerzy</h2>
+        <h2 id="partners-title" class="section-title section-title-center">Partnerzy</h2>
         <div class="partners-grid"></div>
       </div>
     </section>
-
     <footer id="footer" class="footer">
       <div class="footer-container">
         <div class="footer-grid">
-
           <div class="footer-column">
             <h3 class="footer-column-title">O Inter Cars</h3>
             <ul class="footer-column-list">
@@ -2805,6 +2956,7 @@
                   rel="noopener noreferrer">Katalogi ofertowe</a></li>
             </ul>
           </div>
+
 
 
           <div class="footer-column">
@@ -2873,7 +3025,7 @@
           </div>
 
 
-          <div class="footer-column">
+          <address class="footer-column footer-address">
             <img src="https://cdn.intercars.eu/files/1/1/0/5/5/4/110554/100x35.webp"
               srcset="https://cdn.intercars.eu/files/1/1/0/5/5/4/110554/200x70.webp 2x" alt="Logo Inter Cars"
               class="footer-address-logo" />
@@ -2892,13 +3044,14 @@
                 sekretariat@intercars.eu
               </a>
             </p>
-          </div>
+          </address>
         </div>
 
 
         <div class="footer-countries">
-          <button id="footer-countries-btn" class="footer-countries-btn"
-            aria-label="Rozwiń listę krajów Inter Cars w Europie" aria-expanded="false">
+          <button id="footer-countries-btn" class="footer-countries-btn" type="button"
+            aria-label="Rozwiń listę krajów Inter Cars w Europie" aria-controls="footer-countries-content"
+            aria-expanded="false">
             Inter Cars w Europie
             <svg width="12" height="12" viewBox="0 0 129 128" fill="none" xmlns="http://www.w3.org/2000/svg"
               style="transition: transform 0.3s;" aria-hidden="true">
@@ -2963,400 +3116,457 @@
         </div>
       </div>
     </footer>
+  </main>
 
 
-    <div id="lightbox" class="lightbox">
-      <button class="lightbox-close" aria-label="Zamknij">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-      <button class="lightbox-prev" aria-label="Poprzednie zdjęcie">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-      </button>
-      <button class="lightbox-next" aria-label="Następne zdjęcie">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-      </button>
-      <div class="lightbox-content">
-        <img id="lightbox-img" src="" alt="Zdjęcie w pełnym rozmiarze" />
-        <div class="lightbox-counter"></div>
-      </div>
-    </div>
-
-    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top">
-      <img src="https://cdn.intercars.eu/files/icons/arrow-up.svg" width="20" height="20" alt="">
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Galeria zdjęć MAXCAMP" tabindex="-1">
+    <button class="lightbox-close" type="button" aria-label="Zamknij">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
     </button>
+    <button class="lightbox-prev" type="button" aria-label="Poprzednie zdjęcie">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <button class="lightbox-next" type="button" aria-label="Następne zdjęcie">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+        alt="Zdjęcie w pełnym rozmiarze" />
+      <div class="lightbox-counter" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <button id="scroll-to-top" class="scroll-to-top" type="button" aria-label="Przewiń na początek strony">
+    <img src="https://cdn.intercars.eu/files/icons/arrow-up.svg" width="20" height="20" alt="" aria-hidden="true">
+  </button>
 
 
-    <script>
-      "use strict";
-      const countries = [
-        { name: 'Austria', flag: 'https://cdn.intercars.eu/files/1/3/4/7/6/0/134760.svg', url: 'https://at.intercars.com/' },
-        { name: 'Albania', flag: 'https://cdn.intercars.eu/files/1/2/0/2/9/5/120295/54x36,f.webp', url: 'https://intercars.com.al/' },
-        { name: 'Belgia', flag: 'https://cdn.intercars.eu/files/1/1/6/5/5/8/116558/54x36,f.webp', url: 'https://intercars.be/' },
-        { name: 'Bośnia i Hercegowina', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/9/113839.svg', url: 'https://intercars.ba/' },
-        { name: 'Bułgaria', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/5/113845.svg', url: 'https://bg.intercars.eu/' },
-        { name: 'Chorwacja', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/2/113832.svg', url: 'https://intercars.hr/' },
-        { name: 'Czechy', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/7/113837.svg', url: 'https://www.intercars.cz/' },
-        { name: 'Estonia', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/8/113838.svg', url: 'https://intercars.ee/' },
-        { name: 'Niemcy', flag: 'https://cdn.intercars.eu/files/1/1/6/5/5/7/116557/54x36,f.webp', url: 'https://intercars.de/de' },
-        { name: 'Grecja', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/3/113843.svg', url: 'https://intercars.com.gr/el' },
-        { name: 'Węgry', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/0/113840.svg', url: 'https://intercars.hu/hu' },
-        { name: 'Włochy', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/1/113831.svg', url: 'https://it.intercars.eu/it' },
-        { name: 'Łotwa', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/1/113841.svg', url: 'https://intercars.lv/' },
-        { name: 'Litwa', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/5/113835.svg', url: 'https://intercars.lt/' },
-        { name: 'Mołdawia', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/7/113847.svg', url: 'https://www.intercars.md/' },
-        { name: 'Polska', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/4/113834.svg', url: 'https://intercars.com.pl/' },
-        { name: 'Rumunia', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/2/113842.svg', url: 'https://intercars.ro/' },
-        { name: 'Serbia', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/8/113848.svg', url: 'https://rs.intercars.eu/sr' },
-        { name: 'Słowacja', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/4/113844.svg', url: 'https://www.intercars.sk/' },
-        { name: 'Słowenia', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/6/113836.svg', url: 'https://intercars.si/sl' },
-        { name: 'Ukraina', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/3/113833.svg', url: 'https://intercars.com.ua/' },
-        { name: 'Wielka Brytania', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/6/113846.svg', url: 'https://ic24.uk/' },
-      ];
+  <script>
+    "use strict";
+    const countries = [
+      { name: 'Austria', flag: 'https://cdn.intercars.eu/files/1/3/4/7/6/0/134760.svg', url: 'https://at.intercars.com/' },
+      { name: 'Albania', flag: 'https://cdn.intercars.eu/files/1/2/0/2/9/5/120295/54x36,f.webp', url: 'https://intercars.com.al/' },
+      { name: 'Belgia', flag: 'https://cdn.intercars.eu/files/1/1/6/5/5/8/116558/54x36,f.webp', url: 'https://intercars.be/' },
+      { name: 'Bośnia i Hercegowina', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/9/113839.svg', url: 'https://intercars.ba/' },
+      { name: 'Bułgaria', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/5/113845.svg', url: 'https://bg.intercars.eu/' },
+      { name: 'Chorwacja', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/2/113832.svg', url: 'https://intercars.hr/' },
+      { name: 'Czechy', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/7/113837.svg', url: 'https://www.intercars.cz/' },
+      { name: 'Estonia', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/8/113838.svg', url: 'https://intercars.ee/' },
+      { name: 'Niemcy', flag: 'https://cdn.intercars.eu/files/1/1/6/5/5/7/116557/54x36,f.webp', url: 'https://intercars.de/de' },
+      { name: 'Grecja', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/3/113843.svg', url: 'https://intercars.com.gr/el' },
+      { name: 'Węgry', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/0/113840.svg', url: 'https://intercars.hu/hu' },
+      { name: 'Włochy', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/1/113831.svg', url: 'https://it.intercars.eu/it' },
+      { name: 'Łotwa', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/1/113841.svg', url: 'https://intercars.lv/' },
+      { name: 'Litwa', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/5/113835.svg', url: 'https://intercars.lt/' },
+      { name: 'Mołdawia', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/7/113847.svg', url: 'https://www.intercars.md/' },
+      { name: 'Polska', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/4/113834.svg', url: 'https://intercars.com.pl/' },
+      { name: 'Rumunia', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/2/113842.svg', url: 'https://intercars.ro/' },
+      { name: 'Serbia', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/8/113848.svg', url: 'https://rs.intercars.eu/sr' },
+      { name: 'Słowacja', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/4/113844.svg', url: 'https://www.intercars.sk/' },
+      { name: 'Słowenia', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/6/113836.svg', url: 'https://intercars.si/sl' },
+      { name: 'Ukraina', flag: 'https://cdn.intercars.eu/files/1/1/3/8/3/3/113833.svg', url: 'https://intercars.com.ua/' },
+      { name: 'Wielka Brytania', flag: 'https://cdn.intercars.eu/files/1/1/3/8/4/6/113846.svg', url: 'https://ic24.uk/' },
+    ];
 
-      const moreItemsData = [
-        { label: "Intercars.com", href: "https://intercars.com/" },
-        { label: "Flota", href: "http://flota.intercars.com.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-        { label: "Bio-Service", href: "http://bio-service.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-        { label: "eSOWA", href: "https://intercars.com.pl/pl/oprogramowanie/esowa" },
-        { label: "Feber", href: "http://www.feber.com.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-        { label: "Ford Trucks", href: "https://www.ford-trucks.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-        { label: "ILS", href: "http://ilslogistics.eu/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-        { label: "InterMotors", href: "https://www.intermotors.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-        { label: "Intermeko", href: "http://www.intermeko.eu/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-        { label: "Lauber", href: "http://www.lauber.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-        { label: "Q Service Castrol", href: "http://qservicecastrol.eu/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-        { label: "Q-Service Moto", href: "http://qservicemoto.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-        { label: "Q-Service Truck", href: "http://q-servicetruck.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-        { label: "Relacje inwestorskie", href: "http://inwestor.intercars.com.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
-        { label: "Wszystko dla warsztatu", href: "https://intercars.pl/wszystko-dla-warsztatu" }
-      ];
+    const moreItemsData = [
+      { label: "Intercars.com", href: "https://intercars.com/" },
+      { label: "Flota", href: "http://flota.intercars.com.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
+      { label: "Bio-Service", href: "http://bio-service.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
+      { label: "eSOWA", href: "https://intercars.com.pl/pl/oprogramowanie/esowa" },
+      { label: "Feber", href: "http://www.feber.com.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
+      { label: "Ford Trucks", href: "https://www.ford-trucks.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
+      { label: "ILS", href: "http://ilslogistics.eu/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
+      { label: "InterMotors", href: "https://www.intermotors.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
+      { label: "Intermeko", href: "http://www.intermeko.eu/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
+      { label: "Lauber", href: "http://www.lauber.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
+      { label: "Q Service Castrol", href: "http://qservicecastrol.eu/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
+      { label: "Q-Service Moto", href: "http://qservicemoto.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
+      { label: "Q-Service Truck", href: "http://q-servicetruck.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
+      { label: "Relacje inwestorskie", href: "http://inwestor.intercars.com.pl/?utm_source=corpoBelt&utm_medium=corpoBelt&utm_campaign=corpoBelt" },
+      { label: "Wszystko dla warsztatu", href: "https://intercars.pl/wszystko-dla-warsztatu" }
+    ];
 
-      const businessLinks = [
-        { label: "Inter Cars e-Catalog", href: "https://elink.intercars.eu/e-catalog/" },
-        { label: "Osobowe", href: "https://intercars.com.pl/" },
-        { label: "Ciężarowe", href: "https://intercars.com.pl/pl/truck" },
-        { label: "Motocykle", href: "https://intercars.com.pl/pl/motocykle" },
-        { label: "Marine", href: "https://intercars.com.pl/pl/marine" },
-        { label: "Przemysł", href: "https://intercars.com.pl/pl/przemysl" },
-        { label: "Tuning", href: "https://intercars.com.pl/pl/tuning" },
-        { label: "Off road", href: "https://intercars.com.pl/pl/off-road" },
-      ];
+    const businessLinks = [
+      { label: "Inter Cars e-Catalog", href: "https://elink.intercars.eu/e-catalog/" },
+      { label: "Osobowe", href: "https://intercars.com.pl/" },
+      { label: "Ciężarowe", href: "https://intercars.com.pl/pl/truck" },
+      { label: "Motocykle", href: "https://intercars.com.pl/pl/motocykle" },
+      { label: "Marine", href: "https://intercars.com.pl/pl/marine" },
+      { label: "Przemysł", href: "https://intercars.com.pl/pl/przemysl" },
+      { label: "Tuning", href: "https://intercars.com.pl/pl/tuning" },
+      { label: "Off road", href: "https://intercars.com.pl/pl/off-road" },
+    ];
 
-      const driverLinks = [
-        { label: "Sklep internetowy", href: "https://intercars.pl/" },
-        { label: "Znajdź warsztat", href: "https://motointegrator.com/pl/pl/" },
-        { label: "Szukaj", href: "https://intercars.com.pl/pl/szukaj" }
-      ];
+    const driverLinks = [
+      { label: "Sklep internetowy", href: "https://intercars.pl/" },
+      { label: "Znajdź warsztat", href: "https://motointegrator.com/pl/pl/" },
+      { label: "Szukaj", href: "https://intercars.com.pl/pl/szukaj" }
+    ];
 
-      const moreDesktopList = document.getElementById('more-desktop-list');
-      const mobileMoreList = document.getElementById('hat-more-list-mobile');
+    const moreDesktopList = document.getElementById('more-desktop-list');
+    const mobileMoreList = document.getElementById('hat-more-list-mobile');
 
-      if (moreDesktopList && mobileMoreList) {
-        moreItemsData.forEach(item => {
-          const a = document.createElement('a');
-          a.className = "hat-more-link";
-          a.href = item.href;
-          a.target = "_blank";
-          a.innerHTML = `<img src="https://cdn.intercars.eu/files/icons/arrow-right.svg" alt="" width="14" height="14" style="opacity: 0.4; margin-right: 12px;" /><span>${item.label}</span>`;
-          moreDesktopList.appendChild(a);
+    if (moreDesktopList && mobileMoreList) {
+      moreItemsData.forEach(item => {
+        const a = document.createElement('a');
+        a.className = "hat-more-link";
+        a.href = item.href;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.innerHTML = `<img src="https://cdn.intercars.eu/files/icons/arrow-right.svg" alt="" width="14" height="14" style="opacity: 0.4; margin-right: 12px;" /><span>${item.label}</span>`;
+        moreDesktopList.appendChild(a);
 
-          const ma = document.createElement('a');
-          ma.className = "hat-link";
-          ma.href = item.href;
-          ma.target = "_blank";
-          ma.innerHTML = `<svg width="14" height="14" viewBox="0 0 128 129" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.4; margin-right: 12px;">
+        const ma = document.createElement('a');
+        ma.className = "hat-link";
+        ma.href = item.href;
+        ma.target = "_blank";
+        ma.rel = "noopener noreferrer";
+        ma.innerHTML = `<svg width="14" height="14" viewBox="0 0 128 129" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.4; margin-right: 12px;">
           <path d="M33.8145 128C33.8145 128 33.7885 128 33.7805 128C31.7065 128 30.0005 126.294 30.0005 124.22C30.0005 123.209 30.4055 122.24 31.1245 121.53L88.6545 64L31.1345 6.47C30.4235 5.759 30.0245 4.795 30.0245 3.79C30.0245 1.711 31.7355 0 33.8145 0C34.8195 0 35.7835 0.399 36.4945 1.11L96.7045 61.32C97.4155 62.03 97.8145 62.995 97.8145 64C97.8145 65.005 97.4155 65.97 96.7045 66.68L36.4945 126.89C35.7845 127.601 34.8195 128.001 33.8145 128Z" fill="currentColor"/>
         </svg><span>${item.label}</span>`;
-          mobileMoreList.appendChild(ma);
-        });
-      }
-
-      const moreBtn = document.getElementById('more-dropdown-btn');
-      const moreContent = document.getElementById('more-dropdown-content');
-      const moreContainer = document.getElementById('more-dropdown-container');
-
-      if (moreBtn && moreContent && moreContainer) {
-        moreBtn.onclick = () => {
-          moreContent.classList.toggle('show');
-          moreBtn.classList.toggle('open');
-        };
-
-        document.addEventListener('click', (e) => {
-          if (!moreContainer.contains(e.target)) {
-            moreContent.classList.remove('show');
-            moreBtn.classList.remove('open');
-          }
-        });
-      }
-
-      document.querySelector('.skip-to-content').addEventListener('click', function () {
-        document.getElementById('main-content').focus();
+        mobileMoreList.appendChild(ma);
       });
+    }
 
-      const header = document.getElementById('main-header');
-      const scrollBtn = document.getElementById('scroll-to-top');
+    const moreBtn = document.getElementById('more-dropdown-btn');
+    const moreContent = document.getElementById('more-dropdown-content');
+    const moreContainer = document.getElementById('more-dropdown-container');
 
-      function updateActiveLink() {
-        const sections = document.querySelectorAll('section[id], footer[id]');
-        const scrollPosition = window.scrollY + 100;
+    if (moreBtn && moreContent && moreContainer) {
+      moreBtn.onclick = () => {
+        moreContent.classList.toggle('show');
+        moreBtn.classList.toggle('open');
+      };
 
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.offsetHeight;
-          const sectionId = section.getAttribute('id');
-          const navLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+      document.addEventListener('click', (e) => {
+        if (!moreContainer.contains(e.target)) {
+          moreContent.classList.remove('show');
+          moreBtn.classList.remove('open');
+        }
+      });
+    }
 
-          if (navLink) {
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-              document.querySelectorAll('nav a').forEach(link => {
-                link.classList.remove('active');
-              });
-              navLink.classList.add('active');
-            }
-          }
-        });
-      }
+    document.querySelector('.skip-to-content').addEventListener('click', function () {
+      document.getElementById('main-content').focus();
+    });
 
-      let isScrolling = false;
+    const header = document.getElementById('main-header');
+    const headerContent = document.querySelector('.header-content');
+    const scrollBtn = document.getElementById('scroll-to-top');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
+    function updateActiveLink() {
+      const navLinks = document.querySelectorAll('#main-nav a[href^="#"]');
+      const scrollPosition = window.scrollY + 100;
 
-        if (scrollY > 10) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href || href.length <= 1) {
+          return;
+        }
+        const section = document.getElementById(href.slice(1));
+        if (!section) {
+          return;
         }
 
-        if (scrollY > 500) {
-          scrollBtn.classList.add('show');
-        } else {
-          scrollBtn.classList.remove('show');
-        }
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
 
-        if (!isScrolling) {
-          window.requestAnimationFrame(() => {
-            updateActiveLink();
-            isScrolling = false;
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          navLinks.forEach(navLink => {
+            navLink.classList.remove('active');
           });
-          isScrolling = true;
+          link.classList.add('active');
         }
       });
+    }
 
-      scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    let isScrolling = false;
 
-      // Hero slideshow
-      const slideshowImages = document.querySelectorAll('#hero-slideshow img');
-      let currentSlide = 0;
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
 
-      if (slideshowImages.length > 0) {
-        setInterval(() => {
-          slideshowImages[currentSlide].classList.remove('active');
-          currentSlide = (currentSlide + 1) % slideshowImages.length;
-          slideshowImages[currentSlide].classList.add('active');
-        }, 3000);
+      if (scrollY > 10) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
       }
 
-      // Gallery
-      const galleryGrid = document.querySelector('.gallery-grid');
-      if (galleryGrid) {
-        for (let i = 0; i <= 19; i++) {
-          const item = document.createElement('div');
-          item.className = 'gallery-item';
-          item.innerHTML = `<img src="gallery/img${i}.webp" alt="MAXCAMP ${i}" loading="lazy" />`;
-          item.onclick = () => openLightbox(i);
-          galleryGrid.appendChild(item);
-        }
+      if (scrollY > 500) {
+        scrollBtn.classList.add('show');
+      } else {
+        scrollBtn.classList.remove('show');
       }
 
-      // Partners
-      const partnersGrid = document.querySelector('#partners .partners-grid');
-      const partners = [
-        'aisin', 'ate', 'bosh', 'brembo', 'cei', 'castrol', 'contitech', 'corteco',
-        'delphi', 'denso', 'driv', 'elring', 'exide', 'febi', 'filtron', 'gates',
-        'hella', 'hepu', 'mahle-knecht', 'kyb', 'magneti-marelli', 'mann-hummel',
-        'meyle', 'ngk', 'nissens', 'nrf', 'ntn-snr', 'osram', 'schaeffler',
-        'textar', 'total', 'valeo', 'varta', 'wabco', 'zf-trw', 'michelin'
-      ];
-
-      if (partnersGrid) {
-        partners.forEach(partner => {
-          const logo = document.createElement('div');
-          logo.className = 'partner-logo';
-          logo.innerHTML = `<img src="https://cdn.intercars.eu/files/lp/assets/logos/${partner}.webp" alt="${partner.toUpperCase()}" loading="lazy" />`;
-          partnersGrid.appendChild(logo);
+      if (!isScrolling) {
+        window.requestAnimationFrame(() => {
+          updateActiveLink();
+          isScrolling = false;
         });
+        isScrolling = true;
       }
+    });
 
-      function handleNavClick(e, href) {
-        e.preventDefault();
+    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    const slideshowImages = document.querySelectorAll('#hero-slideshow img');
+    const slideshowToggleBtn = document.getElementById('hero-slideshow-toggle');
+    let currentSlide = 0;
+    let slideshowInterval = null;
+    let isSlideshowPaused = prefersReducedMotion;
+    function startSlideshow() {
+      if (slideshowImages.length === 0 || isSlideshowPaused || slideshowInterval !== null) {
+        return;
+      }
+      slideshowInterval = setInterval(() => {
+        slideshowImages[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slideshowImages.length;
+        slideshowImages[currentSlide].classList.add('active');
+      }, 3000);
+    }
+    function stopSlideshow() {
+      if (slideshowInterval !== null) {
+        clearInterval(slideshowInterval);
+        slideshowInterval = null;
+      }
+    }
+    function updateSlideshowToggle() {
+      if (!slideshowToggleBtn) {
+        return;
+      }
+      slideshowToggleBtn.setAttribute('aria-pressed', String(isSlideshowPaused));
+    }
 
-        const nav = document.getElementById('main-nav');
-        if (nav.classList.contains('show')) {
-          toggleMobileMenu();
+    if (slideshowImages.length > 0) {
+      startSlideshow();
+      updateSlideshowToggle();
+    } else if (slideshowToggleBtn) {
+      slideshowToggleBtn.hidden = true;
+    }
+
+    if (slideshowToggleBtn) {
+      slideshowToggleBtn.addEventListener('click', () => {
+        isSlideshowPaused = !isSlideshowPaused;
+        if (isSlideshowPaused) {
+          stopSlideshow();
+        } else {
+          startSlideshow();
         }
-
-        setTimeout(() => {
-          const element = document.querySelector(href);
-          if (element) {
-            const headerOffset = 80;
-            const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: "smooth"
-            });
-          }
-        }, 300);
-      }
-
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          const href = this.getAttribute('href');
-          if (href && href.startsWith('#') && href.length > 1) {
-            handleNavClick(e, href);
-          }
-        });
+        updateSlideshowToggle();
       });
+    }
+    const galleryGrid = document.querySelector('.gallery-grid');
+    if (galleryGrid) {
+      for (let i = 0; i <= 19; i++) {
+        const item = document.createElement('button');
+        const imageNumber = i + 1;
+        item.className = 'gallery-item';
+        item.type = 'button';
+        item.setAttribute('aria-label', `Otwórz zdjęcie ${imageNumber} w galerii`);
+        item.innerHTML = `<img src="gallery/img${i}.webp" alt="Zdjęcie ośrodka MAXCAMP ${imageNumber}" loading="lazy" decoding="async" />`;
+        item.onclick = () => openLightbox(i);
+        galleryGrid.appendChild(item);
+      }
+    }
+    const partnersGrid = document.querySelector('#partners .partners-grid');
+    const partners = [
+      'aisin', 'ate', 'bosh', 'brembo', 'cei', 'castrol', 'contitech', 'corteco',
+      'delphi', 'denso', 'driv', 'elring', 'exide', 'febi', 'filtron', 'gates',
+      'hella', 'hepu', 'mahle-knecht', 'kyb', 'magneti-marelli', 'mann-hummel',
+      'meyle', 'ngk', 'nissens', 'nrf', 'ntn-snr', 'osram', 'schaeffler',
+      'textar', 'total', 'valeo', 'varta', 'wabco', 'zf-trw', 'michelin'
+    ];
+    if (partnersGrid) {
+      partners.forEach(partner => {
+        const logo = document.createElement('div');
+        logo.className = 'partner-logo';
+        logo.innerHTML = `<img src="https://cdn.intercars.eu/files/lp/assets/logos/${partner}.webp" alt="${partner.toUpperCase()}" loading="lazy" />`;
+        partnersGrid.appendChild(logo);
+      });
+    }
+    function handleNavClick(e, href) {
+      e.preventDefault();
 
-      const menuBtn = document.getElementById('mobile-menu-btn');
       const nav = document.getElementById('main-nav');
-      const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+      if (nav.classList.contains('show')) {
+        toggleMobileMenu();
+      }
 
-      function toggleMobileMenu() {
-        const isHidden = !nav.classList.contains('show');
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          const headerOffset = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-        if (isHidden) {
-          nav.classList.add('show');
-          mobileMenuOverlay.classList.add('show');
-          menuBtn.setAttribute('aria-expanded', 'true');
-          document.body.style.overflow = "hidden";
-          menuBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: prefersReducedMotion ? "auto" : "smooth"
+          });
+        }
+      }, 300);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        if (this.classList.contains('skip-to-content')) {
+          return;
+        }
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#') && href.length > 1) {
+          handleNavClick(e, href);
+        }
+      });
+    });
+
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const nav = document.getElementById('main-nav');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+    function toggleMobileMenu() {
+      const isHidden = !nav.classList.contains('show');
+
+      if (isHidden) {
+        nav.classList.add('show');
+        mobileMenuOverlay.classList.add('show');
+        const menuBackgroundColor = window.getComputedStyle(nav).backgroundColor;
+        menuBtn.setAttribute('aria-expanded', 'true');
+        menuBtn.setAttribute('aria-label', 'Zamknij menu');
+        document.body.style.overflow = "hidden";
+        menuBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>`;
-          header.style.backdropFilter = 'none';
-          header.style.boxShadow = 'none';
-          header.style.borderBottom = 'none';
-        } else {
-          nav.classList.remove('show');
-          mobileMenuOverlay.classList.remove('show');
-          menuBtn.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = "auto";
-          menuBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        header.style.background = menuBackgroundColor;
+        if (headerContent) {
+          headerContent.style.background = menuBackgroundColor;
+        }
+        header.style.backdropFilter = 'none';
+        header.style.boxShadow = 'none';
+        header.style.borderBottom = 'none';
+      } else {
+        nav.classList.remove('show');
+        mobileMenuOverlay.classList.remove('show');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.setAttribute('aria-label', 'Otwórz menu');
+        document.body.style.overflow = "auto";
+        menuBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>`;
-          header.style.backdropFilter = '';
-          header.style.boxShadow = '';
-          header.style.borderBottom = '';
+        header.style.background = '';
+        if (headerContent) {
+          headerContent.style.background = '';
         }
+        header.style.backdropFilter = '';
+        header.style.boxShadow = '';
+        header.style.borderBottom = '';
       }
+    }
 
-      menuBtn.onclick = toggleMobileMenu;
-      mobileMenuOverlay.onclick = toggleMobileMenu;
+    menuBtn.onclick = toggleMobileMenu;
+    mobileMenuOverlay.onclick = toggleMobileMenu;
 
-      const hatBtnBiznes = document.getElementById('hat-btn-biznes');
-      const hatBtnKierowca = document.getElementById('hat-btn-kierowca');
-      const hatMobileContent = document.getElementById('hat-mobile-content');
-      const hatOverlay = document.getElementById('hat-overlay');
-      const hatSlider = document.getElementById('hat-slider');
-      const hatListContainer = document.getElementById('hat-list-container');
-      const hatBackBtn = document.getElementById('hat-back-btn');
+    const hatBtnBiznes = document.getElementById('hat-btn-biznes');
+    const hatBtnKierowca = document.getElementById('hat-btn-kierowca');
+    const hatMobileContent = document.getElementById('hat-mobile-content');
+    const hatOverlay = document.getElementById('hat-overlay');
+    const hatSlider = document.getElementById('hat-slider');
+    const hatListContainer = document.getElementById('hat-list-container');
+    const hatBackBtn = document.getElementById('hat-back-btn');
 
-      let activeTab = 'biznes';
-      let isHatOpen = false;
+    let activeTab = 'biznes';
+    let isHatOpen = false;
 
-      function updateHatList() {
-        hatListContainer.innerHTML = '';
-        const links = activeTab === 'biznes' ? businessLinks : driverLinks;
-        links.forEach(link => {
-          const a = document.createElement('a');
-          a.className = "hat-link";
-          a.href = link.href;
-          a.target = "_blank";
-          a.innerHTML = '<span>' + link.label + '</span>';
-          hatListContainer.appendChild(a);
-        });
+    function updateHatList() {
+      hatListContainer.innerHTML = '';
+      const links = activeTab === 'biznes' ? businessLinks : driverLinks;
+      links.forEach(link => {
+        const a = document.createElement('a');
+        a.className = "hat-link";
+        a.href = link.href;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.innerHTML = '<span>' + link.label + '</span>';
+        hatListContainer.appendChild(a);
+      });
 
-        if (activeTab === 'biznes') {
-          const moreBtn = document.createElement('button');
-          moreBtn.className = "hat-link";
-          moreBtn.style.cursor = 'pointer';
-          moreBtn.style.border = 'none';
-          moreBtn.style.background = 'transparent';
-          moreBtn.style.width = '100%';
-          moreBtn.style.justifyContent = 'space-between';
-          moreBtn.innerHTML = `<span>Więcej</span><svg width="14" height="14" viewBox="0 0 128 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+      if (activeTab === 'biznes') {
+        const moreBtn = document.createElement('button');
+        moreBtn.className = "hat-link";
+        moreBtn.style.cursor = 'pointer';
+        moreBtn.style.border = 'none';
+        moreBtn.style.background = 'transparent';
+        moreBtn.style.width = '100%';
+        moreBtn.style.justifyContent = 'space-between';
+        moreBtn.innerHTML = `<span>Więcej</span><svg width="14" height="14" viewBox="0 0 128 129" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M33.8145 128C33.8145 128 33.7885 128 33.7805 128C31.7065 128 30.0005 126.294 30.0005 124.22C30.0005 123.209 30.4055 122.24 31.1245 121.53L88.6545 64L31.1345 6.47C30.4235 5.759 30.0245 4.795 30.0245 3.79C30.0245 1.711 31.7355 0 33.8145 0C34.8195 0 35.7835 0.399 36.4945 1.11L96.7045 61.32C97.4155 62.03 97.8145 62.995 97.8145 64C97.8145 65.005 97.4155 65.97 96.7045 66.68L36.4945 126.89C35.7845 127.601 34.8195 128.001 33.8145 128Z" fill="currentColor"/>
         </svg>`;
-          moreBtn.onclick = () => {
-            hatSlider.style.transform = 'translateX(-100%)';
-          };
-          hatListContainer.appendChild(moreBtn);
-        }
+        moreBtn.onclick = () => {
+          hatSlider.style.transform = 'translateX(-100%)';
+        };
+        hatListContainer.appendChild(moreBtn);
       }
+    }
+    function toggleHat(tab) {
+      if (activeTab === tab && isHatOpen) {
+        closeHat();
+      } else {
+        activeTab = tab;
+        isHatOpen = true;
+        hatMobileContent.classList.add('show');
+        hatOverlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
+        updateHatList();
+        hatSlider.style.transform = 'translateX(0%)';
 
-      function toggleHat(tab) {
-        if (activeTab === tab && isHatOpen) {
-          closeHat();
+        if (tab === 'biznes') {
+          hatBtnBiznes.classList.add('active');
+          hatBtnBiznes.setAttribute('aria-expanded', 'true');
+          hatBtnKierowca.classList.remove('active');
+          hatBtnKierowca.setAttribute('aria-expanded', 'false');
         } else {
-          activeTab = tab;
-          isHatOpen = true;
-          hatMobileContent.classList.add('show');
-          hatOverlay.classList.add('show');
-          document.body.style.overflow = 'hidden';
-          updateHatList();
-          hatSlider.style.transform = 'translateX(0%)';
-
-          if (tab === 'biznes') {
-            hatBtnBiznes.classList.add('active');
-            hatBtnBiznes.setAttribute('aria-expanded', 'true');
-            hatBtnKierowca.classList.remove('active');
-            hatBtnKierowca.setAttribute('aria-expanded', 'false');
-          } else {
-            hatBtnKierowca.classList.add('active');
-            hatBtnKierowca.setAttribute('aria-expanded', 'true');
-            hatBtnBiznes.classList.remove('active');
-            hatBtnBiznes.setAttribute('aria-expanded', 'false');
-          }
+          hatBtnKierowca.classList.add('active');
+          hatBtnKierowca.setAttribute('aria-expanded', 'true');
+          hatBtnBiznes.classList.remove('active');
+          hatBtnBiznes.setAttribute('aria-expanded', 'false');
         }
       }
+    }
 
-      function closeHat() {
-        isHatOpen = false;
-        hatMobileContent.classList.remove('show');
-        hatOverlay.classList.remove('show');
-        document.body.style.overflow = '';
-        hatBtnBiznes.classList.remove('active');
-        hatBtnBiznes.setAttribute('aria-expanded', 'false');
-        hatBtnKierowca.classList.remove('active');
-        hatBtnKierowca.setAttribute('aria-expanded', 'false');
-      }
+    function closeHat() {
+      isHatOpen = false;
+      hatMobileContent.classList.remove('show');
+      hatOverlay.classList.remove('show');
+      document.body.style.overflow = '';
+      hatBtnBiznes.classList.remove('active');
+      hatBtnBiznes.setAttribute('aria-expanded', 'false');
+      hatBtnKierowca.classList.remove('active');
+      hatBtnKierowca.setAttribute('aria-expanded', 'false');
+    }
 
-      if (hatBtnBiznes && hatBtnKierowca && hatOverlay && hatBackBtn) {
-        hatBtnBiznes.onclick = () => toggleHat('biznes');
-        hatBtnKierowca.onclick = () => toggleHat('kierowca');
-        hatOverlay.onclick = closeHat;
-        hatBackBtn.onclick = () => { hatSlider.style.transform = 'translateX(0%)'; };
-      }
+    if (hatBtnBiznes && hatBtnKierowca && hatOverlay && hatBackBtn) {
+      hatBtnBiznes.onclick = () => toggleHat('biznes');
+      hatBtnKierowca.onclick = () => toggleHat('kierowca');
+      hatOverlay.onclick = closeHat;
+      hatBackBtn.onclick = () => { hatSlider.style.transform = 'translateX(0%)'; };
+    }
 
-      const footerBtn = document.getElementById('footer-countries-btn');
-      const footerContent = document.getElementById('footer-countries-content');
-      const countriesList = document.getElementById('footer-countries-list');
+    const footerBtn = document.getElementById('footer-countries-btn');
+    const footerContent = document.getElementById('footer-countries-content');
+    const countriesList = document.getElementById('footer-countries-list');
 
+    if (countriesList) {
       countries.forEach(country => {
         const a = document.createElement('a');
         a.href = country.url;
@@ -3371,7 +3581,9 @@
       `;
         countriesList.appendChild(a);
       });
+    }
 
+    if (footerBtn && footerContent) {
       footerBtn.addEventListener('click', () => {
         const isHidden = !footerContent.classList.contains('show');
         if (isHidden) {
@@ -3386,109 +3598,117 @@
           footerBtn.querySelector('svg').style.transform = 'rotate(0deg)';
         }
       });
-
-      // Lightbox functionality
-      let currentLightboxIndex = 0;
-      const totalGalleryImages = 20;
-
-      function openLightbox(index) {
-        currentLightboxIndex = index;
-        updateLightboxImage();
-        const lightbox = document.getElementById('lightbox');
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeLightbox() {
-        const lightbox = document.getElementById('lightbox');
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-
-      function updateLightboxImage() {
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxCounter = document.querySelector('.lightbox-counter');
-        lightboxImg.src = `gallery/img${currentLightboxIndex}.webp`;
-        lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${totalGalleryImages}`;
-      }
-
-      function showNextImage() {
-        currentLightboxIndex = (currentLightboxIndex + 1) % totalGalleryImages;
-        updateLightboxImage();
-      }
-
-      function showPrevImage() {
-        currentLightboxIndex = (currentLightboxIndex - 1 + totalGalleryImages) % totalGalleryImages;
-        updateLightboxImage();
-      }
-
-      const lightboxCloseBtn = document.querySelector('.lightbox-close');
-      const lightboxPrevBtn = document.querySelector('.lightbox-prev');
-      const lightboxNextBtn = document.querySelector('.lightbox-next');
-      const lightboxEl = document.getElementById('lightbox');
-
+    }
+    let currentLightboxIndex = 0;
+    const totalGalleryImages = 20;
+    let lastFocusedElement = null;
+    function openLightbox(index) {
+      currentLightboxIndex = index;
+      updateLightboxImage();
+      const lightbox = document.getElementById('lightbox');
+      lastFocusedElement = document.activeElement;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
       if (lightboxCloseBtn) {
-        lightboxCloseBtn.addEventListener('click', closeLightbox);
+        lightboxCloseBtn.focus();
       }
-
-      if (lightboxPrevBtn) {
-        lightboxPrevBtn.addEventListener('click', showPrevImage);
+    }
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+      if (lastFocusedElement instanceof HTMLElement) {
+        lastFocusedElement.focus();
       }
-
-      if (lightboxNextBtn) {
-        lightboxNextBtn.addEventListener('click', showNextImage);
-      }
-
-      if (lightboxEl) {
-        lightboxEl.addEventListener('click', function (e) {
-          if (e.target === lightboxEl) {
-            closeLightbox();
-          }
-        });
-      }
-
-      document.addEventListener('keydown', function (e) {
-        const lightbox = document.getElementById('lightbox');
-        if (!lightbox.classList.contains('active')) return;
-
-        if (e.key === 'Escape') {
+    }
+    function updateLightboxImage() {
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxCounter = document.querySelector('.lightbox-counter');
+      lightboxImg.src = `gallery/img${currentLightboxIndex}.webp`;
+      lightboxImg.alt = `Zdjęcie ośrodka MAXCAMP ${currentLightboxIndex + 1}`;
+      lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${totalGalleryImages}`;
+    }
+    function showNextImage() {
+      currentLightboxIndex = (currentLightboxIndex + 1) % totalGalleryImages;
+      updateLightboxImage();
+    }
+    function showPrevImage() {
+      currentLightboxIndex = (currentLightboxIndex - 1 + totalGalleryImages) % totalGalleryImages;
+      updateLightboxImage();
+    }
+    const lightboxCloseBtn = document.querySelector('.lightbox-close');
+    const lightboxPrevBtn = document.querySelector('.lightbox-prev');
+    const lightboxNextBtn = document.querySelector('.lightbox-next');
+    const lightboxEl = document.getElementById('lightbox');
+    if (lightboxCloseBtn) {
+      lightboxCloseBtn.addEventListener('click', closeLightbox);
+    }
+    if (lightboxPrevBtn) {
+      lightboxPrevBtn.addEventListener('click', showPrevImage);
+    }
+    if (lightboxNextBtn) {
+      lightboxNextBtn.addEventListener('click', showNextImage);
+    }
+    if (lightboxEl) {
+      lightboxEl.addEventListener('click', function (e) {
+        if (e.target === lightboxEl) {
           closeLightbox();
-        } else if (e.key === 'ArrowLeft') {
-          showPrevImage();
-        } else if (e.key === 'ArrowRight') {
-          showNextImage();
         }
       });
-
-      // Countdown Timer
-      function updateCountdown() {
-        const endDate = new Date('2026-05-31T23:59:59');
-        const now = new Date();
-        const distance = endDate - now;
-
-        if (distance < 0) {
-          document.getElementById('days').textContent = '0';
-          document.getElementById('hours').textContent = '0';
-          document.getElementById('minutes').textContent = '0';
-          document.getElementById('seconds').textContent = '0';
+    }
+    document.addEventListener('keydown', function (e) {
+      const lightbox = document.getElementById('lightbox');
+      if (!lightbox.classList.contains('active')) {
+        if (e.key === 'Escape' && nav.classList.contains('show')) {
+          toggleMobileMenu();
+        }
+        return;
+      }
+      if (e.key === 'Escape') {
+        closeLightbox();
+      } else if (e.key === 'ArrowLeft') {
+        showPrevImage();
+      } else if (e.key === 'ArrowRight') {
+        showNextImage();
+      } else if (e.key === 'Tab') {
+        const focusable = [lightboxCloseBtn, lightboxPrevBtn, lightboxNextBtn].filter(Boolean);
+        if (focusable.length === 0) {
           return;
         }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById('days').textContent = days;
-        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
       }
-
-      // Update countdown every second
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-    </script>
+    });
+    function updateCountdown() {
+      const endDate = new Date('2026-05-31T23:59:59');
+      const now = new Date();
+      const distance = endDate - now;
+      if (distance < 0) {
+        document.getElementById('days').textContent = '0';
+        document.getElementById('hours').textContent = '0';
+        document.getElementById('minutes').textContent = '0';
+        document.getElementById('seconds').textContent = '0';
+        return;
+      }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
 </body>
 
 </html>
