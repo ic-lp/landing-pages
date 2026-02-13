@@ -526,7 +526,7 @@
       transition: all 0.3s;
       width: fit-content;
       opacity: 0;
-      animation: fadeInUp 0.8s ease-out 1.2s forwards;
+      animation: fadeInUp 0.8s ease-out 0.5s forwards;
     }
 
     .hero-cta:hover {
@@ -2787,7 +2787,6 @@
         </div>
 
         <div class="campaign-cards-row">
-          <!-- Card 1 -->
           <div class="campaign-card">
             <div class="campaign-card-icon">
               <svg class="money-icon-card" width="64" height="64" viewBox="0 0 512 512"
@@ -2809,8 +2808,6 @@
             <h3 class="campaign-card-title">1000 zł = 1 punkt</h3>
             <p class="campaign-card-desc">1000 zł wydane w Inter Cars = 1 punkt do rankingu.</p>
           </div>
-
-          <!-- Card 2 -->
           <div class="campaign-card">
             <div class="campaign-card-icon">
               <img src="https://cdn.intercars.eu/files/1/3/8/8/7/9/138879/1920x.webp" alt="x2"
@@ -3237,7 +3234,9 @@
 
     function updateActiveLink() {
       const navLinks = document.querySelectorAll('#main-nav a[href^="#"]');
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY + 150;
+
+      let currentActive = null;
 
       navLinks.forEach(link => {
         const href = link.getAttribute('href');
@@ -3249,16 +3248,18 @@
           return;
         }
 
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
+        const rect = section.getBoundingClientRect();
+        const sectionTop = rect.top + window.scrollY;
 
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          navLinks.forEach(navLink => {
-            navLink.classList.remove('active');
-          });
-          link.classList.add('active');
+        if (scrollPosition >= sectionTop) {
+          currentActive = link;
         }
       });
+
+      navLinks.forEach(link => link.classList.remove('active'));
+      if (currentActive) {
+        currentActive.classList.add('active');
+      }
     }
 
     let isScrolling = false;
