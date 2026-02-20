@@ -30,6 +30,8 @@
     content="https://qservicetruck.eu/_next/static/images/logo_q-service_truck-d39e88ac41f7d98a0c8644c2e361e601.jpg">
 
   <title>III Spotkanie Q-Service Truck | 24-26.04.2026 | Hotel Warszawianka</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -47,7 +49,7 @@
       --color-text-gray: #4b5563;
 
       --font-primary: 'Montserrat', sans-serif;
-      --font-size-hero: clamp(38px, 7vw, 60px);
+      --font-size-hero: clamp(38px, 8vw, 72px);
       --font-size-h1: clamp(24px, 4vw, 40px);
       --font-size-h2: clamp(20px, 3vw, 26px);
       --font-size-h3: 18px;
@@ -80,6 +82,14 @@
       background-color: var(--color-white);
       line-height: 1.6;
       padding-top: var(--header-height);
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    body.preload {
+      opacity: 0;
+      visibility: hidden;
     }
 
     .container {
@@ -138,6 +148,94 @@
 
     .text-center {
       text-align: center;
+    }
+
+    .max-w-800 {
+      max-width: 800px;
+    }
+
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .mb-2xl {
+      margin-bottom: var(--spacing-2xl);
+    }
+
+    .pb-3xl {
+      padding-bottom: var(--spacing-3xl) !important;
+    }
+
+    .lead-text {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-lg);
+    }
+
+    .list-inside {
+      list-style-position: inside;
+      margin-bottom: 30px;
+    }
+
+    .mt-3xl {
+      margin-top: var(--spacing-3xl);
+    }
+
+    .mb-40 {
+      margin-bottom: 40px;
+    }
+
+    .mb-0 {
+      margin-bottom: 0;
+    }
+
+    .text-white-bg-padding {
+      background: var(--color-white);
+      padding: var(--spacing-xl);
+      border-radius: var(--radius);
+      color: var(--color-black);
+    }
+
+    .text-white-opacity-80 {
+      color: var(--color-white);
+      opacity: 0.8;
+    }
+
+    .contact-info-block {
+      margin-top: 40px;
+      color: white;
+    }
+
+    .w-100 {
+      width: 100%;
+    }
+
+    .footer-copy {
+      margin: 0;
+      opacity: 0.7;
+    }
+
+    .mb-lg-important {
+      margin-bottom: var(--spacing-lg) !important;
+    }
+
+    .mb-xl {
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .mt-md {
+      margin-top: 15px;
+    }
+
+    .event-title-sm {
+      font-size: 18px;
     }
 
     .text-accent {
@@ -369,12 +467,16 @@
 
     .hero-bg-video {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 56.25vw;
+      min-height: 100%;
+      min-width: 177.77vh;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
       z-index: 0;
+      border: none;
     }
 
     .hero {
@@ -730,6 +832,60 @@
       justify-content: center;
       gap: var(--spacing-xl);
       align-items: center;
+    }
+
+    .partners-detailed-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-xl);
+      margin-top: var(--spacing-2xl);
+    }
+
+    .partner-card {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+      background: var(--color-white);
+      padding: var(--spacing-xl);
+      border: 1px solid var(--color-gray-border);
+      text-align: left;
+    }
+
+    .partner-logo-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: 120px;
+      background: var(--color-white);
+      border-radius: var(--radius);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .partner-logo-container img {
+      max-height: 80px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .partner-logo-container .img-placeholder {
+      color: var(--color-gray-border);
+      font-weight: 500;
+      font-style: italic;
+      font-size: 14px;
+    }
+
+    .partner-card h4 {
+      margin-bottom: var(--spacing-xs);
+      color: var(--color-primary-blue-darker);
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .partner-card p {
+      margin: 0;
+      font-size: 15px;
+      color: var(--color-text-gray);
+      line-height: 1.5;
     }
 
     .partner-placeholder {
@@ -1263,7 +1419,7 @@
       }
 
       .hero-grid {
-        grid-template-columns: 6fr 4fr;
+        grid-template-columns: 1fr;
         gap: var(--spacing-3xl);
       }
 
@@ -1354,6 +1510,10 @@
         grid-template-rows: repeat(2, auto);
       }
 
+      .partners-detailed-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
       .contact-grid {
         grid-template-columns: 1fr 1fr;
         gap: var(--spacing-3xl);
@@ -1410,12 +1570,12 @@
   </style>
 </head>
 
-<body>
+<body class="preload">
 
-  <nav class="navbar">
-    <div class="container nav-container">
-      <a href="/" class="logo" title="Q-Service Truck - Strona główna"
-        aria-label="Przejdź do strony głównej Q-Service Truck">
+  <header>
+    <nav class="navbar">
+      <div class="container nav-container">
+        <a href="/" class="logo" title="Q-Service Truck - Strona główna">
         <img
           src="https://qservicetruck.eu/_next/static/images/logo_q-service_truck-d39e88ac41f7d98a0c8644c2e361e601.jpg"
           alt="Q-Service Truck - Międzynarodowa sieć warsztatów niezależnych">
@@ -1426,15 +1586,6 @@
         <li><a href="#workshops">Warsztaty</a></li>
         <li><a href="#partners">Partnerzy</a></li>
         <li><a href="#contact">Kontakt</a></li>
-        <li class="nav-mobile-extras">
-          <a href="tel:+48227141234" class="nav-mobile-phone">
-            <svg width="18" height="18" viewBox="0 0 384 384" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M353.188 252.052C329.678 252.052 306.594 248.375 284.719 241.146C274 237.49 260.823 240.844 254.281 247.563L211.104 280.157C161.031 253.428 130.187 222.594 103.823 172.897L135.458 130.845C143.677 122.637 146.625 110.647 143.093 99.397C135.833 77.407 132.145 54.334 132.145 30.814C132.146 13.823 118.323 0 101.333 0H30.813C13.823 0 0 13.823 0 30.813C0 225.563 158.438 384 353.188 384C370.178 384 384.001 370.177 384.001 353.187V282.864C384 265.875 370.177 252.052 353.188 252.052Z" />
-            </svg>
-            +48 22 714 12 34
-          </a>
-        </li>
         <li class="nav-mobile-extras">
           <a href="https://www.facebook.com/qservicetruck/" target="_blank" class="nav-mobile-social"
             aria-label="Facebook">
@@ -1460,14 +1611,6 @@
         </li>
       </ul>
       <div class="nav-actions">
-        <a href="tel:+48227141234"
-          style="color:var(--color-black); text-decoration:none; font-weight:500; display: flex; align-items: center; gap: 8px;">
-          <svg width="18" height="18" viewBox="0 0 384 384" fill="var(--color-black)"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M353.188 252.052C329.678 252.052 306.594 248.375 284.719 241.146C274 237.49 260.823 240.844 254.281 247.563L211.104 280.157C161.031 253.428 130.187 222.594 103.823 172.897L135.458 130.845C143.677 122.637 146.625 110.647 143.093 99.397C135.833 77.407 132.145 54.334 132.145 30.814C132.146 13.823 118.323 0 101.333 0H30.813C13.823 0 0 13.823 0 30.813C0 225.563 158.438 384 353.188 384C370.178 384 384.001 370.177 384.001 353.187V282.864C384 265.875 370.177 252.052 353.188 252.052Z" />
-          </svg>
-          +48 22 714 12 34</a>
         <button class="lang-switch" onclick="openLangModal()">PL ▾</button>
         <a href="https://www.facebook.com/qservicetruck/" target="_blank" class="social-link" aria-label="Facebook">
           <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1477,13 +1620,17 @@
           </svg>
         </a>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
-  <section class="hero">
-    <video autoplay muted loop playsinline class="hero-bg-video">
-      <source src="https://videos.pexels.com/video-files/27169349/12089295_2560_1440_30fps.mp4" type="video/mp4">
-    </video>
+  <main>
+    <section class="hero">
+      <iframe class="hero-bg-video" 
+        src="https://www.youtube.com/embed/nkp_ugSiMBE?autoplay=1&mute=1&controls=0&loop=1&playlist=nkp_ugSiMBE&playsinline=1&modestbranding=1&rel=0&start=5" 
+        allow="autoplay; encrypted-media" 
+        frameborder="0" 
+        tabindex="-1">
+      </iframe>
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
@@ -1516,63 +1663,47 @@
           <a href="#contact" class="btn btn-primary hero-cta">Dołącz do wydarzenia</a>
         </div>
 
-        <div class="hero-form-card">
-          <h3 class="text-center" style="margin-bottom: var(--spacing-lg);">Zarejestruj się wstępnie</h3>
-          <form id="heroForm">
-            <div class="form-group">
-              <label for="h-name">Imię i Nazwisko</label>
-              <input type="text" id="h-name" placeholder="Jan Kowalski" required>
-            </div>
-            <div class="form-group">
-              <label for="h-nip">NIP Firmy</label>
-              <input type="text" id="h-nip" placeholder="000-000-00-00" required>
-            </div>
-            <div class="form-group">
-              <label for="h-email">E-mail</label>
-              <input type="email" id="h-email" placeholder="jan@firma.pl" required>
-            </div>
-            <button type="submit" class="btn btn-secondary" style="width: 100%; margin-top: 10px;">Wyślij
-              zgłoszenie</button>
-            <p class="text-center" style="font-size: 12px; margin-top: 10px; color: #666;">Skontaktujemy się z Tobą w
-              celu potwierdzenia szczegółów.</p>
-          </form>
-        </div>
       </div>
     </div>
   </section>
 
   <section id="about" class="section">
-    <div class="container" style="padding-bottom: var(--spacing-3xl);">
-      <div class="text-center" style="max-width: 800px; margin: 0 auto var(--spacing-2xl);">
-        <h2>Siła relacji to fundament sukcesu!</h2>
-        <p style="font-size: 20px; font-weight: 500; margin-bottom: 24px;">Budujemy profesjonalną
-          sieć niezależnych warsztatów, które dążą do nieustannego rozwoju poprzez poszerzanie wiedzy, kompetencji i
-          zakresu wykonywanych usług.</p>
-        <p>
-          Jubileusz 25-lecia w Łodzi zgromadził blisko 500 gości z całej Europy i udowodnił, że Q-Service Truck to
-          więcej niż sieć warsztatów to wspólnota przedsiębiorców wspierających się wzajemnie i dążących do ciągłego
-          rozwoju. Wydarzenie w hotelu Andel's pokazało, jak ważna jest wymiana doświadczeń i wspólna wizja.
-        </p>
-        <p>
-          W 2026 roku idziemy o krok dalej. III Spotkanie sieci to nowa energia, te same wartości i jeszcze większy
-          nacisk na praktyczną wiedzę, która pozwoli Twojemu biznesowi rosnąć. To wydarzenie pełne inspiracji,
-          perspektyw i kluczowych informacji rynkowych. Spotkasz tu ekspertów, liderów branży oraz specjalistów, z
-          którymi wymienisz się doświadczeniami i najlepszymi praktykami. To doskonała okazja, by poszerzyć zakres
-          usług, budować przewagę rynkową i rozwijać swój biznes w oparciu o najnowsze trendy.
-        </p>
+    <div class="container pb-3xl">
+      <div class="max-w-800 mx-auto mb-2xl text-center">
+        <h2>Razem tworzymy profesjonalną sieć – siła relacji to fundament naszego sukcesu</h2>
+        <p class="lead-text">Budujemy silną, profesjonalną sieć niezależnych warsztatów, które wspólnie dążą do nieustannego rozwoju — poprzez poszerzanie wiedzy, kompetencji oraz zakresu świadczonych usług. Nasza siła tkwi w współpracy, otwartości i wzajemnym wsparciu.</p>
+        <p>Pierwsze nasze spotkanie sieci odbyło się w 2022 roku w Krakowie, dając początek tradycji wspólnej wymiany doświadczeń i integracji. Kolejna edycja, połączona z 25‑leciem Q‑Service Truck w Łodzi, zgromadziła blisko 500 gości z całej Europy i udowodniła, że jesteśmy czymś więcej niż siecią warsztatów — tworzymy wspólnotę przedsiębiorców, którzy inspirują się nawzajem i razem kształtują kierunek rozwoju branży.</p>
+        <p>W 2026 roku idziemy o krok dalej.</p>
+        <h3>III Spotkanie Międzynarodowej Sieci</h3>
+        <p>to kolejny rozdział naszej wspólnej drogi — nowa energia, te same wartości i jeszcze większy nacisk na praktyczną wiedzę, która realnie wspiera rozwój biznesu. To wydarzenie pełne inspiracji, perspektyw i kluczowych informacji rynkowych. Spotkasz tu ekspertów, liderów branży i praktyków, z którymi wymienisz się doświadczeniami oraz najlepszymi praktykami.</p>
+        <p>To idealna okazja, aby wzmacniać kompetencje, rozszerzać ofertę usług i budować przewagę konkurencyjną w oparciu o najnowsze trendy.</p>
+        <p>Obejrzyj relację z dwóch poprzednich edycji to doskonałe wprowadzenie w atmosferę naszych spotkań!</p>
       </div>
 
-      <div class="video-wrapper custom-video-container" data-video-id="nkp_ugSiMBE">
-        <img src="https://cdn.intercars.eu/files/1/1/7/9/4/2/117942.png" alt="Video Thumbnail" class="video-thumb">
+      <div class="video-grid">
+        <div class="video-wrapper custom-video-container" data-video-id="nkp_ugSiMBE">
+          <img src="https://cdn.intercars.eu/files/1/1/7/9/4/2/117942.png" alt="Video Thumbnail" class="video-thumb">
 
-        <div class="video-overlay-layer"></div>
+          <div class="video-overlay-layer"></div>
 
-        <button class="play-btn" aria-label="Odtwórz wideo">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 5v14l11-7z" />
-          </svg>
-        </button>
+          <button class="play-btn" aria-label="Odtwórz wideo - Relacja 1">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </button>
+        </div>
 
+        <div class="video-wrapper custom-video-container" data-video-id="4ktQ1cr2jEU">
+          <img src="https://img.youtube.com/vi/4ktQ1cr2jEU/maxresdefault.jpg" alt="Relacja Q-Service Truck 25-lecie" class="video-thumb">
+
+          <div class="video-overlay-layer"></div>
+
+          <button class="play-btn" aria-label="Odtwórz wideo - Relacja 2">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -1585,18 +1716,16 @@
       <div class="hotel-overlay"></div>
 
       <div class="hotel-content-grid">
-        <div style="text-align: center;">
+        <div class="text-center">
           <img src="https://www.warszawianka.pl/templates/hotelwarszawiankacentrumkongresowespzoo/images/logo-white.svg"
             alt="Hotel Warszawianka Logo" class="hotel-logo">
-          <h2 style="color: white; margin-bottom: 0;">Miejsce spotkania:<br>Hotel Warszawianka</h2>
+          <h2 class="text-white mb-0">Miejsce spotkania:<br>Hotel Warszawianka</h2>
         </div>
 
         <div>
-          <p style="font-size: 18px; font-weight: 500;">
-            Luksusowe centrum kongresowe położone nad Zalewem Zegrzyńskim. Miejsce, które sprzyja zarówno intensywnej
-            pracy, jak i efektywnemu wypoczynkowi.
-          </p>
-          <ul style="margin-bottom: 30px; list-style-position: inside;">
+          <p class="lead-text text-white">
+Luksusowe centrum kongresowe położone nad Zalewem Zegrzyńskim w centralnej Polsce. Miejsce, które sprzyja zarówno intensywnej pracy, jak i efektywnemu wypoczynkowi.          </p>
+          <ul class="list-inside text-white">
             <li>Nowoczesne zaplecze konferencyjne</li>
             <li>Aqua Park i strefa SPA dla uczestników</li>
             <li>Prywatna plaża i tereny zielone</li>
@@ -1607,8 +1736,8 @@
       </div>
     </div>
 
-    <div class="container" style="margin-top: var(--spacing-3xl); padding-bottom: var(--spacing-3xl);">
-      <h3 class="text-center" style="margin-bottom: 40px;">Echa poprzedniej edycji</h3>
+    <div class="container mt-3xl pb-3xl">
+      <h3 class="text-center mb-40">Echa poprzedniej edycji</h3>
 
       <div class="grid-cards">
         <div class="testimonial-card">
@@ -1699,287 +1828,127 @@
   </section>
   <section id="agenda" class="section bg-gray">
     <div class="container">
-      <h2 class="text-center">Harmonogram Wydarzenia</h2>
-      <p class="text-center" style="margin-bottom: var(--spacing-xl);">Sprawdź co przygotowaliśmy dla Ciebie w ciągu
+      <h2 class="text-center">Agenda</h2>
+      <p class="text-center mb-xl">Sprawdź co przygotowaliśmy dla Ciebie w ciągu
         tych intensywnych dni.</p>
 
       <div class="agenda-tabs">
-        <button class="tab-btn" onclick="scrollToDay('day1')">Czwartek 24.04</button>
-        <button class="tab-btn" onclick="scrollToDay('day2')">Piątek 25.04</button>
-        <button class="tab-btn" onclick="scrollToDay('day3')">Sobota 26.04</button>
+        <button class="tab-btn" onclick="scrollToDay('day1')">Czwartek 23.04</button>
+        <button class="tab-btn" onclick="scrollToDay('day2')">Piątek 24.04</button>
+        <button class="tab-btn" onclick="scrollToDay('day3')">Sobota 25.04</button>
       </div>
 
       <div class="timeline-container">
         <div id="day1" class="day-section">
-          <h3 class="day-title">Czwartek, 24 kwietnia</h3>
+          <h3 class="day-title">Czwartek, 23 kwietnia</h3>
           <div class="timeline">
             <div class="timeline-item">
-              <span class="time">12:00 - 13:00</span>
+              <span class="time">12:00 – 15:00</span>
               <div class="event-content">
-                <div class="event-title">Recepcja QST & Ford Trucks</div>
-                <div class="event-desc">Rejestracja uczestników, odbiór pakietów startowych i materiałów
-                  konferencyjnych. Powitalna kawa i pierwsze rozmowy w gronie uczestników z całej Europy.</div>
-                <div class="event-gallery">
-                  <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800"
-                    alt="Recepcja uczestników" onclick="openLightbox(this.src)">
-                  <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800" alt="Rejestracja"
-                    onclick="openLightbox(this.src)">
+                <div class="event-title">Wizyta w warsztacie Q-Service Truck Sp. z o.o.</div>
+                <div class="event-desc">Zapoznanie się z działalnością serwisu oraz jego zapleczem technicznym,
+                  działającego w oparciu o uznane autoryzacje: ZF Service Partner, Ford Trucks, Isuzu i BYD Trucks.
                 </div>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <span class="time">13:00</span>
-              <div class="event-content">
-                <div class="event-title">Wizyty studyjne</div>
-                <div class="event-desc">
-                  <p style="margin-bottom: 8px;">Tutaj musimy podzielić kraje na godziny przyjazdu i wizyt, np.:</p>
-                  <ul style="list-style: none; padding-left: 0;">
-                    <li><strong>Polska 13:00 – 14:00</strong> Czosnów</li>
-                    <li><strong>Polska 14:00 – 14:30</strong> Zakroczym</li>
-                  </ul>
-                </div>
-                <div class="event-gallery">
-                  <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800"
-                    alt="Wizyta w warsztacie" onclick="openLightbox(this.src)">
-                  <img src="https://images.unsplash.com/photo-1580894894513-541e068a3e2b?w=800"
-                    alt="Centrum logistyczne" onclick="openLightbox(this.src)">
-                  <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=800" alt="Nowoczesny serwis"
-                    onclick="openLightbox(this.src)">
-                </div>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <span class="time">15:00 – 19:00</span>
-              <div class="event-content">
-                <div class="event-title">Strefa dostawców</div>
-                <div class="event-desc">
-                  <p style="margin-bottom: 15px;">Tutaj będziemy każdego dostawcę opisywać.</p>
-                  <div style="font-size: 15px; line-height: 1.8;">
-                    <strong>Dostawcy:</strong><br>
-                    Bosch<br>
-                    Castrol<br>
-                    MANN<br>
-                    Grupa ZF<br>
-                    Knorr<br>
-                    NRF<br>
-                    FEBI<br>
-                    <br>
-                    <strong>Centra kompetencji:</strong> Agro, Autobus, Silnik, Hydraulika Siłowa<br>
-                    <br>
-                    <strong>Pozostali partnerzy:</strong><br>
-                    Integra / eSowa<br>
-                    Wyposażenie warsztatu<br>
-                    Feber<br>
-                    Ford Trucks<br>
-                    Flota<br>
-                    BioService<br>
-                    Olej, akumulator, Koło<br>
-                    InterMeco
+                <div class="mt-md">
+                  <div class="event-title event-title-sm">Zwiedzanie Europejskiego Centrum Logistyki ILS</div>
+                  <div class="event-desc">Wyjątkowa możliwość poznania firmy Inter Cars od środka, podczas zwiedzania
+                    jednego z najnowocześniejszych centrów logistycznych w Europie.
                   </div>
                 </div>
               </div>
             </div>
             <div class="timeline-item">
+              <span class="time">12:00 – 18:00</span>
+              <div class="event-content">
+                <div class="event-title">Targi dostawców</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span class="time">13:00 – 17:00</span>
+              <div class="event-content">
+                <div class="event-title">Rejestracja gości w recepcji Q-Service Truck</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span class="time">15:00 – 17:30</span>
+              <div class="event-content">
+                <div class="event-title">Lunch w restauracji hotelowej</div>
+              </div>
+            </div>
+            <div class="timeline-item">
               <span class="time">16:30 – 18:00</span>
               <div class="event-content">
-                <div class="event-title">Park Wodny</div>
-                <div class="event-desc">
-                  Zrelaksuj się w wodnym parku z basenem sportowym, basenem rekreacyjnym z rwącą rzeką i wodospadem,
-                  90‑metrową zjeżdżalnią z efektami multimedialnymi, jacuzzi, grotą, saunami i banią. To Twój czas na
-                  swobodne rozmowy i odrobinę zabawy!<br>
-                  <small style="color: var(--color-black); font-weight: 700; display: block; margin-top: 5px;">*UWAGA!
-                    Obowiązuje limit osób przebywających w strefie wodnej.</small>
-                </div>
-                <div class="event-gallery">
-                  <!-- Gallery placeholder if needed -->
+                <div class="event-title">Czas wolny*</div>
+                <div class="event-desc">Do dyspozycji dostępna jest strefa parku wodnego z basenami, saunami oraz pozostałymi atrakcjami rekreacyjnymi.<br><small>*Liczba miejsc w strefie basenowej jest ograniczona.</small>
                 </div>
               </div>
             </div>
             <div class="timeline-item">
-              <span class="time">20:00 - 01:00</span>
+              <span class="time">20:00 – 01:00</span>
               <div class="event-content">
-                <div class="event-title">Polska Biesiada</div>
-                <div class="event-desc">Integracja w stylu staropolskim przy długich stołach i muzyce na żywo.
-                  Tradycyjny stół wiejski, regionalne specjały i losowanie atrakcyjnych nagród od dostawców sieci.</div>
-                <div class="event-gallery">
-                  <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800" alt="Polska biesiada"
-                    onclick="openLightbox(this.src)">
-                  <img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=800" alt="Stół wiejski"
-                    onclick="openLightbox(this.src)">
-                  <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800" alt="Muzyka na żywo"
-                    onclick="openLightbox(this.src)">
-                </div>
+                <div class="event-title">Kolacja biesiadna</div>
+                <div class="event-desc">*Obowiązuje strój nieformalny.</div>
               </div>
             </div>
           </div>
         </div>
 
         <div id="day2" class="day-section">
-          <h3 class="day-title">Piątek, 25 kwietnia</h3>
+          <h3 class="day-title">Piątek, 24 kwietnia</h3>
           <div class="timeline">
             <div class="timeline-item">
-              <span class="time">09:45 - 12:00</span>
+              <span class="time">07:00 – 10:00</span>
               <div class="event-content">
-                <div class="event-title">Główna konferencja: Warsztat w centrum uwagi</div>
-                <div class="event-desc">
-                  <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 12px;">
-                    <li style="display: flex; gap: 10px; align-items: start;">
-                      <span style="color: var(--color-black);">•</span>
-                      <div>
-                        <strong>Prowadząca:</strong> Sylwia Wysocka, Manager sieci Q-Service Truck
-                        <div class="event-gallery">
-                          <img src="sw.png" alt="Prelegentka" onclick="openLightbox(this.src)">
-                        </div>
-                      </div>
-                    </li>
-                    <li style="display: flex; gap: 10px; align-items: start;">
-                      <span style="color: var(--color-black);">•</span>
-                      <div>
-                        <strong>Pozycjonowanie firmy na lokalnym rynku:</strong> Firma zewnętrzna
-                        <div class="event-gallery">
-                          <img src="https://images.unsplash.com/photo-1559223607-a43c990ed91b?w=800" alt="Prezentacja"
-                            onclick="openLightbox(this.src)">
-                          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800" alt="Spotkanie"
-                            onclick="openLightbox(this.src)">
-                        </div>
-                      </div>
-                    </li>
-                    <li style="display: flex; gap: 10px; align-items: start;">
-                      <span style="color: var(--color-black);">•</span>
-                      <div>
-                        <strong>Znaczenie mediów społecznościowych z perspektywy działalności warsztatu:</strong> Raf
-                        Daf, Erem
-                        <div class="event-gallery">
-                          <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800"
-                            alt="Social Media" onclick="openLightbox(this.src)">
-                          <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=800"
-                            alt="Digital Marketing" onclick="openLightbox(this.src)">
-                        </div>
-                      </div>
-                    </li>
-                    <li style="display: flex; gap: 10px; align-items: start;">
-                      <span style="color: var(--color-black);">•</span>
-                      <div>
-                        <strong>W co powinien inwestować warsztat na przestrzeni najbliższych lat:</strong> WW
-                        <div class="event-gallery">
-                          <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=800" alt="Inwestycje"
-                            onclick="openLightbox(this.src)">
-                          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" alt="Strategia"
-                            onclick="openLightbox(this.src)">
-                        </div>
-                      </div>
-                    </li>
-                    <li style="display: flex; gap: 10px; align-items: start;">
-                      <span style="color: var(--color-black);">•</span>
-                      <div>
-                        <strong>Program szkoleń dla właścicieli warsztatów:</strong> Paweł Fortuna
-                        <div class="event-gallery">
-                          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800" alt="Szkolenie"
-                            onclick="openLightbox(this.src)">
-                          <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800" alt="Warsztat"
-                            onclick="openLightbox(this.src)">
-                        </div>
-                      </div>
-                    </li>
-                    <li style="display: flex; gap: 10px; align-items: start;">
-                      <span style="color: var(--color-black);">•</span>
-                      <div>
-                        <strong>Program ze standaryzacją warsztatów:</strong> Holandia
-                        <div class="event-gallery">
-                          <img src="https://images.unsplash.com/photo-1473187983305-f615310e7daa?w=800"
-                            alt="Standaryzacja" onclick="openLightbox(this.src)">
-                          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800" alt="Współpraca"
-                            onclick="openLightbox(this.src)">
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <!-- Gallery removed as it was generic, specific image placeholders added above -->
+                <div class="event-title">Śniadanie</div>
               </div>
             </div>
             <div class="timeline-item">
-              <span class="time">10:00 - 17:00</span>
+              <span class="time">09:45 – 12:00</span>
               <div class="event-content">
-                <div class="event-title">Targi Dostawców</div>
-                <div class="event-desc">Strefa wystawiennicza partnerów sieci z prezentacją najnowszego wyposażenia
-                  warsztatowego. Integra, Bosch i inni czołowi dostawcy zaprezentują innowacyjne rozwiązania dla Twojego
-                  serwisu.</div>
-                <div class="event-gallery">
-                  <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800" alt="Targi dostawców"
-                    onclick="openLightbox(this.src)">
-                  <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=800" alt="Sprzęt warsztatowy"
-                    onclick="openLightbox(this.src)">
-                </div>
+                <div class="event-title">Konferencja międzynarodowa</div>
               </div>
             </div>
             <div class="timeline-item">
-              <span class="time">12:30 - 13:30</span>
+              <span class="time">12:30 – 13:30</span>
               <div class="event-content">
-                <div class="event-title">Lunch</div>
-                <div class="event-desc">Przerwa obiadowa w formie bufetu. Czas na regenerację sił przed popołudniowymi
-                  sesjami i kontynuację rozmów biznesowych w nieformalnej atmosferze.</div>
+                <div class="event-title">Lunch w restauracji hotelowej</div>
               </div>
             </div>
             <div class="timeline-item">
-              <span class="time">13:45</span>
+              <span class="time">12:30 – 17:00</span>
               <div class="event-content">
-                <div class="event-title">Wewnętrzne Konferencje Krajowe</div>
-                <div class="event-desc">Spotkania w grupach narodowych - Polska (Centra kompetencji), Chorwacja, Węgry i
-                  inne kraje. Omówienie lokalnych wyzwań rynkowych i wymiana najlepszych praktyk.</div>
+                <div class="event-title">Targi dostawców</div>
               </div>
             </div>
             <div class="timeline-item">
-              <span class="time">15:00 - 16:30</span>
+              <span class="time">14:00 – 16:30</span>
               <div class="event-content">
-                <div class="event-title">Sesje Tematyczne</div>
-                <div class="event-desc">Rotacyjne panele eksperckie poświęcone hydraulice siłowej, diagnostyce Bosch
-                  oraz rozwojowi kompetencji zespołu. Praktyczna wiedza od najlepszych specjalistów w branży.</div>
-                <div class="event-gallery">
-                  <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800" alt="Panel ekspercki"
-                    onclick="openLightbox(this.src)">
-                  <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800" alt="Warsztaty"
-                    onclick="openLightbox(this.src)">
-                </div>
+                <div class="event-title">Konferencje lokalne & panele dyskusyjne</div>
               </div>
             </div>
             <div class="timeline-item">
-              <span class="time">19:00</span>
+              <span class="time">19:00 – 01:00</span>
               <div class="event-content">
-                <div class="event-title">Uroczysta Gala</div>
-                <div class="event-desc">Elegancka kolacja bankietowa z motywem przewodnim "Polska/Warszawa". Wręczenie
-                  nagród dla najlepszych partnerów sieci. Obowiązuje strój wieczorowy.</div>
-                <div class="event-gallery">
-                  <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800" alt="Uroczysta gala"
-                    onclick="openLightbox(this.src)">
-                  <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800" alt="Kolacja bankietowa"
-                    onclick="openLightbox(this.src)">
-                  <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800" alt="Wręczenie nagród"
-                    onclick="openLightbox(this.src)">
-                </div>
+                <div class="event-title">Uroczysta kolacja</div>
+                <div class="event-desc">*Obowiązuje strój formalny.</div>
               </div>
             </div>
           </div>
         </div>
 
         <div id="day3" class="day-section">
-          <h3 class="day-title">Sobota, 26 kwietnia</h3>
+          <h3 class="day-title">Sobota, 25 kwietnia</h3>
           <div class="timeline">
             <div class="timeline-item">
-              <span class="time">08:00 - 10:00</span>
+              <span class="time">07:30 – 11:00</span>
               <div class="event-content">
-                <div class="event-title">Pożegnalne śniadanie</div>
-                <div class="event-desc">Ostatnia okazja do wymiany kontaktów i podsumowania wrażeń przy wykwintnym
-                  bufecie śniadaniowym. Czas na nieformalne rozmowy i planowanie przyszłej współpracy między partnerami
-                  sieci.</div>
+                <div class="event-title">Śniadanie</div>
               </div>
             </div>
             <div class="timeline-item">
-              <span class="time">10:00</span>
+              <span class="time">Do 12:00</span>
               <div class="event-content">
-                <div class="event-title">Wyjazd uczestników</div>
-                <div class="event-desc">Pełni inspiracji, nowej wiedzy i cennych kontaktów wyruszamy w drogę powrotną.
-                  Do zobaczenia na kolejnej edycji wydarzenia Q-Service Truck!</div>
+                <div class="event-title">Wymeldowanie i powrót do domu</div>
               </div>
             </div>
           </div>
@@ -1990,7 +1959,7 @@
 
   <section id="workshops" class="section">
     <div class="container">
-      <div class="text-center" style="max-width: 800px; margin: 0 auto var(--spacing-3xl);">
+      <div class="max-w-800 mx-auto pb-3xl text-center">
         <h2>Strefy Wiedzy i Rozwoju</h2>
         <p>Przygotowaliśmy cztery dedykowane obszary tematyczne, które pozwolą Ci zgłębić wiedzę techniczną i biznesową.
           Wybierz to, co najważniejsze dla Twojego serwisu.</p>
@@ -2067,7 +2036,7 @@
           </div>
         </div>
 
-        <div class="workshop-row" style="margin-bottom: var(--spacing-lg) !important">
+        <div class="workshop-row mb-lg-important">
           <div class="workshop-content">
             <h3>Akademia Biznesu</h3>
             <p>Nowoczesny warsztat to nie tylko klucze i komputery diagnostyczne, to przede wszystkim sprawnie
@@ -2097,18 +2066,107 @@
   </section>
   <section id="partners" class="section bg-gray">
     <div class="container text-center">
-      <h3 style="margin-bottom: var(--spacing-xl);">Partnerzy Wydarzenia</h3>
-      <div class="partners-grid">
-        <img src="https://cdn.intercars.eu/files/1/1/3/4/9/4/113494/x96.png" alt="Logo Bosch" class="partner-logo">
-        <img src="https://cdn.intercars.eu/files/1/0/8/1/7/8/108178/x96.png" alt="Logo Castrol" class="partner-logo">
-        <img src="https://cdn.intercars.eu/files/1/1/3/4/9/5/113495/x96.png" alt="Logo Mann-Filter"
-          class="partner-logo">
-        <img src="https://cdn.intercars.eu/files/1/1/3/4/9/3/113493/x96.png" alt="Logo Prometeon" class="partner-logo">
-        <img src="https://cdn.intercars.eu/files/1/1/3/0/1/5/113015/x96.png" alt="Logo ZF" class="partner-logo">
-        <img src="https://cdn.intercars.eu/files/1/1/3/6/3/3/113633/x96.png" alt="Logo Knorr-Bremse"
-          class="partner-logo">
-        <img src="https://cdn.intercars.eu/files/1/6/4/164/x96.png" alt="Logo Febi Bilstein" class="partner-logo">
-        <img src="https://cdn.intercars.eu/files/1/1/8/7/6/0/118760/x96.png" alt="Logo NRF" class="partner-logo">
+      <h3 class="mb-xl">Partnerzy Wydarzenia</h3>
+      <div class="partners-detailed-grid">
+        <div class="partner-card">
+          <div class="partner-logo-container">
+            <img src="intermeko-logo.jpg" alt="Logo Intermeko"/>
+          </div>
+          <h4>Intermeko Europe</h4>
+          <p>Specjalistyczne laboratorium motoryzacyjne dostarczające rzetelne ekspertyzy oraz profesjonalne wzorcowanie narzędzi, w tym kluczy dynamometrycznych zgodnie z ISO 6789. Oferują kompleksowe badania jakościowe, materiałowe i funkcjonalne części do pojazdów, zgodnie z najwyższymi standardami branżowymi.</p>
+        </div>
+        <div class="partner-card">
+          <div class="partner-logo-container">
+            <img src="https://cdn.intercars.eu/files/1/1/3/4/9/4/113494/x96.png" alt="Logo Bosch" style="width: 250px;"/>
+          </div>
+          <h4>Bosch</h4>
+          <p>Dostarcza zaawansowane technologicznie systemy dla pojazdów użytkowych, obejmujące m.in. układy wtryskowe, elektronikę, osprzęt silnika oraz profesjonalne rozwiązania diagnostyczne, wspierając niezawodne funkcjonowanie flot i efektywność pracy warsztatów.</p>
+        </div>
+        <div class="partner-card">
+          <div class="partner-logo-container">
+            <img src="https://cdn.intercars.eu/files/1/0/8/1/7/8/108178/x96.png" alt="Logo Castrol" style="width: 250px;"/>
+          </div>
+          <h4>Castrol</h4>
+          <p>Oferuje wysokowydajne oleje i specjalistyczne środki smarne dedykowane pojazdom ciężarowym, zapewniając długotrwałą ochronę silników, zwiększoną wydajność oraz redukcję kosztów operacyjnych poprzez wydłużenie interwałów serwisowych.</p>
+        </div>
+        <div class="partner-card">
+          <div class="partner-logo-container">
+            <img src="https://cdn.intercars.eu/files/1/1/3/4/9/5/113495/x96.png" alt="Logo Mann-Filter" style="width: 150px;"/>
+          </div>
+          <h4>MANN-FILTER (MANN+HUMMEL)</h4>
+          <p>Dostarcza filtry OE-quality zaprojektowane do pracy w wymagających warunkach transportu ciężkiego, gwarantując skuteczną ochronę układu napędowego i niezawodność eksploatacyjną pojazdów użytkowych.</p>
+        </div>
+        <div class="partner-card">
+          <div class="partner-logo-container">
+            <img src="https://cdn.intercars.eu/files/1/1/3/0/1/5/113015/x96.png" alt="Logo ZF" style="width: 300px;"/>
+          </div>
+          <h4>Grupa ZF</h4>
+          <p>Dostawca rozwiązań dla sektora pojazdów użytkowych, oferuje kompleksowe systemy napędowe, hamulcowe i podwoziowe, zwiększające bezpieczeństwo flot, ich wydajność operacyjną oraz poziom automatyzacji w transporcie ciężkim.</p>
+        </div>
+        <div class="partner-card">
+          <div class="partner-logo-container">
+            <img src="https://cdn.intercars.eu/files/1/1/3/6/3/3/113633/x96.png" alt="Logo Knorr-Bremse" style="width: 300px;"/>
+          </div>
+          <h4>Knorr-Bremse</h4>
+          <p>Producent systemów hamulcowych i rozwiązań bezpieczeństwa dla pojazdów użytkowych, autobusów i naczep. Oferuje komponenty oraz wsparcie serwisowe dla profesjonalnych warsztatów.</p>
+        </div>
+        <div class="partner-card">
+          <div class="partner-logo-container">
+            <img src="https://cdn.intercars.eu/files/1/1/8/7/6/0/118760/x96.png" alt="Logo NRF" />
+          </div>
+          <h4>NRF</h4>
+          <p>Specjalizuje się w rozwiązaniach chłodniczych dla pojazdów użytkowych, dostarczając chłodnice, skraplacze, radiatory i elementy układów HVAC, zapewniające stabilność termiczną i wysoką niezawodność w wymagających warunkach transportowych.</p>
+        </div>
+        <div class="partner-card">
+          <div class="partner-logo-container">
+            <img src="https://cdn.intercars.eu/files/1/6/4/164/x96.png" alt="Logo Febi Bilstein" />
+          </div>
+          <h4>FEBI (bilstein group)</h4>
+          <p>Dostarcza szeroki asortyment części o jakości OE-matching, obejmujący m.in. elementy układu zawieszenia, silnika, układów pneumatycznych i elektroniki, wspierając ekonomiczną i niezawodną eksploatację pojazdów ciężarowych.</p>
+        </div>
+        <div class="partner-card">
+          <div class="partner-logo-container">
+            <img src="https://cdn.intercars.eu/files/1/3/1/0/1/3/131013/520x120,f.webp" alt="Logo Integra" width="150" />
+            <img src="https://cdn.intercars.eu/files/1/0/4/0/7/3/104073/520x120,f.webp" alt="Logo eSowa" />
+          </div>
+          <h4>Integra / eSowa</h4>
+          <p>Systemy Integra oraz eSowa stanowią kompleksowe narzędzia informatyczne dla serwisów obsługujących pojazdy ciężarowe. Pozwalają na sprawne zarządzanie zleceniami, magazynem, historią serwisową oraz integrację z katalogiem Inter Cars w celu optymalizacji operacji warsztatowych.</p>
+        </div>
+        <div class="partner-card">
+          <div class="partner-logo-container">
+          <img src="https://cdn.intercars.eu/files/1/0/4/1/9/4/104194/520x120,f.webp" alt="Logo Inter Cars Wyposażenie warsztatu">
+        </div>
+          <h4>Wyposażenie warsztatu</h4>
+          <p>Inter Cars oferuje szeroki portfel wyposażenia warsztatowego obejmujący urządzenia diagnostyczne, narzędzia specjalistyczne oraz sprzęt do obsługi klimatyzacji i elektroniki.</p>
+        </div>
+        <div class="partner-card">
+          <div class="partner-logo-container">
+          <img src="feber-logo.webp" alt="Logo Feber">
+        </div>
+          <h4>Feber</h4>
+          <p>Producent naczep należący do Grupy Inter Cars. Dostarcza wysokiej klasy zabudowy dla transportu ciężkiego — w tym wywrotki, pojazdy specjalistyczne i rozwiązania do przewozu materiałów sypkich.</p>
+        </div>
+        <div class="partner-card">
+          <div class="partner-logo-container">
+          <img src="ft-logo.webp" alt="Logo Ford Trucks">
+        </div>
+          <h4>Ford Trucks</h4>
+          <p>Oferta marki obejmuje ciągniki siodłowe F‑MAX, podwozia budowalne i drogowe dostosowane do potrzeb krajowych przewoźników. Q‑Service Truck Sp. z o.o., spółka zależna grupy Inter Cars jest jedynym importer marki na terenie Polski, odpowiedzialnym za sprzedaż, serwis oraz rozwój sieci dealerskiej.</p>
+        </div>
+        <div class="partner-card">
+          <div class="partner-logo-container">
+          <img src="https://cdn.intercars.eu/files/1/0/4/1/9/4/104194/520x120,f.webp" alt="Logo Inter Cars Flota">
+          </div>
+          <h4>Flota (Inter Cars)</h4>
+          <p>Inter Cars Fleet Services wspiera przedsiębiorstwa transportowe w zarządzaniu flotą, oferując wsparcie techniczne oraz naprawcze na terenie Polski i Europy. W skład sieci serwisowej wchodzą renomowane warsztaty Q-Service Truck, współpracujące w ramach obsługi zleceń.</p>
+        </div>
+        <div class="partner-card">
+          <div class="partner-logo-container">
+          <img src="bioservice-logo.webp" alt="Logo BioService">
+        </div>
+          <h4>BioService</h4>
+          <p>BioService wspiera warsztaty w zakresie ekologicznego zagospodarowania odpadów warsztatowych, takich jak oleje, filtry czy akumulatory, zapewniając zgodność z wymogami środowiskowymi i bezpieczeństwo procesów obsługowych.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -2118,31 +2176,30 @@
       <div class="contact-grid">
         <div>
           <h2 class="text-white">Zarejestruj swój udział</h2>
-          <p class="text-white" style="opacity: 0.8;">Wypełnij formularz, aby potwierdzić obecność. Pamiętaj o wybraniu
+          <p class="text-white-opacity-80">Wypełnij formularz, aby potwierdzić obecność. Pamiętaj o wybraniu
             dodatkowych wizyt studyjnych.</p>
 
-          <div style="margin-top: 40px; color: white;">
-            <h4>Masz pytania?</h4>
+          <div class="contact-info-block">
+            <h3>Masz pytania?</h3>
             <p>Skontaktuj się z koordynatorem swojego regionu lub zadzwoń na infolinię.</p>
             <p>📞 +48 22 714 12 34</p>
             <p>📧 event@q-service-truck.eu</p>
           </div>
         </div>
 
-        <div
-          style="background: var(--color-white); padding: var(--spacing-xl); border-radius: var(--radius); color: var(--color-black);">
+        <div class="text-white-bg-padding">
           <form id="fullRegistrationForm">
             <div class="form-group">
-              <label>Imię i Nazwisko *</label>
-              <input type="text" required placeholder="Jan Kowalski">
+              <label for="reg-name">Imię i Nazwisko *</label>
+              <input type="text" id="reg-name" required placeholder="Jan Kowalski">
             </div>
             <div class="form-group">
-              <label>Nazwa Warsztatu / NIP *</label>
-              <input type="text" required placeholder="Auto-Service / 1234567890">
+              <label for="reg-company">Nazwa Warsztatu / NIP *</label>
+              <input type="text" id="reg-company" required placeholder="Auto-Service / 1234567890">
             </div>
             <div class="form-group">
-              <label>Telefon *</label>
-              <input type="tel" required placeholder="+48 ...">
+              <label for="reg-phone">Telefon *</label>
+              <input type="tel" id="reg-phone" required placeholder="+48 ...">
             </div>
 
             <div class="form-group">
@@ -2158,8 +2215,8 @@
             </div>
 
             <div class="form-group">
-              <label>Preferencje dietetyczne</label>
-              <select>
+              <label for="reg-diet">Preferencje dietetyczne</label>
+              <select id="reg-diet" name="diet">
                 <option>Brak</option>
                 <option>Wegetariańska</option>
                 <option>Wegańska</option>
@@ -2170,21 +2227,22 @@
             <div class="form-group">
               <div class="checkbox-wrapper">
                 <input type="checkbox" required id="rodo">
-                <label for="rodo">Akceptuję <a href="#">regulamin wydarzenia</a> i politykę prywatności. *</label>
+                <label for="rodo">Akceptuję <a href="#regulamin">regulamin wydarzenia</a> i politykę prywatności. *</label>
               </div>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Zapisz się na wydarzenie</button>
+            <button type="submit" class="btn btn-primary w-100">Zapisz się na wydarzenie</button>
           </form>
         </div>
       </div>
     </div>
   </section>
+  </main>
 
   <footer class="footer">
     <div class="container footer-container">
       <div class="footer-info">
-        <p style="margin: 0; opacity: 0.7;">&copy; 2025 Q-Service Truck. Wszystkie prawa zastrzeżone.</p>
+        <p class="footer-copy">&copy; 2025 Q-Service Truck. Wszystkie prawa zastrzeżone.</p>
       </div>
 
       <div class="footer-links">
@@ -2244,6 +2302,15 @@
   </div>
 
   <script>
+    // Fade in after fonts are loaded
+    document.fonts.ready.then(() => {
+      document.body.classList.remove('preload');
+    });
+    // Fallback if fonts take too long
+    setTimeout(() => {
+      document.body.classList.remove('preload');
+    }, 2000);
+
     const eventDate = new Date('2026-04-23T12:00:00').getTime();
 
     function updateCountdown() {
@@ -2318,24 +2385,30 @@
       observer.observe(agendaTabs);
     }
 
-    document.getElementById('heroForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      alert('Dziękujemy za wstępną rejestrację! Skontaktujemy się wkrótce.');
-      this.reset();
-    });
+    const heroForm = document.getElementById('heroForm');
+    if (heroForm) {
+      heroForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert('Dziękujemy za wstępną rejestrację! Skontaktujemy się wkrótce.');
+        this.reset();
+      });
+    }
 
-    document.getElementById('fullRegistrationForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const czosnow = document.getElementById('visit-czosnow').checked;
-      const zakroczym = document.getElementById('visit-zakroczym').checked;
+    const fullRegistrationForm = document.getElementById('fullRegistrationForm');
+    if (fullRegistrationForm) {
+      fullRegistrationForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const czosnow = document.getElementById('visit-czosnow').checked;
+        const zakroczym = document.getElementById('visit-zakroczym').checked;
 
-      let msg = 'Dziękujemy za rejestrację na spotkanie!';
-      if (czosnow || zakroczym) {
-        msg += '\n\nOtrzymasz oddzielny harmonogram wizyt studyjnych (Czosnów/Zakroczym) przed wydarzeniem.';
-      }
-      alert(msg);
-      this.reset();
-    });
+        let msg = 'Dziękujemy za rejestrację na spotkanie!';
+        if (czosnow || zakroczym) {
+          msg += '\n\nOtrzymasz oddzielny harmonogram wizyt studyjnych (Czosnów/Zakroczym) przed wydarzeniem.';
+        }
+        alert(msg);
+        this.reset();
+      });
+    }
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
