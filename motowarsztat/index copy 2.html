@@ -1,0 +1,1873 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MotoWarsztat - Nowoczesne zarządzanie warsztatem samochodowym</title>
+  <meta name="description"
+    content="MotoWarsztat to aplikacja do zarządzania warsztatem samochodowym. Zlecenia, wyceny, magazyn, terminarz i faktury w jednym miejscu. Przetestuj 30 dni za darmo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wdth,wght@0,75..125,200..900;1,75..125,200..900&display=block"
+    rel="stylesheet">
+  <style>
+    html:not(.fonts-loaded) {
+      background-color: #2c3b4c;
+    }
+
+    html:not(.fonts-loaded) body {
+      opacity: 0;
+    }
+
+    body {
+      transition: opacity 0.4s ease-in;
+    }
+
+    html.fonts-loaded body {
+      opacity: 1;
+    }
+  </style>
+  <script>
+    (function () {
+      const reveal = () => document.documentElement.classList.add("fonts-loaded");
+      if ("fonts" in document) {
+        document.fonts.ready.then(reveal);
+        setTimeout(reveal, 1500);
+      } else {
+        reveal();
+      }
+    })();
+  </script>
+  <link rel="shortcut icon" href="https://cdn.intercars.eu/files/1/3/8/5/3/9/138539.png" />
+  <link rel="apple-touch-icon" sizes="57x57" href="https://cdn.intercars.eu/files/icons/apple-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="https://cdn.intercars.eu/files/icons/apple-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="https://cdn.intercars.eu/files/icons/apple-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.intercars.eu/files/icons/apple-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="https://cdn.intercars.eu/files/icons/apple-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="https://cdn.intercars.eu/files/icons/apple-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="https://cdn.intercars.eu/files/icons/apple-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="https://cdn.intercars.eu/files/icons/apple-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.intercars.eu/files/icons/apple-icon-180x180.png" />
+  <link rel="icon" type="image/png" sizes="192x192"
+    href="https://cdn.intercars.eu/files/icons/android-icon-192x192.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.intercars.eu/files/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="https://cdn.intercars.eu/files/icons/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.intercars.eu/files/icons/favicon-16x16.png" />
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="msapplication-TileImage" content="https://cdn.intercars.eu/files/icons/ms-icon-144x144.png" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:title" content="MotoWarsztat - Nowoczesne zarządzanie warsztatem samochodowym" />
+  <meta property="og:description"
+    content="Porządek w zleceniach, szybsza obsługa i pełna kontrola nad pracą zespołu. Przetestuj MotoWarsztat przez 30 dni za darmo." />
+  <meta property="og:site_name" content="MotoWarsztat by Inter Cars" />
+  <meta property="og:image" content="https://cdn.intercars.eu/files/1/3/8/5/3/8/138538.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pl_PL" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MotoWarsztat - Nowoczesne zarządzanie warsztatem samochodowym" />
+  <meta name="twitter:description"
+    content="Porządek w zleceniach, szybsza obsługa i pełna kontrola nad pracą zespołu. Przetestuj MotoWarsztat przez 30 dni za darmo." />
+  <meta name="twitter:image" content="https://cdn.intercars.eu/files/1/3/8/5/3/8/138538.png" />
+
+  <!-- Consent & Cookie Banner -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+      "ad_storage": "denied",
+      "analytics_storage": "denied",
+      "ad_user_data": "denied",
+      "ad_personalization": "denied",
+      "personalization_storage": "denied",
+      "functionality_storage": "granted",
+      "security_storage": "granted",
+      "wait_for_update": "500"
+    });
+    gtag("set", "ads_data_redaction", true);
+  </script>
+  <script src="https://cmp.osano.com/169srqT5X3N1PVV/c2ec7cc5-18b9-4d41-b58a-0adf038178b7/osano.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const targetNode = document.body;
+      function updatePrivacyLinkHref(node) {
+        const privacyLink = node.querySelector('a.osano-cm-link');
+        if (privacyLink) privacyLink.href = "https://intercars.com.pl/pl/polityka-cookies";
+      }
+      const existingNode = document.querySelector('.osano-cm-window');
+      if (existingNode) updatePrivacyLinkHref(existingNode);
+      const callback = (mutationsList, observer) => {
+        for (let mutation of mutationsList) {
+          if (mutation.addedNodes.length) {
+            mutation.addedNodes.forEach((node) => {
+              if (node.nodeType === 1 && node.matches('.osano-cm-window')) {
+                updatePrivacyLinkHref(node);
+                observer.disconnect();
+              }
+            });
+          }
+        }
+      };
+      const observer = new MutationObserver(callback);
+      observer.observe(targetNode, { childList: true, subtree: true });
+    });
+  </script>
+  <style>
+    .osano-cm-dialog--type_box::before {
+      color: #000;
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.75);
+    }
+
+    .osano-cm-dialog--type_box .osano-cm-dialog__content,
+    .osano-cm-dialog--type_box .osano-cm-dialog__buttons {
+      position: relative;
+    }
+
+    button.osano-cm-button {
+      background-color: #131313;
+    }
+
+    button.osano-cm-button:hover {
+      background-color: #000;
+    }
+
+    button.osano-cm-dialog__close {
+      stroke: #5f5f5f;
+      color: #000;
+      background-color: #000;
+    }
+
+    .osano-cm-dialog__close:focus {
+      background-color: #000;
+      border-color: #000;
+      stroke: #2c3a4c;
+    }
+
+    .osano-cm-close {
+      zoom: 0.5;
+    }
+
+    .osano-cm-button--type_accept {
+      order: 0;
+      background-color: #2d9c1d !important;
+    }
+
+    .osano-cm-button--type_accept:hover {
+      background-color: #1dac08;
+    }
+
+    .osano-cm-button--type_manage {
+      order: 1;
+    }
+
+    .osano-cm-button--type_denyAll {
+      order: 3;
+    }
+  </style>
+
+  <!-- Facebook Pixel -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
+      t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '991174504852754');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=991174504852754&ev=PageView&noscript=1" /></noscript>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NVHVL676');
+  </script>
+
+  <style>
+    :root {
+      --color-background: #ffffff;
+      --color-foreground: #333333;
+      --color-primary: #cf1e35;
+      --color-primary-hover: #901525;
+      --color-secondary: #2c3b4c;
+      --color-muted: #b4c2d3;
+      --color-muted-foreground: #767676;
+      --color-accent: #1f65b5;
+      --color-border: #767676;
+      --radius: 4px;
+      --header-h: 64px;
+      --layout-container-max: 100%;
+      --promo-copy-max: 100%;
+      --features-subtitle-max: 100%;
+      --contact-form-max: 100%;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Mona Sans', sans-serif;
+      font-optical-sizing: auto;
+      background: var(--color-background);
+      color: var(--color-foreground);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Header ─────────────────────────────────────── */
+    .main-header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+    }
+
+    .main-header.scrolled {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(118, 118, 118, 0.1);
+    }
+
+    .header-container {
+      max-width: var(--layout-container-max);
+      margin: 0 auto;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      padding: 0 16px;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .header-logo img {
+      height: 20px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .main-nav {
+      display: none;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .main-nav.show {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--color-background);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      z-index: 51;
+      border-top: 1px solid rgba(118, 118, 118, 0.1);
+      padding: 24px 16px;
+    }
+
+    .main-nav a {
+      color: var(--color-foreground);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 400;
+      white-space: nowrap;
+      transition: color 0.2s;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(44, 59, 76, 0.1);
+      width: 100%;
+    }
+
+    .main-nav.show a {
+      border-bottom: 1px solid rgba(44, 59, 76, 0.1);
+    }
+
+    .main-nav a:last-child {
+      border-bottom: none;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: var(--color-primary);
+    }
+
+    .main-nav a:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 4px;
+    }
+
+    .mobile-menu-btn {
+      display: flex;
+      background: transparent;
+      border: none;
+      color: var(--color-foreground);
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .mobile-menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 49;
+      display: none;
+    }
+
+    .mobile-menu-overlay.show {
+      display: block;
+    }
+
+    /* ─── Hero ────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      min-height: calc(100vh - var(--header-h));
+    }
+
+    .hero-video-container {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(4, 14, 28, 0.88);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-inner {
+      max-width: var(--layout-container-max);
+      margin: 0 auto;
+      width: 100%;
+      min-height: calc(100vh - var(--header-h));
+      display: flex;
+      align-items: center;
+      padding-inline: 1rem;
+    }
+
+    .hero-grid-promo {
+      display: flex;
+      justify-content: center;
+      flex-direction: column-reverse;
+      gap: 1rem;
+      align-items: center;
+      height: 100%;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      text-align: left;
+      flex: 1;
+    }
+
+    .hero-title {
+      color: white;
+      margin-bottom: 12px;
+      font-weight: 600;
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      text-align: left;
+    }
+
+    .hero-title span {
+      color: var(--color-primary);
+    }
+
+    .hero-description {
+      margin-bottom: 20px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .hero-btn-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-primary);
+      color: white;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      font-size: 16px;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 10px 15px -3px rgba(207, 30, 53, 0.2);
+      width: fit-content;
+    }
+
+    .hero-btn:hover {
+      background: var(--color-primary-hover);
+      gap: 12px;
+    }
+
+    .hero-edenred-image {
+      width: clamp(100px, 80vw, 700px);
+      flex: 1;
+    }
+
+    /* Hero – logos, pills, highlight */
+    .hero-logos {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .hero-logos img {
+      width: auto;
+      object-fit: contain;
+    }
+
+    .hero-logos-divider {
+      width: 1px;
+      height: 22px;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    /* ─── Sections base ──────────────────────────────── */
+
+
+    .section-container {
+      max-width: var(--layout-container-max);
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .section-grid {
+      display: flex;
+      gap: 32px;
+    }
+
+    .section-image {
+      min-height: 400px;
+      height: auto;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: var(--radius);
+      flex-grow: 1;
+    }
+
+    .section-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .section-title {
+      margin-bottom: 24px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .section-text {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      line-height: 1.6;
+      color: rgba(51, 51, 51, 0.9);
+    }
+
+    .section-dark {
+      background: var(--color-secondary);
+      color: white;
+    }
+
+    .section-dark .section-text {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* ─── Promo section ──────────────────────────────── */
+    .promo-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .promo-grid {
+      display: flex;
+      gap: 32px;
+    }
+
+    .promo-text p {
+      font-size: 18px;
+      color: #64748b;
+      line-height: 1.6;
+      max-width: var(--promo-copy-max);
+    }
+
+    /* ─── Features ────────────────────────────────────── */
+    .features-section {
+      background: #f8fafc;
+    }
+
+    .features-header {
+      margin-bottom: 48px;
+    }
+
+    .features-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: var(--radius);
+      background: #e2e8f0;
+      border: 1px solid #cbd5e1;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #64748b;
+      margin-bottom: 24px;
+    }
+
+    .features-title {
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .features-title span {
+      color: var(--color-primary);
+    }
+
+    .features-subtitle {
+      color: #64748b;
+      line-height: 1.6;
+      max-width: var(--features-subtitle-max);
+    }
+
+    .features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .feature-z-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: center;
+      padding: 24px;
+      border-radius: var(--radius);
+      border: 1px solid #e2e8f0;
+      background: white;
+    }
+
+    .feature-z-media {
+      width: 100%;
+    }
+
+    .feature-z-image {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+
+    .feature-z-content h3 {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      color: var(--color-secondary);
+    }
+
+    .feature-z-content p {
+      font-size: 16px;
+      color: #64748b;
+      line-height: 1.7;
+    }
+
+    .feature-z-cta {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 16px;
+      color: var(--color-primary);
+      font-size: 14px;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+
+    .feature-z-cta:hover,
+    .feature-z-cta:focus-visible {
+      border-color: currentColor;
+      outline: none;
+    }
+
+    /* ─── Contact form ────────────────────────────────── */
+    .contact-form-section {
+      padding: 64px 0;
+      background: white;
+    }
+
+    .contact-form-header {
+      margin-bottom: 32px;
+    }
+
+    .contact-form-header h2 {
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .contact-form-header p {
+      color: #64748b;
+    }
+
+    .contact-form-limit {
+      width: 100%;
+      max-width: var(--contact-form-max);
+    }
+
+    /* ─── Promo video ─────────────────────────────────── */
+    .promo-video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 37.5%;
+      height: 0;
+      overflow: hidden;
+      border-radius: var(--radius);
+    }
+
+    .promo-video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ─── Footer ──────────────────────────────────────── */
+    .footer {
+      padding: 32px 0;
+      background: #EBEFF3;
+    }
+
+    .footer-container {
+      max-width: var(--layout-container-max);
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      margin-bottom: 32px;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 170px;
+    }
+
+    .footer-column-title {
+      color: var(--color-secondary);
+      font-size: 1rem;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .footer-column-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 14px;
+      color: #1C2126;
+    }
+
+    .footer-column-list a {
+      color: #1C2126;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-column-list a:hover {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+
+    .footer-phone {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #1C2126;
+      margin-bottom: 16px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-phone:hover {
+      color: var(--color-primary);
+    }
+
+    .footer-phone-label {
+      font-size: 14px;
+      color: #1C2126;
+      margin-bottom: 12px;
+    }
+
+    .footer-phone-hours {
+      font-size: 14px;
+      color: #1C2126;
+    }
+
+    .footer-address-logo {
+      margin-bottom: 20px;
+      height: 35px;
+      width: auto;
+    }
+
+    .footer-address-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1C2126;
+      margin-bottom: 12px;
+    }
+
+    .footer-address-text {
+      font-size: 14px;
+      color: #1C2126;
+      margin-bottom: 12px;
+    }
+
+    .footer-address-text a {
+      color: #1C2126;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-address-text a:hover {
+      color: var(--color-primary);
+    }
+
+    .footer-countries {
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .footer-countries-btn {
+      background: #FAFCFE;
+      border: 1px solid #C3CAD1;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: #1C2126;
+      cursor: pointer;
+      transition: background 0.3s;
+      border-radius: var(--radius);
+      width: fit-content;
+    }
+
+    .footer-countries-btn:hover {
+      background: white;
+    }
+
+    .footer-toggle-input {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .footer-toggle-input:checked~.footer-countries-content {
+      display: block;
+      margin-top: -1px;
+      position: relative;
+      z-index: 0;
+    }
+
+    .footer-toggle-input:checked~.footer-countries-btn {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-bottom-color: transparent;
+      padding-bottom: 13px;
+      position: relative;
+      z-index: 10;
+      background: white;
+    }
+
+    .footer-toggle-input:checked~.footer-countries-btn svg {
+      transform: rotate(180deg);
+    }
+
+    .footer-countries-content {
+      display: none;
+      margin-top: -1px;
+      background: #FAFCFE;
+      border: 1px solid #C3CAD1;
+      border-radius: 0 var(--radius);
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .footer-countries-inner {
+      padding: 48px 32px;
+    }
+
+    .footer-countries-header {
+      margin-bottom: 12px;
+    }
+
+    .footer-countries-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-foreground);
+      margin-bottom: 8px;
+    }
+
+    .footer-countries-description {
+      font-size: 14px;
+      color: var(--color-foreground);
+    }
+
+    .footer-countries-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .footer-country-link {
+      background: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 24px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .footer-country-link:hover {
+      border-color: var(--color-primary);
+    }
+
+    .footer-country-flag {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-country-flag img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .footer-country-name {
+      font-size: 12px;
+      text-align: center;
+      color: var(--color-foreground);
+      font-weight: 500;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #C3CAD1;
+      padding-top: 24px;
+    }
+
+    .footer-bottom-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-text {
+      font-size: 12px;
+      color: #1C2126;
+    }
+
+    .footer-bottom-link {
+      font-size: 12px;
+      color: #1C2126;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-bottom-link:hover {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-social a {
+      width: 20px;
+      height: 20px;
+    }
+
+    .footer-social img {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* ─── Scroll to top ──────────────────────────────── */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 80px;
+      right: 24px;
+      z-index: 50;
+      background: var(--color-primary);
+      opacity: 0.9;
+      color: white;
+      padding: 12px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: none;
+    }
+
+    .scroll-to-top.show {
+      display: block;
+    }
+
+    .scroll-to-top:hover {
+      background: rgba(207, 30, 53, 0.9);
+    }
+
+    /* ─── Responsive: Mobile (<576px) ────────────────── */
+    @media (max-width: 575px) {
+      .hero-title {
+        font-size: clamp(1.75rem, 5vw, 2.25rem);
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .hero-logos img {
+        height: 24px;
+      }
+
+      .hero-grid-promo {
+        flex-direction: column-reverse;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .section-text {
+        font-size: 16px;
+      }
+
+      .section-grid {
+        flex-direction: column;
+      }
+
+      .promo-grid {
+        flex-direction: column;
+      }
+
+      .features-section {
+        padding: 64px 0;
+      }
+
+      .features-title {
+        font-size: 28px;
+      }
+
+      .features-subtitle {
+        font-size: 16px;
+      }
+
+      .feature-z-row {
+        padding: 20px;
+        gap: 20px;
+      }
+
+      .feature-z-content h3 {
+        font-size: 24px;
+      }
+
+      .footer-countries-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-form-header h2 {
+        font-size: 28px;
+      }
+
+      .features-badge {
+        font-size: 11px;
+      }
+
+      .footer-bottom-content,
+      .footer-bottom-links {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* ─── Responsive: Tablet (576px-<1200px) ─────────── */
+    @media (min-width: 576px) and (max-width: 1199px) {
+      :root {
+        --header-h: 80px;
+        --layout-container-max: 1300px;
+        --promo-copy-max: 560px;
+        --features-subtitle-max: 600px;
+        --contact-form-max: 48rem;
+      }
+
+      .header-content {
+        height: 80px;
+      }
+
+      .header-logo {
+        gap: 12px;
+      }
+
+      .header-logo img {
+        height: clamp(28px, 3vw, 32px);
+      }
+
+      .hero-title {
+        font-size: clamp(2.25rem, 4vw, 3rem);
+      }
+
+      .hero-description {
+        font-size: 18px;
+      }
+
+      .hero-btn {
+        padding: 16px 32px;
+        font-size: 18px;
+      }
+
+      .hero-grid-promo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "hero-copy hero-image";
+        align-items: center;
+        justify-items: stretch;
+        gap: 2rem;
+        height: 100%;
+      }
+
+      .hero-edenred-image {
+        grid-area: hero-image;
+        width: min(100%, 460px);
+        justify-self: end;
+      }
+
+      .hero-text {
+        grid-area: hero-copy;
+        width: 100%;
+      }
+
+      .hero-logos img {
+        height: 32px;
+      }
+
+      .hero-pill {
+        font-size: 14px;
+        padding: 10px 20px;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        font-size: 48px;
+      }
+
+      .section-text {
+        font-size: 18px;
+      }
+
+      .section-grid {
+        flex-direction: row;
+        gap: 48px;
+        align-items: stretch;
+      }
+
+      .section-image,
+      .section-content {
+        width: 60%;
+      }
+
+      .section-grid.reverse {
+        flex-direction: row-reverse;
+      }
+
+      .hero-inner {
+        flex-direction: row;
+      }
+
+      .promo-grid {
+        flex-direction: row;
+        gap: 48px;
+        align-items: center;
+      }
+
+      .promo-grid>* {
+        flex: 1;
+      }
+
+      .features-section {
+        padding: 80px 0;
+      }
+
+      .features-title {
+        font-size: 48px;
+      }
+
+      .features-subtitle {
+        font-size: 18px;
+      }
+
+      .feature-z-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        padding: 28px;
+      }
+
+      .feature-z-row.reverse .feature-z-content {
+        order: 2;
+      }
+
+      .feature-z-row.reverse .feature-z-media {
+        order: 1;
+      }
+
+      .feature-z-content h3 {
+        font-size: 28px;
+      }
+
+      .contact-form-section {
+        padding: 80px 0;
+      }
+
+      .contact-form-header h2 {
+        font-size: 36px;
+      }
+
+      .footer-countries-grid {
+        grid-template-columns: repeat(8, 1fr);
+      }
+
+      .footer-bottom-content,
+      .footer-bottom-links {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    /* ─── Responsive: Desktop (>=1200px) ─────────────── */
+    @media (min-width: 1200px) {
+      :root {
+        --header-h: 80px;
+        --layout-container-max: 1300px;
+        --promo-copy-max: 560px;
+        --features-subtitle-max: 600px;
+        --contact-form-max: 48rem;
+      }
+
+      .header-content {
+        height: 80px;
+      }
+
+      .header-logo {
+        gap: 12px;
+      }
+
+      .header-logo img {
+        height: clamp(32px, 3.5vw, 36px);
+      }
+
+      .hero-title {
+        font-size: clamp(2.75rem, 3.2vw, 3.75rem);
+      }
+
+      .hero-description {
+        font-size: 20px;
+      }
+
+      .hero-btn {
+        padding: 16px 32px;
+        font-size: 18px;
+      }
+
+      .hero-grid-promo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        height: 100%;
+      }
+
+      .hero-edenred-image {
+        width: min(100%, 540px);
+        justify-self: end;
+      }
+
+      .hero-logos img {
+        height: 36px;
+      }
+
+      .hero-logos-divider {
+        height: 28px;
+      }
+
+      .hero-pill {
+        font-size: 14px;
+        padding: 10px 22px;
+      }
+
+      .section {
+        padding: 96px 0;
+      }
+
+      .section-title {
+        font-size: 48px;
+      }
+
+      .section-text {
+        font-size: 18px;
+      }
+
+      .section-grid {
+        flex-direction: row;
+        gap: 48px;
+        align-items: stretch;
+      }
+
+      .section-image,
+      .section-content {
+        width: 60%;
+      }
+
+      .section-grid.reverse {
+        flex-direction: row-reverse;
+      }
+
+      .hero-inner {
+        flex-direction: row;
+      }
+
+      .main-nav {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        padding: 0;
+        box-shadow: none;
+        border-top: none;
+        width: auto;
+        gap: 40px;
+      }
+
+      .main-nav a {
+        padding: 0;
+        border-bottom: none;
+        width: auto;
+        font-size: 16px;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+      }
+
+      .promo-grid {
+        flex-direction: row;
+        gap: 48px;
+        align-items: center;
+      }
+
+      .promo-grid>* {
+        flex: 1;
+      }
+
+      .features-section {
+        padding: 96px 0;
+      }
+
+      .features-title {
+        font-size: 48px;
+      }
+
+      .features-subtitle {
+        font-size: 18px;
+      }
+
+      .feature-z-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+        padding: 32px;
+      }
+
+      .feature-z-row.reverse .feature-z-content {
+        order: 2;
+      }
+
+      .feature-z-row.reverse .feature-z-media {
+        order: 1;
+      }
+
+      .feature-z-content h3 {
+        font-size: 30px;
+      }
+
+      .contact-form-section {
+        padding: 96px 0;
+      }
+
+      .contact-form-header h2 {
+        font-size: 36px;
+      }
+
+      .footer-countries-grid {
+        grid-template-columns: repeat(8, 1fr);
+      }
+
+      .footer-bottom-content,
+      .footer-bottom-links {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    /* ─── CTA pulse animation ─────────────────────────── */
+    @keyframes ctaPulseRepeat {
+      0% {
+        transform: scale(1);
+      }
+
+      3.75% {
+        transform: scale(1.05);
+      }
+
+      7.5% {
+        transform: scale(1);
+      }
+
+      11.25% {
+        transform: scale(1.05);
+      }
+
+      15%,
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    #hero .hero-btn {
+      animation: ctaPulseRepeat 4s ease-in-out infinite;
+    }
+
+    #hero .hero-btn:hover {
+      animation: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- GTM (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVHVL676" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header id="main-header" class="main-header">
+    <div class="header-container">
+      <div class="header-content">
+        <a href="#" class="header-logo">
+          <img src="https://cdn.intercars.eu/files/1/3/8/5/8/1/138581.webp" alt="Inter Cars" />
+          <img src="logo.png" alt="Inter Cars" />
+        </a>
+
+        <nav id="main-nav" class="main-nav">
+          <a href="#promo">Wypróbuj</a>
+          <a href="#funkcje">Funkcje</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Otwórz menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+
+  <main id="main-content">
+
+    <!-- ═══ HERO ═══ -->
+    <section id="hero" class="hero">
+      <div class="hero-video-container">
+        <video autoplay muted loop playsinline class="hero-video">
+          <source src="bg.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-inner">
+          <div class="hero-grid-promo">
+            <div class="hero-text">
+              <h1 class="hero-title">
+                MotoWarsztat to aplikacja, dzięki której prowadzenie warsztatu staje się
+                <span>prostsze</span>.
+              </h1>
+
+              <p class="hero-description">
+                Porządek w zleceniach, szybsza obsługa i pełna kontrola nad pracą zespołu – bez chaosu i ręcznych
+                notatek.
+              </p>
+
+              <div class="hero-btn-wrapper">
+                <a href="https://app.intercars.motowarsztat.pl/rejestracja" target="_blank" class="hero-btn">
+                  Testuj 30 dni za darmo
+                  <svg width="20" height="20" viewBox="0 0 128 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M33.8145 128C33.8145 128 33.7885 128 33.7805 128C31.7065 128 30.0005 126.294 30.0005 124.22C30.0005 123.209 30.4055 122.24 31.1245 121.53L88.6545 64L31.1345 6.47C30.4235 5.759 30.0245 4.795 30.0245 3.79C30.0245 1.711 31.7355 0 33.8145 0C34.8195 0 35.7835 0.399 36.4945 1.11L96.7045 61.32C97.4155 62.03 97.8145 62.995 97.8145 64C97.8145 65.005 97.4155 65.97 96.7045 66.68L36.4945 126.89C35.7845 127.601 34.8195 128.001 33.8145 128Z"
+                      fill="white" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <img src="hero-img.png" alt="MotoWarsztat – podgląd aplikacji" class="hero-edenred-image" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PROMO – 30 dni za darmo ═══ -->
+    <section id="promo" class="section promo-section">
+      <div class="section-container">
+        <div class="promo-grid">
+          <div class="promo-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/Y7gLMn_R3HM" title="MotoWarsztat – prezentacja aplikacji"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="promo-text">
+            <h2 class="section-title">Przetestuj MotoWarsztat<br><span
+                style="color: var(--color-primary);">przez 30 dni za darmo</span></h2>
+            <p>Zobacz w praktyce, jak aplikacja usprawnia codzienną pracę warsztatu i pomaga szybciej zarabiać.</p>
+            <a href="https://app.intercars.motowarsztat.pl/rejestracja" target="_blank" class="hero-btn"
+              style="margin-top: 24px;">
+              Testuj 30 dni za darmo
+              <svg width="20" height="20" viewBox="0 0 128 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M33.8145 128C33.8145 128 33.7885 128 33.7805 128C31.7065 128 30.0005 126.294 30.0005 124.22C30.0005 123.209 30.4055 122.24 31.1245 121.53L88.6545 64L31.1345 6.47C30.4235 5.759 30.0245 4.795 30.0245 3.79C30.0245 1.711 31.7355 0 33.8145 0C34.8195 0 35.7835 0.399 36.4945 1.11L96.7045 61.32C97.4155 62.03 97.8145 62.995 97.8145 64C97.8145 65.005 97.4155 65.97 96.7045 66.68L36.4945 126.89C35.7845 127.601 34.8195 128.001 33.8145 128Z"
+                  fill="white" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FEATURES ═══ -->
+    <section id="funkcje" class="features-section">
+      <div class="section-container">
+        <div class="features-header">
+          <div class="features-badge">Możliwości systemu</div>
+          <h2 class="features-title">Funkcje, które przyspieszą<br><span>Twoją pracę</span></h2>
+          <p class="features-subtitle">Kompleksowe narzędzia zaprojektowane, by eliminować chaos i zwiększać zyski
+            Twojego warsztatu.</p>
+        </div>
+
+        <div class="features-list">
+          <article class="feature-z-row">
+            <div class="feature-z-content">
+              <h3>Zlecenia i wyceny</h3>
+              <p>Szybkie i dokładne tworzenie ofert dla Klientów oraz zlecenie naprawy w mniej niż minutę. Proces
+                wyceny znacząco przyspieszają gotowe szablony do ponownego wykorzystania. Tak opracowany kosztorys
+                naprawy możesz wysłać do klienta SMS-em lub mailem. Zlecenia możesz przypisywać do klienta lub
+                pojazdu, a po wykonaniu naprawy rozliczysz je poprzez wystawienie faktury bądź paragonu.</p>
+              <a class="feature-z-cta" href="#kontakt">Przejdź do formularza </a>
+            </div>
+            <div class="feature-z-media">
+              <img src="services/zlecenia_01.jpg" alt="Zlecenia i wyceny w MotoWarsztat" class="feature-z-image"
+                loading="lazy" />
+            </div>
+          </article>
+
+          <article class="feature-z-row reverse">
+            <div class="feature-z-content">
+              <h3>Elektroniczna karta zleceń</h3>
+              <p>Wysyłaj klientom protokoły przyjęcia i wydania, kosztorysy, dokumenty sprzedaży oraz zdjęcia i filmy.
+                Klient może podpisać dokumenty zdalnie, co oszczędza czas i upraszcza proces obsługi. Moduł
+                automatyzuje kluczowe procesy warsztatowe i zwiększa efektywność pracy.</p>
+              <a class="feature-z-cta" href="#kontakt">Przejdź do formularza</a>
+            </div>
+            <div class="feature-z-media">
+              <img src="services/karta_zlecen_01.jpg" alt="Elektroniczna karta zleceń w MotoWarsztat"
+                class="feature-z-image" loading="lazy" />
+            </div>
+          </article>
+
+          <article class="feature-z-row">
+            <div class="feature-z-content">
+              <h3>Baza pojazdów</h3>
+              <p>Łatwe wyszukiwanie i zarządzanie danymi klientów oraz historią napraw pojazdów. W kilka sekund dodasz
+                pojazd na podstawie numeru VIN, rejestracyjnego lub kodów AZTEC. Aplikacja rozpoznaje dane i
+                automatycznie uzupełnia najważniejsze pola dotyczące naprawianego samochodu.</p>
+              <a class="feature-z-cta" href="#kontakt">Przejdź do formularza</a>
+            </div>
+            <div class="feature-z-media">
+              <img src="services/baza_pojazdow_01.jpg" alt="Baza pojazdów w MotoWarsztat" class="feature-z-image"
+                loading="lazy" />
+            </div>
+          </article>
+
+          <article class="feature-z-row reverse">
+            <div class="feature-z-content">
+              <h3>Wygodny terminarz</h3>
+              <p>Pozwala efektywnie planować zlecenia i śledzić ich realizację. Kalendarz daje podgląd na szczegółowy
+                plan dnia, umożliwia dodanie wielu stanowisk pracy i pracowników oraz łatwe przypisywanie napraw
+                mechanikom z kontrolą ich obłożenia.</p>
+              <a class="feature-z-cta" href="#kontakt">Przejdź do formularza</a>
+            </div>
+            <div class="feature-z-media">
+              <img src="services/terminarz_01.jpg" alt="Terminarz napraw w MotoWarsztat" class="feature-z-image"
+                loading="lazy" />
+            </div>
+          </article>
+
+          <article class="feature-z-row">
+            <div class="feature-z-content">
+              <h3>Zintegrowany magazyn</h3>
+              <p>Wygodne zarządzanie zapasami części i materiałów: przyjęcie dostawy, narzut na częściach, stany
+                magazynowe i import bezpośrednio z hurtowni. Towary wykorzystane w naprawie są automatycznie
+                rezerwowane, a po zakończeniu zlecenia stany magazynowe aktualizują się automatycznie.</p>
+              <a class="feature-z-cta" href="#kontakt">Przejdź do formularza</a>
+            </div>
+            <div class="feature-z-media">
+              <img src="services/magazyn_01.jpg" alt="Zintegrowany magazyn w MotoWarsztat" class="feature-z-image"
+                loading="lazy" />
+            </div>
+          </article>
+
+          <article class="feature-z-row reverse">
+            <div class="feature-z-content">
+              <h3>Panel dla pracowników</h3>
+              <p>Możliwość nadania uprawnień zależnie od stanowiska. Pracownicy logują się na indywidualne konta,
+                sprawdzają listę zadań, a ich czas pracy jest rejestrowany automatycznie. Magazynier może mieć inny
+                poziom dostępu niż mechanik w ramach jednej licencji.</p>
+              <a class="feature-z-cta" href="#kontakt">Przejdź do formularza</a>
+            </div>
+            <div class="feature-z-media">
+              <img src="services/panel_pracownicy_01.jpg" alt="Panel pracowników w MotoWarsztat"
+                class="feature-z-image" loading="lazy" />
+            </div>
+          </article>
+
+          <article class="feature-z-row">
+            <div class="feature-z-content">
+              <h3>Raporty i powiadomienia</h3>
+              <p>Program posiada 20 rodzajów raportów potrzebnych do analizy wydajności warsztatu. Sprawdzisz, ile
+                godzin przepracował wybrany pracownik lub jaki przychód wygenerował. To moduł kluczowy dla rozliczeń i
+                ustalania prowizji za wykonaną pracę.</p>
+              <a class="feature-z-cta" href="#kontakt">Przejdź do formularza</a>
+            </div>
+            <div class="feature-z-media">
+              <img src="services/raporty_01.jpg" alt="Raporty i powiadomienia w MotoWarsztat" class="feature-z-image"
+                loading="lazy" />
+            </div>
+          </article>
+
+          <article class="feature-z-row reverse">
+            <div class="feature-z-content">
+              <h3>Faktury i paragony</h3>
+              <p>Pełen system fiskalny i moduł dłużników. Bezproblemowo wystawisz paragon, fakturę, zaliczkę i
+                korektę. Połączenie z drukarką fiskalną, generowanie JPK na koniec miesiąca, obsługa płatności online
+                oraz system ratalny dla klientów.</p>
+              <a class="feature-z-cta" href="#kontakt">Przejdź do formularza</a>
+            </div>
+            <div class="feature-z-media">
+              <img src="services/faktury_paragony_01.jpg" alt="Faktury i paragony w MotoWarsztat"
+                class="feature-z-image" loading="lazy" />
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CONTACT BANNER ═══ -->
+    <section id="kontakt-info" class="section section-dark">
+      <div class="section-container">
+        <div class="section-grid">
+          <div class="section-content">
+            <h2 class="section-title" style="color: white;">Chcesz poznać więcej szczegółów bądź<br><span
+                style="color: var(--color-primary);">masz pytania lub wątpliwości?</span></h2>
+            <div class="section-text">
+              <p>Napisz do nas, chętnie skontaktujemy się z Tobą i odpowiemy na wszystkie pytania.</p>
+              <a href="#kontakt" class="hero-btn" style="margin-top: 8px;">
+                Bezpłatna konsultacja
+                <svg width="20" height="20" viewBox="0 0 128 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M33.8145 128C33.8145 128 33.7885 128 33.7805 128C31.7065 128 30.0005 126.294 30.0005 124.22C30.0005 123.209 30.4055 122.24 31.1245 121.53L88.6545 64L31.1345 6.47C30.4235 5.759 30.0245 4.795 30.0245 3.79C30.0245 1.711 31.7355 0 33.8145 0C34.8195 0 35.7835 0.399 36.4945 1.11L96.7045 61.32C97.4155 62.03 97.8145 62.995 97.8145 64C97.8145 65.005 97.4155 65.97 96.7045 66.68L36.4945 126.89C35.7845 127.601 34.8195 128.001 33.8145 128Z"
+                    fill="white" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="section-image"
+            style="background-image: url('https://images.pexels.com/photos/845451/pexels-photo-845451.jpeg?auto=compress&cs=tinysrgb&w=1200');"
+            role="img" aria-label="Konsultantka wsparcia technicznego">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CONTACT FORM ═══ -->
+    <section id="kontakt" class="contact-form-section">
+      <div class="section-container">
+        <div class="contact-form-header contact-form-limit">
+          <h2>Skontaktuj się z nami</h2>
+          <p>Wypełnij poniższy formularz, a nasz doradca skontaktuje się z Tobą.</p>
+        </div>
+        <div class="contact-form-limit">
+          <div data-form-id='31bed5dc-67ae-f011-bbd2-000d3a2aff0a'
+            data-form-api-url='https://public-eur.mkt.dynamics.com/api/v1.0/orgs/31672f70-592e-4806-a716-03179ba54198/landingpageforms'
+            data-cached-form-url='https://assets-eur.mkt.dynamics.com/31672f70-592e-4806-a716-03179ba54198/digitalassets/forms/31bed5dc-67ae-f011-bbd2-000d3a2aff0a'>
+          </div>
+          <script
+            src='https://cxppusa1formui01cdnsa01-endpoint.azureedge.net/eur/FormLoader/FormLoader.bundle.js'></script>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p class="footer-bottom-text">
+            &copy; 2026 MotoWarsztat. Wszelkie prawa zastrzeżone.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scroll-to-top" class="scroll-to-top" aria-label="Przewiń na górę">
+    <svg width="24" height="24" viewBox="0 0 129 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M0 33.8261C0 32.8261 0.4 31.9261 1.1 31.1261C1.813 30.4061 2.786 30.0001 3.8 30.0001C4.814 30.0001 5.787 30.4061 6.5 31.1261L64 88.6261L121.5 31.1261C122.213 30.4061 123.186 30.0001 124.2 30.0001C125.214 30.0001 126.187 30.4061 126.9 31.1261C127.62 31.8391 128.026 32.8121 128.026 33.8261C128.026 34.8401 127.62 35.8131 126.9 36.5261L66.7 96.7261C65.987 97.4461 65.014 97.8521 64 97.8521C62.986 97.8521 62.013 97.4461 61.3 96.7261L1.1 36.5261C0.4 35.7261 0 34.8261 0 33.8261Z"
+        fill="white" style="transform: rotate(180deg); transform-origin: center;" />
+    </svg>
+  </button>
+
+  <script>
+    "use strict";
+    const header = document.getElementById('main-header');
+    const scrollBtn = document.getElementById('scroll-to-top');
+
+    function updateActiveLink() {
+      const sections = document.querySelectorAll('section[id]');
+      const headerHeight = header.offsetHeight;
+      const scrollPosition = window.scrollY + headerHeight + 20;
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        const navLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+
+        if (navLink) {
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+            navLink.classList.add('active');
+          }
+        }
+      });
+    }
+
+    let isScrolling = false;
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+
+      if (scrollY > 40) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      if (scrollY > 500) {
+        scrollBtn.classList.add('show');
+      } else {
+        scrollBtn.classList.remove('show');
+      }
+
+      if (!isScrolling) {
+        window.requestAnimationFrame(() => {
+          updateActiveLink();
+          isScrolling = false;
+        });
+        isScrolling = true;
+      }
+    });
+
+    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    function handleNavClick(e, href) {
+      e.preventDefault();
+
+      const nav = document.getElementById('main-nav');
+      if (nav.classList.contains('show')) {
+        toggleMobileMenu();
+      }
+
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          const headerHeight = header.offsetHeight;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+
+          if (window.history && window.history.replaceState) {
+            window.history.replaceState(null, '', href);
+          } else {
+            window.location.hash = href;
+          }
+        }
+      }, 300);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#') && href.length > 1) {
+          handleNavClick(e, href);
+        }
+      });
+    });
+
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const nav = document.getElementById('main-nav');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+    function toggleMobileMenu() {
+      const isHidden = !nav.classList.contains('show');
+
+      if (isHidden) {
+        nav.classList.add('show');
+        mobileMenuOverlay.classList.add('show');
+        document.body.style.overflow = "hidden";
+        menuBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>`;
+        header.style.backdropFilter = 'none';
+        header.style.boxShadow = 'none';
+        header.style.borderBottom = 'none';
+      } else {
+        nav.classList.remove('show');
+        mobileMenuOverlay.classList.remove('show');
+        document.body.style.overflow = "auto";
+        menuBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>`;
+        header.style.backdropFilter = '';
+        header.style.boxShadow = '';
+        header.style.borderBottom = '';
+      }
+    }
+
+    menuBtn.onclick = toggleMobileMenu;
+    mobileMenuOverlay.onclick = toggleMobileMenu;
+
+  </script>
+
+</body>
+
+</html>

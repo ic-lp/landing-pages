@@ -1,0 +1,1896 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MotoWarsztat - Nowoczesne zarządzanie warsztatem samochodowym</title>
+  <meta name="description"
+    content="MotoWarsztat to aplikacja do zarządzania warsztatem samochodowym. Zlecenia, wyceny, magazyn, terminarz i faktury w jednym miejscu. Przetestuj 30 dni za darmo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wdth,wght@0,75..125,200..900;1,75..125,200..900&display=block"
+    rel="stylesheet">
+  <style>
+    html:not(.fonts-loaded) {
+      background-color: #2c3b4c;
+    }
+
+    html:not(.fonts-loaded) body {
+      opacity: 0;
+    }
+
+    body {
+      transition: opacity 0.4s ease-in;
+    }
+
+    html.fonts-loaded body {
+      opacity: 1;
+    }
+  </style>
+  <script>
+    (function () {
+      const reveal = () => document.documentElement.classList.add("fonts-loaded");
+      if ("fonts" in document) {
+        document.fonts.ready.then(reveal);
+        setTimeout(reveal, 1500);
+      } else {
+        reveal();
+      }
+    })();
+  </script>
+  <link rel="shortcut icon" href="https://cdn.intercars.eu/files/1/3/8/5/3/9/138539.png" />
+  <link rel="apple-touch-icon" sizes="57x57" href="https://cdn.intercars.eu/files/icons/apple-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="https://cdn.intercars.eu/files/icons/apple-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="https://cdn.intercars.eu/files/icons/apple-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.intercars.eu/files/icons/apple-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="https://cdn.intercars.eu/files/icons/apple-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="https://cdn.intercars.eu/files/icons/apple-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="https://cdn.intercars.eu/files/icons/apple-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="https://cdn.intercars.eu/files/icons/apple-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.intercars.eu/files/icons/apple-icon-180x180.png" />
+  <link rel="icon" type="image/png" sizes="192x192"
+    href="https://cdn.intercars.eu/files/icons/android-icon-192x192.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.intercars.eu/files/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="https://cdn.intercars.eu/files/icons/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.intercars.eu/files/icons/favicon-16x16.png" />
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="msapplication-TileImage" content="https://cdn.intercars.eu/files/icons/ms-icon-144x144.png" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:title" content="MotoWarsztat - Nowoczesne zarządzanie warsztatem samochodowym" />
+  <meta property="og:description"
+    content="Porządek w zleceniach, szybsza obsługa i pełna kontrola nad pracą zespołu. Przetestuj MotoWarsztat przez 30 dni za darmo." />
+  <meta property="og:site_name" content="MotoWarsztat by Inter Cars" />
+  <meta property="og:image" content="https://cdn.intercars.eu/files/1/3/8/5/3/8/138538.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pl_PL" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MotoWarsztat - Nowoczesne zarządzanie warsztatem samochodowym" />
+  <meta name="twitter:description"
+    content="Porządek w zleceniach, szybsza obsługa i pełna kontrola nad pracą zespołu. Przetestuj MotoWarsztat przez 30 dni za darmo." />
+  <meta name="twitter:image" content="https://cdn.intercars.eu/files/1/3/8/5/3/8/138538.png" />
+
+  <!-- Consent & Cookie Banner -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+      "ad_storage": "denied",
+      "analytics_storage": "denied",
+      "ad_user_data": "denied",
+      "ad_personalization": "denied",
+      "personalization_storage": "denied",
+      "functionality_storage": "granted",
+      "security_storage": "granted",
+      "wait_for_update": "500"
+    });
+    gtag("set", "ads_data_redaction", true);
+  </script>
+  <script src="https://cmp.osano.com/169srqT5X3N1PVV/c2ec7cc5-18b9-4d41-b58a-0adf038178b7/osano.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const targetNode = document.body;
+      function updatePrivacyLinkHref(node) {
+        const privacyLink = node.querySelector('a.osano-cm-link');
+        if (privacyLink) privacyLink.href = "https://intercars.com.pl/pl/polityka-cookies";
+      }
+      const existingNode = document.querySelector('.osano-cm-window');
+      if (existingNode) updatePrivacyLinkHref(existingNode);
+      const callback = (mutationsList, observer) => {
+        for (let mutation of mutationsList) {
+          if (mutation.addedNodes.length) {
+            mutation.addedNodes.forEach((node) => {
+              if (node.nodeType === 1 && node.matches('.osano-cm-window')) {
+                updatePrivacyLinkHref(node);
+                observer.disconnect();
+              }
+            });
+          }
+        }
+      };
+      const observer = new MutationObserver(callback);
+      observer.observe(targetNode, { childList: true, subtree: true });
+    });
+  </script>
+  <style>
+    .osano-cm-dialog--type_box::before {
+      color: #000;
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.75);
+    }
+
+    .osano-cm-dialog--type_box .osano-cm-dialog__content,
+    .osano-cm-dialog--type_box .osano-cm-dialog__buttons {
+      position: relative;
+    }
+
+    button.osano-cm-button {
+      background-color: #131313;
+    }
+
+    button.osano-cm-button:hover {
+      background-color: #000;
+    }
+
+    button.osano-cm-dialog__close {
+      stroke: #5f5f5f;
+      color: #000;
+      background-color: #000;
+    }
+
+    .osano-cm-dialog__close:focus {
+      background-color: #000;
+      border-color: #000;
+      stroke: #2c3a4c;
+    }
+
+    .osano-cm-close {
+      zoom: 0.5;
+    }
+
+    .osano-cm-button--type_accept {
+      order: 0;
+      background-color: #2d9c1d !important;
+    }
+
+    .osano-cm-button--type_accept:hover {
+      background-color: #1dac08;
+    }
+
+    .osano-cm-button--type_manage {
+      order: 1;
+    }
+
+    .osano-cm-button--type_denyAll {
+      order: 3;
+    }
+  </style>
+
+  <!-- Facebook Pixel -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
+      t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '991174504852754');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=991174504852754&ev=PageView&noscript=1" /></noscript>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NVHVL676');
+  </script>
+
+  <style>
+    :root {
+      --color-background: #ffffff;
+      --color-foreground: #333333;
+      --color-primary: #cf1e35;
+      --color-primary-hover: #901525;
+      --color-secondary: #2c3b4c;
+      --color-muted: #b4c2d3;
+      --color-muted-foreground: #767676;
+      --color-accent: #1f65b5;
+      --color-border: #767676;
+      --radius: 4px;
+      --header-h: 64px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Mona Sans', sans-serif;
+      font-optical-sizing: auto;
+      background: var(--color-background);
+      color: var(--color-foreground);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Header ─────────────────────────────────────── */
+    .main-header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+    }
+
+    .main-header.scrolled {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(118, 118, 118, 0.1);
+    }
+
+    .header-container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      padding: 0 16px;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .header-logo img {
+      height: 24px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .main-nav {
+      display: none;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .main-nav.show {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--color-background);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      z-index: 51;
+      border-top: 1px solid rgba(118, 118, 118, 0.1);
+      padding: 24px 16px;
+    }
+
+    .main-nav a {
+      color: var(--color-foreground);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 400;
+      white-space: nowrap;
+      transition: color 0.2s;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(44, 59, 76, 0.1);
+      width: 100%;
+    }
+
+    .main-nav.show a {
+      border-bottom: 1px solid rgba(44, 59, 76, 0.1);
+    }
+
+    .main-nav a:last-child {
+      border-bottom: none;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: var(--color-primary);
+    }
+
+    .main-nav a:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 4px;
+    }
+
+    .mobile-menu-btn {
+      display: flex;
+      background: transparent;
+      border: none;
+      color: var(--color-foreground);
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .mobile-menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 49;
+      display: none;
+    }
+
+    .mobile-menu-overlay.show {
+      display: block;
+    }
+
+    /* ─── Hero ────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      min-height: calc(100vh - var(--header-h));
+    }
+
+    .hero-video-container {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(4, 14, 28, 0.88);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      width: 100%;
+      min-height: calc(100vh - var(--header-h));
+      display: flex;
+      align-items: center;
+      padding-inline: 1rem;
+    }
+
+    .hero-grid-promo {
+      display: flex;
+      justify-content: center;
+      flex-direction: column-reverse;
+      gap: 1rem;
+      align-items: center;
+      height: 100%;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      text-align: left;
+      flex: 1;
+    }
+
+    .hero-title {
+      color: white;
+      margin-bottom: 12px;
+      font-size: clamp(1.75rem, 5vw, 2.25rem);
+      font-weight: 600;
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      text-align: left;
+    }
+
+    .hero-title span {
+      color: var(--color-primary);
+    }
+
+    .hero-description {
+      font-size: 16px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .hero-btn-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-primary);
+      color: white;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      font-size: 16px;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 10px 15px -3px rgba(207, 30, 53, 0.2);
+      width: fit-content;
+    }
+
+    .hero-btn:hover {
+      background: var(--color-primary-hover);
+      gap: 12px;
+    }
+
+    .hero-edenred-image {
+      width: clamp(100px, 80vw, 700px);
+      flex: 1;
+    }
+
+    /* Hero – logos, pills, highlight */
+    .hero-logos {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .hero-logos img {
+      height: 28px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .hero-logos-divider {
+      width: 1px;
+      height: 22px;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    /* ─── Sections base ──────────────────────────────── */
+    .section {
+      padding: 64px 0;
+    }
+
+    .section-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .section-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .section-image {
+      min-height: 400px;
+      height: auto;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: var(--radius);
+      flex-grow: 1;
+    }
+
+    .section-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .section-title {
+      margin-bottom: 24px;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .section-text {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(51, 51, 51, 0.9);
+    }
+
+    .section-dark {
+      background: var(--color-secondary);
+      color: white;
+    }
+
+    .section-dark .section-text {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* ─── Promo section ──────────────────────────────── */
+    .promo-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .promo-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .promo-text p {
+      font-size: 18px;
+      color: #64748b;
+      line-height: 1.6;
+      max-width: 560px;
+    }
+
+    /* ─── Features ────────────────────────────────────── */
+    .features-section {
+      padding: 64px 0;
+      background: #f8fafc;
+    }
+
+    .features-header {
+      margin-bottom: 48px;
+    }
+
+    .features-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: var(--radius);
+      background: #e2e8f0;
+      border: 1px solid #cbd5e1;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #64748b;
+      margin-bottom: 24px;
+    }
+
+    .features-title {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .features-title span {
+      color: var(--color-primary);
+    }
+
+    .features-subtitle {
+      font-size: 16px;
+      color: #64748b;
+      line-height: 1.6;
+      max-width: 600px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .feature-card {
+      padding: 32px;
+      border-radius: var(--radius);
+      background: white;
+      border: 1px solid #e2e8f0;
+      transition: box-shadow 0.3s;
+    }
+
+    .feature-card:hover {
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.06);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius);
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      transition: background 0.3s;
+    }
+
+    .feature-card:hover .feature-icon {
+      background: #fff1f2;
+    }
+
+    .feature-icon svg {
+      width: 24px;
+      height: 24px;
+      color: #475569;
+      transition: color 0.3s;
+    }
+
+    .feature-card:hover .feature-icon svg {
+      color: var(--color-primary);
+    }
+
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -0.025em;
+    }
+
+    .feature-card-text {
+      position: relative;
+      max-height: 80px;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .feature-card.expanded .feature-card-text {
+      max-height: 500px;
+    }
+
+    .feature-card-text p {
+      font-size: 15px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    .feature-gradient {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background: linear-gradient(to top, white, transparent);
+      transition: opacity 0.3s;
+    }
+
+    .feature-card.expanded .feature-gradient {
+      opacity: 0;
+    }
+
+    .feature-toggle {
+      margin-top: 12px;
+      background: none;
+      border: none;
+      color: var(--color-primary);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0;
+    }
+
+    .feature-toggle svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s;
+    }
+
+    .feature-card.expanded .feature-toggle svg {
+      transform: rotate(180deg);
+    }
+
+    /* ─── Contact form ────────────────────────────────── */
+    .contact-form-section {
+      padding: 64px 0;
+      background: white;
+    }
+
+    .contact-form-header {
+      margin-bottom: 32px;
+    }
+
+    .contact-form-header h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .contact-form-header p {
+      color: #64748b;
+    }
+
+    /* ─── Promo video ─────────────────────────────────── */
+    .promo-video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: var(--radius);
+    }
+
+    .promo-video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ─── Footer ──────────────────────────────────────── */
+    .footer {
+      padding: 32px 0;
+      background: #EBEFF3;
+    }
+
+    .footer-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      margin-bottom: 32px;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 170px;
+    }
+
+    .footer-column-title {
+      color: var(--color-secondary);
+      font-size: 1rem;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .footer-column-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 14px;
+      color: #1C2126;
+    }
+
+    .footer-column-list a {
+      color: #1C2126;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-column-list a:hover {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+
+    .footer-phone {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #1C2126;
+      margin-bottom: 16px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-phone:hover {
+      color: var(--color-primary);
+    }
+
+    .footer-phone-label {
+      font-size: 14px;
+      color: #1C2126;
+      margin-bottom: 12px;
+    }
+
+    .footer-phone-hours {
+      font-size: 14px;
+      color: #1C2126;
+    }
+
+    .footer-address-logo {
+      margin-bottom: 20px;
+      height: 35px;
+      width: auto;
+    }
+
+    .footer-address-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1C2126;
+      margin-bottom: 12px;
+    }
+
+    .footer-address-text {
+      font-size: 14px;
+      color: #1C2126;
+      margin-bottom: 12px;
+    }
+
+    .footer-address-text a {
+      color: #1C2126;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-address-text a:hover {
+      color: var(--color-primary);
+    }
+
+    .footer-countries {
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .footer-countries-btn {
+      background: #FAFCFE;
+      border: 1px solid #C3CAD1;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: #1C2126;
+      cursor: pointer;
+      transition: background 0.3s;
+      border-radius: var(--radius);
+      width: fit-content;
+    }
+
+    .footer-countries-btn:hover {
+      background: white;
+    }
+
+    .footer-toggle-input {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .footer-toggle-input:checked~.footer-countries-content {
+      display: block;
+      margin-top: -1px;
+      position: relative;
+      z-index: 0;
+    }
+
+    .footer-toggle-input:checked~.footer-countries-btn {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-bottom-color: transparent;
+      padding-bottom: 13px;
+      position: relative;
+      z-index: 10;
+      background: white;
+    }
+
+    .footer-toggle-input:checked~.footer-countries-btn svg {
+      transform: rotate(180deg);
+    }
+
+    .footer-countries-content {
+      display: none;
+      margin-top: -1px;
+      background: #FAFCFE;
+      border: 1px solid #C3CAD1;
+      border-radius: 0 var(--radius);
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .footer-countries-inner {
+      padding: 48px 32px;
+    }
+
+    .footer-countries-header {
+      margin-bottom: 12px;
+    }
+
+    .footer-countries-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-foreground);
+      margin-bottom: 8px;
+    }
+
+    .footer-countries-description {
+      font-size: 14px;
+      color: var(--color-foreground);
+    }
+
+    .footer-countries-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .footer-country-link {
+      background: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 24px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .footer-country-link:hover {
+      border-color: var(--color-primary);
+    }
+
+    .footer-country-flag {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-country-flag img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .footer-country-name {
+      font-size: 12px;
+      text-align: center;
+      color: var(--color-foreground);
+      font-weight: 500;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #C3CAD1;
+      padding-top: 24px;
+    }
+
+    .footer-bottom-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-bottom-text {
+      font-size: 12px;
+      color: #1C2126;
+    }
+
+    .footer-bottom-link {
+      font-size: 12px;
+      color: #1C2126;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-bottom-link:hover {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-social a {
+      width: 20px;
+      height: 20px;
+    }
+
+    .footer-social img {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* ─── Scroll to top ──────────────────────────────── */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 80px;
+      right: 24px;
+      z-index: 50;
+      background: var(--color-primary);
+      opacity: 0.9;
+      color: white;
+      padding: 12px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: none;
+    }
+
+    .scroll-to-top.show {
+      display: block;
+    }
+
+    .scroll-to-top:hover {
+      background: rgba(207, 30, 53, 0.9);
+    }
+
+    /* ─── Responsive: Mobile (<576px) ────────────────── */
+    @media (max-width: 575px) {
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .hero-logos img {
+        height: 24px;
+      }
+
+    }
+
+    /* ─── Responsive: Tablet (576–1199px) ────────────── */
+    @media (min-width: 576px) and (max-width: 1199px) {
+      :root {
+        --header-h: 80px;
+      }
+
+      .header-content {
+        height: 80px;
+      }
+
+      .header-logo {
+        gap: 12px;
+      }
+
+      .header-logo img {
+        height: clamp(28px, 3vw, 32px);
+      }
+
+      .hero-title {
+        font-size: clamp(2.25rem, 4vw, 3rem);
+      }
+
+      .hero-description {
+        font-size: 18px;
+      }
+
+      .hero-btn {
+        padding: 16px 32px;
+        font-size: 18px;
+      }
+
+      .hero-grid-promo {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        align-items: center;
+        height: 100%;
+      }
+
+      .hero-logos img {
+        height: 32px;
+      }
+
+      .hero-pill {
+        font-size: 14px;
+        padding: 10px 20px;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        font-size: 48px;
+      }
+
+      .section-text {
+        font-size: 18px;
+      }
+
+      .section-grid {
+        flex-direction: row;
+        gap: 48px;
+        align-items: stretch;
+      }
+
+      .section-image,
+      .section-content {
+        width: 60%;
+      }
+
+      .section-grid.reverse {
+        flex-direction: row-reverse;
+      }
+
+      .hero-inner {
+        flex-direction: row;
+      }
+
+      .promo-grid {
+        flex-direction: row;
+        gap: 48px;
+        align-items: center;
+      }
+
+      .promo-grid>* {
+        flex: 1;
+      }
+
+      .features-section {
+        padding: 80px 0;
+      }
+
+      .features-title {
+        font-size: 48px;
+      }
+
+      .features-subtitle {
+        font-size: 18px;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-form-section {
+        padding: 80px 0;
+      }
+
+      .contact-form-header h2 {
+        font-size: 36px;
+      }
+
+      .footer-countries-grid {
+        grid-template-columns: repeat(8, 1fr);
+      }
+
+      .footer-bottom-content,
+      .footer-bottom-links {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    /* ─── Responsive: Desktop (1200px+) ──────────────── */
+    @media (min-width: 1200px) {
+      :root {
+        --header-h: 80px;
+      }
+
+      .header-content {
+        height: 80px;
+      }
+
+      .header-logo {
+        gap: 12px;
+      }
+
+      .header-logo img {
+        height: clamp(32px, 3.5vw, 36px);
+      }
+
+      .hero-title {
+        font-size: clamp(2.75rem, 3.5vw, 3.75rem);
+      }
+
+      .hero-description {
+        font-size: 20px;
+      }
+
+      .hero-btn {
+        padding: 16px 32px;
+        font-size: 18px;
+      }
+
+      .hero-grid-promo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        height: 100%;
+      }
+
+      .hero-logos img {
+        height: 36px;
+      }
+
+      .hero-logos-divider {
+        height: 28px;
+      }
+
+      .hero-pill {
+        font-size: 14px;
+        padding: 10px 22px;
+      }
+
+      .section {
+        padding: 96px 0;
+      }
+
+      .section-title {
+        font-size: 48px;
+      }
+
+      .section-text {
+        font-size: 18px;
+      }
+
+      .section-grid {
+        flex-direction: row;
+        gap: 48px;
+        align-items: stretch;
+      }
+
+      .section-image,
+      .section-content {
+        width: 60%;
+      }
+
+      .section-grid.reverse {
+        flex-direction: row-reverse;
+      }
+
+      .hero-inner {
+        flex-direction: row;
+      }
+
+      .main-nav {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        padding: 0;
+        box-shadow: none;
+        border-top: none;
+        width: auto;
+        gap: 40px;
+      }
+
+      .main-nav a {
+        padding: 0;
+        border-bottom: none;
+        width: auto;
+        font-size: 16px;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+      }
+
+      .promo-grid {
+        flex-direction: row;
+        gap: 48px;
+        align-items: center;
+      }
+
+      .promo-grid>* {
+        flex: 1;
+      }
+
+      .features-section {
+        padding: 96px 0;
+      }
+
+      .features-title {
+        font-size: 48px;
+      }
+
+      .features-subtitle {
+        font-size: 18px;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .contact-form-section {
+        padding: 96px 0;
+      }
+
+      .contact-form-header h2 {
+        font-size: 36px;
+      }
+
+      .footer-countries-grid {
+        grid-template-columns: repeat(8, 1fr);
+      }
+
+      .footer-bottom-content,
+      .footer-bottom-links {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    /* ─── CTA pulse animation ─────────────────────────── */
+    @keyframes ctaPulseRepeat {
+      0% {
+        transform: scale(1);
+      }
+
+      3.75% {
+        transform: scale(1.05);
+      }
+
+      7.5% {
+        transform: scale(1);
+      }
+
+      11.25% {
+        transform: scale(1.05);
+      }
+
+      15%,
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    #hero .hero-btn {
+      animation: ctaPulseRepeat 4s ease-in-out infinite;
+    }
+
+    #hero .hero-btn:hover {
+      animation: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- GTM (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVHVL676" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header id="main-header" class="main-header">
+    <div class="header-container">
+      <div class="header-content">
+        <a href="#" class="header-logo">
+          <img src="https://cdn.intercars.eu/files/1/3/8/5/8/1/138581.webp" alt="Inter Cars" />
+          <img src="logo.png" alt="Inter Cars" />
+        </a>
+
+        <nav id="main-nav" class="main-nav">
+          <a href="#promo">Wypróbuj</a>
+          <a href="#funkcje">Funkcje</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Otwórz menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+
+  <main id="main-content">
+
+    <!-- ═══ HERO ═══ -->
+    <section id="hero" class="hero">
+      <div class="hero-video-container">
+        <video autoplay muted loop playsinline class="hero-video">
+          <source src="bg.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-inner">
+          <div class="hero-grid-promo">
+            <div class="hero-text">
+              <h1 class="hero-title">
+                MotoWarsztat to aplikacja, dzięki której prowadzenie warsztatu staje się
+                <span>prostsze</span>.
+              </h1>
+
+              <p class="hero-description">
+                Porządek w zleceniach, szybsza obsługa i pełna kontrola nad pracą zespołu – bez chaosu i ręcznych
+                notatek.
+              </p>
+
+              <div class="hero-btn-wrapper">
+                <a href="https://app.intercars.motowarsztat.pl/rejestracja" target="_blank" class="hero-btn">
+                  Rozpocznij test
+                  <svg width="20" height="20" viewBox="0 0 128 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M33.8145 128C33.8145 128 33.7885 128 33.7805 128C31.7065 128 30.0005 126.294 30.0005 124.22C30.0005 123.209 30.4055 122.24 31.1245 121.53L88.6545 64L31.1345 6.47C30.4235 5.759 30.0245 4.795 30.0245 3.79C30.0245 1.711 31.7355 0 33.8145 0C34.8195 0 35.7835 0.399 36.4945 1.11L96.7045 61.32C97.4155 62.03 97.8145 62.995 97.8145 64C97.8145 65.005 97.4155 65.97 96.7045 66.68L36.4945 126.89C35.7845 127.601 34.8195 128.001 33.8145 128Z"
+                      fill="white" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <img src="hero-img.png" alt="MotoWarsztat – podgląd aplikacji" class="hero-edenred-image" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PROMO – 30 dni za darmo ═══ -->
+    <section id="promo" class="section promo-section">
+      <div class="section-container">
+        <div class="promo-grid">
+          <div class="promo-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/Y7gLMn_R3HM" title="MotoWarsztat – prezentacja aplikacji"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="promo-text">
+            <h2 class="section-title">Przetestuj MotoWarsztat<br><span
+                style="color: var(--color-primary);">przez 30 dni za darmo</span></h2>
+            <p>Zobacz w praktyce, jak aplikacja usprawnia codzienną pracę warsztatu i pomaga szybciej zarabiać.</p>
+            <a href="https://app.intercars.motowarsztat.pl/rejestracja" target="_blank" class="hero-btn"
+              style="margin-top: 24px;">
+              Rozpocznij test
+              <svg width="20" height="20" viewBox="0 0 128 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M33.8145 128C33.8145 128 33.7885 128 33.7805 128C31.7065 128 30.0005 126.294 30.0005 124.22C30.0005 123.209 30.4055 122.24 31.1245 121.53L88.6545 64L31.1345 6.47C30.4235 5.759 30.0245 4.795 30.0245 3.79C30.0245 1.711 31.7355 0 33.8145 0C34.8195 0 35.7835 0.399 36.4945 1.11L96.7045 61.32C97.4155 62.03 97.8145 62.995 97.8145 64C97.8145 65.005 97.4155 65.97 96.7045 66.68L36.4945 126.89C35.7845 127.601 34.8195 128.001 33.8145 128Z"
+                  fill="white" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FEATURES ═══ -->
+    <section id="funkcje" class="features-section">
+      <div class="section-container">
+        <div class="features-header">
+          <div class="features-badge">Możliwości systemu</div>
+          <h2 class="features-title">Funkcje, które przyspieszą<br><span>Twoją pracę</span></h2>
+          <p class="features-subtitle">Kompleksowe narzędzia zaprojektowane, by eliminować chaos i zwiększać zyski
+            Twojego warsztatu.</p>
+        </div>
+
+        <div class="features-grid">
+
+          <!-- 1 – Zlecenia i wyceny -->
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
+              </svg>
+            </div>
+            <h3>Zlecenia i wyceny</h3>
+            <div class="feature-card-text">
+              <p>Szybkie i dokładne tworzenie ofert dla Klientów oraz zlecenie naprawy w mniej niż minutę. Proces
+                wyceny znacząco przyspieszają gotowe szablony do ponownego wykorzystania. Tak opracowany kosztorys
+                naprawy możesz wysłać do klienta SMS-em lub mailem. Moduł zleceń składa się z kilku elementów, które
+                znacząco przyspieszają realizację naprawy pojazdu. Zlecenia możesz przypisywać do klienta lub pojazdu.
+                Już po wykonaniu naprawy każde zlecenie rozliczysz poprzez wystawienie faktury bądź paragonu.</p>
+              <div class="feature-gradient"></div>
+            </div>
+            <button class="feature-toggle" onclick="toggleFeature(this)">
+              <span class="toggle-label">Czytaj więcej</span>
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+          </article>
+
+          <!-- 2 – Elektroniczna karta zleceń -->
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+            </div>
+            <h3>Elektroniczna karta zleceń</h3>
+            <div class="feature-card-text">
+              <p>Dzięki niej możesz wysyłać do swoich klientów protokoły przyjęcia i wydania, kosztorysy, dokumenty
+                sprzedaży czy zdjęcia i filmy. Klient ma możliwość zdalnego podpisu dokumentów, co oszczędza czas i
+                upraszcza cały proces obsługi. Moduł „Elektronicznej Karty Zlecenia" automatyzuje procesy warsztatowe,
+                zwiększając efektywność pracy.</p>
+              <div class="feature-gradient"></div>
+            </div>
+            <button class="feature-toggle" onclick="toggleFeature(this)">
+              <span class="toggle-label">Czytaj więcej</span>
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+          </article>
+
+          <!-- 3 – Baza pojazdów -->
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+              </svg>
+            </div>
+            <h3>Baza pojazdów</h3>
+            <div class="feature-card-text">
+              <p>Łatwe wyszukiwanie i zarządzanie danymi klientów oraz historią napraw ich pojazdów. W programie
+                MotoWarsztat w kilka sekund dodasz pojazd przyjęty do warsztatu za pomocą numeru VIN, rejestracyjnego
+                lub kodów AZTEC. Aplikacja rozpoznaje wprowadzone dane, po czym automatycznie uzupełnia najważniejsze
+                pola dotyczące naprawianego samochodu.</p>
+              <div class="feature-gradient"></div>
+            </div>
+            <button class="feature-toggle" onclick="toggleFeature(this)">
+              <span class="toggle-label">Czytaj więcej</span>
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+          </article>
+
+          <!-- 4 – Wygodny terminarz -->
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+              </svg>
+            </div>
+            <h3>Wygodny terminarz</h3>
+            <div class="feature-card-text">
+              <p>Pozwala na efektywne planowanie zleceń warsztatowych i śledzenie postępu ich realizacji. Kalendarz
+                zapewnia podgląd na szczegółowy plan dnia. Umożliwi Ci dodanie wielu stanowisk pracy i pracowników w
+                łatwy sposób przypisując naprawy mechanikom oraz sprawdzając ich obłożenie.</p>
+              <div class="feature-gradient"></div>
+            </div>
+            <button class="feature-toggle" onclick="toggleFeature(this)">
+              <span class="toggle-label">Czytaj więcej</span>
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+          </article>
+
+          <!-- 5 – Zintegrowany magazyn -->
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+              </svg>
+            </div>
+            <h3>Zintegrowany magazyn</h3>
+            <div class="feature-card-text">
+              <p>Wygodne zarządzanie zapasami części i materiałów. Przyjęcie dostawy, narzut na częściach, stany
+                magazynowe i import bezpośrednio z hurtowni. Towary wykorzystane w naprawie są automatycznie
+                rezerwowane, a po zakończeniu zlecenia stany magazynowe są aktualizowane.</p>
+              <div class="feature-gradient"></div>
+            </div>
+            <button class="feature-toggle" onclick="toggleFeature(this)">
+              <span class="toggle-label">Czytaj więcej</span>
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+          </article>
+
+          <!-- 6 – Panel dla pracowników -->
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+              </svg>
+            </div>
+            <h3>Panel dla pracowników</h3>
+            <div class="feature-card-text">
+              <p>Możliwość nadania uprawnień w zależności od stanowiska. Pracownicy logują się na indywidualne konta,
+                sprawdzają listę zadań, a ich czas pracy jest rejestrowany automatycznie. Magazynier może mieć inny
+                poziom dostępu niż mechanik w ramach jednej licencji.</p>
+              <div class="feature-gradient"></div>
+            </div>
+            <button class="feature-toggle" onclick="toggleFeature(this)">
+              <span class="toggle-label">Czytaj więcej</span>
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+          </article>
+
+          <!-- 7 – Raporty i powiadomienia -->
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+              </svg>
+            </div>
+            <h3>Raporty i powiadomienia</h3>
+            <div class="feature-card-text">
+              <p>Program posiada 20 rodzajów raportów niezbędnych do analizy wydajności warsztatu. Zobaczysz, ile
+                godzin przepracował wybrany pracownik lub jaki przychód wygenerował. Moduł bezcenny w kontekście
+                rozliczeń oraz ustalania prowizji za wykonaną pracę.</p>
+              <div class="feature-gradient"></div>
+            </div>
+            <button class="feature-toggle" onclick="toggleFeature(this)">
+              <span class="toggle-label">Czytaj więcej</span>
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+          </article>
+
+          <!-- 8 – Faktury i paragony -->
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 14.25l6-6m4.5-3.493V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.757c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0c1.1.128 1.907 1.077 1.907 2.185ZM9.75 9h.008v.008H9.75V9Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm4.125 4.5h.008v.008h-.008V13.5Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+              </svg>
+            </div>
+            <h3>Faktury i paragony</h3>
+            <div class="feature-card-text">
+              <p>Pełen system fiskalny i moduł dłużników. Bezproblemowo wystawisz paragon, fakturę (także
+                zagraniczną), zaliczkę czy korektę. Połączenie z drukarką fiskalną i generowanie JPK na koniec miesiąca.
+                Obsługa płatności online oraz system ratalny dla Klientów.</p>
+              <div class="feature-gradient"></div>
+            </div>
+            <button class="feature-toggle" onclick="toggleFeature(this)">
+              <span class="toggle-label">Czytaj więcej</span>
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CONTACT BANNER ═══ -->
+    <section id="kontakt-info" class="section section-dark">
+      <div class="section-container">
+        <div class="section-grid">
+          <div class="section-content">
+            <h2 class="section-title" style="color: white;">Chcesz poznać więcej szczegółów bądź<br><span
+                style="color: var(--color-primary);">masz pytania lub wątpliwości?</span></h2>
+            <div class="section-text">
+              <p>Napisz do nas, chętnie skontaktujemy się z Tobą i odpowiemy na wszystkie pytania.</p>
+              <a href="#kontakt" class="hero-btn" style="margin-top: 8px;">
+                Napisz do nas
+                <svg width="20" height="20" viewBox="0 0 128 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M33.8145 128C33.8145 128 33.7885 128 33.7805 128C31.7065 128 30.0005 126.294 30.0005 124.22C30.0005 123.209 30.4055 122.24 31.1245 121.53L88.6545 64L31.1345 6.47C30.4235 5.759 30.0245 4.795 30.0245 3.79C30.0245 1.711 31.7355 0 33.8145 0C34.8195 0 35.7835 0.399 36.4945 1.11L96.7045 61.32C97.4155 62.03 97.8145 62.995 97.8145 64C97.8145 65.005 97.4155 65.97 96.7045 66.68L36.4945 126.89C35.7845 127.601 34.8195 128.001 33.8145 128Z"
+                    fill="white" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="section-image"
+            style="background-image: url('https://images.pexels.com/photos/845451/pexels-photo-845451.jpeg?auto=compress&cs=tinysrgb&w=1200');"
+            role="img" aria-label="Konsultantka wsparcia technicznego">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CONTACT FORM ═══ -->
+    <section id="kontakt" class="contact-form-section">
+      <div class="section-container">
+        <div class="contact-form-header" style="max-width: 768px;">
+          <h2>Skontaktuj się z nami</h2>
+          <p>Wypełnij poniższy formularz, a nasz doradca skontaktuje się z Tobą.</p>
+        </div>
+        <div style="max-width: 768px;">
+          <div data-form-id='31bed5dc-67ae-f011-bbd2-000d3a2aff0a'
+            data-form-api-url='https://public-eur.mkt.dynamics.com/api/v1.0/orgs/31672f70-592e-4806-a716-03179ba54198/landingpageforms'
+            data-cached-form-url='https://assets-eur.mkt.dynamics.com/31672f70-592e-4806-a716-03179ba54198/digitalassets/forms/31bed5dc-67ae-f011-bbd2-000d3a2aff0a'>
+          </div>
+          <script
+            src='https://cxppusa1formui01cdnsa01-endpoint.azureedge.net/eur/FormLoader/FormLoader.bundle.js'></script>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p class="footer-bottom-text">
+            &copy; 2026 MotoWarsztat. Wszelkie prawa zastrzeżone.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scroll-to-top" class="scroll-to-top" aria-label="Przewiń na górę">
+    <svg width="24" height="24" viewBox="0 0 129 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M0 33.8261C0 32.8261 0.4 31.9261 1.1 31.1261C1.813 30.4061 2.786 30.0001 3.8 30.0001C4.814 30.0001 5.787 30.4061 6.5 31.1261L64 88.6261L121.5 31.1261C122.213 30.4061 123.186 30.0001 124.2 30.0001C125.214 30.0001 126.187 30.4061 126.9 31.1261C127.62 31.8391 128.026 32.8121 128.026 33.8261C128.026 34.8401 127.62 35.8131 126.9 36.5261L66.7 96.7261C65.987 97.4461 65.014 97.8521 64 97.8521C62.986 97.8521 62.013 97.4461 61.3 96.7261L1.1 36.5261C0.4 35.7261 0 34.8261 0 33.8261Z"
+        fill="white" style="transform: rotate(180deg); transform-origin: center;" />
+    </svg>
+  </button>
+
+  <script>
+    "use strict";
+    const header = document.getElementById('main-header');
+    const scrollBtn = document.getElementById('scroll-to-top');
+
+    function updateActiveLink() {
+      const sections = document.querySelectorAll('section[id]');
+      const headerHeight = header.offsetHeight;
+      const scrollPosition = window.scrollY + headerHeight + 20;
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        const navLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+
+        if (navLink) {
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+            navLink.classList.add('active');
+          }
+        }
+      });
+    }
+
+    let isScrolling = false;
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+
+      if (scrollY > 40) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      if (scrollY > 500) {
+        scrollBtn.classList.add('show');
+      } else {
+        scrollBtn.classList.remove('show');
+      }
+
+      if (!isScrolling) {
+        window.requestAnimationFrame(() => {
+          updateActiveLink();
+          isScrolling = false;
+        });
+        isScrolling = true;
+      }
+    });
+
+    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    function handleNavClick(e, href) {
+      e.preventDefault();
+
+      const nav = document.getElementById('main-nav');
+      if (nav.classList.contains('show')) {
+        toggleMobileMenu();
+      }
+
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          const headerHeight = header.offsetHeight;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
+      }, 300);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#') && href.length > 1) {
+          handleNavClick(e, href);
+        }
+      });
+    });
+
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const nav = document.getElementById('main-nav');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+    function toggleMobileMenu() {
+      const isHidden = !nav.classList.contains('show');
+
+      if (isHidden) {
+        nav.classList.add('show');
+        mobileMenuOverlay.classList.add('show');
+        document.body.style.overflow = "hidden";
+        menuBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>`;
+        header.style.backdropFilter = 'none';
+        header.style.boxShadow = 'none';
+        header.style.borderBottom = 'none';
+      } else {
+        nav.classList.remove('show');
+        mobileMenuOverlay.classList.remove('show');
+        document.body.style.overflow = "auto";
+        menuBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>`;
+        header.style.backdropFilter = '';
+        header.style.boxShadow = '';
+        header.style.borderBottom = '';
+      }
+    }
+
+    menuBtn.onclick = toggleMobileMenu;
+    mobileMenuOverlay.onclick = toggleMobileMenu;
+
+    function toggleFeature(button) {
+      const card = button.closest('.feature-card');
+      const isExpanded = card.classList.contains('expanded');
+      const label = button.querySelector('.toggle-label');
+
+      if (isExpanded) {
+        card.classList.remove('expanded');
+        label.textContent = 'Czytaj więcej';
+      } else {
+        card.classList.add('expanded');
+        label.textContent = 'Zwiń';
+      }
+    }
+  </script>
+
+</body>
+
+</html>
