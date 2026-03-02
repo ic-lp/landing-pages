@@ -260,12 +260,11 @@
     .header-logo {
       display: flex;
       align-items: center;
-      gap: 8px;
       text-decoration: none;
     }
 
     .header-logo img {
-      height: 20px;
+      height: 24px;
       width: auto;
       object-fit: contain;
     }
@@ -598,12 +597,105 @@
       width: 100%;
     }
 
+    .feature-z-lightbox-trigger {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: zoom-in;
+    }
+
     .feature-z-image {
       display: block;
       width: 100%;
       aspect-ratio: 16 / 10;
       object-fit: cover;
       border-radius: var(--radius);
+    }
+
+    .feature-z-lightbox-trigger .feature-z-image {
+      transition: transform 0.25s ease;
+    }
+
+    .feature-z-lightbox-trigger:hover .feature-z-image,
+    .feature-z-lightbox-trigger:focus-visible .feature-z-image {
+      transform: scale(1.02);
+    }
+
+    .feature-z-lightbox-trigger:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+    }
+
+    .feature-lightbox {
+      position: fixed;
+      inset: 0;
+      padding: 20px;
+      display: flex;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 3000;
+    }
+
+    .feature-lightbox.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .feature-lightbox-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.82);
+    }
+
+    .feature-lightbox-dialog {
+      position: relative;
+      margin: auto;
+      width: min(1100px, 100%);
+      max-height: calc(100vh - 40px);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #0f172a;
+      box-shadow: 0 30px 70px -25px rgba(0, 0, 0, 0.65);
+      z-index: 1;
+    }
+
+    .feature-lightbox-image {
+      display: block;
+      width: 100%;
+      max-height: calc(100vh - 40px);
+      object-fit: contain;
+    }
+
+    .feature-lightbox-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.7);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .feature-lightbox-close:hover,
+    .feature-lightbox-close:focus-visible {
+      background: rgba(15, 23, 42, 0.9);
+      outline: none;
     }
 
     .feature-z-content h3 {
@@ -1142,7 +1234,7 @@
 
     .footer-bottom {
       border-top: 1px solid #C3CAD1;
-      padding-top: 24px;
+      padding-block: 24px;
     }
 
     .footer-bottom-content {
@@ -1270,6 +1362,23 @@
 
       .feature-z-content h3 {
         font-size: 24px;
+      }
+
+      .feature-lightbox {
+        padding: 12px;
+      }
+
+      .feature-lightbox-dialog,
+      .feature-lightbox-image {
+        max-height: calc(100vh - 24px);
+      }
+
+      .feature-lightbox-close {
+        top: 8px;
+        right: 8px;
+        width: 32px;
+        height: 32px;
+        font-size: 20px;
       }
 
       .pricing-plan {
@@ -1773,7 +1882,7 @@
         </div>
 
         <div class="features-list">
-          <article class="feature-z-row">
+          <article id="feature-zlecenia" class="feature-z-row">
             <div class="feature-z-content">
               <h3>Zlecenia i wyceny</h3>
               <p>Szybkie i dokładne tworzenie ofert dla Klientów oraz zlecenie naprawy w mniej niż minutę. Proces
@@ -1783,12 +1892,15 @@
               <a class="feature-z-cta" href="#kontakt">Przejdź do formularza</a>
             </div>
             <div class="feature-z-media">
-              <img src="services/zlecenia_01.jpg" alt="Zlecenia i wyceny w MotoWarsztat" class="feature-z-image"
-                loading="lazy" />
+              <button type="button" class="feature-z-lightbox-trigger" data-lightbox-src="services/zlecenia_01.jpg"
+                data-lightbox-alt="Zlecenia i wyceny w MotoWarsztat" aria-label="Powiększ: Zlecenia i wyceny">
+                <img src="services/zlecenia_01.jpg" alt="Zlecenia i wyceny w MotoWarsztat" class="feature-z-image"
+                  loading="lazy" />
+              </button>
             </div>
           </article>
 
-          <article class="feature-z-row reverse">
+          <article id="feature-karta-zlecen" class="feature-z-row reverse">
             <div class="feature-z-content">
               <h3>Elektroniczna karta zleceń</h3>
               <p>Wysyłaj klientom protokoły przyjęcia i wydania, kosztorysy, dokumenty sprzedaży oraz zdjęcia i filmy.
@@ -1797,12 +1909,16 @@
               <a class="feature-z-cta" href="#kontakt">Przejdź do formularza</a>
             </div>
             <div class="feature-z-media">
-              <img src="services/karta_zlecen_01.jpg" alt="Elektroniczna karta zleceń w MotoWarsztat"
-                class="feature-z-image" loading="lazy" />
+              <button type="button" class="feature-z-lightbox-trigger" data-lightbox-src="services/karta_zlecen_01.jpg"
+                data-lightbox-alt="Elektroniczna karta zleceń w MotoWarsztat"
+                aria-label="Powiększ: Elektroniczna karta zleceń">
+                <img src="services/karta_zlecen_01.jpg" alt="Elektroniczna karta zleceń w MotoWarsztat"
+                  class="feature-z-image" loading="lazy" />
+              </button>
             </div>
           </article>
 
-          <article class="feature-z-row">
+          <article id="feature-baza-pojazdow" class="feature-z-row">
             <div class="feature-z-content">
               <h3>Baza pojazdów</h3>
               <p>Łatwe wyszukiwanie i zarządzanie danymi klientów oraz historią napraw pojazdów. W kilka sekund dodasz
@@ -1811,12 +1927,16 @@
               <a class="feature-z-cta" href="#kontakt">Przejdź do formularza</a>
             </div>
             <div class="feature-z-media">
-              <img src="services/baza_pojazdow_01.jpg" alt="Baza pojazdów w MotoWarsztat" class="feature-z-image"
-                loading="lazy" />
+              <button type="button" class="feature-z-lightbox-trigger"
+                data-lightbox-src="services/baza_pojazdow_01.jpg" data-lightbox-alt="Baza pojazdów w MotoWarsztat"
+                aria-label="Powiększ: Baza pojazdów">
+                <img src="services/baza_pojazdow_01.jpg" alt="Baza pojazdów w MotoWarsztat" class="feature-z-image"
+                  loading="lazy" />
+              </button>
             </div>
           </article>
 
-          <article class="feature-z-row reverse">
+          <article id="feature-terminarz" class="feature-z-row reverse">
             <div class="feature-z-content">
               <h3>Wygodny terminarz</h3>
               <p>Pozwala efektywnie planować zlecenia i śledzić ich realizację. Kalendarz daje podgląd na szczegółowy
@@ -1825,12 +1945,15 @@
               <a class="feature-z-cta" href="#kontakt">Przejdź do formularza</a>
             </div>
             <div class="feature-z-media">
-              <img src="services/terminarz_01.jpg" alt="Terminarz napraw w MotoWarsztat" class="feature-z-image"
-                loading="lazy" />
+              <button type="button" class="feature-z-lightbox-trigger" data-lightbox-src="services/terminarz_01.jpg"
+                data-lightbox-alt="Terminarz napraw w MotoWarsztat" aria-label="Powiększ: Terminarz napraw">
+                <img src="services/terminarz_01.jpg" alt="Terminarz napraw w MotoWarsztat" class="feature-z-image"
+                  loading="lazy" />
+              </button>
             </div>
           </article>
 
-          <article class="feature-z-row">
+          <article id="feature-magazyn" class="feature-z-row">
             <div class="feature-z-content">
               <h3>Zintegrowany magazyn</h3>
               <p>Wygodne zarządzanie zapasami części i materiałów: przyjęcie dostawy, narzut na częściach, stany
@@ -1839,12 +1962,15 @@
               <a class="feature-z-cta" href="#kontakt">Przejdź do formularza</a>
             </div>
             <div class="feature-z-media">
-              <img src="services/magazyn_01.jpg" alt="Zintegrowany magazyn w MotoWarsztat" class="feature-z-image"
-                loading="lazy" />
+              <button type="button" class="feature-z-lightbox-trigger" data-lightbox-src="services/magazyn_01.jpg"
+                data-lightbox-alt="Zintegrowany magazyn w MotoWarsztat" aria-label="Powiększ: Zintegrowany magazyn">
+                <img src="services/magazyn_01.jpg" alt="Zintegrowany magazyn w MotoWarsztat" class="feature-z-image"
+                  loading="lazy" />
+              </button>
             </div>
           </article>
 
-          <article class="feature-z-row reverse">
+          <article id="feature-panel-pracownikow" class="feature-z-row reverse">
             <div class="feature-z-content">
               <h3>Panel dla pracowników</h3>
               <p>Możliwość nadania uprawnień zależnie od stanowiska. Pracownicy logują się na indywidualne konta,
@@ -1853,12 +1979,17 @@
               <a class="feature-z-cta" href="#kontakt">Przejdź do formularza</a>
             </div>
             <div class="feature-z-media">
-              <img src="services/panel_pracownicy_01.jpg" alt="Panel pracowników w MotoWarsztat"
-                class="feature-z-image" loading="lazy" />
+              <button type="button" class="feature-z-lightbox-trigger"
+                data-lightbox-src="services/panel_pracownicy_01.jpg"
+                data-lightbox-alt="Panel pracowników w MotoWarsztat"
+                aria-label="Powiększ: Panel pracowników">
+                <img src="services/panel_pracownicy_01.jpg" alt="Panel pracowników w MotoWarsztat"
+                  class="feature-z-image" loading="lazy" />
+              </button>
             </div>
           </article>
 
-          <article class="feature-z-row">
+          <article id="feature-raporty" class="feature-z-row">
             <div class="feature-z-content">
               <h3>Raporty i powiadomienia</h3>
               <p>Program posiada 20 rodzajów raportów potrzebnych do analizy wydajności warsztatu. Sprawdzisz, ile
@@ -1867,12 +1998,16 @@
               <a class="feature-z-cta" href="#kontakt">Przejdź do formularza</a>
             </div>
             <div class="feature-z-media">
-              <img src="services/raporty_01.jpg" alt="Raporty i powiadomienia w MotoWarsztat" class="feature-z-image"
-                loading="lazy" />
+              <button type="button" class="feature-z-lightbox-trigger" data-lightbox-src="services/raporty_01.jpg"
+                data-lightbox-alt="Raporty i powiadomienia w MotoWarsztat"
+                aria-label="Powiększ: Raporty i powiadomienia">
+                <img src="services/raporty_01.jpg" alt="Raporty i powiadomienia w MotoWarsztat" class="feature-z-image"
+                  loading="lazy" />
+              </button>
             </div>
           </article>
 
-          <article class="feature-z-row reverse">
+          <article id="feature-faktury" class="feature-z-row reverse">
             <div class="feature-z-content">
               <h3>Faktury i paragony</h3>
               <p>Pełen system fiskalny i moduł dłużników. Bezproblemowo wystawisz paragon, fakturę, zaliczkę i
@@ -1881,10 +2016,24 @@
               <a class="feature-z-cta" href="#kontakt">Przejdź do formularza</a>
             </div>
             <div class="feature-z-media">
-              <img src="services/faktury_paragony_01.jpg" alt="Faktury i paragony w MotoWarsztat"
-                class="feature-z-image" loading="lazy" />
+              <button type="button" class="feature-z-lightbox-trigger"
+                data-lightbox-src="services/faktury_paragony_01.jpg"
+                data-lightbox-alt="Faktury i paragony w MotoWarsztat" aria-label="Powiększ: Faktury i paragony">
+                <img src="services/faktury_paragony_01.jpg" alt="Faktury i paragony w MotoWarsztat"
+                  class="feature-z-image" loading="lazy" />
+              </button>
             </div>
           </article>
+        </div>
+
+        <div id="feature-lightbox" class="feature-lightbox" aria-hidden="true">
+          <div class="feature-lightbox-backdrop" data-lightbox-close></div>
+          <div class="feature-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Podgląd obrazu">
+            <button type="button" class="feature-lightbox-close" data-lightbox-close aria-label="Zamknij podgląd">
+              &times;
+            </button>
+            <img src="" alt="" class="feature-lightbox-image" loading="lazy" />
+          </div>
         </div>
       </div>
     </section>
@@ -2179,6 +2328,58 @@
 
     menuBtn.onclick = toggleMobileMenu;
     mobileMenuOverlay.onclick = toggleMobileMenu;
+
+    const featureLightbox = document.getElementById('feature-lightbox');
+
+    if (featureLightbox) {
+      const lightboxImage = featureLightbox.querySelector('.feature-lightbox-image');
+      const lightboxCloseControls = featureLightbox.querySelectorAll('[data-lightbox-close]');
+      const lightboxTriggers = document.querySelectorAll('.feature-z-lightbox-trigger[data-lightbox-src]');
+      let lastFocusedTrigger = null;
+      let previousBodyOverflow = '';
+
+      function openFeatureLightbox(trigger) {
+        const src = trigger.dataset.lightboxSrc;
+        if (!src || !lightboxImage) return;
+
+        lastFocusedTrigger = trigger;
+        previousBodyOverflow = document.body.style.overflow;
+
+        lightboxImage.src = src;
+        lightboxImage.alt = trigger.dataset.lightboxAlt || '';
+        featureLightbox.classList.add('is-open');
+        featureLightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeFeatureLightbox() {
+        if (!featureLightbox.classList.contains('is-open')) return;
+
+        featureLightbox.classList.remove('is-open');
+        featureLightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = previousBodyOverflow;
+
+        if (lastFocusedTrigger) {
+          lastFocusedTrigger.focus();
+        }
+      }
+
+      lightboxTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+          openFeatureLightbox(trigger);
+        });
+      });
+
+      lightboxCloseControls.forEach((control) => {
+        control.addEventListener('click', closeFeatureLightbox);
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          closeFeatureLightbox();
+        }
+      });
+    }
 
     const pricingSection = document.getElementById('cennik');
 
