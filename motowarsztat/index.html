@@ -849,10 +849,16 @@
     .pricing-old {
       display: block;
       color: #94a3b8;
+      font-size: 14px;
+      text-align: center;
+      min-height: 22px;
+      margin-top: 6px;
+    }
+
+    .pricing-old .pricing-dynamic {
       text-decoration: line-through;
       font-size: 18px;
-      min-height: 24px;
-      margin-bottom: 4px;
+      font-weight: 700;
     }
 
     .pricing-price {
@@ -925,6 +931,28 @@
 
     .pricing-feature-text {
       flex: 1;
+    }
+
+    .pricing-addons {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .pricing-addons-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #64748b;
+      margin-bottom: 10px;
+    }
+
+    .pricing-addons .pricing-features {
+      margin: 0;
+      flex: unset;
     }
 
     .pricing-surcharge {
@@ -2063,28 +2091,36 @@
             </div>
             <p class="pricing-plan-note">&nbsp;</p>
             <div class="pricing-price-wrap">
-              <span class="pricing-old" data-show-on="year">
-                <span class="pricing-dynamic" data-month="" data-year="1188">1188</span> PLN
-              </span>
               <div class="pricing-price">
                 <span class="pricing-price-value pricing-dynamic" data-month="99" data-year="990">99</span>
                 <span class="pricing-currency">PLN</span>
                 <span class="pricing-period pricing-dynamic" data-month="/mies." data-year="/rok">/mies.</span>
               </div>
+              <span class="pricing-old" data-show-on="year">
+                Cena regularna: <span class="pricing-dynamic" data-month="" data-year="1188">1188</span> PLN
+              </span>
             </div>
-            <p class="pricing-caption">Darmowy plus dodatkowo:</p>
+            <p class="pricing-caption">W pakiecie:</p>
             <ul class="pricing-features">
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Baza klientów</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Baza pojazdów</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Dane pojazdu po nr VIN</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Historia serwisowa</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Zlecenia (bez limitu)</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Wyceny (bez limitu)</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Fakturowanie (bez limitu)</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Fiskalizacja (limit: 50/mc)</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Dokumenty zakupu (bez limitu)</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Przechowalnia (bez limitu)</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Terminarz</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Raporty</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Eksport JPK VAT</span></li>
               <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Darmowe szkolenie</span></li>
-              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Wsparcie telefoniczne</span></li>
-              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Terminarz</span><span class="pricing-surcharge">+ 0 zł</span></li>
-              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Raporty</span><span class="pricing-surcharge">+ 0 zł</span></li>
-              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Zlecenia (bez limitu)</span><span class="pricing-surcharge">+ 0 zł</span></li>
-              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Wyceny (bez limitu)</span><span class="pricing-surcharge">+ 0 zł</span></li>
-              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Fakturowanie (bez limitu)</span><span class="pricing-surcharge">+ 0 zł</span></li>
-              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Dokumenty zakupu (bez limitu)</span><span class="pricing-surcharge">+ 0 zł</span></li>
-              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Przechowalnia (bez limitu)</span><span class="pricing-surcharge">+ 0 zł</span></li>
-              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Fiskalizacja (limit: 50/mc)</span><span class="pricing-surcharge">+ 0 zł</span></li>
-              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Dane pojazdu po nr VIN</span><span class="pricing-surcharge">+ 0 zł</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Wsparcie telefoniczne i e-mail</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Dostęp online z każdego urządzenia</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Import danych z poprzedniego systemu</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Zapasowa kopia danych</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Powiadomienia SMS</span></li>
             </ul>
             <a href="https://app.intercars.motowarsztat.pl/rejestracja" target="_blank" class="pricing-cta">Przetestuj za darmo</a>
           </article>
@@ -2096,38 +2132,60 @@
             </div>
             <p class="pricing-plan-note">&nbsp;</p>
             <div class="pricing-price-wrap">
-              <span class="pricing-old" data-show-on="year">
-                <span class="pricing-dynamic" data-month="" data-year="2148">2148</span> PLN
-              </span>
               <div class="pricing-price">
                 <span class="pricing-price-value pricing-dynamic" data-month="179" data-year="1790">179</span>
                 <span class="pricing-currency">PLN</span>
                 <span class="pricing-period pricing-dynamic" data-month="/mies." data-year="/rok">/mies.</span>
               </div>
+              <span class="pricing-old" data-show-on="year">
+                Cena regularna: <span class="pricing-dynamic" data-month="" data-year="2148">2148</span> PLN
+              </span>
             </div>
             <p class="pricing-caption">Minimalny plus dodatkowo:</p>
             <ul class="pricing-features">
-              <li class="pricing-feature">
-                <span class="pricing-check">✓</span><span class="pricing-feature-text">Magazyn</span>
-                <span class="pricing-surcharge pricing-dynamic" data-month="+ 30 zł" data-year="+ 300 zł">+ 30 zł</span>
-              </li>
-              <li class="pricing-feature">
-                <span class="pricing-check">✓</span><span class="pricing-feature-text">Integracje z hurtowniami</span>
-                <span class="pricing-surcharge pricing-dynamic" data-month="+ 40 zł" data-year="+ 400 zł">+ 40 zł</span>
-              </li>
-              <li class="pricing-feature">
-                <span class="pricing-check">✓</span><span class="pricing-feature-text">Mechanicy (limit: 7)</span>
-                <span class="pricing-surcharge pricing-dynamic" data-month="+ 10 zł" data-year="+ 100 zł">+ 10 zł</span>
-              </li>
-              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Panel pracowników</span></li>
-              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Wgrywanie zdjęć i plików</span></li>
-              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Listy kontrolne</span></li>
-              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Terminarz</span><span class="pricing-surcharge">+ 0 zł</span></li>
-              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Raporty</span><span class="pricing-surcharge">+ 0 zł</span></li>
-              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Zlecenia i wyceny bez limitu</span><span class="pricing-surcharge">+ 0 zł</span></li>
-              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Fakturowanie bez limitu</span><span class="pricing-surcharge">+ 0 zł</span></li>
-              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Dokumenty zakupu i przechowalnia bez limitu</span><span class="pricing-surcharge">+ 0 zł</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Terminarz</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Raporty</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Zlecenia (bez limitu)</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Wyceny (bez limitu)</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Fakturowanie (bez limitu)</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Fiskalizacja (limit: 50/mc)</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Dokumenty zakupu (bez limitu)</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Przechowalnia (bez limitu)</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Dane pojazdu po nr VIN</span></li>
             </ul>
+            <div class="pricing-addons">
+              <p class="pricing-addons-label">Płatne rozszerzenia</p>
+              <ul class="pricing-features">
+                <li class="pricing-feature">
+                  <span class="pricing-check">✓</span><span class="pricing-feature-text">Magazyn</span>
+                  <span class="pricing-surcharge pricing-dynamic" data-month="+ 30 zł" data-year="+ 300 zł">+ 30 zł</span>
+                </li>
+                <li class="pricing-feature">
+                  <span class="pricing-check">✓</span><span class="pricing-feature-text">Integracje z hurtowniami</span>
+                  <span class="pricing-surcharge pricing-dynamic" data-month="+ 40 zł" data-year="+ 400 zł">+ 40 zł</span>
+                </li>
+                <li class="pricing-feature">
+                  <span class="pricing-check">✓</span><span class="pricing-feature-text">Mechanicy (limit: 7)</span>
+                  <span class="pricing-surcharge pricing-dynamic" data-month="+ 10 zł" data-year="+ 100 zł">+ 10 zł</span>
+                </li>
+                <li class="pricing-feature">
+                  <span class="pricing-check">✓</span><span class="pricing-feature-text">Wgrywanie zdjęć i plików</span>
+                  <span class="pricing-surcharge pricing-dynamic" data-month="+ 10 zł" data-year="+ 100 zł">+ 10 zł</span>
+                </li>
+                <li class="pricing-feature">
+                  <span class="pricing-check">✓</span><span class="pricing-feature-text">Listy kontrolne</span>
+                  <span class="pricing-surcharge pricing-dynamic" data-month="+ 40 zł" data-year="+ 400 zł">+ 40 zł</span>
+                </li>
+                <li class="pricing-feature">
+                  <span class="pricing-check">✓</span><span class="pricing-feature-text">Panel pracowników</span>
+                  <span class="pricing-surcharge pricing-dynamic" data-month="+ 25 zł" data-year="+ 250 zł">+ 25 zł</span>
+                </li>
+                <li class="pricing-feature">
+                  <span class="pricing-check">✓</span><span class="pricing-feature-text">Fiskalizacja (limit: 500/mc)</span>
+                  <span class="pricing-surcharge pricing-dynamic" data-month="+ 20 zł" data-year="+ 200 zł">+ 20 zł</span>
+                </li>
+              </ul>
+            </div>
             <a href="https://app.intercars.motowarsztat.pl/rejestracja" target="_blank" class="pricing-cta">Przetestuj za darmo</a>
           </article>
 
@@ -2137,12 +2195,14 @@
             </div>
             <p class="pricing-plan-note">Dla sieci i wielu lokalizacji</p>
             <div class="pricing-price-wrap">
-              <span class="pricing-old">&nbsp;</span>
               <div class="pricing-price">
-                <span class="pricing-price-value pricing-dynamic" data-month="2440" data-year="24400">2440</span>
-                <span class="pricing-currency">PLN</span>
-                <span class="pricing-period pricing-dynamic" data-month="/mies." data-year="/rok">/mies.</span>
+                <span class="pricing-price-value pricing-dynamic" data-month="2440" data-year="Wycena">2440</span>
+                <span class="pricing-currency pricing-dynamic" data-month="PLN" data-year="">PLN</span>
+                <span class="pricing-period pricing-dynamic" data-month="/mies." data-year="">/mies.</span>
               </div>
+              <span class="pricing-old" data-show-on="year">
+                Cena regularna: <span class="pricing-dynamic" data-month="" data-year="24 400">24 400</span> PLN/rok
+              </span>
             </div>
             <p class="pricing-caption">Kiedy warto wybrać?</p>
             <ul class="pricing-features">
@@ -2402,7 +2462,8 @@
         });
 
         pricingConditionalNodes.forEach((node) => {
-          node.hidden = node.dataset.showOn !== period;
+          const show = node.dataset.showOn === period;
+          node.style.visibility = show ? 'visible' : 'hidden';
         });
       }
 
