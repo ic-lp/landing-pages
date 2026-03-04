@@ -861,6 +861,11 @@
       font-weight: 700;
     }
 
+    #cennik[data-period="year"] .pricing-card.individual .pricing-price {
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+
     .pricing-price {
       display: inline-flex;
       align-items: baseline;
@@ -2196,12 +2201,12 @@
             <p class="pricing-plan-note">Dla sieci i wielu lokalizacji</p>
             <div class="pricing-price-wrap">
               <div class="pricing-price">
-                <span class="pricing-price-value pricing-dynamic" data-month="2440" data-year="Wycena">2440</span>
-                <span class="pricing-currency pricing-dynamic" data-month="PLN" data-year="">PLN</span>
-                <span class="pricing-period pricing-dynamic" data-month="/mies." data-year="">/mies.</span>
+                <span class="pricing-price-value pricing-dynamic" data-month="2440" data-year="24 400">2440</span>
+                <span class="pricing-currency pricing-dynamic" data-month="PLN" data-year="PLN">PLN</span>
+                <span class="pricing-period pricing-dynamic" data-month="/mies." data-year="/rok">/mies.</span>
               </div>
               <span class="pricing-old" data-show-on="year">
-                Cena regularna: <span class="pricing-dynamic" data-month="" data-year="24 400">24 400</span> PLN/rok
+                wycena indywidualna
               </span>
             </div>
             <p class="pricing-caption">Kiedy warto wybrać?</p>
@@ -2448,6 +2453,7 @@
       const pricingConditionalNodes = pricingSection.querySelectorAll('[data-show-on]');
 
       function setPricingPeriod(period) {
+        pricingSection.dataset.period = period;
         pricingToggleButtons.forEach((button) => {
           const isActive = button.dataset.period === period;
           button.classList.toggle('is-active', isActive);
