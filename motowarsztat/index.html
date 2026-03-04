@@ -861,10 +861,6 @@
       font-weight: 700;
     }
 
-    #cennik[data-period="year"] .pricing-card.individual .pricing-price {
-      text-decoration: line-through;
-      opacity: 0.7;
-    }
 
     .pricing-price {
       display: inline-flex;
@@ -965,6 +961,75 @@
       font-size: 12px;
       white-space: nowrap;
       margin-left: auto;
+    }
+
+    .pricing-addon {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .pricing-addon-checkbox {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .pricing-addon label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .pricing-addon-check {
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--color-primary);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      position: relative;
+      transition: all 0.2s ease;
+      background: white;
+    }
+
+    .pricing-addon-check::after {
+      content: "✓";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .pricing-addon-checkbox:checked + label .pricing-addon-check {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+
+    .pricing-addon-checkbox:checked + label .pricing-addon-check::after {
+      opacity: 1;
+    }
+
+    .pricing-addon label:hover .pricing-addon-check {
+      border-color: var(--color-secondary);
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+
+    .pricing-addon-checkbox:not(:checked) + label .pricing-feature-text {
+      opacity: 0.5;
+      text-decoration: line-through;
+    }
+
+    .pricing-addon-checkbox:not(:checked) + label .pricing-surcharge {
+      opacity: 0.5;
+      text-decoration: line-through;
     }
 
     .pricing-cta {
@@ -2153,41 +2218,69 @@
               <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Zlecenia (bez limitu)</span></li>
               <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Wyceny (bez limitu)</span></li>
               <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Fakturowanie (bez limitu)</span></li>
-              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Fiskalizacja (limit: 50/mc)</span></li>
               <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Dokumenty zakupu (bez limitu)</span></li>
               <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Przechowalnia (bez limitu)</span></li>
+              <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Fiskalizacja (limit: 50/mc)</span></li>
               <li class="pricing-feature"><span class="pricing-check">✓</span><span class="pricing-feature-text">Dane pojazdu po nr VIN</span></li>
             </ul>
             <div class="pricing-addons">
-              <p class="pricing-addons-label">Płatne rozszerzenia</p>
-              <ul class="pricing-features">
-                <li class="pricing-feature">
-                  <span class="pricing-check">✓</span><span class="pricing-feature-text">Magazyn</span>
-                  <span class="pricing-surcharge pricing-dynamic" data-month="+ 30 zł" data-year="+ 300 zł">+ 30 zł</span>
+              <p class="pricing-addons-label">Płatne rozszerzenia (możesz wybrać dowolne)</p>
+              <ul class="pricing-features" id="premium-features">
+                <li class="pricing-feature pricing-addon" data-month="30" data-year="300">
+                  <input type="checkbox" class="pricing-addon-checkbox" id="addon-magazyn" checked>
+                  <label for="addon-magazyn">
+                    <span class="pricing-addon-check"></span>
+                    <span class="pricing-feature-text">Magazyn</span>
+                    <span class="pricing-surcharge pricing-dynamic" data-month="30 zł" data-year="300 zł">30 zł</span>
+                  </label>
                 </li>
-                <li class="pricing-feature">
-                  <span class="pricing-check">✓</span><span class="pricing-feature-text">Integracje z hurtowniami</span>
-                  <span class="pricing-surcharge pricing-dynamic" data-month="+ 40 zł" data-year="+ 400 zł">+ 40 zł</span>
+                <li class="pricing-feature pricing-addon" data-month="40" data-year="400">
+                  <input type="checkbox" class="pricing-addon-checkbox" id="addon-hurtownie" checked>
+                  <label for="addon-hurtownie">
+                    <span class="pricing-addon-check"></span>
+                    <span class="pricing-feature-text">Integracje z hurtowniami</span>
+                    <span class="pricing-surcharge pricing-dynamic" data-month="40 zł" data-year="400 zł">40 zł</span>
+                  </label>
                 </li>
-                <li class="pricing-feature">
-                  <span class="pricing-check">✓</span><span class="pricing-feature-text">Mechanicy (limit: 7)</span>
-                  <span class="pricing-surcharge pricing-dynamic" data-month="+ 10 zł" data-year="+ 100 zł">+ 10 zł</span>
+                <li class="pricing-feature pricing-addon" data-month="10" data-year="100">
+                  <input type="checkbox" class="pricing-addon-checkbox" id="addon-mechanicy" checked>
+                  <label for="addon-mechanicy">
+                    <span class="pricing-addon-check"></span>
+                    <span class="pricing-feature-text">Mechanicy (limit: 7)</span>
+                    <span class="pricing-surcharge pricing-dynamic" data-month="10 zł" data-year="100 zł">10 zł</span>
+                  </label>
                 </li>
-                <li class="pricing-feature">
-                  <span class="pricing-check">✓</span><span class="pricing-feature-text">Wgrywanie zdjęć i plików</span>
-                  <span class="pricing-surcharge pricing-dynamic" data-month="+ 10 zł" data-year="+ 100 zł">+ 10 zł</span>
+                <li class="pricing-feature pricing-addon" data-month="10" data-year="100">
+                  <input type="checkbox" class="pricing-addon-checkbox" id="addon-zdjecia" checked>
+                  <label for="addon-zdjecia">
+                    <span class="pricing-addon-check"></span>
+                    <span class="pricing-feature-text">Wgrywanie zdjęć/plików</span>
+                    <span class="pricing-surcharge pricing-dynamic" data-month="10 zł" data-year="100 zł">10 zł</span>
+                  </label>
                 </li>
-                <li class="pricing-feature">
-                  <span class="pricing-check">✓</span><span class="pricing-feature-text">Listy kontrolne</span>
-                  <span class="pricing-surcharge pricing-dynamic" data-month="+ 40 zł" data-year="+ 400 zł">+ 40 zł</span>
+                <li class="pricing-feature pricing-addon" data-month="40" data-year="400">
+                  <input type="checkbox" class="pricing-addon-checkbox" id="addon-listy" checked>
+                  <label for="addon-listy">
+                    <span class="pricing-addon-check"></span>
+                    <span class="pricing-feature-text">Listy kontrolne</span>
+                    <span class="pricing-surcharge pricing-dynamic" data-month="40 zł" data-year="400 zł">40 zł</span>
+                  </label>
                 </li>
-                <li class="pricing-feature">
-                  <span class="pricing-check">✓</span><span class="pricing-feature-text">Panel pracowników</span>
-                  <span class="pricing-surcharge pricing-dynamic" data-month="+ 25 zł" data-year="+ 250 zł">+ 25 zł</span>
+                <li class="pricing-feature pricing-addon" data-month="25" data-year="250">
+                  <input type="checkbox" class="pricing-addon-checkbox" id="addon-panel" checked>
+                  <label for="addon-panel">
+                    <span class="pricing-addon-check"></span>
+                    <span class="pricing-feature-text">Panel pracowników</span>
+                    <span class="pricing-surcharge pricing-dynamic" data-month="25 zł" data-year="250 zł">25 zł</span>
+                  </label>
                 </li>
-                <li class="pricing-feature">
-                  <span class="pricing-check">✓</span><span class="pricing-feature-text">Fiskalizacja (limit: 500/mc)</span>
-                  <span class="pricing-surcharge pricing-dynamic" data-month="+ 20 zł" data-year="+ 200 zł">+ 20 zł</span>
+                <li class="pricing-feature pricing-addon" data-month="20" data-year="200">
+                  <input type="checkbox" class="pricing-addon-checkbox" id="addon-fiskalizacja" checked>
+                  <label for="addon-fiskalizacja">
+                    <span class="pricing-addon-check"></span>
+                    <span class="pricing-feature-text">Fiskalizacja (limit: 500/mc)</span>
+                    <span class="pricing-surcharge pricing-dynamic" data-month="20 zł" data-year="200 zł">20 zł</span>
+                  </label>
                 </li>
               </ul>
             </div>
@@ -2201,12 +2294,10 @@
             <p class="pricing-plan-note">Dla sieci i wielu lokalizacji</p>
             <div class="pricing-price-wrap">
               <div class="pricing-price">
-                <span class="pricing-price-value pricing-dynamic" data-month="2440" data-year="24 400">2440</span>
-                <span class="pricing-currency pricing-dynamic" data-month="PLN" data-year="PLN">PLN</span>
-                <span class="pricing-period pricing-dynamic" data-month="/mies." data-year="/rok">/mies.</span>
+                <span class="pricing-price-value">Wycena</span>
               </div>
-              <span class="pricing-old" data-show-on="year">
-                wycena indywidualna
+              <span class="pricing-old">
+                Cena regularna: <span class="pricing-dynamic" data-month="2 440" data-year="24 400">2 440</span> PLN <span class="pricing-dynamic"></span>
               </span>
             </div>
             <p class="pricing-caption">Kiedy warto wybrać?</p>
@@ -2219,6 +2310,7 @@
             <a href="#kontakt" class="pricing-cta pricing-cta-secondary">Napisz do nas</a>
           </article>
         </div>
+        <p class="features-subtitle" style="text-align: center; margin-top: 32px;">Podane ceny są cenami netto, gdzie należy doliczyć podatek VAT w wysokości 23%</p>
       </div>
     </section>
     <section id="kontakt" class="section section-dark">
@@ -2483,6 +2575,47 @@
       });
 
       setPricingPeriod('month');
+
+      // Premium addon pricing calculator
+      const premiumCard = pricingSection.querySelector('.pricing-card.popular');
+      if (premiumCard) {
+        const priceValueElement = premiumCard.querySelector('.pricing-price-value');
+        const addons = premiumCard.querySelectorAll('.pricing-addon');
+        const addonCheckboxes = premiumCard.querySelectorAll('.pricing-addon-checkbox');
+
+        const basePrices = { month: 99, year: 990 };
+
+        function updatePremiumPrice() {
+          const period = pricingSection.dataset.period || 'month';
+          let totalPrice = basePrices[period];
+
+          addons.forEach((addon) => {
+            const checkbox = addon.querySelector('.pricing-addon-checkbox');
+            if (checkbox && checkbox.checked) {
+              totalPrice += parseInt(addon.dataset[period], 10) || 0;
+            }
+          });
+
+          if (period === 'year') {
+            priceValueElement.textContent = totalPrice.toLocaleString('pl-PL').replace(',', ' ');
+          } else {
+            priceValueElement.textContent = totalPrice;
+          }
+        }
+
+        addonCheckboxes.forEach((checkbox) => {
+          checkbox.addEventListener('change', updatePremiumPrice);
+        });
+
+        // Update price when period changes
+        pricingToggleButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            setTimeout(updatePremiumPrice, 10);
+          });
+        });
+
+        updatePremiumPrice();
+      }
     }
 
   </script>
