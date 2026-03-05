@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Speed UP! Masters - wydarzenie motoryzacyjne Inter Cars. 23 marca 2026. Przygotuj się na ciąg dalszy!">
+  <meta name="keywords" content="Speed UP, Masters, Inter Cars, motoryzacja, wydarzenie, wyścigi">
+  <meta name="author" content="Inter Cars">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Speed UP! Masters - 23 marca 2026">
+  <meta property="og:description" content="Przygotuj się na ciąg dalszy... Speed UP! Masters już 23 marca 2026!">
+  <meta property="og:image" content="logo.webp">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#2e3f4f">
+  <title>Speed UP! Masters - 23 marca 2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== DESIGN SYSTEM: VARIABLES ===== */
+    :root {
+      --color-purple: #8e4695;
+      --color-cyan: #00d2ff;
+      --color-red: #e51b20;
+      --color-dark: #2e3f4f;
+      --color-white: #ffffff;
+      --color-light: #f0f0f2;
+      --color-glass: #0c121c;
+      --color-glass-border: rgba(255, 255, 255, 0.08);
+      --color-text-muted: rgba(255, 255, 255, 0.55);
+      --border-color: rgba(46, 63, 79, 0.15);
+
+      --font-heading: "Bebas Neue", sans-serif;
+      --font-body: "Open Sans", sans-serif;
+
+      --fs-h1: clamp(1.8rem, 6vw, 3rem);
+      --fs-h2: clamp(1.3rem, 4vw, 2.2rem);
+      --fs-body: clamp(0.9rem, 1.1vw, 1rem);
+      --fs-small: clamp(1rem, 0.9vw, 2rem);
+      --fs-countdown: clamp(2.2rem, 10vw, 7rem);
+      --fs-countdown-label: clamp(0.65rem, 1.8vw, 0.85rem);
+      --fs-subtitle: clamp(1.2rem, 4vw, 1.7rem);
+
+      --space-xs:  clamp(0.25rem,  0.5vw,  0.5rem);
+      --space-sm:  clamp(0.5rem,   0.8vw,  0.75rem);
+      --space-md:  clamp(0.75rem,  1.5vw,  1.5rem);
+      --space-lg:  clamp(1.25rem,  2.5vw,  2.5rem);
+      --space-xl:  clamp(2rem,     4vw,    4rem);
+      --space-2xl: clamp(2.5rem,     4vw,    5rem);
+      --space-3xl: clamp(4rem,     8vw,    8rem);
+
+      --container-max: 1100px;
+      --border-radius: 4px;
+      --border-radius-md: 12px;
+      --border-radius-lg: 20px;
+      --border-width: 1px;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-dark);
+      background-color: var(--color-light);
+      background-image: url('pattern.webp');
+      background-repeat: repeat;
+      background-size: 140px;
+      height: 100svh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin-inline: auto;
+      padding-inline: var(--space-md);
+    }
+
+    @property --border-angle {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @keyframes spin-border {
+      to { --border-angle: 360deg; }
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2xl);
+      text-align: center;
+      width: 100%;
+      padding: var(--space-xl) var(--space-lg);
+      border-radius: var(--border-radius-lg);
+      background: var(--color-glass);
+      position: relative;
+    }
+
+    /* glow layer — blurred conic gradient behind the card */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: -12px;
+      border-radius: calc(var(--border-radius-lg) + 12px);
+      background: conic-gradient(
+        from var(--border-angle),
+        var(--color-purple),
+        var(--color-cyan),
+        var(--color-purple)
+      );
+      z-index: -1;
+      filter: blur(44px);
+      animation: spin-border 5s linear infinite;
+    }
+
+    /* sharp 2px border on top of glow */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: calc(var(--border-radius-lg) + 2px);
+      background: conic-gradient(
+        from var(--border-angle),
+        var(--color-purple),
+        var(--color-cyan),
+        var(--color-purple)
+      );
+      z-index: -1;
+      animation: spin-border 5s linear infinite;
+    }
+    .hero__pattern {
+      position: absolute;
+      inset: 0;
+      border-radius: var(--border-radius-lg);
+      background-image: url('pattern2.webp');
+      background-repeat: repeat;
+      background-size: 140px;
+      opacity: 0.50;
+      pointer-events: none;
+    }
+
+    .hero__logo {
+      width: min(85vw, 350px);
+      margin-inline: auto;
+    }
+
+    .hero__info {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .hero__subtitle {
+      font-family: var(--font-body);
+      font-size: var(--fs-small);
+      font-weight: 300;
+      color: var(--color-white);
+    }
+    .countdown__grid {
+      display: flex;
+      justify-content: center;
+      gap: clamp(0.5rem, 2vw, 1.5rem);
+      width: 100%;
+    }
+
+    .countdown__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.07);
+      border: var(--border-width) solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--border-radius);
+      padding: var(--space-sm) clamp(0.75rem, 2vw, 1.5rem);
+      flex: 1;
+      min-width: 0;
+    }
+
+    .countdown__number {
+      font-family: var(--font-heading);
+      font-size: var(--fs-countdown);
+      color: var(--color-cyan);
+      line-height: 1;
+    }
+
+    .countdown__label {
+      font-size: var(--fs-countdown-label);
+      font-family: var(--font-body);
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* ===== DATE ===== */
+    .hero__date {
+      font-family: var(--font-heading);
+      font-size: var(--fs-h1);
+      color: var(--color-white);
+    }
+
+    /* ===== REVEAL LOGO (partially curtained) ===== */
+    .reveal__wrapper {
+      position: relative;
+      display: inline-block;
+      width: clamp(240px, 40vw, 500px);
+    }
+
+    .reveal__logo {
+      width: 100%;
+      display: block;
+    }
+
+    .reveal__curtain {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 52%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--color-purple) 28%,
+        var(--color-purple) 100%
+      );
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .reveal__curtain-text {
+      font-family: var(--font-heading);
+      font-size: var(--fs-h2);
+      color: var(--color-white);
+      letter-spacing: 0.1em;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes shimmer {
+      0%, 100% { opacity: 0.55; }
+      50%       { opacity: 0.9; }
+    }
+
+    .animate { opacity: 0; animation: fadeInUp 0.55s ease forwards; }
+    .animate--d1 { animation-delay: 0.1s; }
+    .animate--d2 { animation-delay: 0.22s; }
+    .animate--d3 { animation-delay: 0.34s; }
+    .animate--d4 { animation-delay: 0.46s; }
+    .animate--d5 { animation-delay: 0.58s; }
+    .animate--d6 { animation-delay: 0.70s; }
+
+    /* ===== RESPONSIVE: TABLET (768px) ===== */
+    @media (max-width: 768px) {
+      body {
+        height: auto;
+        min-height: 100svh;
+        overflow: auto;
+        padding: var(--space-lg) var(--space-md);
+        align-items: center;
+      }
+
+      .hero {
+        gap: var(--space-md);
+      }
+    }
+
+    /* ===== RESPONSIVE: MOBILE (480px) ===== */
+    @media (max-width: 480px) {
+      body {
+        background-size: 100px;
+        padding: var(--space-md) 1rem;
+      }
+
+      .hero {
+        padding: 2rem 1.25rem;
+        gap: 1.25rem;
+      }
+
+      .countdown__grid {
+        gap: 0.4rem;
+        width: 90vw;
+      }
+
+      .countdown__item {
+        padding: 0.5rem 0.25rem;
+      }
+
+      .reveal__curtain {
+        width: 48%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="hero container" aria-label="Speed UP! Masters - coming soon">
+    <div class="hero__pattern" aria-hidden="true"></div>
+
+
+    <img src="logo2.webp" alt="Speed UP! Masters - Inter Cars" class="hero__logo animate animate--d1">
+    <div role="timer" aria-live="polite" aria-atomic="true">
+      <div class="countdown__grid">
+        <div class="countdown__item animate animate--d3">
+          <span class="countdown__number" id="days">00</span>
+          <span class="countdown__label">Dni</span>
+        </div>
+        <div class="countdown__item animate animate--d3">
+          <span class="countdown__number" id="hours">00</span>
+          <span class="countdown__label">Godzin</span>
+        </div>
+        <div class="countdown__item animate animate--d3">
+          <span class="countdown__number" id="minutes">00</span>
+          <span class="countdown__label">Minut</span>
+        </div>
+        <div class="countdown__item animate animate--d3">
+          <span class="countdown__number" id="seconds">00</span>
+          <span class="countdown__label">Sekund</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero__info animate animate--d2">
+      <p class="hero__subtitle">Przygotuj się na ciąg dalszy&hellip;</p>
+      <p class="hero__date">23 marca 2026</p>
+    </div>
+
+
+  </main>
+
+  <script>
+    (function () {
+      const target = new Date('2026-03-23T14:00:00+01:00').getTime();
+      const dEl = document.getElementById('days');
+      const hEl = document.getElementById('hours');
+      const mEl = document.getElementById('minutes');
+      const sEl = document.getElementById('seconds');
+
+      function pad(n) { return String(n).padStart(2, '0'); }
+
+      function tick() {
+        const diff = target - Date.now();
+        if (diff <= 0) {
+          dEl.textContent = hEl.textContent = mEl.textContent = sEl.textContent = '00';
+          return;
+        }
+        dEl.textContent = pad(Math.floor(diff / 86400000));
+        hEl.textContent = pad(Math.floor((diff % 86400000) / 3600000));
+        mEl.textContent = pad(Math.floor((diff % 3600000) / 60000));
+        sEl.textContent = pad(Math.floor((diff % 60000) / 1000));
+      }
+
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
+</body>
+</html>
