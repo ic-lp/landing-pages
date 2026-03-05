@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Dołącz do III Spotkania międzynarodowej sieci warsztatów niezależnych Q-Service Truck. 24-26.04.2026, Hotel Warszawianka. Buduj relacje i rozwijaj biznes.">
+    content="Dołącz do 3rd International Meeting of the Q‑Service Truck Network 2026. 24-26.04.2026, Hotel Warszawianka. Buduj relacje i rozwijaj biznes.">
   <meta name="keywords"
     content="Q-Service Truck, warsztaty ciężarowe, serwis truck, spotkanie branżowe, Ford Trucks, sieć warsztatów, konferencja motoryzacyjna">
   <meta name="author" content="Q-Service Truck">
@@ -16,7 +16,7 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pl_PL">
   <meta property="og:site_name" content="Q-Service Truck">
-  <meta property="og:title" content="III Spotkanie Q-Service Truck | 24-26.04.2026 | Hotel Warszawianka">
+  <meta property="og:title" content="3rd International Meeting of the Q‑Service Truck Network 2026 | 24-26.04.2026 | Hotel Warszawianka">
   <meta property="og:description"
     content="Największe spotkanie branży warsztatowej w Polsce. Konferencje, targi dostawców, networking. Zapisz się już dziś!">
   <meta property="og:image"
@@ -24,12 +24,12 @@
   <meta property="og:url" content="https://qservicetruck.eu/wydarzenie">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="III Spotkanie Q-Service Truck | 24-26.04.2026">
+  <meta name="twitter:title" content="3rd International Meeting of the Q‑Service Truck Network 2026 | 24-26.04.2026">
   <meta name="twitter:description" content="Największe spotkanie branży warsztatowej w Polsce. Zapisz się już dziś!">
   <meta name="twitter:image"
     content="https://qservicetruck.eu/_next/static/images/logo_q-service_truck-d39e88ac41f7d98a0c8644c2e361e601.jpg">
 
-  <title>III Spotkanie Q-Service Truck | 24-26.04.2026 | Hotel Warszawianka</title>
+  <title>3rd International Meeting of the Q‑Service Truck Network 2026 | 24-26.04.2026 | Hotel Warszawianka</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -49,7 +49,7 @@
       --color-text-gray: #4b5563;
 
       --font-primary: 'Montserrat', sans-serif;
-      --font-size-hero: clamp(38px, 8vw, 72px);
+      --font-size-hero: clamp(38px, 8vw, 60px);
       --font-size-h1: clamp(24px, 4vw, 40px);
       --font-size-h2: clamp(20px, 3vw, 26px);
       --font-size-h3: 18px;
@@ -95,7 +95,7 @@
     .container {
       max-width: var(--container-max-width);
       margin: 0 auto;
-      padding: 0 var(--spacing-sm);
+      padding-inline: var(--spacing-lg);
     }
 
     .section {
@@ -181,7 +181,6 @@
 
     .list-inside {
       list-style-position: inside;
-      margin-bottom: 30px;
     }
 
     .mt-3xl {
@@ -493,6 +492,7 @@
     .hero-content {
       text-align: center;
       min-height: 70dvh;
+      max-width: 60vw;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -522,20 +522,32 @@
     }
 
     .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--spacing-lg);
-      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
       position: relative;
       z-index: 1;
+      min-height: 70dvh;
+      text-align: center;
+    }
+
+    .hero-grid:empty {
+      min-height: 0;
+    }
+
+    .hero-grid > :not(.hero-content) {
+      grid-column: 1;
     }
 
     .hero .container {
       position: relative;
       z-index: 2;
+      width: var(--container-max-width);
+      max-width: var(--container-max-width);
     }
 
-    .hero-content h1 {
+    .hero-grid h1 {
       margin-bottom: var(--spacing-lg);
     }
 
@@ -1142,6 +1154,79 @@
       filter: brightness(0) invert(1);
     }
 
+    .hotel-info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+      margin: var(--spacing-lg) 0;
+    }
+
+    .hotel-info-tile {
+      border-left: 2px solid rgba(255, 255, 255, 0.3);
+      padding: 0 var(--spacing-md);
+    }
+
+    .hotel-info-tile h4 {
+      margin-bottom: var(--spacing-xs);
+      font-size: 18px;
+      color: var(--color-white);
+    }
+
+    .hotel-info-tile p {
+      margin-bottom: 0;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hotel-note {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-top: var(--spacing-sm);
+    }
+
+    .segment-icons img {
+      max-width: 300px;
+    }
+
+    .segment-icon {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      border: 1px solid var(--color-gray-border);
+      border-radius: var(--radius);
+      padding: 10px 12px;
+      background: var(--color-gray-light);
+      font-weight: 600;
+      color: var(--color-primary-blue-darker);
+    }
+
+    .segment-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--color-primary-blue);
+      flex-shrink: 0;
+    }
+
+    .contact-direct {
+      margin-top: var(--spacing-xl);
+      display: grid;
+      gap: var(--spacing-sm);
+    }
+
+    .contact-direct a,
+    .contact-direct p {
+      margin: 0;
+      color: var(--color-white);
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .contact-direct a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
 
     .partner-logo {
       max-height: 40px;
@@ -1256,7 +1341,7 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: var(--spacing-xl);
-      align-items: flex-start;
+      align-items: center;
       margin-bottom: 60px;
       direction: ltr;
     }
@@ -1332,16 +1417,12 @@
         height: 130px;
       }
 
-      .container {
-        padding: 0 var(--spacing-lg);
-      }
-
       .section {
         padding: var(--spacing-3xl) 0;
       }
 
       .logo img {
-        height: 100px;
+        height: 80px;
         margin-top: 6px;
       }
 
@@ -1408,19 +1489,14 @@
         padding: 0;
       }
 
-      .hero-content {
+      .hero-grid {
         text-align: left;
         min-height: auto;
-        display: block;
+        max-width: 74vw;
       }
 
       .hero-title-group {
         order: 0;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-3xl);
       }
 
       .hero-form-card {
@@ -1521,7 +1597,7 @@
 
       .footer-container {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         text-align: left;
       }
 
@@ -1541,6 +1617,14 @@
 
       .hotel-logo {
         margin: 0 0 var(--spacing-lg) 0;
+      }
+
+      .hotel-info-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .segment-icons {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
 
       .workshop-row {
@@ -1577,7 +1661,7 @@
       <div class="container nav-container">
         <a href="/" class="logo" title="Q-Service Truck - Strona główna">
         <img
-          src="https://qservicetruck.eu/_next/static/images/logo_q-service_truck-d39e88ac41f7d98a0c8644c2e361e601.jpg"
+          src="logo.webp"
           alt="Q-Service Truck - Międzynarodowa sieć warsztatów niezależnych">
       </a> <button class="mobile-toggle" aria-label="Menu">☰</button>
       <ul class="nav-links">
@@ -1630,15 +1714,14 @@
       </video>
     <div class="container">
       <div class="hero-grid">
-        <div class="hero-content">
-          <div class="hero-time-bar">
+        <div class="hero-time-bar">
             <div class="hero-date">
               <svg width="18" height="18" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M413.149 39.3155H394.051V19.9911C394.051 8.95001 385.101 0 374.06 0C363.019 0 354.069 8.95001 354.069 19.9911V39.3155H157.93V19.9911C157.93 8.95001 148.98 0 137.939 0C126.897 0 117.947 8.95001 117.947 19.9911V39.3155H98.851C44.3442 39.3155 0 83.6598 0 138.165V412.921C0 467.428 44.3442 511.772 98.851 511.772H413.15C467.656 511.772 512 467.428 512 412.921V138.165C512 83.6598 467.656 39.3155 413.149 39.3155ZM98.851 79.2977H117.947V118.28C117.947 129.321 126.897 138.271 137.939 138.271C148.98 138.271 157.93 129.321 157.93 118.28V79.2977H354.07V118.28C354.07 129.321 363.02 138.271 374.061 138.271C385.102 138.271 394.052 129.321 394.052 118.28V79.2977H413.15C445.61 79.2977 472.018 105.706 472.018 138.165V157.263H39.9822V138.165C39.9822 105.706 66.3904 79.2977 98.851 79.2977ZM413.149 471.79H98.851C66.3904 471.79 39.9822 445.382 39.9822 412.921V197.245H472.018V412.921C472.018 445.382 445.61 471.79 413.149 471.79ZM177.588 275.877C177.588 286.918 168.638 295.868 157.597 295.868H118.281C107.24 295.868 98.2902 286.918 98.2902 275.877C98.2902 264.836 107.24 255.886 118.281 255.886H157.597C168.637 255.886 177.588 264.836 177.588 275.877ZM413.711 275.877C413.711 286.918 404.761 295.868 393.72 295.868H354.404C343.363 295.868 334.413 286.918 334.413 275.877C334.413 264.836 343.363 255.886 354.404 255.886H393.72C404.76 255.886 413.711 264.836 413.711 275.877ZM295.535 275.877C295.535 286.918 286.585 295.868 275.544 295.868H236.229C225.188 295.868 216.238 286.918 216.238 275.877C216.238 264.836 225.188 255.886 236.229 255.886H275.544C286.584 255.886 295.535 264.836 295.535 275.877ZM177.588 393.825C177.588 404.866 168.638 413.816 157.597 413.816H118.281C107.24 413.816 98.2902 404.866 98.2902 393.825C98.2902 382.784 107.24 373.834 118.281 373.834H157.597C168.637 373.834 177.588 382.784 177.588 393.825ZM413.711 393.825C413.711 404.866 404.761 413.816 393.72 413.816H354.404C343.363 413.816 334.413 404.866 334.413 393.825C334.413 382.784 343.363 373.834 354.404 373.834H393.72C404.76 373.834 413.711 382.784 413.711 393.825ZM295.535 393.825C295.535 404.866 286.585 413.816 275.544 413.816H236.229C225.188 413.816 216.238 404.866 216.238 393.825C216.238 382.784 225.188 373.834 236.229 373.834H275.544C286.584 373.834 295.535 382.784 295.535 393.825Z"
                   fill="white" />
               </svg>
-              23-25.04.2026
+              24-26.04.2026
             </div>
 
             <div class="time-divider"></div>
@@ -1647,7 +1730,7 @@
             </div>
           </div>
           <div class="hero-title-group">
-            <h1>III Spotkanie Międzynarodowej Sieci Q-Service Truck</h1>
+            <h1>3rd International Meeting of the Q‑Service Truck Network 2026</h1>
             <p class="hero-location">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -1657,9 +1740,7 @@
               Hotel Warszawianka, Polska
             </p>
           </div>
-          <a href="#contact" class="btn btn-primary hero-cta">Dołącz do wydarzenia</a>
-        </div>
-
+          <a href="https://forms.office.com/r/JAKUB_FORM_QST2026" target="_blank" rel="noopener" class="btn btn-primary hero-cta">Dołącz do wydarzenia</a>
       </div>
     </div>
   </section>
@@ -1671,10 +1752,9 @@
         <p class="lead-text">Budujemy silną, profesjonalną sieć niezależnych warsztatów, które wspólnie dążą do nieustannego rozwoju — poprzez poszerzanie wiedzy, kompetencji oraz zakresu świadczonych usług. Nasza siła tkwi w współpracy, otwartości i wzajemnym wsparciu.</p>
         <p>Pierwsze nasze spotkanie sieci odbyło się w 2022 roku w Krakowie, dając początek tradycji wspólnej wymiany doświadczeń i integracji. Kolejna edycja, połączona z 25‑leciem Q‑Service Truck w Łodzi, zgromadziła blisko 500 gości z całej Europy i udowodniła, że jesteśmy czymś więcej niż siecią warsztatów — tworzymy wspólnotę przedsiębiorców, którzy inspirują się nawzajem i razem kształtują kierunek rozwoju branży.</p>
         <p>W 2026 roku idziemy o krok dalej.</p>
-        <h3>III Spotkanie Międzynarodowej Sieci</h3>
+        <h3>3rd International Meeting of the Q‑Service Truck Network 2026</h3>
         <p>to kolejny rozdział naszej wspólnej drogi — nowa energia, te same wartości i jeszcze większy nacisk na praktyczną wiedzę, która realnie wspiera rozwój biznesu. To wydarzenie pełne inspiracji, perspektyw i kluczowych informacji rynkowych. Spotkasz tu ekspertów, liderów branży i praktyków, z którymi wymienisz się doświadczeniami oraz najlepszymi praktykami.</p>
         <p>To idealna okazja, aby wzmacniać kompetencje, rozszerzać ofertę usług i budować przewagę konkurencyjną w oparciu o najnowsze trendy.</p>
-        <p>Obejrzyj relację z dwóch poprzednich edycji to doskonałe wprowadzenie w atmosferę naszych spotkań!</p>
       </div>
 
       <div class="video-grid">
@@ -1704,7 +1784,7 @@
       </div>
     </div>
 
-    <div class="hotel-full-section">
+        <div class="hotel-full-section">
       <video autoplay muted loop playsinline class="hotel-video-bg">
         <source
           src="https://wa-uploads.profitroom.com/hotelwarszawiankacentrumkongresowespzoo/videos/16898356316918_warszawiankamainvideo1.mp4"
@@ -1721,220 +1801,191 @@
 
         <div>
           <p class="lead-text text-white">
-Luksusowe centrum kongresowe położone nad Zalewem Zegrzyńskim w centralnej Polsce. Miejsce, które sprzyja zarówno intensywnej pracy, jak i efektywnemu wypoczynkowi.          </p>
+            Luksusowe centrum kongresowe położone nad Zalewem Zegrzyńskim, które łączy część konferencyjną, networking i komfortowy wypoczynek.
+          </p>
           <ul class="list-inside text-white">
             <li>Nowoczesne zaplecze konferencyjne</li>
             <li>Aqua Park i strefa SPA dla uczestników</li>
             <li>Prywatna plaża i tereny zielone</li>
             <li>Doskonała kuchnia i komfortowe pokoje</li>
           </ul>
-          <a href="https://www.warszawianka.pl/" target="_blank" class="btn btn-outline">Zobacz stronę hotelu</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="container mt-3xl pb-3xl">
-      <h3 class="text-center mb-40">Echa poprzedniej edycji</h3>
+          <div class="hotel-info-grid">
+            <article class="hotel-info-tile">
+              <h4>Dojazd i adres</h4>
+              <p>Hotel Warszawianka, Jachranka 77, 05-140 Serock.</p>
+              <a href="https://goo.gl/maps/DK36hKiphq7Mb3yz5" target="_blank" style="color: white;">Wyznacz trasę</a>
+            </article>
+            <article class="hotel-info-tile">
+              <h4>Doba hotelowa</h4>
+              <p>Zameldowanie od 16:00.</p>
+              <p>Wymeldowanie do 12:00.</p>
+            </article>
+          </div>
 
-      <div class="grid-cards">
-        <div class="testimonial-card">
-          <svg class="quote-icon" viewBox="0 0 476 402" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M164.454 0H54.818C39.589 0 26.647 5.33 15.986 15.987C5.33 26.646 0 39.588 0 54.818V164.45C0 179.679 5.327 192.619 15.986 203.276C26.646 213.932 39.592 219.264 54.818 219.264H118.771C126.382 219.264 132.855 221.93 138.185 227.258C143.515 232.583 146.179 239.058 146.179 246.675V255.806C146.179 275.983 139.04 293.203 124.766 307.481C110.491 321.752 93.267 328.89 73.088 328.89H54.818C49.866 328.89 45.585 330.703 41.967 334.317C38.352 337.931 36.543 342.215 36.543 347.164V383.713C36.543 388.654 38.352 392.946 41.967 396.561C45.588 400.174 49.865 401.988 54.818 401.988H73.089C92.886 401.988 111.777 398.128 129.765 390.422C147.752 382.715 163.311 372.291 176.445 359.157C189.576 346.022 199.998 330.466 207.706 312.478C215.413 294.491 219.268 275.601 219.268 255.807V54.814C219.268 39.584 213.938 26.643 203.281 15.986C192.624 5.329 179.679 0 164.454 0Z"
-              fill="#DCE1E6" />
-            <path
-              d="M459.089 15.987C448.433 5.33 435.49 0 420.261 0H310.629C295.4 0 282.458 5.33 271.801 15.987C261.145 26.647 255.817 39.588 255.817 54.818V164.45C255.817 179.679 261.145 192.619 271.801 203.276C282.458 213.932 295.401 219.264 310.629 219.264H374.582C382.193 219.264 388.671 221.93 394 227.258C399.324 232.586 401.994 239.058 401.994 246.675V255.806C401.994 275.983 394.855 293.203 380.578 307.481C366.304 321.752 349.084 328.89 328.903 328.89H310.629C305.681 328.89 301.396 330.703 297.782 334.317C294.165 337.931 292.354 342.215 292.354 347.164V383.713C292.354 388.654 294.165 392.946 297.782 396.561C301.395 400.174 305.68 401.988 310.629 401.988H328.903C348.697 401.988 367.587 398.128 385.577 390.422C403.561 382.715 419.118 372.291 432.253 359.157C445.387 346.022 455.815 330.462 463.518 312.478C471.224 294.495 475.081 275.601 475.081 255.807V54.814C475.078 39.584 469.753 26.643 459.089 15.987Z"
-              fill="#DCE1E6" />
-          </svg>
-          <p class="testimonial-text">"Spotkanie w Łodzi otworzyło mi oczy na nowe możliwości w obsłudze flot. Czekam na
-            edycję 2026!"</p>
-          <div class="testimonial-author">- Uczestnik z Polski</div>
-        </div>
+          <p class="hotel-note text-white">Dodatkowe atrakcje i aktywności dla uczestników zostaną przedstawione na miejscu podczas wydarzenia.</p>
+          <a href="https://www.warszawianka.pl/" target="_blank" style="color: white;">Zobacz stronę hotelu</a>
 
-        <div class="testimonial-card">
-          <svg class="quote-icon" viewBox="0 0 476 402" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M164.454 0H54.818C39.589 0 26.647 5.33 15.986 15.987C5.33 26.646 0 39.588 0 54.818V164.45C0 179.679 5.327 192.619 15.986 203.276C26.646 213.932 39.592 219.264 54.818 219.264H118.771C126.382 219.264 132.855 221.93 138.185 227.258C143.515 232.583 146.179 239.058 146.179 246.675V255.806C146.179 275.983 139.04 293.203 124.766 307.481C110.491 321.752 93.267 328.89 73.088 328.89H54.818C49.866 328.89 45.585 330.703 41.967 334.317C38.352 337.931 36.543 342.215 36.543 347.164V383.713C36.543 388.654 38.352 392.946 41.967 396.561C45.588 400.174 49.865 401.988 54.818 401.988H73.089C92.886 401.988 111.777 398.128 129.765 390.422C147.752 382.715 163.311 372.291 176.445 359.157C189.576 346.022 199.998 330.466 207.706 312.478C215.413 294.491 219.268 275.601 219.268 255.807V54.814C219.268 39.584 213.938 26.643 203.281 15.986C192.624 5.329 179.679 0 164.454 0Z"
-              fill="#DCE1E6" />
-            <path
-              d="M459.089 15.987C448.433 5.33 435.49 0 420.261 0H310.629C295.4 0 282.458 5.33 271.801 15.987C261.145 26.647 255.817 39.588 255.817 54.818V164.45C255.817 179.679 261.145 192.619 271.801 203.276C282.458 213.932 295.401 219.264 310.629 219.264H374.582C382.193 219.264 388.671 221.93 394 227.258C399.324 232.586 401.994 239.058 401.994 246.675V255.806C401.994 275.983 394.855 293.203 380.578 307.481C366.304 321.752 349.084 328.89 328.903 328.89H310.629C305.681 328.89 301.396 330.703 297.782 334.317C294.165 337.931 292.354 342.215 292.354 347.164V383.713C292.354 388.654 294.165 392.946 297.782 396.561C301.395 400.174 305.68 401.988 310.629 401.988H328.903C348.697 401.988 367.587 398.128 385.577 390.422C403.561 382.715 419.118 372.291 432.253 359.157C445.387 346.022 455.815 330.462 463.518 312.478C471.224 294.495 475.081 275.601 475.081 255.807V54.814C475.078 39.584 469.753 26.643 459.089 15.987Z"
-              fill="#DCE1E6" />
-          </svg>
-          <p class="testimonial-text">"Niesamowita atmosfera podczas gali w EC1. To tutaj buduje się prawdziwe relacje
-            biznesowe."</p>
-          <div class="testimonial-author">- Partner z Litwy</div>
-        </div>
-
-        <div class="testimonial-card">
-          <svg class="quote-icon" viewBox="0 0 476 402" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M164.454 0H54.818C39.589 0 26.647 5.33 15.986 15.987C5.33 26.646 0 39.588 0 54.818V164.45C0 179.679 5.327 192.619 15.986 203.276C26.646 213.932 39.592 219.264 54.818 219.264H118.771C126.382 219.264 132.855 221.93 138.185 227.258C143.515 232.583 146.179 239.058 146.179 246.675V255.806C146.179 275.983 139.04 293.203 124.766 307.481C110.491 321.752 93.267 328.89 73.088 328.89H54.818C49.866 328.89 45.585 330.703 41.967 334.317C38.352 337.931 36.543 342.215 36.543 347.164V383.713C36.543 388.654 38.352 392.946 41.967 396.561C45.588 400.174 49.865 401.988 54.818 401.988H73.089C92.886 401.988 111.777 398.128 129.765 390.422C147.752 382.715 163.311 372.291 176.445 359.157C189.576 346.022 199.998 330.466 207.706 312.478C215.413 294.491 219.268 275.601 219.268 255.807V54.814C219.268 39.584 213.938 26.643 203.281 15.986C192.624 5.329 179.679 0 164.454 0Z"
-              fill="#DCE1E6" />
-            <path
-              d="M459.089 15.987C448.433 5.33 435.49 0 420.261 0H310.629C295.4 0 282.458 5.33 271.801 15.987C261.145 26.647 255.817 39.588 255.817 54.818V164.45C255.817 179.679 261.145 192.619 271.801 203.276C282.458 213.932 295.401 219.264 310.629 219.264H374.582C382.193 219.264 388.671 221.93 394 227.258C399.324 232.586 401.994 239.058 401.994 246.675V255.806C401.994 275.983 394.855 293.203 380.578 307.481C366.304 321.752 349.084 328.89 328.903 328.89H310.629C305.681 328.89 301.396 330.703 297.782 334.317C294.165 337.931 292.354 342.215 292.354 347.164V383.713C292.354 388.654 294.165 392.946 297.782 396.561C301.395 400.174 305.68 401.988 310.629 401.988H328.903C348.697 401.988 367.587 398.128 385.577 390.422C403.561 382.715 419.118 372.291 432.253 359.157C445.387 346.022 455.815 330.462 463.518 312.478C471.224 294.495 475.081 275.601 475.081 255.807V54.814C475.078 39.584 469.753 26.643 459.089 15.987Z"
-              fill="#DCE1E6" />
-          </svg>
-          <p class="testimonial-text">"Konkretna wiedza techniczna i świetna organizacja. Obowiązkowy punkt w
-            kalendarzu."</p>
-          <div class="testimonial-author">- Właściciel serwisu, Czechy</div>
-        </div>
-
-        <div class="testimonial-card">
-          <svg class="quote-icon" viewBox="0 0 476 402" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M164.454 0H54.818C39.589 0 26.647 5.33 15.986 15.987C5.33 26.646 0 39.588 0 54.818V164.45C0 179.679 5.327 192.619 15.986 203.276C26.646 213.932 39.592 219.264 54.818 219.264H118.771C126.382 219.264 132.855 221.93 138.185 227.258C143.515 232.583 146.179 239.058 146.179 246.675V255.806C146.179 275.983 139.04 293.203 124.766 307.481C110.491 321.752 93.267 328.89 73.088 328.89H54.818C49.866 328.89 45.585 330.703 41.967 334.317C38.352 337.931 36.543 342.215 36.543 347.164V383.713C36.543 388.654 38.352 392.946 41.967 396.561C45.588 400.174 49.865 401.988 54.818 401.988H73.089C92.886 401.988 111.777 398.128 129.765 390.422C147.752 382.715 163.311 372.291 176.445 359.157C189.576 346.022 199.998 330.466 207.706 312.478C215.413 294.491 219.268 275.601 219.268 255.807V54.814C219.268 39.584 213.938 26.643 203.281 15.986C192.624 5.329 179.679 0 164.454 0Z"
-              fill="#DCE1E6" />
-            <path
-              d="M459.089 15.987C448.433 5.33 435.49 0 420.261 0H310.629C295.4 0 282.458 5.33 271.801 15.987C261.145 26.647 255.817 39.588 255.817 54.818V164.45C255.817 179.679 261.145 192.619 271.801 203.276C282.458 213.932 295.401 219.264 310.629 219.264H374.582C382.193 219.264 388.671 221.93 394 227.258C399.324 232.586 401.994 239.058 401.994 246.675V255.806C401.994 275.983 394.855 293.203 380.578 307.481C366.304 321.752 349.084 328.89 328.903 328.89H310.629C305.681 328.89 301.396 330.703 297.782 334.317C294.165 337.931 292.354 342.215 292.354 347.164V383.713C292.354 388.654 294.165 392.946 297.782 396.561C301.395 400.174 305.68 401.988 310.629 401.988H328.903C348.697 401.988 367.587 398.128 385.577 390.422C403.561 382.715 419.118 372.291 432.253 359.157C445.387 346.022 455.815 330.462 463.518 312.478C471.224 294.495 475.081 275.601 475.081 255.807V54.814C475.078 39.584 469.753 26.643 459.089 15.987Z"
-              fill="#DCE1E6" />
-          </svg>
-          <p class="testimonial-text">"Integracja z dostawcami to klucz. Dzięki Q-Service Truck mamy dostęp do części
-            'na wczoraj'."</p>
-          <div class="testimonial-author">- Serwisant, Rumunia</div>
-        </div>
-
-        <div class="testimonial-card">
-          <svg class="quote-icon" viewBox="0 0 476 402" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M164.454 0H54.818C39.589 0 26.647 5.33 15.986 15.987C5.33 26.646 0 39.588 0 54.818V164.45C0 179.679 5.327 192.619 15.986 203.276C26.646 213.932 39.592 219.264 54.818 219.264H118.771C126.382 219.264 132.855 221.93 138.185 227.258C143.515 232.583 146.179 239.058 146.179 246.675V255.806C146.179 275.983 139.04 293.203 124.766 307.481C110.491 321.752 93.267 328.89 73.088 328.89H54.818C49.866 328.89 45.585 330.703 41.967 334.317C38.352 337.931 36.543 342.215 36.543 347.164V383.713C36.543 388.654 38.352 392.946 41.967 396.561C45.588 400.174 49.865 401.988 54.818 401.988H73.089C92.886 401.988 111.777 398.128 129.765 390.422C147.752 382.715 163.311 372.291 176.445 359.157C189.576 346.022 199.998 330.466 207.706 312.478C215.413 294.491 219.268 275.601 219.268 255.807V54.814C219.268 39.584 213.938 26.643 203.281 15.986C192.624 5.329 179.679 0 164.454 0Z"
-              fill="#DCE1E6" />
-            <path
-              d="M459.089 15.987C448.433 5.33 435.49 0 420.261 0H310.629C295.4 0 282.458 5.33 271.801 15.987C261.145 26.647 255.817 39.588 255.817 54.818V164.45C255.817 179.679 261.145 192.619 271.801 203.276C282.458 213.932 295.401 219.264 310.629 219.264H374.582C382.193 219.264 388.671 221.93 394 227.258C399.324 232.586 401.994 239.058 401.994 246.675V255.806C401.994 275.983 394.855 293.203 380.578 307.481C366.304 321.752 349.084 328.89 328.903 328.89H310.629C305.681 328.89 301.396 330.703 297.782 334.317C294.165 337.931 292.354 342.215 292.354 347.164V383.713C292.354 388.654 294.165 392.946 297.782 396.561C301.395 400.174 305.68 401.988 310.629 401.988H328.903C348.697 401.988 367.587 398.128 385.577 390.422C403.561 382.715 419.118 372.291 432.253 359.157C445.387 346.022 455.815 330.462 463.518 312.478C471.224 294.495 475.081 275.601 475.081 255.807V54.814C475.078 39.584 469.753 26.643 459.089 15.987Z"
-              fill="#DCE1E6" />
-          </svg>
-          <p class="testimonial-text">"Wreszcie czas na konkretne rozmowy o dieslach i elektrykach. Szkolenia Q-Service
-            Truck nie mają sobie równych."</p>
-          <div class="testimonial-author">- Właściciel, Słowacja</div>
-        </div>
-
-        <div class="testimonial-card">
-          <svg class="quote-icon" viewBox="0 0 476 402" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M164.454 0H54.818C39.589 0 26.647 5.33 15.986 15.987C5.33 26.646 0 39.588 0 54.818V164.45C0 179.679 5.327 192.619 15.986 203.276C26.646 213.932 39.592 219.264 54.818 219.264H118.771C126.382 219.264 132.855 221.93 138.185 227.258C143.515 232.583 146.179 239.058 146.179 246.675V255.806C146.179 275.983 139.04 293.203 124.766 307.481C110.491 321.752 93.267 328.89 73.088 328.89H54.818C49.866 328.89 45.585 330.703 41.967 334.317C38.352 337.931 36.543 342.215 36.543 347.164V383.713C36.543 388.654 38.352 392.946 41.967 396.561C45.588 400.174 49.865 401.988 54.818 401.988H73.089C92.886 401.988 111.777 398.128 129.765 390.422C147.752 382.715 163.311 372.291 176.445 359.157C189.576 346.022 199.998 330.466 207.706 312.478C215.413 294.491 219.268 275.601 219.268 255.807V54.814C219.268 39.584 213.938 26.643 203.281 15.986C192.624 5.329 179.679 0 164.454 0Z"
-              fill="#DCE1E6" />
-            <path
-              d="M459.089 15.987C448.433 5.33 435.49 0 420.261 0H310.629C295.4 0 282.458 5.33 271.801 15.987C261.145 26.647 255.817 39.588 255.817 54.818V164.45C255.817 179.679 261.145 192.619 271.801 203.276C282.458 213.932 295.401 219.264 310.629 219.264H374.582C382.193 219.264 388.671 221.93 394 227.258C399.324 232.586 401.994 239.058 401.994 246.675V255.806C401.994 275.983 394.855 293.203 380.578 307.481C366.304 321.752 349.084 328.89 328.903 328.89H310.629C305.681 328.89 301.396 330.703 297.782 334.317C294.165 337.931 292.354 342.215 292.354 347.164V383.713C292.354 388.654 294.165 392.946 297.782 396.561C301.395 400.174 305.68 401.988 310.629 401.988H328.903C348.697 401.988 367.587 398.128 385.577 390.422C403.561 382.715 419.118 372.291 432.253 359.157C445.387 346.022 455.815 330.462 463.518 312.478C471.224 294.495 475.081 275.601 475.081 255.807V54.814C475.078 39.584 469.753 26.643 459.089 15.987Z"
-              fill="#DCE1E6" />
-          </svg>
-          <p class="testimonial-text">"Najlepsza inwestycja czasu w roku. Wymiana doświadczeń z kolegami z Węgier bardzo
-            inspirująca."</p>
-          <div class="testimonial-author">- Menadżer, Węgry</div>
         </div>
       </div>
     </div>
   </section>
-  <section id="agenda" class="section bg-gray">
+    <section id="agenda" class="section bg-gray">
     <div class="container">
       <h2 class="text-center">Agenda</h2>
-      <p class="text-center mb-xl">Sprawdź co przygotowaliśmy dla Ciebie w ciągu
-        tych intensywnych dni.</p>
+      <p class="text-center mb-xl">Sprawdź plan wydarzenia i zaplanuj swój udział w najważniejszych punktach programu.</p>
 
       <div class="agenda-tabs">
-        <button class="tab-btn" onclick="scrollToDay('day1')">Czwartek 23.04</button>
-        <button class="tab-btn" onclick="scrollToDay('day2')">Piątek 24.04</button>
-        <button class="tab-btn" onclick="scrollToDay('day3')">Sobota 25.04</button>
+        <button class="tab-btn" onclick="scrollToDay('day1')">Czwartek</button>
+        <button class="tab-btn" onclick="scrollToDay('day2')">Piątek</button>
+        <button class="tab-btn" onclick="scrollToDay('day3')">Sobota</button>
       </div>
 
       <div class="timeline-container">
         <div id="day1" class="day-section">
-          <h3 class="day-title">Czwartek, 23 kwietnia</h3>
+          <h3 class="day-title">Czwartek</h3>
           <div class="timeline">
             <div class="timeline-item">
-              <span class="time">12:00 – 15:00</span>
+              <span class="time">12:00</span>
               <div class="event-content">
-                <div class="event-title">Wizyta w warsztacie Q-Service Truck Sp. z o.o.</div>
-                <div class="event-desc">Zapoznanie się z działalnością serwisu oraz jego zapleczem technicznym,
-                  działającego w oparciu o uznane autoryzacje: ZF Service Partner, Ford Trucks, Isuzu i BYD Trucks.
-                </div>
-                <div class="mt-md">
-                  <div class="event-title event-title-sm">Zwiedzanie Europejskiego Centrum Logistyki ILS</div>
-                  <div class="event-desc">Wyjątkowa możliwość poznania firmy Inter Cars od środka, podczas zwiedzania
-                    jednego z najnowocześniejszych centrów logistycznych w Europie.
+                <div class="event-title">Wizyta w Czosnowie</div>
+                <div class="event-desc">Wizyta w warsztacie Q-Service Truck. <br>ul. Gdańska 15, 05-152 Czosnów.
+                  <div class="event-desc"><small>*Doba hotelowa jest od 16:00.</small>
                   </div>
                 </div>
               </div>
             </div>
+
             <div class="timeline-item">
-              <span class="time">12:00 – 18:00</span>
+              <span class="time">13:30</span>
               <div class="event-content">
-                <div class="event-title">Targi dostawców</div>
+                <div class="event-title">Zwiedzanie Europejskiego Centrum Logistyki ILS</div>
+                <div class="event-desc">Zwiedzanie centrum logistycznego Inter Cars. <br>ul. Szeroka 6, 05-170 Zakroczym.</div>
               </div>
             </div>
+
             <div class="timeline-item">
-              <span class="time">13:00 – 17:00</span>
+              <span class="time">16:00 – 20:00</span>
               <div class="event-content">
-                <div class="event-title">Rejestracja gości w recepcji Q-Service Truck</div>
+                <div class="event-title">Czas wolny: lunch, SPA i rozmowy kuluarowe</div>
+                <div class="event-desc">Czas na kuluarowe rozmowy biznesowe w sprzyjającej, nieformalnej atmosferze lub skorzystanie z hotelowych udogodnień, w tym strefy basenowej i relaksacyjnej. To doskonała okazja do nawiązywania kontaktów, wymiany doświadczeń i budowania relacji.</div>
+                <div class="event-desc"><small>*UWAGA! Obowiązuje limit osób przebywających w strefie wodnej.</small></div>
               </div>
             </div>
+
             <div class="timeline-item">
-              <span class="time">15:00 – 17:30</span>
+              <span class="time">19:30</span>
               <div class="event-content">
-                <div class="event-title">Lunch w restauracji hotelowej</div>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <span class="time">16:30 – 18:00</span>
-              <div class="event-content">
-                <div class="event-title">Czas wolny*</div>
-                <div class="event-desc">Do dyspozycji dostępna jest strefa parku wodnego z basenami, saunami oraz pozostałymi atrakcjami rekreacyjnymi.<br><small>*Liczba miejsc w strefie basenowej jest ograniczona.</small>
-                </div>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <span class="time">20:00 – 01:00</span>
-              <div class="event-content">
-                <div class="event-title">Kolacja biesiadna</div>
-                <div class="event-desc">*Obowiązuje strój nieformalny.</div>
+                <div class="event-title">Biesiada Polska – sala wydarzenia</div>
               </div>
             </div>
           </div>
         </div>
 
         <div id="day2" class="day-section">
-          <h3 class="day-title">Piątek, 24 kwietnia</h3>
+          <h3 class="day-title">Piątek</h3>
           <div class="timeline">
             <div class="timeline-item">
-              <span class="time">07:00 – 10:00</span>
+              <span class="time">07:00 – 09:30</span>
               <div class="event-content">
-                <div class="event-title">Śniadanie</div>
+                <div class="event-title">Śniadanie w restauracji hotelowej</div>
               </div>
             </div>
+
             <div class="timeline-item">
               <span class="time">09:45 – 12:00</span>
               <div class="event-content">
-                <div class="event-title">Konferencja międzynarodowa</div>
+                <div class="event-title">Główna konferencja: Warsztat w centrum uwagi</div>
+                <div class="event-desc">Poruszane tematy:</div>
+                <ul class="list-inside event-desc">
+                  <li>Trendy w branży</li>
+                  <li>W co powinien inwestować warsztat na przestrzeni najbliższych lat</li>
+                  <li>Program szkoleń dla właścicieli warsztatów</li>
+                  <li>Pozycjonowanie firmy lokalnie i znaczenie mediów społecznościowych</li>
+                </ul>
               </div>
             </div>
+
             <div class="timeline-item">
               <span class="time">12:30 – 13:30</span>
               <div class="event-content">
                 <div class="event-title">Lunch w restauracji hotelowej</div>
               </div>
             </div>
+
             <div class="timeline-item">
-              <span class="time">12:30 – 17:00</span>
-              <div class="event-content">
-                <div class="event-title">Targi dostawców</div>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <span class="time">14:00 – 16:30</span>
+              <span class="time">14:00 – 18:00</span>
               <div class="event-content">
                 <div class="event-title">Konferencje lokalne & panele dyskusyjne</div>
+                <div class="event-desc">
+                  <div style="margin-bottom: 16px;">
+                    <strong>14:00 – 14:30</strong><br>
+                    Zaangażowanie jako styl życia. O pracy, pasji i wyborach – panel Q&A z Maciejem Oleksowiczem
+                  </div>
+                  <div style="margin-bottom: 16px;">
+                    <strong>15:00 – 18:00</strong><br>
+                    Warsztaty dla kobiet
+                  </div>
+                </div>
               </div>
             </div>
+
             <div class="timeline-item">
-              <span class="time">19:00 – 01:00</span>
+              <span class="time">14:45 – 15:30</span>
               <div class="event-content">
-                <div class="event-title">Uroczysta kolacja</div>
-                <div class="event-desc">*Obowiązuje strój formalny.</div>
+                <div class="event-title">Sesje strategiczne dla spółek Q-Service Truck</div>
               </div>
             </div>
+
+            <div class="timeline-item">
+              <span class="time">15:45</span>
+              <div class="event-content">
+                <div class="event-title">Skrzynie biegów ZF AS TRONIC / TRAXON</div>
+                <div class="event-desc">Najczęstsze awarie i ich rozwiązania. Jako ASO ZF podpowiemy na co zwrócić uwagę przy diagnozie i naprawach.</div>
+                <div class="event-desc"><small><strong>Prelegent:</strong> Adam Fąk | <strong>Kategoria:</strong> Dostawcy</small></div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="time">16:15</span>
+              <div class="event-content">
+                <div class="event-title">Rynek napraw silników ciężarowych</div>
+                <div class="event-desc">"Trendy, technologia, praktyka, biznes – kompleksowe spojrzenie na rynek napraw". Jak Inter Cars podchodzi do rynku napraw, jak wspiera i jaką widzi przyszłość.</div>
+                <div class="event-desc"><small><strong>Prelegent:</strong> Zbigniew Dzido</small></div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="time">16:45</span>
+              <div class="event-content">
+                <div class="event-title">Agro</div>
+                <div class="event-desc">Jak rozwinąć warsztat ciężarowy na potrzeby napraw AGRO + Serwis Mobilny.</div>
+                <div class="event-desc"><small><strong>Prelegent:</strong> Piotr Furtak</small></div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="time">17:15</span>
+              <div class="event-content">
+                <div class="event-title">Autobusy</div>
+                <div class="event-desc">Zakres układów oczyszczania spalin Euro 6 oparte są o silnik DAF oraz CUMMINS, z odniesieniami do innych marek (MB, IVECO, MAN).</div>
+                <div class="event-desc"><small><strong>Prelegent:</strong> Rafał Urbański</small></div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="time">19:30 – 01:00</span>
+              <div class="event-content">
+                <div class="event-title">Uroczysta kolacja – SALA</div>
+                <div class="event-desc"><small>*Obowiązuje strój formalny.</small></div>
+              </div>
+            </div>
+
           </div>
         </div>
 
         <div id="day3" class="day-section">
-          <h3 class="day-title">Sobota, 25 kwietnia</h3>
+          <h3 class="day-title">Sobota</h3>
           <div class="timeline">
             <div class="timeline-item">
               <span class="time">07:30 – 11:00</span>
@@ -1954,282 +2005,228 @@ Luksusowe centrum kongresowe położone nad Zalewem Zegrzyńskim w centralnej Po
     </div>
   </section>
 
-  <section id="workshops" class="section">
+    <section id="workshops" class="section">
     <div class="container">
       <div class="max-w-800 mx-auto pb-3xl text-center">
         <h2>Strefy Wiedzy i Rozwoju</h2>
-        <p>Przygotowaliśmy cztery dedykowane obszary tematyczne, które pozwolą Ci zgłębić wiedzę techniczną i biznesową.
-          Wybierz to, co najważniejsze dla Twojego serwisu.</p>
+        <p>Program został zaprojektowany tak, aby łączyć rozwój kompetencji technicznych, wiedzę biznesową i realny networking między warsztatami oraz partnerami rynku.</p>
       </div>
 
       <div class="workshop-row-container">
         <div class="workshop-row">
           <div class="workshop-content">
-            <h3>Strefa Ford Trucks</h3>
-            <p>Odkryj przyszłość transportu ciężkiego z Ford Trucks. Dowiedz się, jak zostać autoryzowanym partnerem
-              jednej z najszybciej rozwijających się marek ciężarowych w Europie i jakie korzyści płyną z tej współpracy
-              dla Twojego serwisu.</p>
-            <ul class="workshop-list">
-              <li><strong>F-MAX Select:</strong> Prezentacja ekskluzywnej serii ciągników siodłowych.</li>
-              <li><strong>ConnecTruck:</strong> Wykorzystanie zdalnej diagnostyki do optymalizacji pracy floty.</li>
-              <li><strong>Standardy Serwisowe:</strong> Jak przygotować warsztat do autoryzacji Ford Trucks.</li>
-              <li><strong>Wsparcie Techniczne:</strong> Bezpośrednie spotkania z inżynierami z fabryki Ford Otosan.</li>
-              <li><strong>Strategia Rozwoju:</strong> Plany ekspansji sieci serwisowej w Polsce i Europie Środkowej.
-              </li>
-            </ul>
+            <h3>Warsztat w centrum uwagi</h3>
+            <p>Konferencja główna skupiająca się na wspólnym i świadomym zbudowaniu przewagi konkurencyjnej w dynamicznie zmieniającej się branży ciężarowej. Konferencj bedzie prowadzona przez kilku ekpertów z rynku i obejmować będzie kluczowe kierunki rozwoju, strategiczne obszary inwestycji dla warsztatów, znaczenie profesjonalnych programów szkoleniowych oraz skuteczne metody wzmacniania pozycji firmy na rynku lokalnym, w tym poprzez nowoczesne kanały komunikacji. Dołącz i zobacz, jak świadomie budować przyszłość swojego serwisu!</p>
           </div>
           <div class="workshop-media">
             <img
-              src="https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="Ciężarówka Ford Trucks">
+              src="warsztat.png"
+              alt="Konferencja międzynarodowa">
           </div>
         </div>
 
         <div class="workshop-row">
           <div class="workshop-content">
-            <h3>Strefa AGRO</h3>
-            <p>Rolnictwo staje się coraz bardziej zaawansowane technologicznie. Rozszerz ofertę swojego warsztatu o
-              obsługę nowoczesnych maszyn rolniczych. To rynek o ogromnym potencjale marżowym, wymagający jednak
-              specjalistycznej wiedzy i narzędzi.</p>
-            <ul class="workshop-list">
-              <li><strong>Diagnostyka Komputerowa:</strong> Praca z systemami ISOBUS i rolnictwem precyzyjnym.</li>
-              <li><strong>Specyfika Serwisu:</strong> Unikalne wyzwania w naprawie ciągników i kombajnów różnych marek.
-              </li>
-              <li><strong>Mobilny Serwis:</strong> Strategie budowania efektywnych zespołów pracujących bezpośrednio u
-                rolnika.</li>
-              <li><strong>Części Zamienne:</strong> Dostęp do najszerszego katalogu części AGRO w sieci Inter Cars.</li>
-              <li><strong>Programy Szkoleniowe:</strong> Jak szybko przeszkolić mechanika samochodowego na specjalistę
-                AGRO.</li>
-            </ul>
+            <h3>Siła networkingu</h3>
+            <p>Do  zbudowania strefy networkingowej zapraszamy firmy zrzeszone w sieci Q-Service Truck – producentów rozwiązań dla branży ciężarowej. To idealna okazja, by nawiązać wartościowe relacje biznesowe, odkryć nowe możliwości współpracy i zyskać realne wsparcie w rozwoju usług serwisowych. Może właśnie rozwiązanie warsztatu zrzeszonego  sieci będzie dla Ciebie realną pomocą? Sprawdź</p>
           </div>
           <div class="workshop-media">
             <img
-              src="https://images.pexels.com/photos/2886937/pexels-photo-2886937.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="Nowoczesny ciągnik w strefie AGRO">
+              src="networking.png"
+              alt="Networking i rozmowy biznesowe">
           </div>
         </div>
 
         <div class="workshop-row">
           <div class="workshop-content">
-            <h3>Hydraulika Siłowa i Naczepy</h3>
-            <p>Praktyczne warsztaty prowadzone przez ekspertów Feber. Skupimy się na kompleksowej diagnostyce,
-              konserwacji i naprawach zaawansowanych układów hydraulicznych oraz konstrukcji naczepowych stosowanych w
-              transporcie specjalistycznym.</p>
-            <ul class="workshop-list">
-              <li><strong>Projektowanie Układów:</strong> Podstawy doboru komponentów do systemów wywrotu i ruchomych
-                podłóg.</li>
-              <li><strong>Naprawy Komponentów:</strong> Regeneracja siłowników, pomp i rozdzielaczy w warunkach
-                warsztatowych.</li>
-              <li><strong>Systemy Hamulcowe:</strong> Diagnostyka i kalibracja modułów EBS w naczepach (Knorr-Bremse,
-                Wabco).</li>
-              <li><strong>Serwis Feber:</strong> Standardy naprawy konstrukcji aluminiowych i stalowych.</li>
-              <li><strong>Prewencja:</strong> Jak wprowadzić płatne przeglądy okresowe układów hydraulicznych.</li>
-            </ul>
+            <h3>Rozwój kompetencji i rozwój usług w warsztacie</h3>
+            <p>Segmenty Agro, Construction, Bus i Truck w centrum strategicznego rozwoju – kluczowe technologie i kierunki rozwoju rynku. Praktyczna wiedza i wskazówki dotycząca diagnostyki i napraw skrzyni biegów ZF AS Tronic i TraXon, aktualne podejście Inter Cars do rynku napraw silników ciężarowych oraz możliwości rozszerzenia oferty o usługi AGRO i serwisu mobilnego. Część poświęcona autobusom obejmie najważniejsze aspekty układów oczyszczania spalin Euro 6 opartych na silnikach DAF i Cummins. To relane kompetencje i rozwiązania wspierające Twój biznes!</p>
+
+            <div class="segment-icons" aria-label="Piktogramy segmentów">
+              <img src="ico.png" alt="">
+            </div>
           </div>
           <div class="workshop-media">
             <img
-              src="https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="Mechanik pracujący przy naczepie">
+              src="uslugi.png"
+              alt="Kompetencje techniczne w warsztacie">
+          </div>
+        </div>
+
+        <div class="workshop-row">
+          <div class="workshop-content">
+            <h3>Wsparcie dla warsztatów od najlepszych partnerów z rynku</h3>
+            <p>Podczas wydarzenia dostępna będzie przez cały czas strefa dostawców, w której czołowe marki zaprezentują najnowsze rozwiązania i technologie dedykowane branży ciężarowej. Uczestnicy będą mogli porozmawiać bezpośrednio z przedstawicielami handlowymi i ekspertami technicznymi, uzyskać informacje o aktualnych produktach, innowacjach oraz możliwościach współpracy. To przestrzeń do nawiązywania wartościowych relacji i pozyskania wiedzy wspierającej rozwój nowoczesnego serwisu.</p>
+          </div>
+          <div class="workshop-media">
+            <img
+              src="wsparcie-warsztat.png"
+              alt="Strefa partnerów i dostawców">
           </div>
         </div>
 
         <div class="workshop-row mb-lg-important">
           <div class="workshop-content">
-            <h3>Akademia Biznesu</h3>
-            <p>Nowoczesny warsztat to nie tylko klucze i komputery diagnostyczne, to przede wszystkim sprawnie
-              zarządzane przedsiębiorstwo. Cykl szkoleń dla właścicieli i menedżerów pomoże Ci odnaleźć się w
-              dynamicznie zmieniającym się otoczeniu rynkowym.</p>
-            <ul class="workshop-list">
-              <li><strong>Zarządzanie Zespołem:</strong> Jak motywować i zatrzymywać najlepszych mechaników na rynku
-                pracownika.</li>
-              <li><strong>Optymalizacja Procesów:</strong> Skracanie czasu przestoju pojazdu w serwisie dzięki lepszemu
-                planowaniu.</li>
-              <li><strong>Marketing 2.0:</strong> Budowanie wizerunku eksperta w Social Media i profesjonalna obsługa
-                opinii w Google.</li>
-              <li><strong>Cyfryzacja:</strong> Wdrażanie systemów klasy ERP do zarządzania dokumentacją i magazynem
-                części.</li>
-              <li><strong>Sukcesja i Rozwój:</strong> Jak planować przyszłość firmy i w jakie technologie zainwestować w
-                perspektywie 5-10 lat.</li>
-            </ul>
+            <h3>Strefa ciężka na zewnątrz</h3>
+            <p>Zobacz Show Car Inter Cars mobilne centrum szkoleniowe Inter Cars, w specjalnie przygotowanej naczepie ciężarówki, które na codzień odwiedza filie w całej Europie. W show car uczestnicy konferencji będą mogli poznać kluczowe informacje o międzynarodowej sieci Q‑Service Truck. W strefie zaprezentowane zostaną dwa pojazdy demonstracyjne marki Ford Trucks: podwozie F-LINE 4145DL (8×4) z zabudową tylnozsypową typu half‑pipe Feber, stworzoną z myślą o wymagających zastosowaniach budowlanych, oraz F-LINE 3545DL (6×4) z wywrotką trójstronną i hydroburtą Feber.</p>
           </div>
           <div class="workshop-media">
             <img
-              src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="Spotkanie biznesowe w Akademii Biznesu">
+              src="mobilne.webp"
+              alt="Strefa ciężka i pojazdy demonstracyjne">
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section id="partners" class="section bg-gray">
+    <section id="partners" class="section bg-gray">
     <div class="container text-center">
-      <h3 class="mb-xl">Partnerzy Wydarzenia</h3>
+      <h3 class="mb-xl">Partnerzy wydarzenia</h3>
+      <p class="max-w-800 mx-auto">Tworzymy dla Państwa dedykowaną strefę, dostępną przez dwa dni w holu głównym hotelu, będą z nami nasi partnerzy dostawcy oraz projekty wspierajace. </p>
+
       <div class="partners-detailed-grid">
-        <div class="partner-card">
-          <div class="partner-logo-container">
-            <img src="intermeko-logo.jpg" alt="Logo Intermeko"/>
-          </div>
-          <h4>Intermeko Europe</h4>
-          <p>Specjalistyczne laboratorium motoryzacyjne dostarczające rzetelne ekspertyzy oraz profesjonalne wzorcowanie narzędzi, w tym kluczy dynamometrycznych zgodnie z ISO 6789. Oferują kompleksowe badania jakościowe, materiałowe i funkcjonalne części do pojazdów, zgodnie z najwyższymi standardami branżowymi.</p>
-        </div>
         <div class="partner-card">
           <div class="partner-logo-container">
             <img src="https://cdn.intercars.eu/files/1/1/3/4/9/4/113494/x96.png" alt="Logo Bosch" style="width: 250px;"/>
           </div>
           <h4>Bosch</h4>
-          <p>Dostarcza zaawansowane technologicznie systemy dla pojazdów użytkowych, obejmujące m.in. układy wtryskowe, elektronikę, osprzęt silnika oraz profesjonalne rozwiązania diagnostyczne, wspierając niezawodne funkcjonowanie flot i efektywność pracy warsztatów.</p>
+          <p>Dostarcza zaawansowane systemy dla pojazdów użytkowych, obejmujące m.in. układy wtryskowe, elektronikę, osprzęt silnika oraz profesjonalne rozwiązania diagnostyczne.</p>
         </div>
+
         <div class="partner-card">
           <div class="partner-logo-container">
             <img src="https://cdn.intercars.eu/files/1/0/8/1/7/8/108178/x96.png" alt="Logo Castrol" style="width: 250px;"/>
           </div>
           <h4>Castrol</h4>
-          <p>Oferuje wysokowydajne oleje i specjalistyczne środki smarne dedykowane pojazdom ciężarowym, zapewniając długotrwałą ochronę silników, zwiększoną wydajność oraz redukcję kosztów operacyjnych poprzez wydłużenie interwałów serwisowych.</p>
+          <p>Oferuje wysokowydajne oleje i środki smarne dedykowane pojazdom ciężarowym, wspierając ochronę silników oraz wydłużenie interwałów serwisowych.</p>
         </div>
+
         <div class="partner-card">
           <div class="partner-logo-container">
-            <img src="https://cdn.intercars.eu/files/1/1/3/4/9/5/113495/x96.png" alt="Logo Mann-Filter" style="width: 150px;"/>
+            <img src="https://cdn.intercars.eu/files/1/1/3/4/9/5/113495/x96.png" alt="Logo MANN-FILTER" style="width: 150px;"/>
           </div>
           <h4>MANN-FILTER (MANN+HUMMEL)</h4>
-          <p>Dostarcza filtry OE-quality zaprojektowane do pracy w wymagających warunkach transportu ciężkiego, gwarantując skuteczną ochronę układu napędowego i niezawodność eksploatacyjną pojazdów użytkowych.</p>
+          <p>Dostarcza filtry zaprojektowane do pracy w wymagających warunkach transportu ciężkiego, gwarantując skuteczną ochronę układu napędowego i niezawodność eksploatacyjną.</p>
         </div>
+
         <div class="partner-card">
           <div class="partner-logo-container">
-            <img src="https://cdn.intercars.eu/files/1/1/3/0/1/5/113015/x96.png" alt="Logo ZF" style="width: 300px;"/>
+            <img src="https://cdn.intercars.eu/files/1/1/3/0/1/5/113015/x96.png" alt="Logo Grupa ZF" style="width: 300px;"/>
           </div>
           <h4>Grupa ZF</h4>
-          <p>Dostawca rozwiązań dla sektora pojazdów użytkowych, oferuje kompleksowe systemy napędowe, hamulcowe i podwoziowe, zwiększające bezpieczeństwo flot, ich wydajność operacyjną oraz poziom automatyzacji w transporcie ciężkim.</p>
+          <p>Dostawca rozwiązań dla pojazdów użytkowych, oferujący systemy napędowe, hamulcowe i podwoziowe zwiększające bezpieczeństwo oraz wydajność flot.</p>
         </div>
+
         <div class="partner-card">
           <div class="partner-logo-container">
             <img src="https://cdn.intercars.eu/files/1/1/3/6/3/3/113633/x96.png" alt="Logo Knorr-Bremse" style="width: 300px;"/>
           </div>
           <h4>Knorr-Bremse</h4>
-          <p>Producent systemów hamulcowych i rozwiązań bezpieczeństwa dla pojazdów użytkowych, autobusów i naczep. Oferuje komponenty oraz wsparcie serwisowe dla profesjonalnych warsztatów.</p>
+          <p>Producent systemów hamulcowych i rozwiązań bezpieczeństwa dla pojazdów użytkowych, autobusów i naczep. Oferuje komponenty oraz wsparcie serwisowe dla warsztatów.</p>
         </div>
+
         <div class="partner-card">
           <div class="partner-logo-container">
             <img src="https://cdn.intercars.eu/files/1/1/8/7/6/0/118760/x96.png" alt="Logo NRF" />
           </div>
           <h4>NRF</h4>
-          <p>Specjalizuje się w rozwiązaniach chłodniczych dla pojazdów użytkowych, dostarczając chłodnice, skraplacze, radiatory i elementy układów HVAC, zapewniające stabilność termiczną i wysoką niezawodność w wymagających warunkach transportowych.</p>
+          <p>Specjalizuje się w rozwiązaniach chłodniczych dla pojazdów użytkowych, dostarczając komponenty układów termicznych i HVAC do pracy w wymagających warunkach transportowych.</p>
         </div>
+
         <div class="partner-card">
           <div class="partner-logo-container">
-            <img src="https://cdn.intercars.eu/files/1/6/4/164/x96.png" alt="Logo Febi Bilstein" />
+            <img src="https://cdn.intercars.eu/files/1/6/4/164/x96.png" alt="Logo FEBI" />
           </div>
           <h4>FEBI (bilstein group)</h4>
-          <p>Dostarcza szeroki asortyment części o jakości OE-matching, obejmujący m.in. elementy układu zawieszenia, silnika, układów pneumatycznych i elektroniki, wspierając ekonomiczną i niezawodną eksploatację pojazdów ciężarowych.</p>
+          <p>Dostarcza szeroki asortyment części do pojazdów użytkowych, obejmujący m.in. elementy układu zawieszenia, silnika, pneumatyki i elektroniki.</p>
         </div>
+
         <div class="partner-card">
           <div class="partner-logo-container">
             <img src="https://cdn.intercars.eu/files/1/3/1/0/1/3/131013/520x120,f.webp" alt="Logo Integra" width="150" />
             <img src="https://cdn.intercars.eu/files/1/0/4/0/7/3/104073/520x120,f.webp" alt="Logo eSowa" />
           </div>
-          <h4>Integra / eSowa</h4>
-          <p>Systemy Integra oraz eSowa stanowią kompleksowe narzędzia informatyczne dla serwisów obsługujących pojazdy ciężarowe. Pozwalają na sprawne zarządzanie zleceniami, magazynem, historią serwisową oraz integrację z katalogiem Inter Cars w celu optymalizacji operacji warsztatowych.</p>
+          <h4>Integra / eSowa / eCAT</h4>
+          <p>Programy warsztatowe stanowią kompleksowe narzędzia informatyczne dla serwisów obsługujących pojazdy ciężarowe. Pozwalają na sprawne zarządzanie zleceniami, magazynem, historią serwisową oraz integrację z katalogiem Inter Cars w celu optymalizacji operacji warsztatowych.</p>
         </div>
         <div class="partner-card">
           <div class="partner-logo-container">
-          <img src="https://cdn.intercars.eu/files/1/0/4/1/9/4/104194/520x120,f.webp" alt="Logo Inter Cars Wyposażenie warsztatu">
-        </div>
-          <h4>Wyposażenie warsztatu</h4>
-          <p>Inter Cars oferuje szeroki portfel wyposażenia warsztatowego obejmujący urządzenia diagnostyczne, narzędzia specjalistyczne oraz sprzęt do obsługi klimatyzacji i elektroniki.</p>
-        </div>
-        <div class="partner-card">
-          <div class="partner-logo-container">
-          <img src="feber-logo.webp" alt="Logo Feber">
-        </div>
-          <h4>Feber</h4>
-          <p>Producent naczep należący do Grupy Inter Cars. Dostarcza wysokiej klasy zabudowy dla transportu ciężkiego — w tym wywrotki, pojazdy specjalistyczne i rozwiązania do przewozu materiałów sypkich.</p>
-        </div>
-        <div class="partner-card">
-          <div class="partner-logo-container">
-          <img src="ft-logo.webp" alt="Logo Ford Trucks">
-        </div>
-          <h4>Ford Trucks</h4>
-          <p>Oferta marki obejmuje ciągniki siodłowe F‑MAX, podwozia budowalne i drogowe dostosowane do potrzeb krajowych przewoźników. Q‑Service Truck Sp. z o.o., spółka zależna grupy Inter Cars jest jedynym importer marki na terenie Polski, odpowiedzialnym za sprzedaż, serwis oraz rozwój sieci dealerskiej.</p>
-        </div>
-        <div class="partner-card">
-          <div class="partner-logo-container">
-          <img src="https://cdn.intercars.eu/files/1/0/4/1/9/4/104194/520x120,f.webp" alt="Logo Inter Cars Flota">
+            <img src="icpf.jpg" alt="Logo Integra" width="250" />
           </div>
-          <h4>Flota (Inter Cars)</h4>
-          <p>Inter Cars Fleet Services wspiera przedsiębiorstwa transportowe w zarządzaniu flotą, oferując wsparcie techniczne oraz naprawcze na terenie Polski i Europy. W skład sieci serwisowej wchodzą renomowane warsztaty Q-Service Truck, współpracujące w ramach obsługi zleceń.</p>
+          <h4>Truck Fleet Concept</h4>
+          <p>Truck Fleet Concept Inter Cars to program innowatorski w skali międzynarodowej. Mający na celu obsługę serwisową dużych miedzynarodowych flot poprzez warsztaty sieci Q-Service Truck. Chcesz poznać zasady lub masz pytania - odwiedżć dedykowane stoisko.
+            <ul style="padding-left: 20px; font-size: 15px; color: var(--color-text-gray); line-height: 1.5;">
+              <li>Poznaj zasady współpracy w PL+EU</li>
+              <li>Floty międzynarodowe głównym klientem programu</li>
+              <li>Zasady rozliczeń dla warsztatów</li>
+              <li>Potencjał rozwoju programu na arenie międzynarodowej</li>
+              <li>Panel konsultacji</li>
+            </ul>
+          </p>
         </div>
+
         <div class="partner-card">
           <div class="partner-logo-container">
-          <img src="bioservice-logo.webp" alt="Logo BioService">
+            <img src="https://cdn.intercars.eu/files/1/0/4/1/9/4/104194/520x120,f.webp" alt="Logo Inter Cars Wyposażenie warsztatu">
+          </div>
+          <h4>Wyposażenie warsztatu</h4>
+          <p>Wyposażenie Warsztatowe, które napędza rozwój! Czyli nowoczesny sprzęt i rozwiązania technologiczne, zaawansowane urządzenia diagnostyczne, systemy zarządzania i oprogramowanie – dzięki temu warsztaty działają szybciej, sprawniej i bardziej profesjonalnie. Masz pytania, chętnie na nie odpowiemy.</p>
         </div>
+
+        <div class="partner-card">
+          <div class="partner-logo-container">
+            <img src="feber-logo.webp" alt="Logo Feber">
+          </div>
+          <h4>Feber</h4>
+          <p>Feber Sp. z o.o. to polski producent naczep ciężarowych i przyczep samowyładowczych, wywrotek oraz innych pojazdów transportowych, działający od 2004 roku i należący do Inter Cars S.A.. Warsztaty sieci mogą starać się o uzyskanie autoryzacji do serwisowania gwarancyjnego pojazdów. Mamy rozwiązanie dla warsztatów z Polski jak i spółek zagranicznych.
+</p>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-logo-container">
+            <img src="ft-logo.webp" alt="Logo Ford Trucks">
+          </div>
+          <h4>Ford Trucks</h4>
+          <p>Ford Trucks to producent ciężkich pojazdów użytkowych, specjalizujący się w ciągnikach siodłowych F-MAX, podwoziach budowlanych i drogowych oraz ciągnikach dystrybucyjnych serii F-LINE o masie powyżej 16 ton. Na rynku polskim marka prowadzi sprzedaż i serwis od 2019 roku.</p>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-logo-container">
+            <img src="bioservice-logo.webp" alt="Logo BioService">
+          </div>
           <h4>BioService</h4>
-          <p>BioService wspiera warsztaty w zakresie ekologicznego zagospodarowania odpadów warsztatowych, takich jak oleje, filtry czy akumulatory, zapewniając zgodność z wymogami środowiskowymi i bezpieczeństwo procesów obsługowych.</p>
+          <p>Bio Service to platforma, której celem jest kompleksowe i zgodne z prawem zarządzanie odpadami warsztatowymi – np. odbiór, utylizacja i recykling zużytych akumulatorów, olejów, filtrów, opon i innych materiałów powstających w codziennej pracy serwisu. Dzięki Bio Service warsztaty mogą zlecać odbiór odpadów przez wyspecjalizowane firmy, uzyskiwać pomoc doradczą w formalnościach oraz korzystać z refundacji kosztów utylizacji części zakupionych wcześniej w Inter Cars. Usługa na dziś dostępna jest tylko  w Polsce . </p>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-logo-container">
+            <img src="https://cdn.intercars.eu/files/1/0/4/1/9/4/104194/520x120,f.webp" alt="Logo Centra Kompetencji IC" />
+          </div>
+          <h4>Centra Kompetencji IC</h4>
+          <p>W jednym miejscu spotkasz specjalistów z dziedziny silnik, skrzynia biegów, autobus i offhighway. Zapoznaj się ze wsparciem jakie możemy Ci  zapewnić w tych segmentach, poznaj dedykowanych specjalistów i  rozwiń swoją działalność.</p>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-logo-container">
+            <img src="intermeko-logo.jpg" alt="Logo Intermeko"/>
+          </div>
+          <h4>Intermeko Europe</h4>
+          <p>Specjalistyczne laboratorium motoryzacyjne dostarczające rzetelne ekspertyzy oraz profesjonalne wzorcowanie narzędzi, w tym kluczy dynamometrycznych zgodnie z ISO 6789. Oferują kompleksowe badania jakościowe, materiałowe i funkcjonalne części do pojazdów, zgodnie z najwyższymi standardami branżowymi. TDlaczego kalibracja i wzorcowanie Twoich narzędzi jest wazne i jakie są korzysci dla Twojego warsztatu ? ?</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="section bg-dark">
+    <section id="contact" class="section bg-dark">
     <div class="container">
-      <div class="contact-grid">
-        <div>
-          <h2 class="text-white">Zarejestruj swój udział</h2>
-          <p class="text-white-opacity-80">Wypełnij formularz, aby potwierdzić obecność. Pamiętaj o wybraniu
-            dodatkowych wizyt studyjnych.</p>
+      <div class="max-w-800 mx-auto text-center">
+        <h2 class="text-white">Masz pytania?</h2>
+        <p class="text-white-opacity-80">Skontaktuj się z nami.</p>
 
-          <div class="contact-info-block">
-            <h3>Masz pytania?</h3>
-            <p>Skontaktuj się z koordynatorem swojego regionu lub zadzwoń na infolinię.</p>
-            <p>📞 +48 22 714 12 34</p>
-            <p>📧 event@q-service-truck.eu</p>
-          </div>
-        </div>
-
-        <div class="text-white-bg-padding">
-          <form id="fullRegistrationForm">
-            <div class="form-group">
-              <label for="reg-name">Imię i Nazwisko *</label>
-              <input type="text" id="reg-name" required placeholder="Jan Kowalski">
-            </div>
-            <div class="form-group">
-              <label for="reg-company">Nazwa Warsztatu / NIP *</label>
-              <input type="text" id="reg-company" required placeholder="Auto-Service / 1234567890">
-            </div>
-            <div class="form-group">
-              <label for="reg-phone">Telefon *</label>
-              <input type="tel" id="reg-phone" required placeholder="+48 ...">
-            </div>
-
-            <div class="form-group">
-              <label>Wybierz opcje dodatkowe:</label>
-              <div class="checkbox-wrapper">
-                <input type="checkbox" id="visit-czosnow">
-                <label for="visit-czosnow">Chcę wziąć udział w wizycie w warsztacie (Czosnów)</label>
-              </div>
-              <div class="checkbox-wrapper">
-                <input type="checkbox" id="visit-zakroczym">
-                <label for="visit-zakroczym">Chcę zwiedzić centrum logistyczne (Zakroczym)</label>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="reg-diet">Preferencje dietetyczne</label>
-              <select id="reg-diet" name="diet">
-                <option>Brak</option>
-                <option>Wegetariańska</option>
-                <option>Wegańska</option>
-                <option>Bezglutenowa</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <div class="checkbox-wrapper">
-                <input type="checkbox" required id="rodo">
-                <label for="rodo">Akceptuję <a href="#regulamin">regulamin wydarzenia</a> i politykę prywatności. *</label>
-              </div>
-            </div>
-
-            <button type="submit" class="btn btn-primary w-100">Zapisz się na wydarzenie</button>
-          </form>
+        <div class="contact-direct">
+          <a href="tel:+48885533112">📞 +48 885 533 112</a>
+          <a href="tel:+48665391179">📞 +48 665 391 179</a>
+          <a href="mailto:truck.q-service@intercars.eu">truck.q-service@intercars.eu</a>
         </div>
       </div>
     </div>
@@ -2237,34 +2234,9 @@ Luksusowe centrum kongresowe położone nad Zalewem Zegrzyńskim w centralnej Po
   </main>
 
   <footer class="footer">
-    <div class="container footer-container">
-      <div class="footer-info">
-        <p class="footer-copy">&copy; 2025 Q-Service Truck. Wszystkie prawa zastrzeżone.</p>
-      </div>
+    <div class="container footer-container">&copy; 2026 Q-Service Truck. Wszystkie prawa zastrzeżone.
 
-      <div class="footer-links">
-        <a href="#">Polityka Prywatności</a>
-        <a href="#">Regulamin</a>
-        <a href="#">Kontakt</a>
-      </div>
 
-      <div class="footer-content-right">
-        <a href="tel:+48227141234"
-          style="color:var(--color-white); text-decoration:none; font-weight:600; opacity: 0.8; display: flex; align-items: center; gap: 8px;">
-          <svg width="18" height="18" viewBox="0 0 384 384" fill="var(--color-white)"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M353.188 252.052C329.678 252.052 306.594 248.375 284.719 241.146C274 237.49 260.823 240.844 254.281 247.563L211.104 280.157C161.031 253.428 130.187 222.594 103.823 172.897L135.458 130.845C143.677 122.637 146.625 110.647 143.093 99.397C135.833 77.407 132.145 54.334 132.145 30.814C132.146 13.823 118.323 0 101.333 0H30.813C13.823 0 0 13.823 0 30.813C0 225.563 158.438 384 353.188 384C370.178 384 384.001 370.177 384.001 353.187V282.864C384 265.875 370.177 252.052 353.188 252.052Z" />
-          </svg>
-          +48 22 714 12 34</a>
-        <a href="https://www.facebook.com/qservicetruck/" target="_blank" class="social-link" aria-label="Facebook">
-          <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M16 8.02005C16 3.59298 12.416 0 8.00003 0C3.58403 0 3.05176e-05 3.59298 3.05176e-05 8.02005C3.05176e-05 11.9018 2.75203 15.1338 6.40003 15.8797V10.4261H4.80003V8.02005H6.40003V6.01504C6.40003 4.46717 7.65603 3.20802 9.20003 3.20802H11.2V5.61404H9.60003C9.16003 5.61404 8.80003 5.97494 8.80003 6.41604V8.02005H11.2V10.4261H8.80003V16C12.84 15.599 16 12.1825 16 8.02005Z"
-              fill="var(--color-white)" />
-          </svg>
-        </a>
-      </div>
     </div>
   </footer>
 
@@ -2308,7 +2280,7 @@ Luksusowe centrum kongresowe położone nad Zalewem Zegrzyńskim w centralnej Po
       document.body.classList.remove('preload');
     }, 2000);
 
-    const eventDate = new Date('2026-04-23T12:00:00').getTime();
+    const eventDate = new Date('2026-04-24T12:00:00').getTime();
 
     function updateCountdown() {
       const now = new Date().getTime();
@@ -2380,31 +2352,6 @@ Luksusowe centrum kongresowe położone nad Zalewem Zegrzyńskim w centralnej Po
         { threshold: [1], rootMargin: `-${parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) + 1}px 0px 0px 0px` }
       );
       observer.observe(agendaTabs);
-    }
-
-    const heroForm = document.getElementById('heroForm');
-    if (heroForm) {
-      heroForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        alert('Dziękujemy za wstępną rejestrację! Skontaktujemy się wkrótce.');
-        this.reset();
-      });
-    }
-
-    const fullRegistrationForm = document.getElementById('fullRegistrationForm');
-    if (fullRegistrationForm) {
-      fullRegistrationForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const czosnow = document.getElementById('visit-czosnow').checked;
-        const zakroczym = document.getElementById('visit-zakroczym').checked;
-
-        let msg = 'Dziękujemy za rejestrację na spotkanie!';
-        if (czosnow || zakroczym) {
-          msg += '\n\nOtrzymasz oddzielny harmonogram wizyt studyjnych (Czosnów/Zakroczym) przed wydarzeniem.';
-        }
-        alert(msg);
-        this.reset();
-      });
     }
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
