@@ -1,0 +1,621 @@
+:root {
+    /* Colors */
+    --clr-purple: #8E4695;
+    --clr-red: #E51B20;
+    --clr-blue: #00D2FF;
+    --clr-dark: #2E3F4F;
+    --clr-white: #FFFFFF;
+    
+    /* Semantic Colors */
+    --clr-text-main: var(--clr-dark);
+    --clr-bg-nav: rgba(255, 255, 255, 0.98);
+    
+    /* Fonts */
+    --font-heading: 'Oswald', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+
+    /* Spacing Units (Modern Fluid Typography & Spacing) */
+    --space-sm: clamp(0.5rem, 1vw, 1rem);
+    --space-md: clamp(1rem, 2vw, 1.5rem);
+    --space-lg: clamp(1.5rem, 3vw, 2.5rem);
+    --space-xl: clamp(2rem, 5vw, 4rem);
+    --space-xxl: clamp(3rem, 8vw, 6rem);
+
+    /* Typography Units */
+    --fs-base: clamp(1rem, 1vw + 0.5rem, 1.125rem);
+    --fs-nav: clamp(1.1rem, 1.5vw, 1.25rem);
+    --fs-h1: clamp(3rem, 8vw + 1rem, 6rem);
+    --fs-h2: clamp(2.5rem, 5vw, 4rem);
+    
+    /* Layout */
+    --container-max: 1280px;
+    --container-padding: var(--space-md);
+    
+    /* Effects */
+    --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-soft: 0 8px 30px rgba(46, 63, 79, 0.1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Prevent horizontal scroll - używamy clip zamiast hidden dla sticky */
+    overflow-x: clip;
+    overflow-y: auto;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--fs-base);
+    color: var(--clr-text-main);
+    line-height: 1.6;
+    overflow-x: clip;
+    position: relative;
+    /* Applying the fixed background */
+    background-image: url('bg.webp');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--clr-white); /* Fallback */
+}
+
+/* Improve text contrast if background is noisy (optional overlay for whole page but keeping it as linear-gradient in sections is better) */
+.page-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.6); /* Adjust transparency based on bg.webp brightness */
+    z-index: -1;
+    pointer-events: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Accessibility Focus States */
+:focus-visible {
+    outline: 3px solid var(--clr-blue);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Typography Utilities */
+h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: var(--font-heading);
+    line-height: 1.1;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.font-body {
+    font-family: var(--font-body);
+}
+
+/* Layout Utilities */
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding-inline: var(--container-padding);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ================= HEADER & NAV ================= */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Element pass-through clicks on the trailing edge but we restore it on the inner container */
+    pointer-events: none;
+
+    /* Soft white background that stays solid for 1/3, then fades out gradually into transparency */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 33.33%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: none;
+
+    /* Top padding keeps menu at top, HUGE bottom padding pulls the fade tail way down the screen */
+    padding-top: clamp(1rem, 2vw, 2rem);
+    padding-bottom: clamp(6rem, 20vw, 5rem);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.main-header.header-hidden {
+    transform: translateY(-100%);
+}
+
+.header-container {
+    pointer-events: auto; /* Restore clickable elements for links within navbar */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    z-index: 1001; /* Stay above mobile menu */
+    position: relative;
+}
+
+.logo {
+    max-height: clamp(40px, 8vw, 60px);
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: var(--space-lg);
+    align-items: center;
+}
+
+.nav-link {
+    font-family: var(--font-heading);
+    font-size: var(--fs-nav);
+    font-weight: 300;
+    color: var(--clr-dark);
+    text-transform: uppercase;
+    transition: color var(--transition-base);
+    position: relative;
+    padding: 0.25rem 0;
+}
+
+/* Hover underline effect */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--clr-red);
+    transition: width var(--transition-base);
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+    width: 100%;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+    color: var(--clr-red);
+}
+
+
+/* Mobile Nav Toggle */
+.mobile-nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.hamburger {
+    display: block;
+    width: 32px;
+    height: 3px;
+    background: var(--clr-dark);
+    position: relative;
+    transition: background 0.2s ease-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--clr-dark);
+    left: 0;
+    transition: transform 0.2s ease-out, top 0.2s ease-out, bottom 0.2s ease-out;
+}
+
+.hamburger::before {
+    top: -9px;
+}
+
+.hamburger::after {
+    bottom: -9px;
+}
+
+/* Hamburger Active State */
+.mobile-nav-toggle[aria-expanded="true"] .hamburger {
+    background: transparent;
+}
+.mobile-nav-toggle[aria-expanded="true"] .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+.mobile-nav-toggle[aria-expanded="true"] .hamburger::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+}
+
+/* ================= HERO SECTION ================= */
+.hero {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: var(--space-xxl); /* Make room for header */
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    padding-bottom: var(--space-xxl);
+}
+
+/* Hero Content Area */
+.hero-content {
+    max-width: 900px;
+}
+
+.hero-title {
+    font-size: var(--fs-h1);
+    color: var(--clr-dark);
+    display: flex;
+    flex-direction: column;
+    /* Improve contrast for readability against bg.webp */
+    text-shadow: 0px 4px 20px rgba(255, 255, 255, 0.9),
+                 0px 0px 40px rgba(255, 255, 255, 0.8),
+                 2px 2px 0px rgba(255, 255, 255, 1);
+}
+
+.hero-line {
+    display: block;
+    margin-bottom: 0.1em;
+    line-height: 1.05;
+}
+
+.highlight-purple {
+    color: var(--clr-purple);
+}
+
+.highlight-red {
+    color: var(--clr-red);
+}
+
+.highlight-blue {
+    color: var(--clr-blue);
+}
+
+/* Decorative image at the bottom of the screen */
+.hero-decorator {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    background-image: url('pasek.webp');
+    background-size: cover;
+    background-position: top left;
+    background-repeat: no-repeat;
+    z-index: 999;
+    pointer-events: none;
+}
+
+/* ================= SECTIONS THAT SCROLL OVER ================= */
+.section {
+    padding-block: var(--space-xxl);
+    position: relative;
+    z-index: 10;
+    /* Default sections get a solid background to cover the fixed background behind */
+    background-color: var(--clr-white);
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+}
+
+.section-transparent {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
+}
+
+.section-title {
+    font-size: var(--fs-h2);
+    color: var(--clr-dark);
+    margin-bottom: var(--space-lg);
+}
+
+.section-text {
+    max-width: 800px;
+    margin-bottom: var(--space-md);
+}
+
+/* ================= IDEA SECTION (HORIZONTAL SCROLL LIGHT MODE) ================= */
+.idea-section {
+    background-color: var(--clr-white); /* Light mode */
+    color: var(--clr-dark);
+    position: relative;
+    padding: 0;
+}
+
+.idea-container {
+    /* Wysoki kontener który pozwala na scrollowanie pionowe */
+    /* Wysokość będzie ustawiana dynamicznie przez JavaScript */
+    min-height: 300vh;
+    position: relative;
+}
+
+.idea-sticky {
+    /* Sticky kontener - zatrzymuje się podczas scrollowania */
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    height: 100dvh;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-xl);
+    background-color: var(--clr-white);
+}
+
+.idea-intro-static {
+    padding-top: var(--space-xl);
+    max-width: 1200px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-xl);
+}
+
+.idea-track {
+    display: flex;
+    gap: var(--space-xl);
+    padding-left: var(--container-padding);
+    padding-right: var(--space-xxl);
+    width: max-content;
+    height: auto;
+    align-items: stretch;
+    will-change: transform;
+}
+
+.idea-panel {
+    /* Each scrolling panel occupies about 35vw so cards fit properly */
+    flex: 0 0 clamp(300px, 35vw, 600px); 
+}
+
+.idea-outro {
+    flex: 0 0 clamp(300px, 35vw, 600px);
+    padding: var(--space-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.idea-section .section-title {
+    color: var(--clr-dark);
+    font-size: clamp(4rem, 10vw, 8rem);
+    position: relative;
+    z-index: 2;
+    margin-bottom: var(--space-md);
+    letter-spacing: 0.02em;
+}
+
+
+/* Dynamic skewed decorations mimicking the visual identity */
+.idea-deco {
+    position: absolute;
+    z-index: 0;
+    transform: skewX(-15deg);
+    pointer-events: none;
+}
+
+.idea-deco-1 {
+    top: -10%;
+    left: 20%;
+    width: 300px;
+    height: 150%;
+    background: linear-gradient(90deg, transparent, rgba(0, 210, 255, 0.1), transparent);
+}
+.idea-deco-2 {
+    bottom: -20%;
+    right: 5%;
+    width: 40vw;
+    height: 60vh;
+    background: var(--clr-purple);
+    opacity: 0.08;
+    border-radius: 100px;
+    filter: blur(80px);
+}
+.idea-deco-3 {
+    top: 10%;
+    left: -10%;
+    width: 30vw;
+    height: 30vw;
+    background: var(--clr-blue);
+    opacity: 0.08;
+    border-radius: 50%;
+    filter: blur(100px);
+}
+
+.idea-lead {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    line-height: 1.6;
+    color: var(--clr-dark);
+}
+.idea-lead strong {
+    color: var(--clr-blue);
+    font-weight: 800;
+}
+
+/* Light mode Card */
+.idea-card {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 12px;
+    padding: var(--space-xl) var(--space-md);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 420px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.idea-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--clr-blue) 0%, var(--clr-purple) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.idea-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 40px rgba(46, 63, 79, 0.1), 
+                0 0 40px rgba(0, 210, 255, 0.2);
+}
+
+.idea-card:hover::before {
+    opacity: 0.05;
+}
+
+.idea-card-no {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    color: rgba(0, 0, 0, 0.05); /* very light gray in light mode */
+    line-height: 1;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.idea-card:hover .idea-card-no {
+    color: var(--clr-blue);
+    transform: scale(1.1) translateX(-5px);
+}
+
+.idea-card:nth-child(2):hover .idea-card-no { color: var(--clr-red); }
+.idea-card:nth-child(3):hover .idea-card-no { color: var(--clr-purple); }
+.idea-card:nth-child(4):hover .idea-card-no { color: var(--clr-blue); }
+.idea-card:nth-child(5):hover .idea-card-no { color: var(--clr-red); }
+.idea-card:nth-child(6):hover .idea-card-no { color: var(--clr-purple); }
+
+.idea-card-title {
+    position: relative;
+    z-index: 1;
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    letter-spacing: 0;
+    line-height: 1.25;
+    margin: 0;
+    color: var(--clr-dark);
+}
+
+.idea-outro p {
+    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+    color: var(--clr-dark);
+    line-height: 1.6;
+}
+
+.idea-outro strong {
+    color: transparent;
+    background: linear-gradient(90deg, var(--clr-blue), var(--clr-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-weight: 800;
+}
+
+/* ================= MEDIA QUERIES ================= */
+@media (max-width: 992px) {
+    /* Convert Nav to Mobile Menu */
+    .mobile-nav-toggle {
+        display: block;
+    }
+
+    .primary-navigation {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 30%; /* Take 70% of screen from the right */
+        height: 100vh;
+        height: 100dvh; /* Modern mobile viewport height */
+        background: var(--clr-bg-nav);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        box-shadow: -10px 0 30px rgba(46, 63, 79, 0.15);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-top: clamp(80px, 15vh, 120px);
+        padding-inline: var(--space-lg);
+        transform: translateX(100%);
+        transition: transform var(--transition-base);
+        /* Prevent scroll inside menu when closed */
+        overflow-y: auto;
+    }
+
+    .primary-navigation[data-visible="true"] {
+        transform: translateX(0);
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-lg);
+    }
+
+    .nav-link {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .primary-navigation {
+        left: 0; /* 85% width on mobile */
+    }
+    
+    .hero-title {
+        text-shadow: 0px 2px 15px rgba(255, 255, 255, 0.95),
+                     0px 0px 30px rgba(255, 255, 255, 0.9),
+                     1px 1px 0px rgba(255, 255, 255, 1);
+    }
+}

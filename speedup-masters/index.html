@@ -1,393 +1,397 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Speed UP! Masters - wydarzenie motoryzacyjne Inter Cars. 23 marca 2026. Przygotuj się na ciąg dalszy!">
-  <meta name="keywords" content="Speed UP, Masters, Inter Cars, motoryzacja, wydarzenie, wyścigi">
-  <meta name="author" content="Inter Cars">
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Speed UP! Masters - 23 marca 2026">
-  <meta property="og:description" content="Przygotuj się na ciąg dalszy... Speed UP! Masters już 23 marca 2026!">
-  <meta property="og:image" content="logo.webp">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#2e3f4f">
-  <title>Speed UP! Masters - 23 marca 2026</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Up Masters – 23 marca 2026 | Inter Cars</title>
+    <meta name="description" content="Przygotuj się na ciąg dalszy. Speed Up Masters powraca 23 marca 2026. Sprawdź ile zostało czasu.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://speedupmasters.pl/">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://speedupmasters.pl/">
+    <meta property="og:title" content="Speed Up Masters – 23 marca 2026">
+    <meta property="og:description" content="Przygotuj się na ciąg dalszy. Speed Up Masters powraca 23 marca 2026.">
+    <meta property="og:image" content="https://speedupmasters.pl/logo2.webp">
 
-  <style>
-    /* ===== DESIGN SYSTEM: VARIABLES ===== */
-    :root {
-      --color-purple: #8e4695;
-      --color-cyan: #00d2ff;
-      --color-red: #e51b20;
-      --color-dark: #2e3f4f;
-      --color-white: #ffffff;
-      --color-light: #f0f0f2;
-      --color-glass: #0c121c;
-      --color-glass-border: rgba(255, 255, 255, 0.08);
-      --color-text-muted: rgba(255, 255, 255, 0.55);
-      --border-color: rgba(46, 63, 79, 0.15);
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Speed Up Masters – 23 marca 2026">
+    <meta name="twitter:description" content="Przygotuj się na ciąg dalszy. Speed Up Masters powraca 23 marca 2026.">
 
-      --font-heading: "Bebas Neue", sans-serif;
-      --font-body: "Open Sans", sans-serif;
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,800;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/atm5hrt.css">
+    <style>
+        :root {
+            --clr-red: #E51B20;
+            --clr-dark: #2E3F4F;
+            --clr-white: #FFFFFF;
+            --font-heading: "zuume", sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
 
-      --fs-h1: clamp(1.8rem, 6vw, 3rem);
-      --fs-h2: clamp(1.3rem, 4vw, 2.2rem);
-      --fs-body: clamp(0.9rem, 1.1vw, 1rem);
-      --fs-small: clamp(1rem, 0.9vw, 2rem);
-      --fs-countdown: clamp(2.2rem, 10vw, 7rem);
-      --fs-countdown-label: clamp(0.65rem, 1.8vw, 0.85rem);
-      --fs-subtitle: clamp(1.2rem, 4vw, 1.7rem);
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-      --space-xs:  clamp(0.25rem,  0.5vw,  0.5rem);
-      --space-sm:  clamp(0.5rem,   0.8vw,  0.75rem);
-      --space-md:  clamp(0.75rem,  1.5vw,  1.5rem);
-      --space-lg:  clamp(1.25rem,  2.5vw,  2.5rem);
-      --space-xl:  clamp(2rem,     4vw,    4rem);
-      --space-2xl: clamp(2.5rem,     4vw,    5rem);
-      --space-3xl: clamp(4rem,     8vw,    8rem);
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
 
-      --container-max: 1100px;
-      --border-radius: 4px;
-      --border-radius-md: 12px;
-      --border-radius-lg: 20px;
-      --border-width: 1px;
-    }
+        body {
+            font-family: var(--font-body);
+            color: var(--clr-dark);
+            background-image: url('bg.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100svh;
+            padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
+        }
 
-    /* ===== RESET ===== */
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        .hero {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(1.5rem, 4vw, 3rem);
+            text-align: center;
+        }
 
-    body {
-      font-family: var(--font-body);
-      color: var(--color-dark);
-      background-color: var(--color-light);
-      background-image: url('pattern.webp');
-      background-repeat: repeat;
-      background-size: 140px;
-      height: 100svh;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+        /* Logo */
+        .logo {
+            width: clamp(180px, 28vw, 320px);
+            height: auto;
+            display: block;
+        }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
+        /* Teaser headline */
+        .teaser-headline {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-style: italic;
+            font-size: clamp(1.6rem, 4vw + 0.5rem, 3.5rem);
+            text-transform: uppercase;
+            line-height: 1.15;
+            padding-inline: 0.4em;
+            background: linear-gradient(
+                100deg,
+                var(--clr-dark) 0%,
+                var(--clr-dark) 20%,
+                var(--clr-red) 50%,
+                var(--clr-dark) 80%,
+                var(--clr-dark) 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: textShine 3s linear infinite;
+        }
 
-    h1, h2, h3 {
-      font-family: var(--font-heading);
-      font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: 0.02em;
-    }
+        /* Countdown */
+        .countdown {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: clamp(0.5rem, 2vw, 2rem);
+        }
 
-    .container {
-      width: 100%;
-      max-width: var(--container-max);
-      margin-inline: auto;
-      padding-inline: var(--space-md);
-    }
+        .countdown-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 0;
+            max-width: 240px;
+        }
 
-    @property --border-angle {
-      syntax: '<angle>';
-      initial-value: 0deg;
-      inherits: false;
-    }
+        .countdown-number {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-style: italic;
+            font-size: clamp(3.5rem, 12vw, 10rem);
+            line-height: 1;
+            color: var(--clr-dark);
+            width: 100%;
+            text-align: center;
+            font-variant-numeric: tabular-nums;
+        }
 
-    @keyframes spin-border {
-      to { --border-angle: 360deg; }
-    }
+        .countdown-label {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-style: italic;
+            font-size: clamp(0.6rem, 1.2vw, 2rem);
+            text-transform: uppercase;
+            color: #5c6172;
+            margin-top: clamp(0.3rem, 0.8vw, 0.6rem);
+        }
 
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-2xl);
-      text-align: center;
-      width: 100%;
-      padding: var(--space-xl) var(--space-lg);
-      border-radius: var(--border-radius-lg);
-      background: var(--color-glass);
-      position: relative;
-    }
+        .countdown-separator {
+            font-family: var(--font-heading);
+            font-weight: 300;
+            font-style: italic;
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 1;
+            color: var(--clr-red);
+            padding-bottom: clamp(1.2rem, 3vw, 2.4rem);
+            align-self: flex-end;
+            flex-shrink: 0;
+        }
 
-    /* glow layer — blurred conic gradient behind the card */
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: -12px;
-      border-radius: calc(var(--border-radius-lg) + 12px);
-      background: conic-gradient(
-        from var(--border-angle),
-        var(--color-purple),
-        var(--color-cyan),
-        var(--color-purple)
-      );
-      z-index: -1;
-      filter: blur(44px);
-      animation: spin-border 5s linear infinite;
-    }
+        .event-date-wrap {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
 
-    /* sharp 2px border on top of glow */
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      border-radius: calc(var(--border-radius-lg) + 2px);
-      background: conic-gradient(
-        from var(--border-angle),
-        var(--color-purple),
-        var(--color-cyan),
-        var(--color-purple)
-      );
-      z-index: -1;
-      animation: spin-border 5s linear infinite;
-    }
-    .hero__pattern {
-      position: absolute;
-      inset: 0;
-      border-radius: var(--border-radius-lg);
-      background-image: url('pattern2.webp');
-      background-repeat: repeat;
-      background-size: 140px;
-      opacity: 0.50;
-      pointer-events: none;
-    }
+        /* Date label */
+        .event-date {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-style: italic;
+            font-size: clamp(2rem, 5vw, 5rem);
+            text-transform: uppercase;
+            white-space: nowrap;
+            padding-inline: 0.4em;
+            background: linear-gradient(
+                100deg,
+                var(--clr-dark) 0%,
+                var(--clr-dark) 20%,
+                var(--clr-red) 50%,
+                var(--clr-dark) 80%,
+                var(--clr-dark) 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: textShine 3s linear infinite;
+        }
 
-    .hero__logo {
-      width: min(85vw, 350px);
-      margin-inline: auto;
-    }
+        @keyframes textShine {
+            0%   { background-position: 200% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-    .hero__info {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
+        /* Decorator bars */
+        .hero-decorator {
+            position: fixed;
+            left: 0;
+            width: 100%;
+            height: 48px;
+            background-image: url('pasek.webp');
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 999;
+            pointer-events: none;
+        }
 
-    .hero__subtitle {
-      font-family: var(--font-body);
-      font-size: var(--fs-small);
-      font-weight: 300;
-      color: var(--color-white);
-    }
-    .countdown__grid {
-      display: flex;
-      justify-content: center;
-      gap: clamp(0.5rem, 2vw, 1.5rem);
-      width: 100%;
-    }
+        .hero-decorator--bottom {
+            bottom: 0;
+            background-position: top left;
+        }
 
-    .countdown__item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.07);
-      border: var(--border-width) solid rgba(255, 255, 255, 0.12);
-      border-radius: var(--border-radius);
-      padding: var(--space-sm) clamp(0.75rem, 2vw, 1.5rem);
-      flex: 1;
-      min-width: 0;
-    }
+        .hero-decorator--top {
+            top: 0;
+            background-position: top left;
+            transform: rotate(180deg);
+        }
 
-    .countdown__number {
-      font-family: var(--font-heading);
-      font-size: var(--fs-countdown);
-      color: var(--color-cyan);
-      line-height: 1;
-    }
+        /* Focus visible */
+        :focus-visible {
+            outline: 3px solid var(--clr-red);
+            outline-offset: 4px;
+        }
 
-    .countdown__label {
-      font-size: var(--fs-countdown-label);
-      font-family: var(--font-body);
-      color: var(--color-text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-weight: 600;
-      margin-top: 2px;
-    }
+        /* Mobile centering */
+        @media (max-width: 600px) {
+            body {
+                align-items: center;
+                justify-content: center;
+            }
 
-    /* ===== DATE ===== */
-    .hero__date {
-      font-family: var(--font-heading);
-      font-size: var(--fs-h1);
-      color: var(--color-white);
-    }
+            .hero {
+                align-items: center;
+                text-align: center;
+                width: 100%;
+            }
 
-    /* ===== REVEAL LOGO (partially curtained) ===== */
-    .reveal__wrapper {
-      position: relative;
-      display: inline-block;
-      width: clamp(240px, 40vw, 500px);
-    }
+            .countdown {
+                justify-content: center;
+                width: 100%;
+            }
 
-    .reveal__logo {
-      width: 100%;
-      display: block;
-    }
+            .event-date-wrap {
+                justify-content: center;
+                width: 100%;
+            }
+        }
 
-    .reveal__curtain {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 52%;
-      height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent 0%,
-        var(--color-purple) 28%,
-        var(--color-purple) 100%
-      );
-      border-radius: 0 var(--border-radius) var(--border-radius) 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .countdown-number,
+            .event-date,
+            .teaser-headline {
+                animation: none;
+            }
+            .event-date,
+            .teaser-headline {
+                background-position: 50% 50%;
+            }
+        }
 
-    .reveal__curtain-text {
-      font-family: var(--font-heading);
-      font-size: var(--fs-h2);
-      color: var(--color-white);
-      letter-spacing: 0.1em;
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      transform: rotate(180deg);
-      animation: shimmer 3s ease-in-out infinite;
-    }
-
-    /* ===== ANIMATIONS ===== */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes shimmer {
-      0%, 100% { opacity: 0.55; }
-      50%       { opacity: 0.9; }
-    }
-
-    .animate { opacity: 0; animation: fadeInUp 0.55s ease forwards; }
-    .animate--d1 { animation-delay: 0.1s; }
-    .animate--d2 { animation-delay: 0.22s; }
-    .animate--d3 { animation-delay: 0.34s; }
-    .animate--d4 { animation-delay: 0.46s; }
-    .animate--d5 { animation-delay: 0.58s; }
-    .animate--d6 { animation-delay: 0.70s; }
-
-    /* ===== RESPONSIVE: TABLET (768px) ===== */
-    @media (max-width: 768px) {
-      body {
-        height: auto;
-        min-height: 100svh;
-        overflow: auto;
-        padding: var(--space-lg) var(--space-md);
-        align-items: center;
-      }
-
-      .hero {
-        gap: var(--space-md);
-      }
-    }
-
-    /* ===== RESPONSIVE: MOBILE (480px) ===== */
-    @media (max-width: 480px) {
-      body {
-        background-size: 100px;
-        padding: var(--space-md) 1rem;
-      }
-
-      .hero {
-        padding: 2rem 1.25rem;
-        gap: 1.25rem;
-      }
-
-      .countdown__grid {
-        gap: 0.4rem;
-        width: 90vw;
-      }
-
-      .countdown__item {
-        padding: 0.5rem 0.25rem;
-      }
-
-      .reveal__curtain {
-        width: 48%;
-      }
-    }
-  </style>
+        /* Finished state */
+        .finished-msg {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: clamp(2rem, 5vw, 4rem);
+            color: var(--clr-red);
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 <body>
-  <main class="hero container" aria-label="Speed UP! Masters - coming soon">
-    <div class="hero__pattern" aria-hidden="true"></div>
+<main>
+    <section class="hero" aria-labelledby="hero-heading">
 
+        <a href="#" aria-label="Speed Up Masters">
+            <img src="logo2.webp" alt="Inter Cars Speed Up Masters Logo" class="logo">
+        </a>
 
-    <img src="logo2.webp" alt="Speed UP! Masters - Inter Cars" class="hero__logo animate animate--d1">
-    <div role="timer" aria-live="polite" aria-atomic="true">
-      <div class="countdown__grid">
-        <div class="countdown__item animate animate--d3">
-          <span class="countdown__number" id="days">00</span>
-          <span class="countdown__label">Dni</span>
+        <h1 class="teaser-headline" id="hero-heading">Przygotuj się na ciąg dalszy…</h1>
+
+        <div class="countdown" id="countdown" role="timer" aria-live="polite" aria-label="Odliczanie do wydarzenia">
+            <div class="countdown-unit">
+                <span class="countdown-number" id="cd-days">00</span>
+                <span class="countdown-label">dni</span>
+            </div>
+            <div class="countdown-separator" aria-hidden="true">:</div>
+            <div class="countdown-unit">
+                <span class="countdown-number" id="cd-hours">00</span>
+                <span class="countdown-label">godziny</span>
+            </div>
+            <div class="countdown-separator" aria-hidden="true">:</div>
+            <div class="countdown-unit">
+                <span class="countdown-number" id="cd-minutes">00</span>
+                <span class="countdown-label">minuty</span>
+            </div>
+            <div class="countdown-separator" aria-hidden="true">:</div>
+            <div class="countdown-unit">
+                <span class="countdown-number" id="cd-seconds">00</span>
+                <span class="countdown-label">sekundy</span>
+            </div>
         </div>
-        <div class="countdown__item animate animate--d3">
-          <span class="countdown__number" id="hours">00</span>
-          <span class="countdown__label">Godzin</span>
+
+        <div class="event-date-wrap">
+            <p class="event-date">
+                <time datetime="2026-03-23T14:00:00+01:00">23 marca 2026</time>
+            </p>
         </div>
-        <div class="countdown__item animate animate--d3">
-          <span class="countdown__number" id="minutes">00</span>
-          <span class="countdown__label">Minut</span>
-        </div>
-        <div class="countdown__item animate animate--d3">
-          <span class="countdown__number" id="seconds">00</span>
-          <span class="countdown__label">Sekund</span>
-        </div>
-      </div>
-    </div>
-    <div class="hero__info animate animate--d2">
-      <p class="hero__subtitle">Przygotuj się na ciąg dalszy&hellip;</p>
-      <p class="hero__date">23 marca 2026</p>
-    </div>
 
+    </section>
+</main>
 
-  </main>
+    <div class="hero-decorator hero-decorator--top" aria-hidden="true"></div>
+    <div class="hero-decorator hero-decorator--bottom" aria-hidden="true"></div>
 
-  <script>
-    (function () {
-      const target = new Date('2026-03-23T14:00:00+01:00').getTime();
-      const dEl = document.getElementById('days');
-      const hEl = document.getElementById('hours');
-      const mEl = document.getElementById('minutes');
-      const sEl = document.getElementById('seconds');
+    <script>
+        // Target: 23 March 2026, 14:00 local time (Poland)
+        const TARGET = new Date('2026-03-23T14:00:00+01:00').getTime();
 
-      function pad(n) { return String(n).padStart(2, '0'); }
+        const elDays    = document.getElementById('cd-days');
+        const elHours   = document.getElementById('cd-hours');
+        const elMinutes = document.getElementById('cd-minutes');
+        const elSeconds = document.getElementById('cd-seconds');
+        const countdown = document.getElementById('countdown');
 
-      function tick() {
-        const diff = target - Date.now();
-        if (diff <= 0) {
-          dEl.textContent = hEl.textContent = mEl.textContent = sEl.textContent = '00';
-          return;
+        function pad(n) {
+            return String(n).padStart(2, '0');
         }
-        dEl.textContent = pad(Math.floor(diff / 86400000));
-        hEl.textContent = pad(Math.floor((diff % 86400000) / 3600000));
-        mEl.textContent = pad(Math.floor((diff % 3600000) / 60000));
-        sEl.textContent = pad(Math.floor((diff % 60000) / 1000));
-      }
 
-      tick();
-      setInterval(tick, 1000);
-    })();
-  </script>
+        function tick() {
+            const now  = Date.now();
+            const diff = TARGET - now;
+
+            if (diff <= 0) {
+                // Show finished state
+                countdown.innerHTML = '<p class="finished-msg">Zaczynamy!</p>';
+                return;
+            }
+
+            const totalSeconds = Math.floor(diff / 1000);
+            const days    = Math.floor(totalSeconds / 86400);
+            const hours   = Math.floor((totalSeconds % 86400) / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            elDays.textContent    = pad(days);
+            elHours.textContent   = pad(hours);
+            elMinutes.textContent = pad(minutes);
+            elSeconds.textContent = pad(seconds);
+        }
+
+        tick();
+        setInterval(tick, 1000);
+
+        // ── Parallax on mouse move ──
+        const hero = document.querySelector('.hero');
+        const parallaxLayers = [
+            { el: document.querySelector('.logo'),           depth: 0.012 },
+            { el: document.querySelector('.teaser-headline'),depth: 0.022 },
+            { el: document.querySelector('.countdown'),      depth: 0.038 },
+            { el: document.querySelector('.event-date'),     depth: 0.028 },
+        ];
+
+        let targetX = 0, targetY = 0;
+        let currentX = 0, currentY = 0;
+        let rafId = null;
+
+        function lerp(a, b, t) { return a + (b - a) * t; }
+
+        function animateParallax() {
+            currentX = lerp(currentX, targetX, 0.08);
+            currentY = lerp(currentY, targetY, 0.08);
+
+            parallaxLayers.forEach(({ el, depth }) => {
+                if (!el) return;
+                const x = currentX * depth;
+                const y = currentY * depth;
+                el.style.transform = `translate(${x}px, ${y}px)`;
+            });
+
+            rafId = requestAnimationFrame(animateParallax);
+        }
+
+        window.addEventListener('mousemove', (e) => {
+            const cx = window.innerWidth  / 2;
+            const cy = window.innerHeight / 2;
+            targetX = e.clientX - cx;
+            targetY = e.clientY - cy;
+        });
+
+        // Reset on mouse leave
+        window.addEventListener('mouseleave', () => {
+            targetX = 0;
+            targetY = 0;
+        });
+
+        animateParallax();
+    </script>
 </body>
 </html>
