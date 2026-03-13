@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Up Masters – 23 marca 2026 | Inter Cars</title>
+    <meta name="description" content="Przygotuj się na ciąg dalszy. Speed Up Masters powraca 23 marca 2026. Sprawdź ile zostało czasu.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://speedupmasters.pl/">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="https://ic-lp.github.io/landing-pages/speedup-masters/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://ic-lp.github.io/landing-pages/speedup-masters/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://ic-lp.github.io/landing-pages/speedup-masters/apple-touch-icon.png">
+    <link rel="manifest" href="https://ic-lp.github.io/landing-pages/speedup-masters/site.webmanifest">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://speedupmasters.pl/">
+    <meta property="og:title" content="Speed Up Masters – 23 marca 2026">
+    <meta property="og:description" content="Przygotuj się na ciąg dalszy. Speed Up Masters powraca 23 marca 2026.">
+    <meta property="og:image" content="https://ic-lp.github.io/landing-pages/speedup-masters/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Speed Up Masters – 23 marca 2026">
+    <meta name="twitter:description" content="Przygotuj się na ciąg dalszy. Speed Up Masters powraca 23 marca 2026.">
+    <meta name="twitter:image" content="https://ic-lp.github.io/landing-pages/speedup-masters/og-image.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,800;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/atm5hrt.css">
+    <style>
+        :root {
+            --clr-red: #E51B20;
+            --clr-dark: #2E3F4F;
+            --clr-white: #FFFFFF;
+            --font-heading: "zuume", sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--clr-dark);
+            background-image: url('bg.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100svh;
+            padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
+        }
+
+        .hero {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(1.5rem, 4vw, 3rem);
+            text-align: center;
+        }
+
+        /* Logo */
+        .logo {
+            width: clamp(180px, 28vw, 320px);
+            height: auto;
+            display: block;
+        }
+
+        /* Teaser headline */
+        .teaser-headline {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-style: italic;
+            font-size: clamp(1.6rem, 4vw + 0.5rem, 3.5rem);
+            text-transform: uppercase;
+            line-height: 1.15;
+            padding-inline: 0.4em;
+            background: linear-gradient(
+                100deg,
+                var(--clr-dark) 0%,
+                var(--clr-dark) 20%,
+                var(--clr-red) 50%,
+                var(--clr-dark) 80%,
+                var(--clr-dark) 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: textShine 3s linear infinite;
+        }
+
+        /* Countdown */
+        .countdown {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: clamp(0.5rem, 2vw, 2rem);
+        }
+
+        .countdown-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 0;
+            max-width: 240px;
+        }
+
+        .countdown-number {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-style: italic;
+            font-size: clamp(3.5rem, 12vw, 10rem);
+            line-height: 1;
+            color: var(--clr-dark);
+            width: 100%;
+            text-align: center;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .countdown-label {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-style: italic;
+            font-size: clamp(0.6rem, 1.2vw, 2rem);
+            text-transform: uppercase;
+            color: #5c6172;
+            margin-top: clamp(0.3rem, 0.8vw, 0.6rem);
+        }
+
+        .countdown-separator {
+            font-family: var(--font-heading);
+            font-weight: 300;
+            font-style: italic;
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 1;
+            color: var(--clr-red);
+            padding-bottom: clamp(1.2rem, 3vw, 2.4rem);
+            align-self: flex-end;
+            flex-shrink: 0;
+        }
+
+        .event-date-wrap {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Date label */
+        .event-date {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-style: italic;
+            font-size: clamp(2rem, 5vw, 5rem);
+            text-transform: uppercase;
+            white-space: nowrap;
+            padding-inline: 0.4em;
+            background: linear-gradient(
+                100deg,
+                var(--clr-dark) 0%,
+                var(--clr-dark) 20%,
+                var(--clr-red) 50%,
+                var(--clr-dark) 80%,
+                var(--clr-dark) 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: textShine 3s linear infinite;
+        }
+
+        @keyframes textShine {
+            0%   { background-position: 200% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Decorator bars */
+        .hero-decorator {
+            position: fixed;
+            left: 0;
+            width: 100%;
+            height: 48px;
+            background-image: url('pasek.webp');
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 999;
+            pointer-events: none;
+        }
+
+        .hero-decorator--bottom {
+            bottom: 0;
+            background-position: top left;
+        }
+
+        .hero-decorator--top {
+            top: 0;
+            background-position: top left;
+            transform: rotate(180deg);
+        }
+
+        /* Focus visible */
+        :focus-visible {
+            outline: 3px solid var(--clr-red);
+            outline-offset: 4px;
+        }
+
+        /* Mobile centering */
+        @media (max-width: 600px) {
+            body {
+                align-items: center;
+                justify-content: center;
+            }
+
+            .hero {
+                align-items: center;
+                text-align: center;
+                width: 100%;
+            }
+
+            .countdown {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .event-date-wrap {
+                justify-content: center;
+                width: 100%;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .countdown-number,
+            .event-date,
+            .teaser-headline {
+                animation: none;
+            }
+            .event-date,
+            .teaser-headline {
+                background-position: 50% 50%;
+            }
+        }
+
+        /* Finished state */
+        .finished-msg {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: clamp(2rem, 5vw, 4rem);
+            color: var(--clr-red);
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <section class="hero" aria-labelledby="hero-heading">
+
+        <a href="#" aria-label="Speed Up Masters">
+            <img src="logo2.webp" alt="Inter Cars Speed Up Masters Logo" class="logo">
+        </a>
+
+        <h1 class="teaser-headline" id="hero-heading">Przygotuj się na ciąg dalszy…</h1>
+
+        <div class="countdown" id="countdown" role="timer" aria-live="polite" aria-label="Odliczanie do wydarzenia">
+            <div class="countdown-unit">
+                <span class="countdown-number" id="cd-days">00</span>
+                <span class="countdown-label">dni</span>
+            </div>
+            <div class="countdown-separator" aria-hidden="true">:</div>
+            <div class="countdown-unit">
+                <span class="countdown-number" id="cd-hours">00</span>
+                <span class="countdown-label">godziny</span>
+            </div>
+            <div class="countdown-separator" aria-hidden="true">:</div>
+            <div class="countdown-unit">
+                <span class="countdown-number" id="cd-minutes">00</span>
+                <span class="countdown-label">minuty</span>
+            </div>
+            <div class="countdown-separator" aria-hidden="true">:</div>
+            <div class="countdown-unit">
+                <span class="countdown-number" id="cd-seconds">00</span>
+                <span class="countdown-label">sekundy</span>
+            </div>
+        </div>
+
+        <div class="event-date-wrap">
+            <p class="event-date">
+                <time datetime="2026-03-23T14:00:00+01:00">23 marca 2026</time>
+            </p>
+        </div>
+
+    </section>
+</main>
+
+    <div class="hero-decorator hero-decorator--top" aria-hidden="true"></div>
+    <div class="hero-decorator hero-decorator--bottom" aria-hidden="true"></div>
+
+    <script>
+        // Target: 23 March 2026, 14:00 local time (Poland)
+        const TARGET = new Date('2026-03-23T14:00:00+01:00').getTime();
+
+        const elDays    = document.getElementById('cd-days');
+        const elHours   = document.getElementById('cd-hours');
+        const elMinutes = document.getElementById('cd-minutes');
+        const elSeconds = document.getElementById('cd-seconds');
+        const countdown = document.getElementById('countdown');
+
+        function pad(n) {
+            return String(n).padStart(2, '0');
+        }
+
+        function tick() {
+            const now  = Date.now();
+            const diff = TARGET - now;
+
+            if (diff <= 0) {
+                // Show finished state
+                countdown.innerHTML = '<p class="finished-msg">Zaczynamy!</p>';
+                return;
+            }
+
+            const totalSeconds = Math.floor(diff / 1000);
+            const days    = Math.floor(totalSeconds / 86400);
+            const hours   = Math.floor((totalSeconds % 86400) / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            elDays.textContent    = pad(days);
+            elHours.textContent   = pad(hours);
+            elMinutes.textContent = pad(minutes);
+            elSeconds.textContent = pad(seconds);
+        }
+
+        tick();
+        setInterval(tick, 1000);
+
+        // ── Parallax on mouse move ──
+        const hero = document.querySelector('.hero');
+        const parallaxLayers = [
+            { el: document.querySelector('.logo'),           depth: 0.012 },
+            { el: document.querySelector('.teaser-headline'),depth: 0.022 },
+            { el: document.querySelector('.countdown'),      depth: 0.038 },
+            { el: document.querySelector('.event-date'),     depth: 0.028 },
+        ];
+
+        let targetX = 0, targetY = 0;
+        let currentX = 0, currentY = 0;
+        let rafId = null;
+
+        function lerp(a, b, t) { return a + (b - a) * t; }
+
+        function animateParallax() {
+            currentX = lerp(currentX, targetX, 0.08);
+            currentY = lerp(currentY, targetY, 0.08);
+
+            parallaxLayers.forEach(({ el, depth }) => {
+                if (!el) return;
+                const x = currentX * depth;
+                const y = currentY * depth;
+                el.style.transform = `translate(${x}px, ${y}px)`;
+            });
+
+            rafId = requestAnimationFrame(animateParallax);
+        }
+
+        window.addEventListener('mousemove', (e) => {
+            const cx = window.innerWidth  / 2;
+            const cy = window.innerHeight / 2;
+            targetX = e.clientX - cx;
+            targetY = e.clientY - cy;
+        });
+
+        // Reset on mouse leave
+        window.addEventListener('mouseleave', () => {
+            targetX = 0;
+            targetY = 0;
+        });
+
+        animateParallax();
+    </script>
+</body>
+</html>
